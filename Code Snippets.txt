@@ -1,0 +1,1 @@
+Ausführen mit: ng serve --open in ""D:\Repos\AngularAppEduardeo\AngularPlay\Eduardeo-App
