@@ -1,1 +1,8 @@
-Ausführen mit: ng serve --open in ""D:\Repos\AngularAppEduardeo\AngularPlay\Eduardeo-App
+Ausführen mit: ng serve --open in "D:\Repos\AngularAppEduardeo\AngularPlay\Eduardeo-App"
+
+Git Initialisierung und erster Push im Terminal: 
+git init
+git remote add origin 'pathToMyRepo'
+git add -A
+git commit -m "first commit"
+git push

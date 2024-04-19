@@ -1,0 +1,12 @@
+header{
+    font-family: Copperplate, Copperplate Gothic Light, fantasy;
+}
+p{
+    font-family: Copperplate, Copperplate Gothic Light, fantasy;
+}
+.loading-screen{
+    display: none;
+}
+.loading-screen.hidden{
+    display: block;
+}
