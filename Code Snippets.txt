@@ -6,3 +6,25 @@ git remote add origin 'pathToMyRepo'
 git add -A
 git commit -m "first commit"
 git push
+
+Initialize as not Standalone: ng new Eduardeo-App --no-standalone --rout
+
+Onload function:
+function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // call on next available tick
+        setTimeout(fn, 1);
+    } else {
+        document.addEventListener("DOMContentLoaded", fn);
+    }
+}    
+
+Check Type of Interface by typecasting:
+if ((<Bike>vehicle).ringTheBell) {
+        const bike = (<Bike>vehicle);
+        bike.ringTheBell();
+    } else {
+        const car = (<Car>vehicle);
+        car.honkTheHorn();
+    }
