@@ -1,0 +1,1 @@
+Value der Progress Bar über Input in app.component.ts überführen
