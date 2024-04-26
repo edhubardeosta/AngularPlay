@@ -28,3 +28,15 @@ if ((<Bike>vehicle).ringTheBell) {
         const car = (<Car>vehicle);
         car.honkTheHorn();
     }
+
+initialize functions in noOnInit():
+
+export class AppComponent {
+  title = 'Eduardeo-App';
+  progressBarValue = progressBarValueInternal;
+  ngOnInit(){
+    main(this);
+  }
+}
+
+https://www.youtube.com/shorts/PjzOm9csksA

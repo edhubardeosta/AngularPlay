@@ -1,8 +1,32 @@
-div{background-color: white;}
+div{
+    margin: 5%;
+}
+
+header{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
 .hidden{
     display: none;
 }
 
 .visible{
     display: block;
+}
+
+.button-rounded {
+    &.mat-button,
+    &.mat-raised-button,
+    &.mat-flat-button {
+      border-radius: 25% / 50%;
+      margin: 0;
+      position: absolute;
+      left: 50%;
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
 }
