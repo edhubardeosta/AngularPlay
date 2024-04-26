@@ -14,10 +14,6 @@ p{
     display: none;
 }
 
-.visible{
-    display: block;
-}
-
 .button-rounded {
     &.mat-button,
     &.mat-raised-button,

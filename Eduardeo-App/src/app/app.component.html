@@ -1,7 +1,7 @@
 <div>
-  <header class="visible">Cave Queen</header>
-  <p class="visible">You're the Ruler. Rule!</p>
-  <button mat-raised-button class="button-rounded mat-raised-button" #startButton (click)="startButtonClicked()">Start!</button>
+  <header #startHeader [class.hidden]="startMenuHidden">CaveQueen</header>
+  <p #startDescription [class.hidden]="startMenuHidden">You're the Ruler. Rule!</p>
+  <button mat-raised-button class="button-rounded mat-raised-button" #startButton (click)="startButtonClicked()" [class.hidden]="startMenuHidden">Start!</button>
 </div>
-<mat-progress-bar id="progBar1" mode="determinate" [value]= "progressBarValue" class="hidden"></mat-progress-bar>
+<mat-progress-bar id="progBar1" mode="determinate" [value]= "progressBarValue" [class.hidden]="!startMenuHidden"> #loadingProgressBar></mat-progress-bar>
 

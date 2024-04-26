@@ -1,9 +1,11 @@
-import { Component, viewChild, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild} from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatButtonModule, MatFabButton, MatButton} from '@angular/material/button'; 
 
 var progressBarValueInternal:number = 0;
+var loadScreenClassesInternal:Array<string> = ["hidden"];
+var intervId:any;
 
 @Component({
   selector: 'app-root',
@@ -12,14 +14,22 @@ var progressBarValueInternal:number = 0;
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  startMenuHidden = false;
   @ViewChild('startButton', {static: false}) startButton!: MatButton;
+  @ViewChild('startHeader', {static: false}) startHeader!: ElementRef;
+  @ViewChild('startDescription', {static: false}) startDescription!: ElementRef;
+  @ViewChild('loadingProgressBar', {static: false}) loadingProgressBar!: MatProgressBar;
   title = 'Eduardeo-App';
   progressBarValue = progressBarValueInternal;
+  loadScreenClasses = loadScreenClassesInternal;
   ngAfterViewInit(){
     main(this);
     this.startButton.disabled = false;
   }
-  startButtonClicked() { console.log("StartButton clicked!")}
+  startButtonClicked() {this.startMenuHidden = true; console.log("StartButton clicked! New startMenuHidden: ", this.startMenuHidden); fakeProgressBar(this, intervId)}
+}
+function hide(element:any){
+  
 }
 function docReady(fn:any) {
   // see if DOM is already available
@@ -30,10 +40,10 @@ function docReady(fn:any) {
       document.addEventListener("DOMContentLoaded", fn);
   }
 }    
-function fakeProgressBar(element:any, intervId:any) {
+function fakeProgressBar(context:any, intervId:any) {
   console.log("fakeProgressBar started.");
   if (!intervId) {
-    intervId = setInterval(()=>{console.log("progressBarValue:", element.progressBarValue); element.progressBarValue += 1; if(element.progressBarValue>99){stopProgressBar(intervId)}}, 50);
+    intervId = setInterval(()=>{console.log("progressBarValue:", context.progressBarValue); context.progressBarValue += 1; if(context.progressBarValue>99){stopProgressBar(intervId)}}, 50);
   }
 }
 function stopProgressBar(intervId:any) {
