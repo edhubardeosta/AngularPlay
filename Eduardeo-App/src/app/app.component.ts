@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar'; 
 import {MatButtonModule, MatFabButton, MatButton} from '@angular/material/button'; 
+import {MatCardModule} from '@angular/material/card'; 
 
 var progressBarValueInternal:number = 0;
 var loadScreenClassesInternal:Array<string> = ["hidden"];
@@ -15,6 +15,7 @@ var intervId:any;
 })
 export class AppComponent {
   startMenuHidden = false;
+  loadScreenHidden = true;
   @ViewChild('startButton', {static: false}) startButton!: MatButton;
   @ViewChild('startHeader', {static: false}) startHeader!: ElementRef;
   @ViewChild('startDescription', {static: false}) startDescription!: ElementRef;
@@ -23,10 +24,9 @@ export class AppComponent {
   progressBarValue = progressBarValueInternal;
   loadScreenClasses = loadScreenClassesInternal;
   ngAfterViewInit(){
-    main(this);
     this.startButton.disabled = false;
   }
-  startButtonClicked() {this.startMenuHidden = true; console.log("StartButton clicked! New startMenuHidden: ", this.startMenuHidden); fakeProgressBar(this, intervId)}
+  startButtonClicked() {this.startMenuHidden = true; this.loadScreenHidden = false; console.log("StartButton clicked! New startMenuHidden: ", this.startMenuHidden); fakeProgressBar(this, intervId, main, [this])}
 }
 function hide(element:any){
   
@@ -40,21 +40,22 @@ function docReady(fn:any) {
       document.addEventListener("DOMContentLoaded", fn);
   }
 }    
-function fakeProgressBar(context:any, intervId:any) {
+function fakeProgressBar(context:any, intervId:any, callback: Function, callbackArgs: Array<any>) {
   console.log("fakeProgressBar started.");
   if (!intervId) {
-    intervId = setInterval(()=>{console.log("progressBarValue:", context.progressBarValue); context.progressBarValue += 1; if(context.progressBarValue>99){stopProgressBar(intervId)}}, 50);
+    intervId = setInterval(()=>{console.log("progressBarValue:", context.progressBarValue); context.progressBarValue += 1; if(context.progressBarValue>99){stopProgressBar(intervId,callback, callbackArgs)}}, 50);
   }
 }
-function stopProgressBar(intervId:any) {
-  console.log("stopProgressBar started.");
+function stopProgressBar(intervId:any, callback: Function, args: Array<any>) {
+  console.log("stopProgressBar started. Args:", args);
   clearInterval(intervId);
   // release our intervalID from the variable
   intervId = null;
-  test2();
+  callback.apply(null, args);
 }
 function main(context:any):void{
-  console.log("Doc is ready, Main has started!");
+  console.log("Main has started! Context: ", context);
+  context.loadScreenHidden = true;
 }
 function test():void{
   console.log("setting progress bar value to 75");
