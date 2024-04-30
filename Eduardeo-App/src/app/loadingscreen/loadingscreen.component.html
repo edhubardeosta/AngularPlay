@@ -1,0 +1,8 @@
+<mat-card class="contentWindow" [class.hidden]="loadScreenHidden">
+    <mat-card-content>
+      <p class="centeredVertical">Loading...</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <mat-progress-bar id="progBar1" mode="determinate" [value]= "progressBarValue" > #loadingProgressBar></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>

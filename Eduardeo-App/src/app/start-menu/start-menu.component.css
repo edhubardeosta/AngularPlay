@@ -1,0 +1,20 @@
+*{
+    text-align: center;
+    color: black;
+}
+
+p{
+    color: blanchedalmond;
+}
+
+.button-rounded {
+    &.mat-button,
+    &.mat-raised-button,
+    &.mat-flat-button {
+      border-radius: 25% / 50%;
+    }
+}
+
+.hidden{
+    display: none;
+}

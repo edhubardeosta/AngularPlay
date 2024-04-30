@@ -10,23 +10,20 @@ var intervId:any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  template:  '<button mat-raised-button class="button-rounded mat-raised-button" #startButton>Start!</button>',
+  template:  '',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  startMenuHidden = false;
   loadScreenHidden = true;
-  @ViewChild('startButton', {static: false}) startButton!: MatButton;
-  @ViewChild('startHeader', {static: false}) startHeader!: ElementRef;
-  @ViewChild('startDescription', {static: false}) startDescription!: ElementRef;
-  @ViewChild('loadingProgressBar', {static: false}) loadingProgressBar!: MatProgressBar;
+  gameHidden = true;
   title = 'Eduardeo-App';
   progressBarValue = progressBarValueInternal;
   loadScreenClasses = loadScreenClassesInternal;
-  ngAfterViewInit(){
-    this.startButton.disabled = false;
+  start($event:any){
+    this.loadScreenHidden = false; 
+    this.progressBarValue = 30;
+    //fakeProgressBar(this, intervId, main, [this])
   }
-  startButtonClicked() {this.startMenuHidden = true; this.loadScreenHidden = false; console.log("StartButton clicked! New startMenuHidden: ", this.startMenuHidden); fakeProgressBar(this, intervId, main, [this])}
 }
 function hide(element:any){
   
@@ -56,6 +53,7 @@ function stopProgressBar(intervId:any, callback: Function, args: Array<any>) {
 function main(context:any):void{
   console.log("Main has started! Context: ", context);
   context.loadScreenHidden = true;
+  context.gameHidden = false;
 }
 function test():void{
   console.log("setting progress bar value to 75");

@@ -1,14 +1,3 @@
-<div class="contentWindow">
-  <header #startHeader [class.hidden]="startMenuHidden">CaveQueen</header>
-  <p #startDescription [class.hidden]="startMenuHidden">You're the Ruler. Rule!</p>
-  <button mat-raised-button class="button-rounded mat-raised-button" #startButton (click)="startButtonClicked()" [class.hidden]="startMenuHidden">Start!</button>
-</div>
-<mat-card class="contentWindow" [class.hidden]="loadScreenHidden">
-  <mat-card-content>
-    <p class="centeredVertical">Loading...</p>
-  </mat-card-content>
-  <mat-card-footer>
-    <mat-progress-bar id="progBar1" mode="determinate" [value]= "progressBarValue" > #loadingProgressBar></mat-progress-bar>
-  </mat-card-footer>
-</mat-card>
-<img class="backgroundArt" src="../assets/dungeon_2011.jpg">
+<app-loadingscreen [loadScreenHidden]="loadScreenHidden" [progressBarValueInternal]="progressBarValue"></app-loadingscreen>
+<app-start-menu (startButtonEvent)="start($event)"></app-start-menu>
+<img class="backgroundArt" src="../assets/dungeon_2011.jpg" [class.hidden]="gameHidden">
