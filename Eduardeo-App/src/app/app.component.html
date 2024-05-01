@@ -1,3 +1,3 @@
-<app-loadingscreen [loadScreenHidden]="loadScreenHidden" [progressBarValueInternal]="progressBarValue"></app-loadingscreen>
+<app-loadingscreen [loadScreenHidden]="loadScreenHidden" [progressBarValueInternal]="progressBarValue" (finishedLoading)="loaded($event)"></app-loadingscreen>
 <app-start-menu (startButtonEvent)="start($event)"></app-start-menu>
 <img class="backgroundArt" src="../assets/dungeon_2011.jpg" [class.hidden]="gameHidden">
