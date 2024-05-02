@@ -8,13 +8,19 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatCardModule } from '@angular/material/card';
 import { StartMenuComponent } from './start-menu/start-menu.component';
-import { LoadingscreenComponent } from './loadingscreen/loadingscreen.component'; 
+import { LoadingscreenComponent } from './loadingscreen/loadingscreen.component';
+import { GameComponent } from './game/game.component';
+import { HoardComponent } from './hoard/hoard.component';
+import { HoardItemComponent } from './hoard-item/hoard-item.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     StartMenuComponent,
-    LoadingscreenComponent
+    LoadingscreenComponent,
+    GameComponent,
+    HoardComponent,
+    HoardItemComponent
   ],
   imports: [
     BrowserModule,
