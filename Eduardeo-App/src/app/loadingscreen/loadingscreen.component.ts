@@ -8,6 +8,7 @@ var loadIntervId:any;
   styleUrl: './loadingscreen.component.css'
 })
 export class LoadingscreenComponent implements OnChanges {
+fadeOut = false;
 progressBarValue = 0;
   @Input() progressBarValueInternal = 0;
   @Input() loadScreenHidden = true;
@@ -20,9 +21,10 @@ progressBarValue = 0;
     console.log("Change on Loadingscreen detected:", changes);
     if(changes.progressBarValueInternal?.currentValue != changes.progressBarValueInternal?.previousValue){
       console.log("Change on progressBarValueInternal detected!");
-      loadUpTo(this.progressBarValueInternal, this, loadIntervId, ()=>{this.finishedLoading.emit(this.progressBarValueInternal);}, []);
+      loadUpTo(this.progressBarValueInternal, this, loadIntervId, ()=>{this.fadeOut = true;}, []);
     }
   }
+  animationFinished() {this.loadScreenHidden = true; this.finishedLoading.emit(this.progressBarValueInternal);}
 
 }
 function loadUpTo(targetValue:number, context:any, intervId:any, callback: Function, callbackArgs: Array<any>) {

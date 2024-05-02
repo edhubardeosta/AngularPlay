@@ -9,17 +9,20 @@ import {MatButtonModule, MatFabButton, MatButton} from '@angular/material/button
 })
 export class StartMenuComponent {
   startMenuHidden = false;
+  fadeOut = false;
 
   @Output() startButtonEvent = new EventEmitter<boolean>();
 
   @ViewChild('startButton', {static: false}) startButton!: MatButton;
   @ViewChild('startHeader', {static: false}) startHeader!: ElementRef;
   @ViewChild('startDescription', {static: false}) startDescription!: ElementRef;
+  @ViewChild('startDiv', {static: false}) startDiv!: ElementRef;
   addStartButtonEvent(){
     this.startButtonEvent.emit(true);
   };
   ngAfterViewInit(){
     this.startButton.disabled = false;
   }
-  startButtonClicked() {this.startMenuHidden = true; console.log("StartButton clicked! New startMenuHidden: ", this.startMenuHidden);this.addStartButtonEvent()};
+  startButtonClicked() {this.startButton.disabled = true;  console.log("StartButton clicked!"); this.fadeOut = true};
+  animationFinished() {this.startMenuHidden = true; this.addStartButtonEvent()}
 }

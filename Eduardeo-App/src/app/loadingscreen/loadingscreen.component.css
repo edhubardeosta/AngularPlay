@@ -16,3 +16,13 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.fadeOut{
+    animation-name: fadeOutAnimation;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeOutAnimation {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}

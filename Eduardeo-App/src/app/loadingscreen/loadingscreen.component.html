@@ -1,4 +1,4 @@
-<mat-card class="contentWindow" [class.hidden]="loadScreenHidden">
+<mat-card class="contentWindow" [class.hidden]="loadScreenHidden"  #startDiv [class.fadeOut]="fadeOut" (animationend)="animationFinished()">
     <mat-card-content>
       <p class="centeredVertical">Loading...</p>
     </mat-card-content>

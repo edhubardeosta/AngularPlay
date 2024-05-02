@@ -18,3 +18,13 @@ p{
 .hidden{
     display: none;
 }
+
+.fadeOut{
+    animation-name: fadeOutAnimation;
+    animation-duration: 0.5s;
+}
+
+@keyframes fadeOutAnimation {
+    from {opacity: 100%;}
+    to {opacity: 0%;}
+}
