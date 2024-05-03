@@ -1,10 +1,21 @@
 .fallInPlace{
     animation-name: fallInPlaceAnimation;
-    animation-duration: 0.5s;
-    animation-delay: 0.5s;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-direction: reverse;
+    transform: scale(3);
+}
+
+.coin {
+    transform: rotate(90deg);
+    width: 2%;
 }
 
 @keyframes fallInPlaceAnimation {
-    from {opacity: 100%;}
-    to {opacity: 0%;}
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
 }
