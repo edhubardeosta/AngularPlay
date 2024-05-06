@@ -9,6 +9,7 @@
 .coin {
     transform: rotate(90deg);
     width: 2%;
+    position: absolute;
 }
 
 @keyframes fallInPlaceAnimation {

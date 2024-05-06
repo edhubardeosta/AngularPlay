@@ -10,6 +10,7 @@ export class HoardItemComponent {
   @Input() y = 0;
   offsetPath = 'path("M'+this.x+','+this.y+' L'+this.x+','+this.fallHeight*-1+'")';
   ngOnChanges(changes:any){
+    console.log("Hoard-Item detected change, setting Path to:", 'path("M'+this.x+','+this.y+' L'+this.x+','+this.fallHeight*-1+'")');
     this.offsetPath = 'path("M'+this.x+','+this.y+' L'+this.x+','+this.fallHeight*-1+'")';
   }
 
