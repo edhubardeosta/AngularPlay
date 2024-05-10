@@ -18,6 +18,7 @@ export class AppComponent {
   title = 'Eduardeo-App';
   progressBarValue = progressBarValueInternal;
   loadScreenClasses = loadScreenClassesInternal;
+  hoardValueTemp = 0; //remove this later
   start($event:any){
     this.loadScreenHidden = false; 
     this.progressBarValue = 100;
@@ -25,6 +26,10 @@ export class AppComponent {
   loaded($event:any){
     this.loadScreenHidden = true; 
     this.gameHidden = false;
+  }
+  add50Temp($event:any){
+    console.log("add50Temp run.")
+    this.hoardValueTemp += 50;
   }
 }
 function main(context:any):void{

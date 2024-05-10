@@ -1,18 +1,21 @@
-import { Component, ElementRef, ViewContainerRef, ViewChild, viewChild, ComponentRef } from '@angular/core';
+import { Component, ElementRef, ViewContainerRef, ViewChild, ComponentRef, Input, OnChanges } from '@angular/core';
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { HoardItemComponent } from '../hoard-item/hoard-item.component';
 
 var resizeObservable$: Observable<Event>;
 var resizeSubscription$: Subscription;
 var hoardData: HoardData;
+var extendedLogging = true; // set false later
 
 @Component({
   selector: 'app-hoard',
   templateUrl: './hoard.component.html',
   styleUrl: './hoard.component.css'
 })
-export class HoardComponent {
+export class HoardComponent implements OnChanges{
   @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
+  @Input() hoardValue = 0;
+  @Input() extendedLogging = false;
   constructor(private el:ElementRef) { 
   
   }
@@ -28,6 +31,11 @@ export class HoardComponent {
   }
   ngOnDestroy() {
     resizeSubscription$.unsubscribe()
+  }
+  ngOnChanges(changes:any) {
+    console.log("Hoard detected Changes: ",changes);
+    if(hoardData)
+    hoardData.updateTreasure(this.hoardValue)
   }
 
 }
@@ -53,47 +61,56 @@ class HoardData {
     this.parentHeight = pParentHeight;
   }
 
-  updateTreasure(addedTreasure:number):void
+  updateTreasure(pTotalTreasure:number):void
   {
-    this.totalTreasure += addedTreasure;
+    log("updateTreasure started with pTotalTreasure: ", pTotalTreasure);
+    var difference = pTotalTreasure - this.totalTreasure;
+    this.totalTreasure += pTotalTreasure;
     if(this.totalTreasure<6000){
       if(this.totalTreasure<=0){
         this.rows = [new Array<HoardDataItem>];
       }else{
-        if(addedTreasure >= 0){
-          while(addedTreasure > 0){
-            if(addedTreasure < 5){
-              this.addTreasure(1);
-              addedTreasure -= 1;
-            }else{
-              if(addedTreasure < 10){
-                this.addTreasure(5);
-                addedTreasure -= 5;
-              }else{
-                if(addedTreasure < 50){
-                  this.addTreasure(10);
-                  addedTreasure -= 10;
-                }else{
-                  this.addTreasure(50);
-                  addedTreasure -= 50;
-                }
-                
-              }
-            }
-
-          }
+        if(difference >= 0){
+          this.addValue(difference);
           /*
         var test = this.treasureContainer.createComponent(HoardItemComponent);
         test.setInput("x", 500);
         console.log(test.instance.x);*/
         }else{
-          //removeTreasure
+          this.removeTreasure(difference);
         }
       }
     }
   }
+  addValue(pAddedValue:number):void{
+    log("addValue started with pAddedValue: ", pAddedValue);
+    var addedValue = pAddedValue;
+    while(addedValue > 0){
+      if(addedValue < 5){
+        this.addTreasureItem(1);
+        addedValue -= 1;
+      }else{
+        if(addedValue < 10){
+          this.addTreasureItem(5);
+          addedValue -= 5;
+        }else{
+          if(addedValue < 50){
+            this.addTreasureItem(10);
+            addedValue -= 10;
+          }else{
+            this.addTreasureItem(50);
+            addedValue -= 50;
+          }
+          
+        }
+      }
 
-  addTreasure(addedValue:number):void{
+    }
+
+  }
+
+  addTreasureItem(addedValue:number):void{
+    log("addTreasureItem started with addedValue: ", addedValue);
     var possibleCoordinates:Array<Array<number>> = [];
     this.rows.forEach((line:Array<HoardDataItem>, lineIndex) => {
       line.forEach((hoardItem:HoardDataItem, itemIndex)=>{
@@ -106,10 +123,11 @@ class HoardData {
     });
     if(possibleCoordinates.length == 0){
       var currentRow = 0;
-      do{
+      while(this.rows[currentRow]){
         this.rows[currentRow].push(new HoardDataItem(null, 0));
         currentRow++;
-      }while(this.rows[currentRow].length < 1);
+      }
+      this.rows.push(new Array<HoardDataItem>);
     }else{
       var chosenCoordinate = possibleCoordinates[getRandomInt(possibleCoordinates.length)];
       switch(addedValue) {
@@ -139,12 +157,35 @@ class HoardData {
         }
 
       }
+      this.fitParent();
 
     }
 
   }
 
-  rebalance():void{
+  removeTreasure(removedValue:number): void {
+    var remainingValue = removedValue;
+    //iterating top-to-bottom
+    for(var i = this.rows.length-1; i > 0; i--){
+      //iterating right-to-left
+      for(var j = this.rows[i].length-1; j > 0; j--){
+        if(this.rows[i][j].itemValue <= remainingValue){
+          remainingValue -= this.rows[i][j].itemValue;
+          this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
+          this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
+        }else{
+          var difference : number = this.rows[i][j].itemValue - remainingValue;
+          remainingValue = 0;
+          this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
+          this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
+          this.addValue(difference);
+        }
+
+      }
+    }
+  }
+
+  fitParent():void{
     var itemDistanceHorizontal = this.parentWidth/15;
     var itemDistanceVertical = this.parentHeight/50;
     //If the Hoard is too large, change to dynamic width.
@@ -167,10 +208,20 @@ class HoardData {
 setDimensions(pWidth:number, pHeight:number):void{
   this.parentWidth = pWidth;
   this.parentHeight = pHeight;
-  this.rebalance();
+  this.fitParent();
 }
 
 }
 function getRandomInt(max:number) {
   return Math.floor(Math.random() * max);
 }
+
+function log(message: string | any, input0: any = undefined):void{
+  if(extendedLogging){
+    if(input0 != undefined){
+      console.log("Hoard: " + message, input0);
+    }else{
+      console.log("Hoard: " + message);
+    }
+  }
+};
