@@ -30,7 +30,7 @@ progressBarValue = 0;
 function loadUpTo(targetValue:number, context:any, intervId:any, callback: Function, callbackArgs: Array<any>) {
   console.log("fakeProgressBar started.");
   if (!intervId) {
-    intervId = setInterval(()=>{console.log("progressBarValue:", context.progressBarValue); context.progressBarValue += 1; if(context.progressBarValue>targetValue-1){stopProgressBar(intervId,callback, callbackArgs)}}, 50);
+    intervId = setInterval(()=>{console.log("progressBarValue:", context.progressBarValue); context.progressBarValue += 1; if(context.progressBarValue>targetValue-1){stopProgressBar(intervId,callback, callbackArgs)}}, 2);
   }
 }
 function stopProgressBar(intervId:any, callback: Function, args: Array<any> = []){

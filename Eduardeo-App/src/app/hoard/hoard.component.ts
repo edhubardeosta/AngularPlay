@@ -35,7 +35,7 @@ export class HoardComponent implements OnChanges{
   ngOnChanges(changes:any) {
     console.log("Hoard detected Changes: ",changes);
     if(hoardData)
-    hoardData.updateTreasure(this.hoardValue)
+    hoardData.updateTreasure(this.hoardValue);
   }
 
 }
@@ -50,7 +50,7 @@ class HoardDataItem{
   }
 }
 class HoardData {
-  rows: Array<Array<HoardDataItem>> = [new Array<HoardDataItem>];
+  rows: Array<Array<HoardDataItem>> = new Array<Array<HoardDataItem>>;
   totalTreasure: number = 0;
   treasureContainer: ViewContainerRef;
   parentWidth: number = 1000;
@@ -59,16 +59,21 @@ class HoardData {
     this.treasureContainer = pContainer;
     this.parentWidth = pParentWidth;
     this.parentHeight = pParentHeight;
+    this.rows.push(new Array<HoardDataItem>);
   }
 
   updateTreasure(pTotalTreasure:number):void
   {
     log("updateTreasure started with pTotalTreasure: ", pTotalTreasure);
     var difference = pTotalTreasure - this.totalTreasure;
-    this.totalTreasure += pTotalTreasure;
+    log("difference: ", difference);
+    this.totalTreasure += difference;
+    log("this.totalTreasure: ", this.totalTreasure);
     if(this.totalTreasure<6000){
       if(this.totalTreasure<=0){
-        this.rows = [new Array<HoardDataItem>];
+        this.treasureContainer.clear()
+        this.rows = new Array<Array<HoardDataItem>>;
+        this.rows.push(new Array<HoardDataItem>);
       }else{
         if(difference >= 0){
           this.addValue(difference);
@@ -111,43 +116,57 @@ class HoardData {
 
   addTreasureItem(addedValue:number):void{
     log("addTreasureItem started with addedValue: ", addedValue);
+    log("and this.rows: ", this.rows);
     var possibleCoordinates:Array<Array<number>> = [];
+    var maxzIndex = 0; //used later to correctly position hoard Items in front or behind each other
     this.rows.forEach((line:Array<HoardDataItem>, lineIndex) => {
+      log("Checking line for Candidates: ", line);
       line.forEach((hoardItem:HoardDataItem, itemIndex)=>{
+        log("Checking if hoardItem is Candidate: ", hoardItem);
         if(hoardItem.itemValue == 0){
-          if(lineIndex == 0 || this.rows[lineIndex-1][itemIndex] && this.rows[lineIndex-1][itemIndex+1]){
+          if(lineIndex == 0 || this.rows[lineIndex-1][itemIndex].itemValue>0 && this.rows[lineIndex-1][itemIndex+1].itemValue>0){
             possibleCoordinates.push([itemIndex,lineIndex]);
           }
+        }else{
+          maxzIndex = lineIndex;
         }
       })
     });
     if(possibleCoordinates.length == 0){
+      log("No possible coordinates, possible coordinates.length: ", possibleCoordinates.length);
       var currentRow = 0;
-      while(this.rows[currentRow]){
+      while(this.rows[currentRow] != undefined){
         this.rows[currentRow].push(new HoardDataItem(null, 0));
+        log("Added new HoardDataItem to Row: ", currentRow);
         currentRow++;
       }
       this.rows.push(new Array<HoardDataItem>);
+      this.addTreasureItem(addedValue);
     }else{
+      log("Possible Coordinates for new Item: ", possibleCoordinates); 
       var chosenCoordinate = possibleCoordinates[getRandomInt(possibleCoordinates.length)];
       switch(addedValue) {
         case 1: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 1);
+          this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.itemType = "copperCoin";
           //set img to copper coin
           break;
         }
         case 5: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 5);
+          this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.itemType = "silverCoin";
           //set img to silver coin
           break;
         }
         case 10: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 10);
+          this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.itemType = "goldCoin";
           //set img to gold coin
           break;
         }
         case 50: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 50);
+          this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.itemType = "crystal";
           //set img to crystal
           break;
         }
@@ -155,30 +174,42 @@ class HoardData {
           console.error("error! Value for addTreasure must be 1, 5, 10 or 50!")
           break;
         }
-
       }
+      this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.zIndex = 100-chosenCoordinate[1];
       this.fitParent();
 
     }
+    log("addTreasureItem finished  with this.rows: ", this.rows);
 
   }
 
   removeTreasure(removedValue:number): void {
-    var remainingValue = removedValue;
+    log("starting removeTreasure with rows: ", this.rows);
+    log("removedValue: ", removedValue);
+    var remainingNegative = removedValue;
     //iterating top-to-bottom
-    for(var i = this.rows.length-1; i > 0; i--){
+    for(var i = this.rows.length-1; i >= 0; i--){
       //iterating right-to-left
-      for(var j = this.rows[i].length-1; j > 0; j--){
-        if(this.rows[i][j].itemValue <= remainingValue){
-          remainingValue -= this.rows[i][j].itemValue;
-          this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
-          this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
-        }else{
-          var difference : number = this.rows[i][j].itemValue - remainingValue;
-          remainingValue = 0;
-          this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
-          this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
-          this.addValue(difference);
+      log("row: ", i);
+      for(var j = this.rows[i].length-1; j >= 0; j--){
+        log("item: ", j);
+        if(remainingNegative != 0){
+          if(this.rows[i][j].itemValue <= remainingNegative*-1){
+            log("removing item: ",this.rows[i][j]);
+            remainingNegative += this.rows[i][j].itemValue;
+            this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
+            this.rows[i][j].hoardItemComponentRef = null;
+            this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
+            log("remainingValue: ",remainingNegative);
+          }else{
+            log("removing item larger than removedValue: ",this.rows[i][j]);
+            var difference : number = this.rows[i][j].itemValue + remainingNegative;
+            remainingNegative = 0;
+            this.rows[i][j].hoardItemComponentRef?.destroy(); // remove hoardDataItems Component
+            this.rows[i][j] = new HoardDataItem(null,0); //assign empty HoardDataItem for removed HoardItem
+            log("adding Back difference: ", difference);
+            this.addValue(difference);
+          }
         }
 
       }
@@ -193,13 +224,13 @@ class HoardData {
       itemDistanceHorizontal = this.parentWidth/this.rows[0].length;
     this.rows.forEach((line, lineIndex)=>{
       line.forEach((lineItem, itemIndex)=>{
-        var offsetHorizontal = itemDistanceHorizontal/2+itemDistanceHorizontal*(lineIndex-1);
+        var offsetHorizontal = itemDistanceHorizontal/2+itemDistanceHorizontal/2*(lineIndex-1);
         if(lineIndex == 0){
           offsetHorizontal = 0;
         }
         if(lineItem.hoardItemComponentRef){
           lineItem.hoardItemComponentRef.setInput("x", offsetHorizontal+itemDistanceHorizontal*itemIndex);
-          lineItem.hoardItemComponentRef.setInput("y", itemDistanceVertical*lineIndex);
+          lineItem.hoardItemComponentRef.setInput("y", this.parentHeight-itemDistanceVertical*lineIndex);
         }
       })
     })

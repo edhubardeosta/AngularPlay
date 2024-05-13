@@ -40,9 +40,3 @@ p{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
-
-.backgroundArt {
-    border-radius: 45%;
-    width: 80%;
-    margin-left: 10%;
-}
