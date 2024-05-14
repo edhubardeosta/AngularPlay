@@ -1,1 +1,10 @@
-Value der Progress Bar über Input in app.component.ts überführen
+Game: Manage options, hoard, quests, etc., start animations
+
+
+dialogfeld:
+	display flavourtexts
+	display action-Buttons
+
+bittstellerfeld:
+	display bittsteller:
+		eingangsanimation, drehanimation, ausgangsanimation

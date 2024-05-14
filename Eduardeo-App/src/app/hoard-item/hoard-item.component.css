@@ -8,8 +8,12 @@
 
 .coin {
     transform: rotate(90deg);
-    width: 2%;
+    width: 10%;
     position: absolute;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
 }
 
 @keyframes fallInPlaceAnimation {

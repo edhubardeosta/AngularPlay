@@ -6,6 +6,18 @@ import { Component } from '@angular/core';
   styleUrl: './game.component.css'
 })
 export class GameComponent {
-  hoardValue = 4000;
+  hoardValue = 0;
+  displaySubMenu = true;
+
+  menuButtonClicked(){
+    console.log("menuButtonClicked.");
+    this.displaySubMenu = !this.displaySubMenu;
+  }
+  addMoney(){
+    this.hoardValue += 499;
+  }
+  removeMoney(){
+    this.hoardValue -= 499;
+  }
 
 }

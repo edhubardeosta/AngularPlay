@@ -1,31 +1,74 @@
+.hidden{
+    display: none;
+}
 .queenAndHoardContainer{
-    width: 40vw; 
-    height: 60vh;
+    width: 30vw; 
+    height: 100vh;
     margin-left: 5vw;
     margin-top: 0;
     position: absolute;
 }
 .cityContainer{
     width: 60vw;
-    position: absolute;
+    height: 40vh;
     margin-left: 20vw;
     margin-top: 0;
     overflow: hidden;
+    position: absolute;
 }
 .textContainer{
-    margin-top: 60vh;
+    margin-top: 70vh;
     width: 60vw;
+    height: 30vh;
     margin-left: 20vw;
     position: absolute;
 }
 .queensSubjectContainer{
-    position: absolute;
     width: 60vw;
     margin-left: 40vw;
-    margin-top: 20vh;
+    margin-top: 30vh;
+    height: 50vh;
+    position: absolute;
 }
 .backgroundArt {
     border-radius: 45%;
     width: 80%;
+    height: 100%;
     margin-left: 10%;
+    position: absolute;
+}
+.Queen{
+    width: 30%;
+    margin-top: 30vh;
+    margin-left: 35%;
+    position: absolute;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    z-index: 10000;
+}
+
+.Hoard{
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+    height: 45%
+}
+.Menu{
+    margin-left: 1vw;
+    margin-top: 1vh;
+    width: 3vw;
+    position: relative;
+    overflow: auto;
+}
+.mat-fab,
+.mat-button,
+.mat-raised-button,
+.mat-mdc-fab:not(.mdc-fab--extended),
+.mat-flat-button {
+    border-radius: 15%;
+    width: 3vw;
+    margin-top: 1vh;
 }

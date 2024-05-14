@@ -6,6 +6,7 @@ var resizeObservable$: Observable<Event>;
 var resizeSubscription$: Subscription;
 var hoardData: HoardData;
 var extendedLogging = true; // set false later
+var sizeSet = false;
 
 @Component({
   selector: 'app-hoard',
@@ -26,7 +27,11 @@ export class HoardComponent implements OnChanges{
     resizeObservable$ = fromEvent(window, 'resize')
     resizeSubscription$ = resizeObservable$.subscribe( (evt:any) => {
       hoardData.setDimensions(this.el.nativeElement.offsetWidth, this.el.nativeElement.offsetHeight)
-      //this.nextElementWidth = new width;
+      if(this.el.nativeElement.offsetWidth != 0 && this.el.nativeElement.offsetHeight != 0){
+        sizeSet = true;
+      }else{
+        false;
+      }
     })
   }
   ngOnDestroy() {
@@ -36,6 +41,12 @@ export class HoardComponent implements OnChanges{
     console.log("Hoard detected Changes: ",changes);
     if(hoardData)
     hoardData.updateTreasure(this.hoardValue);
+    if(!sizeSet){
+      hoardData.setDimensions(this.el.nativeElement.offsetWidth, this.el.nativeElement.offsetHeight);
+      if(this.el.nativeElement.offsetWidth != 0 && this.el.nativeElement.offsetHeight != 0)
+        sizeSet = true;
+    }
+
   }
 
 }
@@ -69,7 +80,7 @@ class HoardData {
     log("difference: ", difference);
     this.totalTreasure += difference;
     log("this.totalTreasure: ", this.totalTreasure);
-    if(this.totalTreasure<6000){
+    if(this.totalTreasure<10000){
       if(this.totalTreasure<=0){
         this.treasureContainer.clear()
         this.rows = new Array<Array<HoardDataItem>>;
@@ -217,10 +228,11 @@ class HoardData {
   }
 
   fitParent():void{
-    var itemDistanceHorizontal = this.parentWidth/15;
+    var lowestLineDefaultSize = 25;
+    var itemDistanceHorizontal = this.parentWidth/lowestLineDefaultSize;
     var itemDistanceVertical = this.parentHeight/50;
     //If the Hoard is too large, change to dynamic width.
-    if(this.rows[0].length>15)
+    if(this.rows[0].length>lowestLineDefaultSize)
       itemDistanceHorizontal = this.parentWidth/this.rows[0].length;
     this.rows.forEach((line, lineIndex)=>{
       line.forEach((lineItem, itemIndex)=>{
@@ -237,6 +249,8 @@ class HoardData {
 }
 
 setDimensions(pWidth:number, pHeight:number):void{
+  log("Setting Hoard dimensions with width:", pWidth);
+  log("and height: ", pHeight);
   this.parentWidth = pWidth;
   this.parentHeight = pHeight;
   this.fitParent();

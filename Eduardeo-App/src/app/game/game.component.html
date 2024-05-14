@@ -1,10 +1,25 @@
 <div class="cityContainer">
-    <img class="backgroundArt" src="../../assets/dungeon_2011.jpg">
+    <img class="backgroundArt" src="../../assets/dungeon_2011.jpg" style="background-color: blue;">
 </div>
 <div class="queensSubjectContainer" style="background-color: black;">
 </div>
-<div class="queenAndHoardContainer" style="background-color: purple;">
-    <app-hoard [hoardValue]="hoardValue"></app-hoard>
+<div class="queenAndHoardContainer">
+    <app-hoard class="Hoard" [hoardValue]="hoardValue"></app-hoard>
+    <img class="Queen" src="../../assets/Queen.png">
 </div>
 <div class="textContainer" style="background-color: wheat;">
+</div>
+<div class="Menu">
+    <button #menuButton mat-fab class="mat-fab" color="white" (click)="menuButtonClicked()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div [hidden]="displaySubMenu">
+        <button mat-fab class="mat-fab" color="white" (click)="addMoney()">
+            <mat-icon>expand_less</mat-icon>
+        </button>
+        <button mat-fab class="mat-fab" color="white" (click)="removeMoney()">
+            <mat-icon>expand_more</mat-icon>
+        </button>
+
+    </div>
 </div>

@@ -14,17 +14,6 @@ p{
     display: none;
 }
 
-.button-rounded {
-    &.mat-button,
-    &.mat-raised-button,
-    &.mat-flat-button {
-      border-radius: 25% / 50%;
-      margin: 0;
-      left: 50%;
-      -ms-transform: translateX(-50%);
-      transform: translateX(-50%);
-    }
-}
 
 .contentWindow {
     width: 90%;
@@ -39,4 +28,16 @@ p{
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+.button-rounded {
+    &.mat-button,
+    &.mat-raised-button,
+    &.mat-flat-button {
+      border-radius: 25% / 50%;
+      margin: 0;
+      left: 50%;
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
 }

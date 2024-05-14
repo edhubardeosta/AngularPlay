@@ -1,7 +1,4 @@
-import { Component, ElementRef, ViewChild} from '@angular/core';
-import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar'; 
-import {MatButtonModule, MatFabButton, MatButton} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card'; 
+import { Component } from '@angular/core';
 
 var progressBarValueInternal:number;
 var loadScreenClassesInternal:Array<string> = ["hidden"];
@@ -14,7 +11,7 @@ var loadScreenClassesInternal:Array<string> = ["hidden"];
 })
 export class AppComponent {
   loadScreenHidden = true;
-  gameHidden = true;
+  gameHidden = false;
   title = 'Eduardeo-App';
   progressBarValue = progressBarValueInternal;
   loadScreenClasses = loadScreenClassesInternal;
