@@ -7,7 +7,8 @@
     <app-hoard class="Hoard" [hoardValue]="hoardValue"></app-hoard>
     <img class="Queen" src="../../assets/Queen.png">
 </div>
-<div class="textContainer" style="background-color: wheat;">
+<div class="textContainer">
+    <app-dialogue-box></app-dialogue-box>
 </div>
 <div class="Menu">
     <button #menuButton mat-fab class="mat-fab" color="white" (click)="menuButtonClicked()">
@@ -20,6 +21,8 @@
         <button mat-fab class="mat-fab" color="white" (click)="removeMoney()">
             <mat-icon>expand_more</mat-icon>
         </button>
-
+        <button mat-fab class="mat-fab" color="white" (click)="removeMoney()">
+            <mat-icon>textsms</mat-icon>
+        </button>
     </div>
 </div>

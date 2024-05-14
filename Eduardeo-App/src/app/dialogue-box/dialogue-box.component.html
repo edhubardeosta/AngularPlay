@@ -1,0 +1,15 @@
+<mat-card class="messageCard">
+    <mat-card-content>dialogue-box works!</mat-card-content>
+    <mat-card-footer>
+        <div class="buttonDiv alignRight">
+            <button #yesButton mat-fab class="mat-fab" color="white" (click)="yesButtonClicked()">
+                <mat-icon>thumb_up</mat-icon>
+            </button>
+        </div>
+        <div class="buttonDiv alignLeft">
+            <button #noButton mat-fab class="mat-fab" color="white" (click)="noButtonClicked()">
+                <mat-icon>thumb_down</mat-icon>
+            </button>
+        </div>
+    </mat-card-footer>
+</mat-card>

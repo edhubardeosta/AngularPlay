@@ -12,7 +12,9 @@ import { StartMenuComponent } from './start-menu/start-menu.component';
 import { LoadingscreenComponent } from './loadingscreen/loadingscreen.component';
 import { GameComponent } from './game/game.component';
 import { HoardComponent } from './hoard/hoard.component';
-import { HoardItemComponent } from './hoard-item/hoard-item.component'; 
+import { HoardItemComponent } from './hoard-item/hoard-item.component';
+import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
+import { CharacterAnimationContainerComponent } from './character-animation-container/character-animation-container.component'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HoardItemComponent } from './hoard-item/hoard-item.component';
     LoadingscreenComponent,
     GameComponent,
     HoardComponent,
-    HoardItemComponent
+    HoardItemComponent,
+    DialogueBoxComponent,
+    CharacterAnimationContainerComponent
   ],
   imports: [
     BrowserModule,
