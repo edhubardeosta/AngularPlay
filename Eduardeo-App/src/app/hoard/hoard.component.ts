@@ -1,12 +1,14 @@
-import { Component, ElementRef, ViewContainerRef, ViewChild, ComponentRef, Input, OnChanges } from '@angular/core';
+import { Component, ElementRef, ViewContainerRef, ViewChild, ComponentRef, Input, OnChanges} from '@angular/core';
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { HoardItemComponent } from '../hoard-item/hoard-item.component';
+import { UtilsService } from '../utils.service';
 
 var resizeObservable$: Observable<Event>;
 var resizeSubscription$: Subscription;
 var hoardData: HoardData;
-var extendedLogging = true; // set false later
+var extendedLogging = false; // set false later
 var sizeSet = false;
+var utils:UtilsService = new UtilsService();
 
 @Component({
   selector: 'app-hoard',
@@ -21,8 +23,8 @@ export class HoardComponent implements OnChanges{
   
   }
   ngOnInit(){
-    console.log('height---' + this.el.nativeElement.offsetHeight);  //<<<===here
-    console.log('width---' + this.el.nativeElement.offsetWidth);    //<<<===here)
+    log('height---' + this.el.nativeElement.offsetHeight);  //<<<===here
+    log('width---' + this.el.nativeElement.offsetWidth);    //<<<===here)
     hoardData = new HoardData(this.container, this.el.nativeElement.offsetWidth, this.el.nativeElement.offsetHeight);
     resizeObservable$ = fromEvent(window, 'resize')
     resizeSubscription$ = resizeObservable$.subscribe( (evt:any) => {
@@ -38,10 +40,11 @@ export class HoardComponent implements OnChanges{
     resizeSubscription$.unsubscribe()
   }
   ngOnChanges(changes:any) {
-    console.log("Hoard detected Changes: ",changes);
+    log("Changes: ",changes);
     if(hoardData)
     hoardData.updateTreasure(this.hoardValue);
     if(!sizeSet){
+      if(hoardData)
       hoardData.setDimensions(this.el.nativeElement.offsetWidth, this.el.nativeElement.offsetHeight);
       if(this.el.nativeElement.offsetWidth != 0 && this.el.nativeElement.offsetHeight != 0)
         sizeSet = true;
@@ -155,7 +158,7 @@ class HoardData {
       this.addTreasureItem(addedValue);
     }else{
       log("Possible Coordinates for new Item: ", possibleCoordinates); 
-      var chosenCoordinate = possibleCoordinates[getRandomInt(possibleCoordinates.length)];
+      var chosenCoordinate = possibleCoordinates[utils.getRandomInt(possibleCoordinates.length)];
       switch(addedValue) {
         case 1: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 1);
@@ -256,9 +259,6 @@ setDimensions(pWidth:number, pHeight:number):void{
   this.fitParent();
 }
 
-}
-function getRandomInt(max:number) {
-  return Math.floor(Math.random() * max);
 }
 
 function log(message: string | any, input0: any = undefined):void{

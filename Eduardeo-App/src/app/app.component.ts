@@ -29,16 +29,3 @@ function main(context:any):void{
   context.loadScreenHidden = true;
   context.gameHidden = false;
 }
-function test():void{
-  console.log("setting progress bar value to 75");
-  progressBarValueInternal=75;
-}
-function test2():void{
-  console.log("setting progress bar value to 25");
-  progressBarValueInternal=25;
-}
-
-
-function getRandomInt(max:number) {
-  return Math.floor(Math.random() * max);
-}

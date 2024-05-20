@@ -1,0 +1,37 @@
+[
+    {
+        "stageId": 0, 
+        "characterSprite": "thief",
+        "cardText": "sneaki boi", 
+        "yesCostOrProfit": { "treasure": -10, "military": 1, "happiness": -2, "populace": 1 }, 
+        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 0, "populace": 0 }, 
+        "hasPrecursor": false, 
+        "yesStageId": 1, 
+        "noStageId":0,
+        "yesText": "He sneak away!",
+        "noText": "He amgery!"
+    },
+    {
+        "stageId": 1, 
+        "characterSprite": "thief",
+        "cardText": "sneaki boi wants more shit", 
+        "yesCostOrProfit": { "treasure": -30, "military": 0, "happiness": -4, "populace": 0 }, 
+        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": -1, "populace": 0 }, 
+        "hasPrecursor": true, 
+        "noStageId": 1,
+        "yesText": "He sneak away with more shtuff!",
+        "noText": "He amgery now!"
+    },
+    {
+        "stageId": 2, 
+        "characterSprite": "king",
+        "cardText": "rich boi has present", 
+        "yesCostOrProfit": { "treasure": 30, "military": 0, "happiness": 0, "populace": 0 }, 
+        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 2, "populace": 0 }, 
+        "hasPrecursor": false,
+        "yesStageId": 2, 
+        "noStageId":2,
+        "yesText": "Hell Yeah!",
+        "noText": "I wanna love you for your person not your money!"
+    }
+]

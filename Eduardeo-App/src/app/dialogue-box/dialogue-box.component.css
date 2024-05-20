@@ -32,3 +32,13 @@
     border-radius: 15px;
     -moz-border-radius: 15px;
 }
+.resourceDiv{
+    margin-left: 10%;
+    width: 80%;
+    float:left;
+    display: flex;
+    justify-content: space-around;
+}
+.hidden{
+    display:none;
+}
