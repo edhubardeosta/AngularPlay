@@ -8,6 +8,8 @@
     border-radius: 5px;
     -moz-border-radius: 5px;
     box-shadow: none;
+    width: 10%;
+    height: 6vh;
 }
 
 
@@ -28,7 +30,7 @@
 .messageCard{
     height: 100%;
     position: relative;
-    overflow: visible;
+    overflow: auto;
     border-radius: 15px;
     -moz-border-radius: 15px;
 }
@@ -42,3 +44,40 @@
 .hidden{
     display:none;
 }
+.mat-badge-medium .mat-badge-content{
+    width: 10px;
+    height: 1px;
+    line-height: 10px;
+}
+@media screen and (min-width: 1801px) {
+    mat-icon{
+        font-size: 1vw;
+    }
+    .buttonIcon{
+        font-size: 1vw;
+    }
+  }
+  
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 1800px) {
+    .buttonIcon{
+        font-size: 1.5vw;
+    }
+}
+@media screen and (min-width: 1401px) {
+    mat-icon{
+        font-size: 1vw;
+    }
+}/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+
+@media screen and (max-width: 1400px) {
+    mat-icon{
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 1000px) {
+    mat-icon{
+        font-size: 3vw;
+    }
+}
+  

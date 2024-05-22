@@ -3,7 +3,7 @@
     <mat-card-footer>
         <div class="buttonDiv alignRight">
             <button #yesButton mat-fab class="mat-fab" color="white" (click)="yesButtonClicked()" [disabled]="yesDeactivated">
-                <mat-icon>thumb_up</mat-icon>
+                <mat-icon class="buttonIcon">thumb_up</mat-icon>
             </button>
             <div class="resourceDiv">
                 <mat-icon [matBadge]="yesTreasureTrend" matBadgeColor="accent" matBadgeSize="medium" class="material-icons-outlined" [class.hidden]="hideYesTreasureTrend">circle</mat-icon>
@@ -14,7 +14,7 @@
         </div>
         <div class="buttonDiv alignLeft">
             <button #noButton mat-fab class="mat-fab" color="white" (click)="noButtonClicked()" [disabled]="noDeactivated">
-                <mat-icon>thumb_down</mat-icon>
+                <mat-icon class="buttonIcon">thumb_down</mat-icon>
             </button>
             <div class="resourceDiv">
                 <mat-icon [matBadge]="noTreasureTrend" matBadgeColor="accent" matBadgeSize="medium" class="material-icons-outlined" [class.hidden]="hideNoTreasureTrend">circle</mat-icon>

@@ -1,6 +1,7 @@
 import { Component, ViewChild, Output, Input, EventEmitter, OnChanges } from '@angular/core';
 import {MatProgressBar, MatProgressBarModule} from '@angular/material/progress-bar'; 
 
+var extendedLogging = false;
 var loadIntervId:any;
 @Component({
   selector: 'app-loadingscreen',
@@ -40,3 +41,12 @@ function stopProgressBar(intervId:any, callback: Function, args: Array<any> = []
   intervId = null;
   callback.apply(null, args);
 }
+function log(message: string | any, input0: any = undefined):void{
+  if(extendedLogging){
+    if(input0 != undefined){
+      console.log("Loading-Screen: " + message, input0);
+    }else{
+      console.log("Loading-Screen: " + message);
+    }
+  }
+};

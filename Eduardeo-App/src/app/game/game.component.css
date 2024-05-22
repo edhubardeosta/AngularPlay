@@ -1,3 +1,7 @@
+.gameContainer{
+    width: 100vw;
+    height: 100vh;
+}
 .hidden{
     display: none;
 }
@@ -60,8 +64,8 @@
     margin-left: 1vw;
     margin-top: 1vh;
     width: 3vw;
-    position: relative;
-    overflow: auto;
+    position: absolute;
+    overflow: visible;
 }
 .mat-fab,
 .mat-button,
@@ -71,4 +75,19 @@
     border-radius: 15%;
     width: 3vw;
     margin-top: 1vh;
+}
+.ResourceCounterCard{
+    margin-top: 0%;
+    position: relative;
+}
+.ResourceCounterDiv{
+    width: fit-content;
+    block-size: fit-content;
+    display: block;
+    overflow: auto;
+    float: right;
+    margin-right: 1vw;
+    position: relative;
+    top: 2vh;
+    
 }

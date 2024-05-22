@@ -1,7 +1,7 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DialogueItem } from '../game/game.dialogueSystem';
 
-var extendedLogging = true; //set to false later
+var extendedLogging = false; //set to false later
 var responseStage = false;
 var answerIsYes = false;
 

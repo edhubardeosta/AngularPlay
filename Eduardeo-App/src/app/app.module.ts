@@ -15,7 +15,9 @@ import { HoardComponent } from './hoard/hoard.component';
 import { HoardItemComponent } from './hoard-item/hoard-item.component';
 import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
 import { CharacterAnimationContainerComponent } from './character-animation-container/character-animation-container.component';
-import { MatBadgeModule } from '@angular/material/badge';  
+import { MatBadgeModule } from '@angular/material/badge';
+import { ResourceCounterComponent } from './resource-counter/resource-counter.component';  
+import {MatTableModule} from '@angular/material/table'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     HoardComponent,
     HoardItemComponent,
     DialogueBoxComponent,
-    CharacterAnimationContainerComponent
+    CharacterAnimationContainerComponent,
+    ResourceCounterComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -1,3 +1,4 @@
+<div class="gameContainer">
 <div class="cityContainer">
     <img class="backgroundArt" src="../../assets/dungeon_2011.jpg" style="background-color: blue;">
 </div>
@@ -25,4 +26,25 @@
             <mat-icon>textsms</mat-icon>
         </button>
     </div>
+</div>
+<div class="ResourceCounterDiv">
+    <mat-card class="ResourceCounterCard">
+        <mat-card-content>
+            <table>
+                <tr>
+                    <th>Treasure</th>
+                    <th>Military</th>
+                    <th>Happiness</th>
+                    <th>Populace</th>
+                </tr>
+                <tr>
+                    <td><app-resource-counter icon="circle" [outline]="true" [amount]="hoardValue"></app-resource-counter></td>
+                    <td><app-resource-counter icon="shield" [outline]="true" [amount]="militaryValue"></app-resource-counter></td>
+                    <td><app-resource-counter icon="sentiment_satisfied_alt" [outline]="false" [amount]="happinessValue"></app-resource-counter></td>
+                    <td><app-resource-counter icon="person"[outline]="true" [amount]="populaceValue"></app-resource-counter></td>
+                </tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+</div>
 </div>

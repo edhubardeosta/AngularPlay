@@ -1,10 +1,18 @@
 Game: Manage options, hoard, quests, etc., start animations
 
+Zähler für Ressourcen:
+	Geld
+	Militär
+	Zufriedenheit
+	Einwohner
 
 dialogfeld:
-	display flavourtexts
-	display action-Buttons
 
 bittstellerfeld:
 	display bittsteller:
 		eingangsanimation, drehanimation, ausgangsanimation
+
+Assets:
+
+Content:
+	Events

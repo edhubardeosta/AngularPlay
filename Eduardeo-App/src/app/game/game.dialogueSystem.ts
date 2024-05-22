@@ -1,7 +1,7 @@
 import dialogueConfig from './game.dialogueConfig.json'
 import { UtilsService } from '../utils.service';
 var utils:UtilsService = new UtilsService();
-var extendedLogging = true;
+var extendedLogging = false;
 
 export class DialogueData{
     
