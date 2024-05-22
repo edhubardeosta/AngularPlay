@@ -55,19 +55,30 @@ export class DialogueBoxComponent {
     }else{
       answerIsYes = true;
       this.text = this.activeItem!.yesText;
-      //Deactivat No-Button
-      this.noDeactivated = true;
     }
     responseStage = !responseStage;
     
 
   }
   noButtonClicked(){
-    answerIsYes = false;
+    if(responseStage){
+      if(answerIsYes){
+        this.yesButtonEvent.emit(true);
+      }else{
+        this.noButtonEvent.emit(false);
+      }
+      //de-activate the Buttons
+      this.noDeactivated = true;
+      this.yesDeactivated = true;
+      //clear text
+      this.text = "";
+      //hide resource trends
+      this.hideTrends();
+    }else{
+      answerIsYes = false;
+      this.text = this.activeItem!.noText;
+    }
     responseStage = !responseStage;
-    this.text = this.activeItem!.noText;
-    //Deactivat No-Button
-    this.noDeactivated = true;
   }
 
   ngOnChanges(changes:any){

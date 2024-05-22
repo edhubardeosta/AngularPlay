@@ -27,11 +27,14 @@ function countTo(targetValue:number, context:any, callback: Function = ()=>{}, c
   log("countTo started with targetValue:", targetValue);
   log("and displayAmount: ", context.displayAmount)
   log("and IntervId: ",context.loadIntervId);
+  var difference:number = context.displayAmount - targetValue;
+  if(difference<0)
+    difference = difference*-1;
   if (!context.loadIntervId) {
     if(targetValue>context.displayAmount)
-      context.loadIntervId = setInterval(()=>{log("displayAmount:", context.displayAmount); context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 10);
+      context.loadIntervId = setInterval(()=>{log("displayAmount:", context.displayAmount); context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 50/difference);
     if(targetValue<context.displayAmount)
-      context.loadIntervId = setInterval(()=>{log("displayAmount:", context.displayAmount); context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 10);
+      context.loadIntervId = setInterval(()=>{log("displayAmount:", context.displayAmount); context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 50/difference);
   }
 }
 function stopCounting(context:any, callback: Function, args: Array<any> = []){
