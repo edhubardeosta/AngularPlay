@@ -1,0 +1,49 @@
+.entering{
+    animation-name: enterAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    right: 100%;
+
+}
+
+.leaving{
+    animation-name: leaveAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    right: 0%;
+}
+.hidden{
+    display:none;
+}
+img{
+    margin-top: 10%;
+    max-height: 40%;
+    max-width: 30%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    margin-right: -10%;
+    margin-left: 0%;
+    position: absolute;
+}
+@keyframes enterAnimation {
+    0% {
+      right: 0%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+@keyframes leaveAnimation {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0%;
+    }
+}

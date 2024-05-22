@@ -17,7 +17,8 @@ import { DialogueBoxComponent } from './dialogue-box/dialogue-box.component';
 import { CharacterAnimationContainerComponent } from './character-animation-container/character-animation-container.component';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ResourceCounterComponent } from './resource-counter/resource-counter.component';  
-import {MatTableModule} from '@angular/material/table'; 
+import {MatTableModule} from '@angular/material/table';
+import { CharacterAnimationItemComponent } from './character-animation-item/character-animation-item.component'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatTableModule} from '@angular/material/table';
     HoardItemComponent,
     DialogueBoxComponent,
     CharacterAnimationContainerComponent,
-    ResourceCounterComponent
+    ResourceCounterComponent,
+    CharacterAnimationItemComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class GameComponent {
     this.displaySubMenu = !this.displaySubMenu;
   }
   addMoney(){
-    this.hoardValue += 49;
+    this.hoardValue += 1000;
   }
   removeMoney(){
     this.hoardValue -= 49;
