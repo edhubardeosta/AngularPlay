@@ -1,7 +1,8 @@
-import { Component, Input, ElementRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, ViewContainerRef, ComponentRef } from '@angular/core';
 import { CharacterAnimationItemComponent } from '../character-animation-item/character-animation-item.component';
 var extendedLogging:Boolean = true;
-var lastCreatedItem: CharacterAnimationItemComponent;
+var lastCreatedItem: ComponentRef<CharacterAnimationItemComponent>;
+var dismissedItems: Array<ComponentRef<CharacterAnimationItemComponent>> = [];
 
 @Component({
   selector: 'app-character-animation-container',
@@ -17,16 +18,41 @@ export class CharacterAnimationContainerComponent {
   ngOnInit(){
     log('height---' + this.el.nativeElement.offsetHeight);  //<<<===here
     log('width---' + this.el.nativeElement.offsetWidth);    //<<<===here)
+    log("container: ", this.container);
 
   }
-  ngOnChange(changes:any){
-    if(changes.source === ""){
+  ngOnChanges(changes:any){
+    log("ngOnChange started with changes:", changes);
+    if(changes.source.currentValue === ""){
       if(lastCreatedItem)
-        lastCreatedItem.dismissed = true;
+        lastCreatedItem.setInput("dismissed", true);
+    
 
 
     }else{
-      lastCreatedItem = new CharacterAnimationItemComponent(this.container.createComponent(CharacterAnimationItemComponent));
+      if(this.container){
+        log("trying to create CharacterAnimationItemComponentRef with container: ", this.container);
+      }else{
+        log("No container found. Cannot create CharacterAnimationItemComponent");
+      }
+      if(lastCreatedItem){
+        //look through dismissed items for ones, marked for destruction
+        dismissedItems.forEach((item)=>{
+          if(item.instance.markedForDestruction){
+            item.destroy();
+          }
+        })
+        //dismiss last created item and add it to the list
+        lastCreatedItem.setInput("dismissed", true);
+        dismissedItems.push(lastCreatedItem);
+      }
+      if(this.container){
+        //var lastCreatedItemRef:ComponentRef<CharacterAnimationItemComponent> = ;
+        lastCreatedItem = this.container.createComponent(CharacterAnimationItemComponent);
+        lastCreatedItem.setInput("source", this.source);
+        log("lastCreatedItem: ", lastCreatedItem);
+
+      }
 
     }
   }

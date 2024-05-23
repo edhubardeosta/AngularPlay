@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
 
-var extendedLogging = true;
+var extendedLogging = false;
 @Component({
   selector: 'app-resource-counter',
   templateUrl: './resource-counter.component.html',

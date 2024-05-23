@@ -19,9 +19,9 @@ progressBarValue = 0;
   @ViewChild('loadingProgressBar', {static: false}) loadingProgressBar!: MatProgressBar;
 
   ngOnChanges(changes:any){
-    console.log("Change on Loadingscreen detected:", changes);
+    log("Change detected:", changes);
     if(changes.progressBarValueInternal?.currentValue != changes.progressBarValueInternal?.previousValue){
-      console.log("Change on progressBarValueInternal detected!");
+      log("Change on progressBarValueInternal detected!");
       loadUpTo(this.progressBarValueInternal, this, loadIntervId, ()=>{this.fadeOut = true;}, []);
     }
   }

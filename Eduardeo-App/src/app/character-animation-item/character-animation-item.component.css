@@ -1,6 +1,6 @@
 .entering{
     animation-name: enterAnimation;
-    animation-duration: 2s;
+    animation-duration: 4s;
     animation-timing-function: ease-out;
     right: 100%;
 
@@ -8,8 +8,8 @@
 
 .leaving{
     animation-name: leaveAnimation;
-    animation-duration: 2s;
-    animation-timing-function: ease-out;
+    animation-duration: 4s;
+    animation-timing-function: ease-in;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     right: 0%;

@@ -1,1 +1,1 @@
-<img [class.entering] = "!leaving" [class.leaving] = "leaving" [src]="source" (transitionend)="transitionEnd($event)">
+<img [class.entering]="!leaving" [class.leaving]="leaving" [class.hidden]="hidden" [src]="source" (animationend)="animationEnd($event)">

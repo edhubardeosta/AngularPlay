@@ -1,7 +1,7 @@
 [
     {
         "stageId": 0, 
-        "characterSprite": "thief",
+        "characterSprite": "../../assets/Characters/littleGhost.png",
         "cardText": "sneaki boi", 
         "yesCostOrProfit": { "treasure": -10, "military": 1, "happiness": -2, "populace": 1 }, 
         "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 0, "populace": 0 }, 
@@ -13,7 +13,7 @@
     },
     {
         "stageId": 1, 
-        "characterSprite": "thief",
+        "characterSprite": "../../assets/Characters/littleGhost.png",
         "cardText": "sneaki boi wants more shit", 
         "yesCostOrProfit": { "treasure": -30, "military": 0, "happiness": -4, "populace": 0 }, 
         "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": -1, "populace": 0 }, 
@@ -24,7 +24,7 @@
     },
     {
         "stageId": 2, 
-        "characterSprite": "king",
+        "characterSprite": "../../assets/Characters/littleGhost.png",
         "cardText": "rich boi has present", 
         "yesCostOrProfit": { "treasure": 30, "military": 0, "happiness": 0, "populace": 0 }, 
         "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 2, "populace": 0 }, 

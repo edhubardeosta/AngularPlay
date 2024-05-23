@@ -1,4 +1,4 @@
-import { Component, Input , ComponentRef} from '@angular/core';
+import { Component, Input } from '@angular/core';
 var extendedLogging = true;
 
 @Component({
@@ -8,28 +8,36 @@ var extendedLogging = true;
 })
 export class CharacterAnimationItemComponent {
   @Input() dismissed: Boolean = false;
-  @Input() source: string = "../../assets/Characters/littleGhost.png";
-  leaving: Boolean = false;
-  characterAnimationItemComponentRef: ComponentRef<CharacterAnimationItemComponent>;
+  @Input() source: string = "";
+  leaving: boolean = false;
   readyToLeave:Boolean = false;
-  constructor(pCharacterAnimationItemComponentRef:ComponentRef<CharacterAnimationItemComponent>){
-    this.characterAnimationItemComponentRef = pCharacterAnimationItemComponentRef;
+  markedForDestruction = false;
+  hidden = false;
+  constructor(){
+    
   }
   ngOnChanges(changes:any){
-    if(this.dismissed)
-      log("dismissed")
+    log("ngOnChanges started with changes: ", changes);
+    if(this.dismissed){
+      log("dismissed is true");
+      if(this.readyToLeave){
+        this.leaving = true;
+        log("setting this.leaving to: ", this.leaving);
+      }
+    }
   }
-  transitionEnd(pEvent:any){
+  animationEnd(pEvent:any){
+    log("transitionEnd started with pEvent: ", pEvent);
     if(this.leaving){
-      //selfdestroy
+      //hide and mark for destruction by the container
+      this.hidden = true;
+      this.markedForDestruction = true;
     }else{
       if(this.dismissed){
-        if(this.readyToLeave){
-          this.leaving = true;
-        }else{
-          this.readyToLeave = true;
-        }
+        //leave
+        this.leaving = true;
       }else{
+        //leave when dismissed
         this.readyToLeave = true;
       }
     }

@@ -1,18 +1,20 @@
 Game: Manage options, hoard, quests, etc., start animations
 
-Zähler für Ressourcen:
-	Geld
-	Militär
-	Zufriedenheit
-	Einwohner
 
 dialogfeld:
+	imgsources mit dem animationsfeld kommunizieren
 
-bittstellerfeld:
-	display bittsteller:
-		eingangsanimation, drehanimation, ausgangsanimation
 
 Assets:
+	mehr character assets kreieren.
 
 Content:
 	Events
+
+background:
+	spawnende objekte je nach ressourcen
+	spawnende objekte nach events
+
+credits:
+	spende
+	login mit google

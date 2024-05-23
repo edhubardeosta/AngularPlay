@@ -7,6 +7,7 @@ var extendedLogging = true;
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+  currentSubjectImg = "";
   hoardValue = 0;
   militaryValue = 0;
   happinessValue = 0;
@@ -26,12 +27,22 @@ export class GameComponent {
     this.hoardValue -= 49;
   }
   startDialogue(){
-    console.log("Dialogue Data Items: ",this.dialogueData.items);
+    log("Dialogue Data Items: ",this.dialogueData.items);
     this.activeDialogueItem = this.dialogueData.randomDialogueItem();
-    console.log("activeDialogueItem: ",this.activeDialogueItem);
+    log("activeDialogueItem: ",this.activeDialogueItem);
+    this.currentSubjectImg = this.activeDialogueItem.characterSprite;
+  }
+  spawnSubject(){
+    log("spawnSubject started.");
+    this.currentSubjectImg = "../../assets/Characters/littleGhost.png";
+  }
+  dismissSubject(){
+    log("dismissSubject started.");
+    this.currentSubjectImg = "";
   }
   dialogueYes($event:any){
     if(this.activeDialogueItem){
+      this.currentSubjectImg = "";
       this.dialogueData.removeDialogueItem(this.activeDialogueItem.stageId);
       this.hoardValue += this.activeDialogueItem.yesCostOrProfit.treasure;
       this.militaryValue += this.activeDialogueItem.yesCostOrProfit.military;
@@ -48,6 +59,7 @@ export class GameComponent {
   }
   dialogueNo($event:any){
     if(this.activeDialogueItem){
+      this.currentSubjectImg = "";
       this.dialogueData.removeDialogueItem(this.activeDialogueItem.stageId);
       this.hoardValue += this.activeDialogueItem.noCostOrProfit.treasure;
       this.militaryValue += this.activeDialogueItem.noCostOrProfit.military;
