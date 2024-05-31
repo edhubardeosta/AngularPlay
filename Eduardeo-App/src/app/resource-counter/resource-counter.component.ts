@@ -31,19 +31,50 @@ function countTo(targetValue:number, context:any, callback: Function = ()=>{}, c
   if(difference<0)
     difference = difference*-1;
   log("difference: ",difference);
+  if(difference>1000){
+    //seperate function for large numbers
+    countLarge(targetValue, context, [targetValue, context, callback, callbackArgs]);
+  }else{
+    //standart way of counting
+    if (!context.loadIntervId) {
+      if(targetValue>context.displayAmount)
+        context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      if(targetValue<context.displayAmount)
+        context.loadIntervId = setInterval(()=>{context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+    }else{
+      clearInterval(context.loadIntervId);
+      // release our intervalID from the variable
+      context.loadIntervId = undefined;
+      if(targetValue>context.displayAmount)
+        context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      if(targetValue<context.displayAmount)
+        context.loadIntervId = setInterval(()=>{context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+
+    }
+  }
+}
+
+function countLarge(targetValue:number, context:any, callbackArgs:Array<any> = []) {
+  log("countTo started with targetValue:", targetValue);
+  log("and displayAmount: ", context.displayAmount)
+  log("and IntervId: ",context.loadIntervId);
+  var difference:number = context.displayAmount - targetValue;
+  if(difference<0)
+    difference = difference*-1;
+  log("difference: ",difference);
   if (!context.loadIntervId) {
     if(targetValue>context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount += difference/100; if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
     if(targetValue<context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount -= difference/100; if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
   }else{
     clearInterval(context.loadIntervId);
     // release our intervalID from the variable
     context.loadIntervId = undefined;
     if(targetValue>context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount += difference/100; if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
     if(targetValue<context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount -= 1; if(context.displayAmount<targetValue+1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount -= difference/100; if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
 
   }
 }
