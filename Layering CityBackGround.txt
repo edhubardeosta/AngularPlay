@@ -1,0 +1,49 @@
+ForeGround:
+	Bottom 1: 13 levels 40 x 93
+				+ 1 Statue when > level 2
+				+ 2 Mushrooms when = level 5
+				+ 5 Mushrooms when = level 8
+	
+	Bottom 2: 6 levels 
+				+ 1 Statue when = level 3
+				+ 2 Mushrooms when = level 3
+	Bottom 3: 7 levels 
+				+ 2 Statues when >= level 1
+				+ 1 Mushrooms when > level 2
+	Bottom 4 (Special): 9 levels
+				+ 4 Statues when = level 5
+
+	Top 1: 5 Levels, merge with bottom 1
+
+	Top 2: 10 levels, merge with bottom 2
+	
+	Top 3: 4 levels, 
+
+
+
+BackGround:
+	Bottom 1: 6 levels
+	
+	Bottom 2: 14 levels
+
+	Bottom 3: 8 levels
+	
+	Bottom 4: 5 levels
+	
+	Bottom 5: 6 levels
+
+	Bottom 6: 5 levels
+
+	Top 1: 16 levels
+	
+	Top 2: 9 levels
+	
+	Top 3: 5 levels
+
+	Top 4: 14 levels
+
+	Top 5: 10 levels
+
+Events (e.g. glowing mushrooms or statues) : save JSONlist with path & Tags 
+
+Lights: layer in front and disable by  topmost layer. Don't do at first

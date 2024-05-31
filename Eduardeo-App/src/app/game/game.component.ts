@@ -8,10 +8,10 @@ var extendedLogging = true;
 })
 export class GameComponent {
   currentSubjectImg = "";
-  hoardValue = 0;
-  militaryValue = 0;
-  happinessValue = 0;
-  populaceValue = 0;
+  hoardValue = 10000;
+  militaryValue = 10000;
+  happinessValue = 100;
+  populaceValue = 100000;
   displaySubMenu = true;
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();

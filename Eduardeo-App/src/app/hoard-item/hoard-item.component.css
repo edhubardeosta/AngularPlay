@@ -1,6 +1,6 @@
 .fallInPlace{
     animation-name: fallInPlaceAnimation;
-    animation-duration: 2s;
+    animation-duration: 2s; 
     animation-timing-function: ease-out;
     animation-direction: reverse;
     transform: scale(3);
@@ -14,6 +14,7 @@
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
+    z-index: -1000;
 }
 
 @keyframes fallInPlaceAnimation {

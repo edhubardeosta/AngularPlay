@@ -20,6 +20,7 @@
     margin-top: 0;
     overflow: hidden;
     position: absolute;
+    z-index: -120001;
 }
 .textContainer{
     margin-top: 70vh;
@@ -42,6 +43,10 @@
     height: 100%;
     margin-left: 10%;
     position: absolute;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
 }
 .Queen{
     width: 30%;
@@ -60,7 +65,8 @@
     margin-top: 0px;
     margin-left: 0px;
     width: 100%;
-    height: 45%
+    height: 45%;
+    z-index: -110000;
 }
 .Menu{
     margin-left: 1vw;
@@ -92,4 +98,14 @@
     position: relative;
     top: 2vh;
     
+}
+.gameBackGroundLarge{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;
+    z-index: -120000;
 }
