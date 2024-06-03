@@ -1,0 +1,8 @@
+.bottomBuilding1{  
+    width: 10%;
+    position: absolute;
+    margin-left: 5%;
+    height: 65%;
+    bottom: 0;
+    display: inline-block;
+}

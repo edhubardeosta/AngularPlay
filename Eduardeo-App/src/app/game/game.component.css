@@ -14,13 +14,14 @@
     position: absolute;
 }
 .cityContainer{
-    width: 60vw;
+    width: 50vw;
     height: 40vh;
-    margin-left: 20vw;
+    margin-left: 25vw;
     margin-top: 0;
     overflow: hidden;
     position: absolute;
     z-index: -120001;
+    display: inline-block;
 }
 .textContainer{
     margin-top: 70vh;

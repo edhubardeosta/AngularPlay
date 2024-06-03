@@ -18,7 +18,9 @@ import { CharacterAnimationContainerComponent } from './character-animation-cont
 import { MatBadgeModule } from '@angular/material/badge';
 import { ResourceCounterComponent } from './resource-counter/resource-counter.component';  
 import {MatTableModule} from '@angular/material/table';
-import { CharacterAnimationItemComponent } from './character-animation-item/character-animation-item.component'; 
+import { CharacterAnimationItemComponent } from './character-animation-item/character-animation-item.component';
+import { CityContainerComponent } from './city-container/city-container.component';
+import { CityBuildingContainerComponent } from './city-building-container/city-building-container.component'; 
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { CharacterAnimationItemComponent } from './character-animation-item/char
     DialogueBoxComponent,
     CharacterAnimationContainerComponent,
     ResourceCounterComponent,
-    CharacterAnimationItemComponent
+    CharacterAnimationItemComponent,
+    CityContainerComponent,
+    CityBuildingContainerComponent
   ],
   imports: [
     BrowserModule,
