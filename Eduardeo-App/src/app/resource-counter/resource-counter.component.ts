@@ -79,7 +79,7 @@ function countLarge(targetValue:number, context:any, callbackArgs:Array<any> = [
   }
 }
 function stopCounting(context:any, callback: Function, args: Array<any> = []){
-  console.log("stopCounting started. Args:", args);
+  log("stopCounting started. Args:", args);
   clearInterval(context.loadIntervId);
   // release our intervalID from the variable
   context.loadIntervId = undefined;

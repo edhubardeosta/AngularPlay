@@ -23,6 +23,9 @@ export class GameComponent {
   addMoney(){
     this.hoardValue += 1000;
   }
+  addPopulace(){
+    this.populaceValue += 10;
+  }
   removeMoney(){
     this.hoardValue -= 49;
   }

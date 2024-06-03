@@ -1,6 +1,6 @@
 <div class="gameContainer">
-<img class="cityContainer" src="../../assets/City.png">
-<app-city-container class="cityContainer"></app-city-container>
+<!--<img class="cityContainer" src="../../assets/City.png">-->
+<app-city-container class="cityContainer" [populace]="populaceValue"></app-city-container>
 <img class="gameBackGroundLarge" src="../../assets/GameBackground.png" >
 <app-character-animation-container class="queensSubjectContainer" [source]="currentSubjectImg">
 </app-character-animation-container>
@@ -25,7 +25,7 @@
         <button mat-fab class="mat-fab" color="white" (click)="startDialogue()">
             <mat-icon>textsms</mat-icon>
         </button>
-        <button mat-fab class="mat-fab" color="white" (click)="spawnSubject()">
+        <button mat-fab class="mat-fab" color="white" (click)="addPopulace()">
             <mat-icon>group_add</mat-icon>
         </button>
         <button mat-fab class="mat-fab" color="white" (click)="dismissSubject()">

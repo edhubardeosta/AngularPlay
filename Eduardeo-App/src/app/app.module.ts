@@ -20,7 +20,8 @@ import { ResourceCounterComponent } from './resource-counter/resource-counter.co
 import {MatTableModule} from '@angular/material/table';
 import { CharacterAnimationItemComponent } from './character-animation-item/character-animation-item.component';
 import { CityContainerComponent } from './city-container/city-container.component';
-import { CityBuildingContainerComponent } from './city-building-container/city-building-container.component'; 
+import { CityBuildingContainerComponent } from './city-building-container/city-building-container.component';
+import { CityBuildingStageComponent } from './city-building-stage/city-building-stage.component'; 
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CityBuildingContainerComponent } from './city-building-container/city-b
     ResourceCounterComponent,
     CharacterAnimationItemComponent,
     CityContainerComponent,
-    CityBuildingContainerComponent
+    CityBuildingContainerComponent,
+    CityBuildingStageComponent
   ],
   imports: [
     BrowserModule,

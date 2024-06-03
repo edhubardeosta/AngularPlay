@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef, ViewChild, ViewContainerRef, ComponentRef } from '@angular/core';
 import { CharacterAnimationItemComponent } from '../character-animation-item/character-animation-item.component';
-var extendedLogging:Boolean = true;
+var extendedLogging:Boolean = false;
 var lastCreatedItem: ComponentRef<CharacterAnimationItemComponent>;
 var dismissedItems: Array<ComponentRef<CharacterAnimationItemComponent>> = [];
 
