@@ -1,6 +1,6 @@
 import { Component, ComponentRef, Input , Output, ViewChild, ViewContainerRef} from '@angular/core';
-import { selector } from 'gsap';
 import { CityBuildingStageComponent } from '../city-building-stage/city-building-stage.component';
+import { building, foreGroundBottom1 } from '../app.buildingClasses';
 var extendedLogging = true;
 @Component({
   selector: 'app-city-building-container',
@@ -9,10 +9,9 @@ var extendedLogging = true;
 })
 export class CityBuildingContainerComponent {
   buildingStages: Array<ComponentRef<CityBuildingStageComponent>> = [];
-  @Input() plane: String = "ForeGround"
   @Input() triggerEvent: String = "";
-  @Input() nextStage: Boolean = false;
-  @Input() type: String = "";
+  @Input() nextStage: number = 0;
+  @Input() buldingClass: building|undefined = undefined;
   @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
   ngOnChanges(changes:any){
     log("ngOnChange started with changes:", changes);
@@ -20,13 +19,25 @@ export class CityBuildingContainerComponent {
       this.triggerEvent = "";
 
     }
-    if(false){ // wenn nextstage geändert später noch ändern
+    if(this.buldingClass){
+      if(changes.nextStage.currentValue<=this.buldingClass?.maxPopStages!){ 
+        this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
+        var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer " + (this.nextStage)+".png";
+        log("trying this source for stage image", sourceString);
+        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+      }
+    }
+  }
+
+  ngOnInit(){
+    if(this.buldingClass){
       this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
-      log("trying this source for stage image", "../../assets/City"+this.plane+this.type + "Layer " + (this.buildingStages.length-1));
-      this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", "../../assets/City"+this.plane+this.type + "Layer " + (this.buildingStages.length-1));
-      this.nextStage = false;
+      var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer 0.png";
+      log("trying this source for stage image", sourceString);
+      this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
     }
-    }
+
+  }
 
 }
 

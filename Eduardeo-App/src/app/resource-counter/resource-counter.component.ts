@@ -36,6 +36,7 @@ function countTo(targetValue:number, context:any, callback: Function = ()=>{}, c
     countLarge(targetValue, context, [targetValue, context, callback, callbackArgs]);
   }else{
     //standart way of counting
+    context.displayAmount = Math.round(context.displayAmount);
     if (!context.loadIntervId) {
       if(targetValue>context.displayAmount)
         context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
@@ -45,6 +46,7 @@ function countTo(targetValue:number, context:any, callback: Function = ()=>{}, c
       clearInterval(context.loadIntervId);
       // release our intervalID from the variable
       context.loadIntervId = undefined;
+      context.displayAmount = Math.round(context.displayAmount);
       if(targetValue>context.displayAmount)
         context.loadIntervId = setInterval(()=>{context.displayAmount += 1; if(context.displayAmount>targetValue-1){stopCounting(context, callback, callbackArgs)}}, 1000/difference);
       if(targetValue<context.displayAmount)
