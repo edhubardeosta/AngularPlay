@@ -362,11 +362,11 @@
     {
         "stageId": 29, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. I have established a militia. Do you believe our forces will keep the county safe?", 
-        "yesCostOrProfit": { "happiness": 3, "military": 15 }, 
-        "noCostOrProfit": { "happiness": -1, "military": 15 }, 
-        "yesStageIds": [30, 31], 
-        "noStageIds":[30, 31],
+        "cardText": "My Queen. I have established a militia. Do you believe our forces will keep the country safe?", 
+        "yesCostOrProfit": { "happiness": 3, "military": 5 }, 
+        "noCostOrProfit": { "happiness": -1, "military": 5 }, 
+        "yesStageIds": [30, 31, 32], 
+        "noStageIds":[30, 31, 32],
         "hasPrecursor": false,
         "yesText": "Good, this will bolster morale.",
         "noText": "Now, don't dishearten our forces too much."
@@ -374,7 +374,7 @@
     {
         "stageId": 30, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. Shall we bolster out army by buying new swords?", 
+        "cardText": "My Queen. Shall we bolster our army by buying new swords?", 
         "yesCostOrProfit": { "treasure": -16, "military": 15 }, 
         "yesStageIds": [30], 
         "noStageIds":[30],
@@ -392,5 +392,21 @@
         "hasPrecursor": false,
         "yesText": "I will find suitable smiths immediately.",
         "noText": "Undestood."
+    },
+    {
+        "stageId": 32, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. Just now, a small monster attacked, took a few people and destroyed some things. I take full responsibility. With our current military strength, I can't guarantee it will not happen again.", 
+        "yesCostOrProfit": { "treasure":-11, "happiness": -10, "populace": -5 }, 
+        "noCostOrProfit": { "treasure":-11, "happiness": -10, "populace": -5 }, 
+        "yesStageIds": [32], 
+        "noStageIds":[32],
+        "hasPrecursor": false,
+        "yesText": "I will do everything in my power to put a stop to this.",
+        "noText": "Forgive me. The soldiers did their best.",
+        "deactivationCondition": {
+            "conditions": ["militOver10"],
+            "operator": "OR"
+        }
     }
 ]

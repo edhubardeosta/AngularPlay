@@ -218,6 +218,59 @@ export class GameComponent {
         }
       }
 
+    });
+    //remove deactivated items from active items
+    log("Checking deactivations conditions with current active conditions: ", this.activeConditions);
+    log("On dialogueData.items:", this.dialogueData.items);
+    this.dialogueData.items = this.dialogueData.items.filter((item) => {
+      var deactivated = false;
+      if(item.deactivationCondition){
+        log("deactivationCondition found: ", item.deactivationCondition)
+        switch(item.deactivationCondition.operator){
+          case "OR":
+            var match = false;
+            item.deactivationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  log("Match found with: ", activeCondition);
+                  match = true;
+              })
+            })
+            if(match != false)
+              deactivated = true;
+            break;
+          case "XOR":
+            var match = false;
+            item.deactivationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  if(match == false){
+                    match = true;
+                  }else{
+                    deactivated = true;
+                  }
+              })
+            })
+            if(match == false)
+              deactivated = true;
+            break;
+          default:
+            item.deactivationCondition.conditions.forEach(condition => {
+              var match = false;
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  match = true;
+              })
+              if(match == false)
+                deactivated = true;
+            })
+            break;
+        }
+
+      }
+      var itemIsActive = !deactivated;
+      log("returning: ", itemIsActive);
+      return itemIsActive;
     })
 
   }
