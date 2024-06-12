@@ -1,7 +1,7 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DialogueItem } from '../game/game.dialogueSystem';
 
-var extendedLogging = false; //set to false later
+var extendedLogging = true; //set to false later
 var responseStage = false;
 var answerIsYes = false;
 
@@ -100,74 +100,74 @@ export class DialogueBoxComponent {
   displayTrends(pActiveItem:DialogueItem):void{
     var activeItem:DialogueItem = pActiveItem;
     // display Yes Treasure Trend
-    if(activeItem.yesCostOrProfit.treasure>0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.treasure>0){
       this.yesTreasureTrend = "+";
       this.hideYesTreasureTrend = false;
     }
-    if(activeItem.yesCostOrProfit.treasure<0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.treasure<0){
       this.yesTreasureTrend = "-";
       this.hideYesTreasureTrend = false;
     }
     // display No Treasure Trend
-    if(activeItem.noCostOrProfit.treasure>0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.treasure>0){
       this.noTreasureTrend = "+";
       this.hideNoTreasureTrend = false;
     }
-    if(activeItem.noCostOrProfit.treasure<0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.treasure<0){
       this.noTreasureTrend = "-";
       this.hideNoTreasureTrend = false;
     }
     // display Yes Military Trend
-    if(activeItem.yesCostOrProfit.military>0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.military>0){
       this.yesMilitaryTrend = "+";
       this.hideYesMilitaryTrend = false;
     }
-    if(activeItem.yesCostOrProfit.military<0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.military<0){
       this.yesMilitaryTrend = "-";
       this.hideYesMilitaryTrend = false;
     }
     // display No Military Trend
-    if(activeItem.noCostOrProfit.military>0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.military>0){
       this.noMilitaryTrend = "+";
       this.hideNoMilitaryTrend = false;
     }
-    if(activeItem.noCostOrProfit.military<0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.military<0){
       this.noMilitaryTrend = "-";
       this.hideNoMilitaryTrend = false;
     }
     // display Yes Happiness Trend
-    if(activeItem.yesCostOrProfit.happiness>0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.happiness>0){
       this.yesHappinessTrend = "+";
       this.hideYesHappinessTrend = false;
     }
-    if(activeItem.yesCostOrProfit.happiness<0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.happiness<0){
       this.yesHappinessTrend = "-";
       this.hideYesHappinessTrend = false;
     }
     // display No Happiness Trend
-    if(activeItem.noCostOrProfit.happiness>0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.happiness>0){
       this.noHappinessTrend = "+";
       this.hideNoHappinessTrend = false;
     }
-    if(activeItem.noCostOrProfit.happiness<0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.happiness<0){
       this.noHappinessTrend = "-";
       this.hideNoHappinessTrend = false;
     }
     // display Yes Populace Trend
-    if(activeItem.yesCostOrProfit.populace>0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.populace>0){
       this.yesPopulaceTrend = "+";
       this.hideYesPopulaceTrend = false;
     }
-    if(activeItem.yesCostOrProfit.populace<0){
+    if(activeItem.yesCostOrProfit && activeItem.yesCostOrProfit.populace<0){
       this.yesPopulaceTrend = "-";
       this.hideYesPopulaceTrend = false;
     }
     // display No Populace Trend
-    if(activeItem.noCostOrProfit.populace>0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.populace>0){
       this.noPopulaceTrend = "+";
       this.hideNoPopulaceTrend = false;
     }
-    if(activeItem.noCostOrProfit.populace<0){
+    if(activeItem.noCostOrProfit && activeItem.noCostOrProfit.populace<0){
       this.noPopulaceTrend = "-";
       this.hideNoPopulaceTrend = false;
     }

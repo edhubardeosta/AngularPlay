@@ -29,7 +29,12 @@ export class DialogueData{
         var itemToAdd:DialogueItem|undefined;
         itemToAdd = this.allItems.find(i => i.stageId == pStageId);
         if(itemToAdd){
-            this.items.push(itemToAdd);
+            var isAlreadyAdded = this.items.find(i => i.stageId == pStageId);
+            if(!isAlreadyAdded){
+                this.items.push(itemToAdd);
+            }else{
+                log("Item is already added: ",itemToAdd);
+            }
         }else{
             console.error("DialogueItem not found for StageId: ", pStageId);
         }
@@ -49,45 +54,56 @@ export class DialogueItem{
     stageId:number;
     //which character is appearing
     characterSprite:string;
+    //optional second sprite when leaving
+    leavingSprite:string|undefined;
     //which text is displayed
     cardText:string;
     //What stage id will be jumped to on "yes"?
-    yesStageId:number|undefined;
+    yesStageIds:Array<number>|undefined;
     //What stage id will be jumped to on "no"?
-    noStageId:number|undefined;
+    noStageIds:Array<number>|undefined;
     //What cost/profit is made on "yes"?
     yesCostOrProfit:CostOrProfitItem;
     //What cost/profit is made on "no"?
     noCostOrProfit:CostOrProfitItem;
     yesText: string;
     noText: string;
+    yesConditions: Array<string>;
+    noConditions: Array<string>;
+    yesRemoveConditions: Array<string>;
+    noRemoveConditions: Array<string>;
+    activationCondition: StageCondition | undefined;
+    deactivationCondition: StageCondition | undefined;
     //What additional conditions are set on "yes"? e.g. buildings built in the background? check if stage is loaded for this.
     //What additional conditions are set on "no"?
     //potential influences, if other stages are loaded?
     hasPrecursor:boolean;
-    passiveAdvancementCondition: StagePassiveAdvancementCondition | undefined;
-    constructor(pStageId:number,pCharacterSprite:string,pCardText:string,pYesStageId:number|undefined = undefined,pNoStageId:number|undefined = undefined,pYesCostOrProfit:CostOrProfitItem = new CostOrProfitItem(),pNoCostOrProfit:CostOrProfitItem = new CostOrProfitItem(), pStagePassiveAdvancementCondition:StagePassiveAdvancementCondition| undefined = undefined, pHasPrecursor = true, pYesText:string,pNoText:string){
+    constructor(pStageId:number,pCharacterSprite:string,pCardText:string,pYesStageIds:Array<number>|undefined = undefined,pNoStageIds:Array<number>|undefined = undefined,pYesCostOrProfit:CostOrProfitItem = new CostOrProfitItem(),pNoCostOrProfit:CostOrProfitItem = new CostOrProfitItem(), pActivationCondition:StageCondition| undefined = undefined, pDeactivationCondition:StageCondition| undefined = undefined, pHasPrecursor = true, pYesText:string,pNoText:string, pYesConditions:Array<string>, pNoConditions:Array<string>,  pYesRemoveConditions:Array<string>, pNoRemoveConditions:Array<string>, pLeavingSprite = undefined){
         this.stageId = pStageId;
         this.characterSprite = pCharacterSprite;
         this.cardText = pCardText;
-        this.yesStageId = pYesStageId;
-        this.noStageId = pNoStageId;
+        this.yesStageIds = pYesStageIds;
+        this.yesStageIds = pNoStageIds;
         this.yesCostOrProfit = pYesCostOrProfit;
         this.noCostOrProfit = pNoCostOrProfit;
-        this.passiveAdvancementCondition = pStagePassiveAdvancementCondition;
         this.hasPrecursor = pHasPrecursor;
         this.yesText = pYesText;
         this.noText = pNoText;
+        this.yesConditions = pYesConditions;
+        this.noConditions = pNoConditions;
+        this.yesRemoveConditions = pYesRemoveConditions;
+        this.noRemoveConditions = pNoRemoveConditions;
+        this.activationCondition = pActivationCondition;
+        this.deactivationCondition = pDeactivationCondition;
+        this.leavingSprite = pLeavingSprite;
     }
 }
 
-export class StagePassiveAdvancementCondition{
-    newStageId:number;
-    conditionStages:Array<number>;
+export class StageCondition{
+    conditions:Array<string>;
     operator:string;
-    constructor(pNewStageId:number,pConditionStages:Array<number>,pOperator:string = "&&"){
-        this.newStageId = pNewStageId;
-        this.conditionStages = pConditionStages;
+    constructor(pConditions:Array<string>,pOperator:string = "AND"){
+        this.conditions = pConditions;
         this.operator = pOperator;
 
     }

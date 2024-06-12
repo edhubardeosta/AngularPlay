@@ -48,7 +48,7 @@ export class foreGroundTop1 extends building{
     constructor(){
         super()
         this.events = [];
-        this.maxPopStages = 15;
+        this.maxPopStages = 16;
         this.name = "Top 1";
         this.plane = "ForeGround"
     }

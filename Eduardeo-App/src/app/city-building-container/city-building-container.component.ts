@@ -1,7 +1,7 @@
 import { Component, ComponentRef, Input , Output, ViewChild, ViewContainerRef} from '@angular/core';
 import { CityBuildingStageComponent } from '../city-building-stage/city-building-stage.component';
 import { building, foreGroundBottom1 } from '../app.buildingClasses';
-var extendedLogging = true;
+var extendedLogging = false;
 @Component({
   selector: 'app-city-building-container',
   templateUrl: './city-building-container.component.html',
@@ -21,10 +21,18 @@ export class CityBuildingContainerComponent {
     }
     if(this.buldingClass){
       if(changes.nextStage.currentValue<=this.buldingClass?.maxPopStages!){ 
-        this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
-        var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer " + (this.nextStage)+".png";
-        log("trying this source for stage image", sourceString);
-        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+        var startVal = changes.nextStage.previousValue;
+        var endVal = changes.nextStage.currentValue;
+        log("endVal: ",endVal);
+        log("startVal: ",startVal);
+        if(endVal != undefined && startVal != undefined){
+          for(var i = startVal; i <= endVal; i++){
+            this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
+            var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer " + i+".png";
+            log("trying this source for stage image", sourceString);
+            this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+          }
+        }
       }
     }
   }

@@ -2,36 +2,395 @@
     {
         "stageId": 0, 
         "characterSprite": "../../assets/Characters/littleGhost.png",
-        "cardText": "sneaki boi", 
-        "yesCostOrProfit": { "treasure": -10, "military": 1, "happiness": -2, "populace": 1 }, 
-        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 0, "populace": 0 }, 
+        "cardText": "OoooOo, you look fun! Can I scare you?", 
+        "yesCostOrProfit": { "happiness": -1}, 
         "hasPrecursor": false, 
-        "yesStageId": 1, 
-        "noStageId":0,
-        "yesText": "He sneak away!",
-        "noText": "He amgery!"
+        "yesStageIds": [2], 
+        "noStageIds": [1],
+        "yesText": "Hehe, that was fun! I like you!",
+        "noText": "Aww man, so boring..."
     },
     {
         "stageId": 1, 
         "characterSprite": "../../assets/Characters/littleGhost.png",
-        "cardText": "sneaki boi wants more shit", 
-        "yesCostOrProfit": { "treasure": -30, "military": 0, "happiness": -4, "populace": 0 }, 
-        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": -1, "populace": 0 }, 
+        "cardText": "OoooOo, it's me again! Can I scare you this time?", 
+        "yesCostOrProfit": {"happiness": -1}, 
         "hasPrecursor": true, 
-        "noStageId": 1,
-        "yesText": "He sneak away with more shtuff!",
-        "noText": "He amgery now!"
+        "yesStageIds": [2], 
+        "noStageIds": [1],
+        "yesText": "Yay, you're fun afterall! I like you!",
+        "noText": "Aww man, so boring..."
     },
     {
         "stageId": 2, 
         "characterSprite": "../../assets/Characters/littleGhost.png",
-        "cardText": "rich boi has present", 
-        "yesCostOrProfit": { "treasure": 30, "military": 0, "happiness": 0, "populace": 0 }, 
-        "noCostOrProfit": { "treasure": 0, "military": 0, "happiness": 2, "populace": 0 }, 
+        "cardText": "OoooOo, it's me again! Can I scare you again?", 
+        "yesCostOrProfit": {"happiness": -1}, 
+        "hasPrecursor": true, 
+        "yesStageIds": [7], 
+        "noStageIds":[1],
+        "yesText": "Yayayay, you're so fun!",
+        "noText": "Okay, I guess not this time..."
+    },
+    {
+        "stageId": 3, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "Greetings, and welcome to your domain, my Queen. After the great cataclysm, you have chosen to rebuild your queendom underground, far from the remaining empires of the surface, warring for dominance. You will hold court over your subjects and keep your realm wealthy, peaceful, content and populous. Are you ready?", 
+        "yesCostOrProfit": { "populace": 100 }, 
+        "noCostOrProfit": { "populace": 100 }, 
         "hasPrecursor": false,
-        "yesStageId": 2, 
-        "noStageId":2,
-        "yesText": "Hell Yeah!",
-        "noText": "I wanna love you for your person not your money!"
+        "yesText": "Perfect, then let us get started right away!",
+        "noText": "That is alright, take your time. It's best to think these matters through thoroughly."
+    },
+    {
+        "stageId": 4, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "It might be wise to raise taxes, my Queen. The people will of course not be happy about this, but it might be necessary to keep the treasury full. What do you say?", 
+        "yesCostOrProfit": { "treasure": 100, "happiness": -10}, 
+        "noCostOrProfit": { "treasure": -100, "happiness": 5}, 
+        "hasPrecursor": false,
+        "yesStageIds": [4], 
+        "noStageIds":[4],
+        "yesText": "The Queen has spoken, I will implement the changes right away.",
+        "noText": "The people will be pleased to hear this, I will spread the word."
+    },
+    {
+        "stageId": 5, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "My Queen, people are complaining about taxes, they always are. However this might be an opportunity to show your compassion, if the treasury can handle it. Should we lower the taxes?", 
+        "yesCostOrProfit": { "treasure": -100, "happiness": 5}, 
+        "noCostOrProfit": { "treasure": 50,"happiness": -5}, 
+        "hasPrecursor": false,
+        "yesStageIds": [5], 
+        "noStageIds":[5],
+        "yesText": "Hail to you, oh merciful Queen! The people will be elated!",
+        "noText": "I understand everyone has to pay their share."
+    },
+    {
+        "stageId": 6, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "Bad news, my Queen. There has been a terrible accident. Shall we send some money to support their relatives?", 
+        "yesCostOrProfit": { "treasure": -10, "happiness": 1, "populace": -5}, 
+        "noCostOrProfit": { "happiness": -10, "populace": -5}, 
+        "hasPrecursor": false,
+        "yesStageIds": [6], 
+        "noStageIds":[6],
+        "yesText": "Their relatives will remember your help. Now they can say goodbye properly.",
+        "noText": "I will send condolences."
+    },
+    {
+        "stageId": 7, 
+        "characterSprite": "../../assets/Characters/littleGhost.png",
+        "cardText": "Hey, I like you and I would like to live in your castle and haunt it. Can I?", 
+        "yesCostOrProfit": {"happiness": 1, "populace": 1 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [10], 
+        "noStageIds":[2],
+        "yesText": "Great, time to explore the place, hehe.",
+        "noText": "Oh, okay. I guess I'll come visit once in a while.",
+        "yesConditions": ["ghostMovedIn"]
+    },
+    {
+        "stageId": 8, 
+        "characterSprite": "../../assets/Characters/djini.png",
+        "cardText": "Greetings, I'm feeling charitable today. I may grant one wish to you or to one of your subjects instead. So, will it be you?", 
+        "yesCostOrProfit": {"treasure": 1000}, 
+        "noCostOrProfit": {"happiness": 50}, 
+        "hasPrecursor": true,
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "yesText": "You wish for great riches, very well. It is so.",
+        "noText": "How noble, I'll be sure to choose a worthy recipient.",
+        "yesConditions": ["deactivateDjini"],
+        "noConditions": ["deactivateDjini"],
+        "activationCondition": {
+            "conditions": ["popOver150"]
+        },
+        "deactivationCondition": {
+            "conditions": ["deactivateDjini"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 9, 
+        "characterSprite": "../../assets/Characters/efreeti.png",
+        "cardText": "Greetings, I'm feeling very charitable today. I can grant you your weight in Gold, a dozen times over. Do you want to make the wish?", 
+        "yesCostOrProfit": {"treasure": 500,"happiness":-25,"populace":-12}, 
+        "hasPrecursor": true,
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "yesText": "Hahaha, yes! A woman of action! Just like old midas, have fun with your gold!",
+        "noText": "An Idealist, how quaint. Remember this day, when hard times come and your treasure wears thin. Farewell.",
+        "yesConditions": ["deactivateEfreeti"],
+        "noConditions": ["deactivateEfreeti"],
+        "activationCondition": {
+            "conditions": ["popOver150"]
+        },
+        "deactivationCondition": {
+            "conditions": ["deactivateEfreeti"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 10, 
+        "characterSprite": "../../assets/Characters/littleGhost_with_gold.png",
+        "leavingSprite":"../../assets/Characters/littleGhost.png",
+        "cardText": "Hey look, I found something deep inside a cave. Do you want it?", 
+        "yesCostOrProfit": {"treasure": 10}, 
+        "hasPrecursor": true,
+        "yesStageIds": [10], 
+        "noStageIds":[10],
+        "yesText": "I'll give it to you. But only because you've been so nice to me.",
+        "noText": "Nice, I'll put it somewhere safe.",
+        "activationCondition": {
+            "conditions": ["ghostMovedIn"]
+        }
+    },
+    {
+        "stageId": 11, 
+        "characterSprite": "../../assets/Characters/littleGhost_with_silver.png",
+        "leavingSprite":"../../assets/Characters/littleGhost.png",
+        "cardText": "Hey look, I found something under an old stairwell. Do you want it?", 
+        "yesCostOrProfit": {"treasure": 5}, 
+        "hasPrecursor": true,
+        "yesStageIds": [11], 
+        "noStageIds":[11],
+        "yesText": "Yeah, sure you can have it, here.",
+        "noText": "Okay, I'll keep it, then.",
+        "activationCondition": {
+            "conditions": ["ghostMovedIn"]
+        }
+    },
+    {
+        "stageId": 12, 
+        "characterSprite": "../../assets/Characters/littleGhost_with_copper.png",
+        "leavingSprite":"../../assets/Characters/littleGhost.png",
+        "cardText": "Hey look, I found something in a crack. Do you want it?", 
+        "yesCostOrProfit": {"treasure": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds": [12], 
+        "noStageIds":[12],
+        "yesText": "There you go.",
+        "noText": "I'll put it in a crack someplace else.",
+        "activationCondition": {
+            "conditions": ["ghostMovedIn"]
+        }
+    },
+    {
+        "stageId": 13, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Where did it come from, and what might it do?]", 
+        "yesCostOrProfit": { "treasure": -11 }, 
+        "hasPrecursor": false,
+        "yesStageIds": [13], 
+        "noStageIds":[13],
+        "yesText": "...",
+        "noText": "..."
+    },
+    {
+        "stageId": 14, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "Have you ever heard of a talking mushroom?", 
+        "hasPrecursor": false,
+        "noCostOrProfit": { "populace": 1 }, 
+        "yesStageIds": [15], 
+        "noStageIds":[17,19,25],
+        "yesText": "You have? I don't know your face though. Hmm, maybe in a previous life.",
+        "noText": "You havent'? Actually, most people never heard of me. I may be a mushroom myself, but I do extensive reseach in the field of fungology. Let's talk again later!"
+    },
+    {
+        "stageId": 15, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "It's me again, last time you said you'd already heard of me. That made me suspicous. But maybe you just enjoy science, just like me... do you?", 
+        "hasPrecursor": true, 
+        "yesCostOrProfit": { "populace": 1 }, 
+        "yesStageIds": [17,19,25], 
+        "noStageIds":[16],
+        "yesText": "You do? Splendid, I'll make sure to tell you about all my science projects.",
+        "noText": "You don't? Well I'll just ask again later. Maybe you'll change your mind..."
+    },
+    {
+        "stageId": 16, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "It's me again, are you still not insterested in science is it different this time? Have you changed your mind?", 
+        "hasPrecursor": true, 
+        "yesCostOrProfit": { "populace": 1 }, 
+        "yesStageIds": [17,19,25], 
+        "noStageIds":[16],
+        "yesText": "You have? Splendid, I'll make sure to tell you about all my science projects.",
+        "noText": "You haven't? Well I'll just ask again later. Maybe next time..."
+    },
+    {
+        "stageId": 17, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I have an idea for a science project. I have found a rare species of mushroom, that can move, and attack threats. At first I thought they were sentient like me, but as it turns out, they're more simpleminded. Now I'm looking for ways to cultivate these mushrooms and turn them into mushroom golems. Can I have some money for my research?", 
+        "hasPrecursor": true,
+        "yesStageIds": [18], 
+        "noStageIds":[],
+        "yesCostOrProfit": { "treasure": -43 }, 
+        "yesText": "Great, I can't wait to see the results!",
+        "noText": "You're right. Maybe that is a little bit too dangerous"
+    },
+    {
+        "stageId": 18, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "Remember the mushroom golems, that I told you about? I finished them! I used the fields in front of the city to grow them and now we can use special spores to control their behavior. Now they help defending the city.", 
+        "yesCostOrProfit": { "military": 50 }, 
+        "noCostOrProfit": { "military": 50 },  
+        "hasPrecursor": true,
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "yesText": "I'm glad you like them too!",
+        "noText": "Well if you don't want them, you don't have to use them. If they cause any problems, just tell me. Thank you for the funding, still."
+    },
+    {
+        "stageId": 19, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I have an idea for an ambitious science project. I want to create a species of mushroom thats healthy, nutritious and tasty. It would help to feed a lot of people and make the world a better place. I will have to carefully grow specific species and cross-breed them, using magic and I can't say yet, if it will work. Will you still fund my research?", 
+        "hasPrecursor": true,
+        "yesStageIds": [20], 
+        "noStageIds":[],
+        "yesCostOrProfit": { "treasure": -131 }, 
+        "yesText": "Perfect! If this works, we will change the world!",
+        "noText": "I figured. I guess it will stay a dream then."
+    },
+    {
+        "stageId": 20, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I've started researching the new mushroom species, and I think its going well. It's going to be a while until the real progress starts, but I wanted to let you know how greatful I am. I couldn't do this without you.", 
+        "hasPrecursor": true,
+        "yesCostOrProfit": { "happiness": 1 }, 
+        "noCostOrProfit": { "happiness": 1 }, 
+        "yesStageIds": [21], 
+        "noStageIds":[21],
+        "yesText": "I love that you're hopeful too!",
+        "noText": "Ah, you're just too humble."
+    },
+    {
+        "stageId": 21, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "The research is going slower than expected. The outcomes of the cross-bred mushrooms are much more unpredictable than I thought. I basically have to try out every possible combination. I hate to ask but can I have some more funds to hire an assistant?", 
+        "hasPrecursor": true,
+        "yesStageIds": [23], 
+        "noStageIds":[22],
+        "yesCostOrProfit": { "treasure": -13 }, 
+        "yesText": "Thanks a lot! I promise, I'll make it up to you!",
+        "noText": "I understand, it'll take a bit longer, but I'll try to stay in budget."
+    },
+    {
+        "stageId": 22, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "Hey, I just wanted to report the progress I'm making. It's really tedious but I'm working my way through the cross-breeding process. Do you think I can do it?", 
+        "hasPrecursor": true,
+        "yesStageIds": [23], 
+        "noStageIds":[23],
+        "yesCostOrProfit": { "happiness": 1 }, 
+        "noCostOrProfit": { "happiness": -1 }, 
+        "yesText": "Thank you! Thats what I needed to hear right now.",
+        "noText": "Oh, ok. That stings a bit. But I'll prove you wrong yet!"
+    },
+    {
+        "stageId": 23, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "It's still taking its time. Most of the mushrooms are just glowing, which is really cool, but not what I wanted. At least, since they look very pretty I managed to sell some of them. I made enough so I can finally pay you back a little bit of what you gave me.", 
+        "hasPrecursor": true,
+        "yesStageIds": [24], 
+        "noStageIds":[24],
+        "yesCostOrProfit": { "treasure": 37 }, 
+        "noCostOrProfit": { "treasure": 37 }, 
+        "yesText": "I hope this helps. I'll come back soon with new results, I promise.",
+        "noText": "No, take it. Right now I don't need it and I push comes to shove, you'll be there for me."
+    },
+    {
+        "stageId": 24, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I've managed to grow some flavourful mushrooms, which are very aromatic and are good for seasoning dishes, when they're dried. They've sold for a nice price. The bad news is, that I'm kind of stuck. I can't find a source of magic poweful enough, so I can cross-breed the  right species. I think for now I will put my research on hold and focus on my other projects until I find a better opportunity. Here's most of the remaining budget.", 
+        "hasPrecursor": true,
+        "yesStageIds": [24], 
+        "noStageIds":[24],
+        "yesCostOrProfit": { "treasure": 133 }, 
+        "noCostOrProfit": { "treasure": 133 }, 
+        "yesConditions": ["crossbreedingSupershroomsDone"],
+        "noConditions": ["crossbreedingSupershroomsDone"],
+        "yesText": "Thanks again for everything. Without you, I would've never made it that far.",
+        "noText": "It's okay. Maybe one day we'll find the missing piece, and I'm glad, that I've tried it."
+    },
+    {
+        "stageId": 25, 
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "One of the mushroom species I found, has some interesting properties. It makes people wanna have babies, and it even allows people to have children, who normally wouldn't be able to. Should I hand the mushrooms out to anyone, who wants to have a baby?", 
+        "hasPrecursor": true,
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "yesCostOrProfit": { "populace": 25, "happiness": 6 }, 
+        "yesText": "This will make a lot of people very happy.",
+        "noText": "Okay, I'll keep them under wraps, then."
+    },
+    {
+        "stageId": 26, 
+        "characterSprite": "../../assets/Characters/slime.png",
+        "cardText": "Hello you, can I eat some of your leftovers?", 
+        "hasPrecursor": false,
+        "yesStageIds": [26], 
+        "noStageIds":[26],
+        "yesCostOrProfit": { "happiness": 1 }, 
+        "yesText": "Mhm, tasty!",
+        "noText": "I guess I will just slide away then."
+    },
+    {
+        "stageId": 27, 
+        "characterSprite": "../../assets/Characters/slime.png",
+        "cardText": "I'm hungry, can I have some food?", 
+        "hasPrecursor": false,
+        "yesStageIds": [27], 
+        "noStageIds":[27],
+        "yesCostOrProfit": { "treasure":-1, "happiness": 1 }, 
+        "noCostOrProfit": { "happiness": -1 }, 
+        "yesText": "Mhm, thanks!",
+        "noText": "I thought you'd be nice to me..."
+    },
+    {
+        "stageId": 28, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "The economy is going well, my queen. Should we spend the surplus and celebrate?", 
+        "yesCostOrProfit": { "happiness": 15 }, 
+        "noCostOrProfit": { "treasure": 47 }, 
+        "hasPrecursor": false,
+        "yesText": "Great, the people will be pleased!",
+        "noText": "You're right, we could use the money right now."
+    },
+    {
+        "stageId": 29, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. I have established a militia. Do you believe our forces will keep the county safe?", 
+        "yesCostOrProfit": { "happiness": 3, "military": 15 }, 
+        "noCostOrProfit": { "happiness": -1, "military": 15 }, 
+        "yesStageIds": [30, 31], 
+        "noStageIds":[30, 31],
+        "hasPrecursor": false,
+        "yesText": "Good, this will bolster morale.",
+        "noText": "Now, don't dishearten our forces too much."
+    },
+    {
+        "stageId": 30, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. Shall we bolster out army by buying new swords?", 
+        "yesCostOrProfit": { "treasure": -16, "military": 15 }, 
+        "yesStageIds": [30], 
+        "noStageIds":[30],
+        "hasPrecursor": false,
+        "yesText": "I will find suitable smiths immediately.",
+        "noText": "Undestood."
+    },
+    {
+        "stageId": 31, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. If we bought new suits of armor for our soldiers, our citizens would feel safer. Of course our fighting capabilities would increase as well.", 
+        "yesCostOrProfit": { "treasure":-31, "happiness": 3, "military": 15 }, 
+        "yesStageIds": [31], 
+        "noStageIds":[31],
+        "hasPrecursor": false,
+        "yesText": "I will find suitable smiths immediately.",
+        "noText": "Undestood."
     }
 ]

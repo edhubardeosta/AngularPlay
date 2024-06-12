@@ -21,7 +21,7 @@ import {
   backGroundTop5
 } from '../app.buildingClasses';
 var utils:UtilsService = new UtilsService();
-var extendedLogging = true;
+var extendedLogging = false;
 var accDifference: number = 0;
 @Component({
   selector: 'app-city-container',
@@ -57,16 +57,16 @@ export class CityContainerComponent {
     if(!changes.populace.firstChange && changes.populace.currentValue){
       var difference:number = changes.populace.currentValue - changes.populace.previousValue;
       log("difference in population: ", difference);
-      while(difference>0){
+      while(difference>0 || accDifference>49){
         if(difference>9){
           this.advanceDuePopulace();
-          difference -= 10;
+          difference -= 50;
         }else{
           accDifference += difference;
           difference = 0;
-          if(accDifference>9){
+          if(accDifference>49){
             this.advanceDuePopulace();
-            accDifference -= 10;
+            accDifference -= 50;
           }
         }
       }

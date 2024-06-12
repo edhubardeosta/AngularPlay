@@ -35,7 +35,7 @@ function countTo(targetValue:number, context:any, callback: Function = ()=>{}, c
     //seperate function for large numbers
     countLarge(targetValue, context, [targetValue, context, callback, callbackArgs]);
   }else{
-    //standart way of counting
+    //standard way of counting
     context.displayAmount = Math.round(context.displayAmount);
     if (!context.loadIntervId) {
       if(targetValue>context.displayAmount)
@@ -66,17 +66,17 @@ function countLarge(targetValue:number, context:any, callbackArgs:Array<any> = [
   log("difference: ",difference);
   if (!context.loadIntervId) {
     if(targetValue>context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount += difference/100; if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount += Math.round(difference/100); if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
     if(targetValue<context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount -= difference/100; if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount -= Math.round(difference/100); if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
   }else{
     clearInterval(context.loadIntervId);
     // release our intervalID from the variable
     context.loadIntervId = undefined;
     if(targetValue>context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount += difference/100; if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount += Math.round(difference/100); if(context.displayAmount>targetValue-difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
     if(targetValue<context.displayAmount)
-      context.loadIntervId = setInterval(()=>{context.displayAmount -= difference/100; if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
+      context.loadIntervId = setInterval(()=>{context.displayAmount -= Math.round(difference/100); if(context.displayAmount<targetValue+difference/10){stopCounting(context, countTo, callbackArgs)}}, 1000/difference);
 
   }
 }

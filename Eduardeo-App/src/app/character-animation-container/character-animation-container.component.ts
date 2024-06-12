@@ -1,5 +1,6 @@
 import { Component, Input, ElementRef, ViewChild, ViewContainerRef, ComponentRef } from '@angular/core';
 import { CharacterAnimationItemComponent } from '../character-animation-item/character-animation-item.component';
+import { DialogueItem } from '../game/game.dialogueSystem';
 var extendedLogging:Boolean = false;
 var lastCreatedItem: ComponentRef<CharacterAnimationItemComponent>;
 var dismissedItems: Array<ComponentRef<CharacterAnimationItemComponent>> = [];
@@ -11,7 +12,7 @@ var dismissedItems: Array<ComponentRef<CharacterAnimationItemComponent>> = [];
 })
 export class CharacterAnimationContainerComponent {
   @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
-  @Input() source:String = "";
+  @Input() source:DialogueItem|undefined = undefined;
   constructor(private el:ElementRef) { 
   
   }
@@ -23,9 +24,15 @@ export class CharacterAnimationContainerComponent {
   }
   ngOnChanges(changes:any){
     log("ngOnChange started with changes:", changes);
-    if(changes.source.currentValue === ""){
-      if(lastCreatedItem)
+    if(changes.source.currentValue === undefined){
+      if(lastCreatedItem){
+        log("Dissmissing.");
         lastCreatedItem.setInput("dismissed", true);
+        if(changes.source.previousValue && changes.source.previousValue.leavingSprite){
+          log("Setting source to: ", changes.source.previousValue.leavingSprite)
+          lastCreatedItem.setInput("source", changes.source.previousValue.leavingSprite);
+        }
+      }
     
 
 
@@ -49,7 +56,7 @@ export class CharacterAnimationContainerComponent {
       if(this.container){
         //var lastCreatedItemRef:ComponentRef<CharacterAnimationItemComponent> = ;
         lastCreatedItem = this.container.createComponent(CharacterAnimationItemComponent);
-        lastCreatedItem.setInput("source", this.source);
+        lastCreatedItem.setInput("source", this.source?.characterSprite);
         log("lastCreatedItem: ", lastCreatedItem);
 
       }

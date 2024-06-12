@@ -113,12 +113,12 @@ class HoardData {
           this.addTreasureItem(5);
           addedValue -= 5;
         }else{
-          if(addedValue < 50){
+          if(addedValue < 250){
             this.addTreasureItem(10);
             addedValue -= 10;
           }else{
-            this.addTreasureItem(50);
-            addedValue -= 50;
+            this.addTreasureItem(250);
+            addedValue -= 250;
           }
           
         }
@@ -178,14 +178,14 @@ class HoardData {
           //set img to gold coin
           break;
         }
-        case 50: {
+        case 250: {
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]] = new HoardDataItem(this.treasureContainer.createComponent(HoardItemComponent), 50);
           this.rows[chosenCoordinate[1]][chosenCoordinate[0]].hoardItemComponentRef!.instance.itemType = "crystal";
           //set img to crystal
           break;
         }
         default:{
-          console.error("error! Value for addTreasure must be 1, 5, 10 or 50!")
+          console.error("error! Value for addTreasure must be 1, 5, 10 or 250!")
           break;
         }
       }

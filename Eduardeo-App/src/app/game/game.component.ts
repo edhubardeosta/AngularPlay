@@ -7,14 +7,15 @@ var extendedLogging = true;
   styleUrl: './game.component.css'
 })
 export class GameComponent {
-  currentSubjectImg = "";
-  hoardValue = 10000;
-  militaryValue = 10000;
-  happinessValue = 100;
-  populaceValue = 100000;
+  displayItem: DialogueItem|undefined = undefined;
+  hoardValue = 0;
+  militaryValue = 0;
+  happinessValue = 0;
+  populaceValue = 0;
   displaySubMenu = true;
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();
+  activeConditions: Array<string> = [];
 
   menuButtonClicked(){
     console.log("menuButtonClicked.");
@@ -24,7 +25,7 @@ export class GameComponent {
     this.hoardValue += 1000;
   }
   addPopulace(){
-    this.populaceValue += 10;
+    this.populaceValue += 1000;
   }
   removeMoney(){
     this.hoardValue -= 49;
@@ -33,27 +34,33 @@ export class GameComponent {
     log("Dialogue Data Items: ",this.dialogueData.items);
     this.activeDialogueItem = this.dialogueData.randomDialogueItem();
     log("activeDialogueItem: ",this.activeDialogueItem);
-    this.currentSubjectImg = this.activeDialogueItem.characterSprite;
-  }
-  spawnSubject(){
-    log("spawnSubject started.");
-    this.currentSubjectImg = "../../assets/Characters/littleGhost.png";
-  }
-  dismissSubject(){
-    log("dismissSubject started.");
-    this.currentSubjectImg = "";
+    this.displayItem = this.activeDialogueItem;
   }
   dialogueYes($event:any){
     if(this.activeDialogueItem){
-      this.currentSubjectImg = "";
+      this.displayItem = undefined;
       this.dialogueData.removeDialogueItem(this.activeDialogueItem.stageId);
+      if(this.activeDialogueItem.yesCostOrProfit?.treasure)
       this.hoardValue += this.activeDialogueItem.yesCostOrProfit.treasure;
+      if(this.activeDialogueItem.yesCostOrProfit?.military)
       this.militaryValue += this.activeDialogueItem.yesCostOrProfit.military;
+      if(this.activeDialogueItem.yesCostOrProfit?.happiness)
       this.happinessValue += this.activeDialogueItem.yesCostOrProfit.happiness;
+      if(this.activeDialogueItem.yesCostOrProfit?.populace)
       this.populaceValue += this.activeDialogueItem.yesCostOrProfit.populace;
-      if(this.activeDialogueItem.yesStageId)
-      this.dialogueData.addDialogueItem(this.activeDialogueItem.yesStageId);
+      if(this.activeDialogueItem.yesStageIds && this.activeDialogueItem.yesStageIds?.length!>0){
+        this.activeDialogueItem.yesStageIds.forEach( stageId => {
+          this.dialogueData.addDialogueItem(stageId);
+        })
+      }
+      if(this.activeDialogueItem.yesConditions && this.activeDialogueItem.yesConditions?.length!>0){
+        this.activeDialogueItem.yesConditions.forEach( yesCondition => {
+          this.activeConditions.push(yesCondition);
+        })
+      }
+
       this.activeDialogueItem = undefined;
+      this.checkDialogueConditions();
       log("DialogueYes hoardValue:", this.hoardValue);
       log("DialogueYes militaryValue:", this.militaryValue);
       log("DialogueYes happinessValue:", this.happinessValue);
@@ -62,15 +69,29 @@ export class GameComponent {
   }
   dialogueNo($event:any){
     if(this.activeDialogueItem){
-      this.currentSubjectImg = "";
+      this.displayItem = undefined;
       this.dialogueData.removeDialogueItem(this.activeDialogueItem.stageId);
+      if(this.activeDialogueItem.noCostOrProfit?.treasure)
       this.hoardValue += this.activeDialogueItem.noCostOrProfit.treasure;
+      if(this.activeDialogueItem.noCostOrProfit?.military)
       this.militaryValue += this.activeDialogueItem.noCostOrProfit.military;
+      if(this.activeDialogueItem.noCostOrProfit?.happiness)
       this.happinessValue += this.activeDialogueItem.noCostOrProfit.happiness;
+      if(this.activeDialogueItem.noCostOrProfit?.populace)
       this.populaceValue += this.activeDialogueItem.noCostOrProfit.populace;
-      if(this.activeDialogueItem.noStageId)
-      this.dialogueData.addDialogueItem(this.activeDialogueItem.noStageId);
+      if(this.activeDialogueItem.noStageIds && this.activeDialogueItem.noStageIds?.length!>0){
+        this.activeDialogueItem.noStageIds.forEach( stageId => {
+          this.dialogueData.addDialogueItem(stageId);
+        })
+      }
+      if(this.activeDialogueItem.noConditions && this.activeDialogueItem.noConditions?.length!>0){
+        this.activeDialogueItem.noConditions.forEach( noCondition => {
+          this.activeConditions.push(noCondition);
+        })
+      }
+
       this.activeDialogueItem = undefined;
+      this.checkDialogueConditions();
       log("DialogueNo hoardValue:", this.hoardValue);
       log("DialogueNo militaryValue:", this.militaryValue);
       log("DialogueNo happinessValue:", this.happinessValue);
@@ -79,6 +100,128 @@ export class GameComponent {
     }
     
   }
+  checkDialogueConditions(){
+    //check population
+    if(this.populaceValue>150)
+      this.activeConditions.push("popOver150");
+    if(this.populaceValue>500)
+      this.activeConditions.push("popOver500");
+    if(this.populaceValue>1000)
+      this.activeConditions.push("popOver1000");
+    if(this.populaceValue>2000)
+      this.activeConditions.push("popOver2000");
+    //check hoardValue
+    if(this.hoardValue>2000)
+      this.activeConditions.push("hoardOver2000");
+    //check military
+    if(this.militaryValue>10)
+      this.activeConditions.push("militOver10");
+    //check happiness
+    if(this.happinessValue>50)
+      this.activeConditions.push("happinessOver50");
+    if(this.happinessValue<-50)
+      this.activeConditions.push("happinessUnder-50");
+
+    this.dialogueData.allItems.forEach(item => {
+      //check for deactivation condition
+      var deactivate = true;
+      if(item.deactivationCondition){
+        switch(item.deactivationCondition.operator){
+          
+          case "OR":
+            var match = false;
+            item.deactivationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  match = true;
+              })
+            })
+            if(match == false)
+              deactivate = false;
+            break;
+          case "XOR":
+            var match = false;
+            item.deactivationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  if(match == false){
+                    match = true;
+                  }else{
+                    deactivate = false;
+                  }
+              })
+            })
+            if(match == false)
+              deactivate = false;
+            break;
+          default:
+            item.deactivationCondition.conditions.forEach(condition => {
+              var match = false;
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  match = true;
+              })
+              if(match == false)
+                deactivate = false;
+            })
+            break;
+        }
+
+      }else{
+        deactivate = false;
+      }
+      //add dialogueItems with fulfilled activationConditions
+      if(item.activationCondition && !deactivate){
+        var falseConditionFound = false;
+        switch(item.activationCondition.operator){
+          case "OR":
+            var match = false;
+            item.activationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  match = true;
+              })
+            })
+            if(match == false)
+              falseConditionFound = true;
+            break;
+          case "XOR":
+            var match = false;
+            item.activationCondition.conditions.forEach(condition => {
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  if(match == false){
+                    match = true;
+                  }else{
+                    falseConditionFound = true;
+                  }
+              })
+            })
+            if(match == false)
+              falseConditionFound = true;
+            break;
+          default:
+            item.activationCondition.conditions.forEach(condition => {
+              var match = false;
+              this.activeConditions.forEach(activeCondition => {
+                if(condition == activeCondition)
+                  match = true;
+              })
+              if(match == false)
+                falseConditionFound = true;
+            })
+            break;
+        }
+        if(!falseConditionFound){
+          log("Conditions are met for dialogue item, adding: ", item);
+          this.dialogueData.addDialogueItem(item.stageId);
+        }
+      }
+
+    })
+
+  }
+
 
 }
 function log(message: string | any, input0: any = undefined):void{

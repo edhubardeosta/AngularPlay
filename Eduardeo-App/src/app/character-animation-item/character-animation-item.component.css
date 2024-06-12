@@ -2,8 +2,7 @@
     animation-name: enterAnimation;
     animation-duration: 4s;
     animation-timing-function: ease-out;
-    right: 100%;
-    z-index: -1000;
+    right: 80%;
 
 }
 
@@ -20,29 +19,29 @@
 }
 img{
     margin-top: 10%;
-    max-height: 40%;
-    max-width: 30%;
+    max-height: 65%;
+    max-width: 50%;
     height: 100%;
-    object-fit: cover;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
     margin-right: -10%;
-    margin-left: 0%;
+    margin-left: 20%;
     position: absolute;
+    z-index: -1000;
 }
 @keyframes enterAnimation {
     0% {
       right: 0%;
     }
     100% {
-        right: 100%;
+        right: 80%;
     }
 }
 @keyframes leaveAnimation {
     0% {
-        right: 100%;
+        right: 80%;
     }
     100% {
         right: 0%;

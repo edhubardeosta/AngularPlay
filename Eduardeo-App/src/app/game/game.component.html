@@ -1,8 +1,8 @@
 <div class="gameContainer">
-<!--<img class="cityContainer" src="../../assets/City.png">-->
-<app-city-container style="background-color: wheat;" class="cityContainer" [populace]="populaceValue"></app-city-container>
-<!--<img class="gameBackGroundLarge" src="../../assets/GameBackground.png" > -->
-<app-character-animation-container class="queensSubjectContainer" [source]="currentSubjectImg">
+<img class="cityContainer" src="../../assets/CityBackground.png">
+<app-city-container class="cityContainer" [populace]="populaceValue"></app-city-container>
+<img class="gameBackGroundLarge" src="../../assets/GameBackground.png" >
+<app-character-animation-container class="queensSubjectContainer" [source]="displayItem">
 </app-character-animation-container>
 <div class="queenAndHoardContainer">
     <app-hoard class="Hoard" [hoardValue]="hoardValue"></app-hoard>
@@ -28,7 +28,7 @@
         <button mat-fab class="mat-fab" color="white" (click)="addPopulace()">
             <mat-icon>group_add</mat-icon>
         </button>
-        <button mat-fab class="mat-fab" color="white" (click)="dismissSubject()">
+        <button mat-fab class="mat-fab" color="white">
             <mat-icon>person_cancel</mat-icon>
         </button>
     </div>
