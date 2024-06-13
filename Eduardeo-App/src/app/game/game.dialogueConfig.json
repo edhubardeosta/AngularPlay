@@ -249,7 +249,7 @@
         "cardText": "I have an idea for an ambitious science project. I want to create a species of mushroom thats healthy, nutritious and tasty. It would help to feed a lot of people and make the world a better place. I will have to carefully grow specific species and cross-breed them, using magic and I can't say yet, if it will work. Will you still fund my research?", 
         "hasPrecursor": true,
         "yesStageIds": [20], 
-        "noStageIds":[],
+        "noStageIds":[19],
         "yesCostOrProfit": { "treasure": -131 }, 
         "yesText": "Perfect! If this works, we will change the world!",
         "noText": "I figured. I guess it will stay a dream then."
@@ -408,5 +408,254 @@
             "conditions": ["militOver10"],
             "operator": "OR"
         }
+    },
+    {
+        "stageId": 33, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. It may be necessary to have mandatory conscription. While the people will not like it, a numbers advantage often makes or breaks a strategy. Should we force people to join?", 
+        "yesCostOrProfit": { "treasure":-16, "happiness": -5, "military": 15 }, 
+        "yesStageIds": [33], 
+        "noStageIds":[33],
+        "hasPrecursor": false,
+        "yesText": "Our military will be better for it.",
+        "noText": "We'll make do with the soldiers we have.",
+        "yesConditions": ["mandatoryConscription"]
+    },
+    {
+        "stageId": 34, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. As we have forced some of our soldiers to join, we must also decide if and when they are allowed to leave. Should we release some soldiers from mandatory service?", 
+        "yesCostOrProfit": { "happiness": 5, "military": -15 }, 
+        "yesStageIds": [34], 
+        "noStageIds":[34],
+        "hasPrecursor": true,
+        "yesText": "They did their duty, and they deserve rest.",
+        "noText": "You're right, we need everyone.",
+        "activationCondition": {
+            "conditions": ["militOver10","mandatoryConscription"],
+            "operator": "AND"
+        }
+    },
+    {
+        "stageId": 35, 
+        "characterSprite": "../../assets/Characters/King.png",
+        "cardText": "Greetings, nice dress! How do you like my outfit?", 
+        "yesCostOrProfit": { "happiness": 1}, 
+        "noCostOrProfit": { "happiness": -1}, 
+        "yesStageIds": [35], 
+        "noStageIds":[35],
+        "hasPrecursor": false,
+        "yesText": "Thank you kindly, I spent a lot on it.",
+        "noText": "Well at least you're honest.",
+        "yesConditions": ["complimentedKing"]
+    },
+    {
+        "stageId": 36, 
+        "characterSprite": "../../assets/Characters/King.png",
+        "cardText": "Greetings! I like your little town, it is quite cute. Do you need a little gold to help it grow?", 
+        "yesCostOrProfit": { "treasure": 45}, 
+        "yesStageIds": [36], 
+        "noStageIds":[36],
+        "hasPrecursor": true,
+        "yesText": "You're welcome. I am always happy to help.",
+        "noText": "Your confidence is admirable! I bet you will make it far.",
+        "activationCondition": {
+            "conditions": ["complimentedKing"],
+            "operator": "OR"
+        },
+        "deactivationCondition": {
+            "conditions": ["popOver500","popOver1000","popOver2000"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 37, 
+        "characterSprite": "../../assets/Characters/King.png",
+        "cardText": "Greetings, Queen! Your town has grown, there is no doubt about it! I am curious, how far it will come. Would you like some more gold to help with that?", 
+        "yesCostOrProfit": { "treasure": 45}, 
+        "yesStageIds": [37], 
+        "noStageIds":[37],
+        "hasPrecursor": true,
+        "yesText": "I cannot wait to see the progress.",
+        "noText": "Maybe the town has outgrown my resources already... very impressive.",
+        "activationCondition": {
+            "conditions": ["complimentedKing", "popOver500"],
+            "operator": "AND"
+        },
+        "deactivationCondition": {
+            "conditions": ["popOver1000","popOver2000"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 38, 
+        "characterSprite": "../../assets/Characters/King.png",
+        "cardText": "Greetings, Queen! Oh how your town has grown, it might already be a city! Will it become a true metropolis? If I may, please allow me to donate a little gold and keep watching.", 
+        "yesCostOrProfit": { "treasure": 45}, 
+        "yesStageIds": [38], 
+        "noStageIds":[38],
+        "hasPrecursor": true,
+        "yesText": "A metropolis it will become, I am sure of it.",
+        "noText": "It was only a matter of time. Even more exiting, to watch it grow, entirely on its own.",
+        "activationCondition": {
+            "conditions": ["complimentedKing", "popOver1000"],
+            "operator": "AND"
+        },
+        "deactivationCondition": {
+            "conditions": ["popOver2000"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 39, 
+        "characterSprite": "../../assets/Characters/Necromancer.png",
+        "cardText": "Hey, can I dig up a grave at the graveyard? I'll give you some money for it.", 
+        "yesCostOrProfit": {"treasure": 9, "happiness": -1}, 
+        "yesStageIds": [40,42], 
+        "noStageIds":[39],
+        "hasPrecursor": false,
+        "yesText": "Perfect. Here's your money.",
+        "noText": "Come on, they're already dead."
+    },
+    {
+        "stageId": 40, 
+        "characterSprite": "../../assets/Characters/Necromancer.png",
+        "cardText": "Hey, can I have one of your people? I need to test a potion, so I'll give you more money.", 
+        "yesCostOrProfit": {"treasure": 19, "happiness": -5, "populace": -1}, 
+        "yesStageIds": [41,46], 
+        "noStageIds":[40],
+        "hasPrecursor": true,
+        "yesText": "Perfect. Here's your money.",
+        "noText": "Just give me one, nobody would miss. I don't understand the problem."
+    },
+    {
+        "stageId": 41, 
+        "characterSprite": "../../assets/Characters/Necromancer.png",
+        "cardText": "I need a few more people for my work. I mean, why go back now? Also, i'll give you a bunch of money. So, can I have them?", 
+        "yesCostOrProfit": {"treasure": 39, "happiness": -15, "populace": -5}, 
+        "yesStageIds": [41], 
+        "noStageIds":[40],
+        "hasPrecursor": true,
+        "yesText": "This time it'll work for sure.",
+        "noText": "Most gamblers quit, right before they hit the jackpot. And here I thought you were special."
+    },
+    {
+        "stageId": 42, 
+        "characterSprite": "../../assets/Characters/Skeleton.png",
+        "cardText": "Hello, are skeletons welcome in the Queendom, too?", 
+        "yesCostOrProfit": {"populace": 1}, 
+        "yesStageIds": [43], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "Okay, I'll move right in, then.",
+        "noText": "Oh, then I will look somewhere else for a place to 'live'.",
+        "yesConditions": ["skeletonMovedIn"],
+        "deactivationCondition": {
+            "conditions": ["skeletonMovedIn"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 43, 
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. I heard talk about a skeleton roaming freely around town. Is that allowed?", 
+        "noCostOrProfit": {"populace": -1}, 
+        "yesStageIds": [44], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "Often the dangerous looking people are very kind. I'll make sure, they won't be bothered.",
+        "noText": "We cannot tolerate necromancy in our city. It must be removed",
+        "noConditions": ["skeletonKickedOut"]
+    },
+    {
+        "stageId": 44, 
+        "characterSprite": "../../assets/Characters/Skeleton.png",
+        "cardText": "Hello, can I organize a festival? I want to thank the town for taking me in.", 
+        "yesCostOrProfit": {"happiness": 1}, 
+        "yesStageIds": [45], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "This will be so much fun!",
+        "noText": "Well, I'll just send some letters then."
+    },
+    {
+        "stageId": 45, 
+        "characterSprite": "../../assets/Characters/Skeleton2.png",
+        "cardText": "The festival was a huge success! Everyone liked it, and they even gave me this cool hat! And I made a little bit of money, here.", 
+        "yesCostOrProfit": {"happiness": 20, "treasure":9}, 
+        "noCostOrProfit": {"happiness": 20, "treasure":9}, 
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "I'm glad you liked it, too!",
+        "noText": "No, I owe you this much, at least!"
+    },
+    {
+        "stageId": 46, 
+        "characterSprite": "../../assets/Characters/Zombie.png",
+        "cardText": "Meee... goes.... eat..... people.......?", 
+        "yesCostOrProfit": {"populace": -3, "happiness": -5}, 
+        "yesStageIds": [46], 
+        "noStageIds":[46],
+        "hasPrecursor": true,
+        "yesText": "...yeees...",
+        "noText": "...noooo...?"
+    },
+    {
+        "stageId": 47, 
+        "characterSprite": "../../assets/Characters/Thief.png",
+        "cardText": "Hey, can I steal from some people?", 
+        "yesCostOrProfit": {"happiness": -1}, 
+        "yesStageIds": [48], 
+        "noStageIds":[48],
+        "hasPrecursor": false,
+        "yesText": "Neat, I'll remember the favour.",
+        "noText": "But I really need the money..."
+    },
+    {
+        "stageId": 48, 
+        "characterSprite": "../../assets/Characters/Thief.png",
+        "cardText": "Listen, how about I steal from the rich and give you some of the loot?", 
+        "yesCostOrProfit": {"happiness": -1}, 
+        "yesStageIds": [49,51], 
+        "noStageIds":[50],
+        "hasPrecursor": true,
+        "yesText": "You drive a hard bargain, I like that.",
+        "noText": "You little goody two-shoes. What does it take to get to you?"
+    },
+    {
+        "stageId": 49, 
+        "characterSprite": "../../assets/Characters/Thief.png",
+        "cardText": "I went to the richest people in town and took some stuff. They won't need it, right?", 
+        "yesCostOrProfit": {"treasure": 19}, 
+        "noCostOrProfit": {"treasure": 19}, 
+        "yesStageIds": [50], 
+        "noStageIds":[50],
+        "hasPrecursor": true,
+        "yesText": "Yeah, if anything I should've taken more. Here's your share.",
+        "noText": "Hmm. Well I already stole it, it's too late now. Anyways, heres your share."
+    },
+    {
+        "stageId": 50, 
+        "characterSprite": "../../assets/Characters/Thief.png",
+        "cardText": "Guess what. I've given up stealing, at least for the moment. Can I live in your city now?", 
+        "yesCostOrProfit": {"populace": 1}, 
+        "yesStageIds": [], 
+        "noStageIds":[50],
+        "hasPrecursor": true,
+        "yesText": "Great. If you want me to steal something for you at some point, I might come out of 'retirement' for a job or two.",
+        "noText": "I didn't do anything that bad, did I?",
+        "yesConditions": ["thiefMovedIn"]
+    },
+    {
+        "stageId": 51, 
+        "characterSprite": "../../assets/Characters/King.png",
+        "cardText": "Greetings, Queen. Some of my things went missing. Do you know where they might have gone?", 
+        "yesCostOrProfit": {"happiness": 1, "treasure":-1}, 
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "Oh what a relief, this copper piece is a precious treasure to me. Keep the rest, wherever you might have found it need not matter to me. I thank you wholeheartedly.",
+        "noText": "Alas, nothing is forever. Least of all the things, that can be taken from you."
     }
 ]
