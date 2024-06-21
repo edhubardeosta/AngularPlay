@@ -101,8 +101,8 @@
         "noStageIds":[],
         "yesText": "You wish for great riches, very well. It is so.",
         "noText": "How noble, I'll be sure to choose a worthy recipient.",
-        "yesConditions": ["deactivateDjini"],
-        "noConditions": ["deactivateDjini"],
+        "yesConditions": ["deactivateDjini","metDjini"],
+        "noConditions": ["deactivateDjini","metDjini"],
         "activationCondition": {
             "conditions": ["popOver150"]
         },
@@ -121,13 +121,13 @@
         "noStageIds":[],
         "yesText": "Hahaha, yes! A woman of action! Just like old midas, have fun with your gold!",
         "noText": "An Idealist, how quaint. Remember this day, when hard times come and your treasure wears thin. Farewell.",
-        "yesConditions": ["deactivateEfreeti"],
-        "noConditions": ["deactivateEfreeti"],
+        "yesConditions": ["deactivateEfreeti","metEfreeti"],
+        "noConditions": ["deactivateEfreeti","metEfreeti"],
         "activationCondition": {
             "conditions": ["popOver150"]
         },
         "deactivationCondition": {
-            "conditions": ["deactivateEfreeti"],
+            "conditions": ["deactivateEfreeti","bobMetEfreetiAgain"],
             "operator": "OR"
         }
     },
@@ -182,7 +182,7 @@
         "cardText": "[It's a dark orb, brimming with magic. Where did it come from, and what might it do?]", 
         "yesCostOrProfit": { "treasure": -11 }, 
         "hasPrecursor": false,
-        "yesStageIds": [13], 
+        "yesStageIds": [64], 
         "noStageIds":[13],
         "yesText": "...",
         "noText": "..."
@@ -657,5 +657,370 @@
         "hasPrecursor": true,
         "yesText": "Oh what a relief, this copper piece is a precious treasure to me. Keep the rest, wherever you might have found it need not matter to me. I thank you wholeheartedly.",
         "noText": "Alas, nothing is forever. Least of all the things, that can be taken from you."
+    },
+    {
+        "stageId": 52, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Loud stomping approaches the throne but there's nobody in sight.] You scared of me?", 
+        "yesCostOrProfit": {"happiness": -1}, 
+        "noCostOrProfit": {"happiness": 1}, 
+        "yesStageIds": [53], 
+        "noStageIds":[52],
+        "hasPrecursor": false,
+        "yesText": "Oh. [The loud stomping returns, but seems to get farther and farther, until it disappears.]",
+        "noText": "No?! Means I come again, yes? YES! [The loud stomping seems to be... skipping away.]",
+        "deactivationCondition": {
+            "conditions": ["ogreVisible"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 53, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Loud stomping approaches the throne but there's nobody in sight.] You know, who I am? Might be scary. Still wanna hear?", 
+        "yesCostOrProfit": {"happiness": 2}, 
+        "noCostOrProfit": {"happiness": -2}, 
+        "yesStageIds": [54], 
+        "noStageIds":[52],
+        "yesConditions":["bobBefriended"],
+        "hasPrecursor": true,
+        "yesText": "Might be weird, but I am a ogre. Name is Bob. Nobody see me. Everyone scared. I mean everyone scared before. But even more scared now. Pale pretty ghost said he'd make people not scared, when they see me. But he just made people not see me. I got angry but he just flew away. Now nobody see me and still everyone scared, everyone but you. Thanky for listening. [Bob seems to be skipping away.]",
+        "noText": "So you ARE scared! Just like everyone. I leave, good bye. [The loud stomping returns along with sniffling, but seems to get farther and farther, until it disappears.]"
+    },
+    {
+        "stageId": 54, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Bobs loud stomping approaches the throne. He's still invisible.] Maybe another ghost help me. Or magic person! You know magic person?", 
+        "yesCostOrProfit": {"happiness": -1},
+        "yesStageIds": [54], 
+        "noStageIds":[54],
+        "hasPrecursor": true,
+        "yesText": "Why you lie? Don't be mean! [Bob stomps away angrily.]",
+        "noText": "I keep looking. Need find magic person. [Bob stomps away.]",
+        "deactivationCondition": {
+            "conditions": ["ogreVisible","metDjini","metEfreeti","metSorceress"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 55, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Bobs loud stomping approaches the throne. He's still invisible.] Maybe another ghost help me. Or magic person! You know magic person?", 
+        "yesCostOrProfit": {},
+        "yesStageIds": [59], 
+        "noStageIds":[],
+        "yesConditions":["bobMetEfreetiAgain"],
+        "hasPrecursor": true,
+        "yesText": "Floaty magic ghost? Maybe I cured! [Bob stomps away in a hurry.]",
+        "noText": "I keep looking. Need find magic person. [Bob stomps away.]",
+        "activationCondition": {
+            "conditions": ["metEfreeti","bobBefriended"],
+            "operator": "AND"
+        },
+        "deactivationCondition": {
+            "conditions": ["ogreVisible","metDjini","metSorceress","bobMetEfreetiAgain"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 56, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Bobs loud stomping approaches the throne. He's still invisible.] Maybe another ghost help me. Or magic person! You know magic person?", 
+        "yesCostOrProfit": {},
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "yesConditions":["bobMetSorceress"],
+        "hasPrecursor": true,
+        "yesText": "Floaty magic Woman? Maybe I cured! [Bob stomps away in a hurry.]",
+        "noText": "I keep looking. Need find magic person. [Bob stomps away.]",
+        "activationCondition": {
+            "conditions": ["metSorceress","bobBefriended"],
+            "operator": "AND"
+        },
+        "deactivationCondition": {
+            "conditions": ["ogreVisible","metDjini","bobMetSorceress"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 57, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Bobs loud stomping approaches the throne. He's still invisible.] Maybe another ghost help me. Or magic person! You know magic person?", 
+        "yesCostOrProfit": {},
+        "yesStageIds": [60], 
+        "noStageIds":[],
+        "yesConditions":["bobMetDjini"],
+        "hasPrecursor": true,
+        "yesText": "Floaty magic ghost? Maybe I cured! [Bob stomps away in a hurry.]",
+        "noText": "I keep looking. Need find magic person. [Bob stomps away.]",
+        "activationCondition": {
+            "conditions": ["metDjini"],
+            "operator": "OR"
+        },
+        "deactivationCondition": {
+            "conditions": ["ogreVisible","bobMetDjini"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 58, 
+        "characterSprite": "../../assets/Characters/Ogre.png",
+        "imgSize": "large",
+        "cardText": "H-hello. Am B-b-bob. You see me now, r-right?", 
+        "yesCostOrProfit": {"happiness":3},
+        "noCostOrProfit": {"happiness": -3},
+        "yesStageIds": [61], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "Yes? Yeeeees! Now we best friends!",
+        "noText": "No? Why?!"
+    },
+    {
+        "stageId": 59, 
+        "characterSprite": "../../assets/Characters/OgreShadow.png",
+        "imgSize": "large",
+        "cardText": "[Bobs loud stomping approaches the throne. He's still invisible.] I meet bad ghost again. But me invisible this time. I squash him. Is good?", 
+        "yesCostOrProfit": {"happiness": 5},
+        "noCostOrProfit": {"happiness": 3},
+        "yesStageIds": [], 
+        "noStageIds":[],
+        "hasPrecursor": true,
+        "yesText": "Yes. Is good. [Bob stomps away and you can't help but feel like he's satisfied.]",
+        "noText": "Hm. My bad. Me think he deserve it. [Bob stomps away hesitantly but you can't help but feel like he's satisfied.]",
+        "deactivationCondition": {
+            "conditions": ["ogreVisible"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 60, 
+        "characterSprite": "../../assets/Characters/djini.png",
+        "cardText": "Greetings, something curious happened to me today. An invisible creature came to me and claimed to be an enchanted ogre. It seems it happened to have been tricked by an efreeti and put under a cruel curse. The ogre begged me to help him and felt sorry for him, so I undid the spell. Also, I am always fond of meddling in efreeti affairs. Either way, although he seems harmless, there is now an ogre frolicking around your city. Is that a problem for you?", 
+        "hasPrecursor": true,
+        "yesStageIds": [58], 
+        "noStageIds":[58],
+        "yesText": "Really, is that so? I had judged you the merciful type, but apparently I was wrong. You might feel powerful and in control now, but I tell you this. One day you will come across an efreeti. That will be the day where you will wish for more mercy in this world. Farewell, queen. If we meet again, I hope you have changed, one way or another.",
+        "noText": "I expected as much. Still, I applaud you. Not every merciful ruler is a good one. Still, I believe that you have both the mercy and foresight to help this realm flourish. Untill we meet again, queen.",
+        "yesConditions": ["ogreVisible"],
+        "noConditions": ["ogreVisible"]
+    },
+    {
+        "stageId":61,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My Queen. An ogre has been spotted around town and people are worried. Should we make him leave?",
+        "hasPrecursor": true,
+        "noStageIds":[63],
+        "yesText": "Understood. I will gather some soldiers and drive him out of town.",
+        "noText": "You say he's harmless? Understood. I will try to calm the people, but I will still send some guards to keep an eye on him."
+    },
+    {
+        "stageId": 62, 
+        "characterSprite": "../../assets/Characters/Sorceress.png",
+        "cardText": "Greetings. Do you happen to know an invisible ogre?", 
+        "hasPrecursor": true,
+        "yesText": "Strange, apparently he was telling the truth. Then I will help him. However, in order to do that, I will need more resources provided by a larger mages guild.",
+        "noText": "It sounds silly, I know. But I met a strange being today. It seemed to be quite large, judging from the thundering sound its feet produced. However it was completely invisible, but for a slight Shadow beneath where the body should be seen. It asked me to make it visible again and claimed to know you. But apparently he was not telling the truth, so I can not trust him.",
+        "yesConditions": ["ogreSorceressPending"],
+        "activationCondition": {
+            "conditions": ["bobMetSorceress"],
+            "operator": "OR"
+        },
+        "deactivationCondition": {
+            "conditions": ["ogreVisible","ogreSorceressPending"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 63, 
+        "characterSprite": "../../assets/Characters/Ogre.png",
+        "imgSize": "large",
+        "cardText": "H-hi. Met some people. They say they \"guards\".  They say they watch me. Make me not do bad stuff. They have metal hats, so shiny. So cool. Can I be guard, too?", 
+        "yesCostOrProfit": {"happiness":3,"military":15},
+        "hasPrecursor": true,
+        "yesText": "Yes! Me be best guard!",
+        "noText": "Okay, me still only do good."
+    },
+    {
+        "stageId": 64, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Now a nearly imperceivable humming can be heard from within.]", 
+        "yesCostOrProfit": { "treasure": -11 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [65], 
+        "noStageIds":[13],
+        "yesText": "...",
+        "noText": "..."
+    },
+    {
+        "stageId": 65, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Now a faint humming can be heard from within.]", 
+        "yesCostOrProfit": { "treasure": -11 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [66], 
+        "noStageIds":[64],
+        "yesText": "...",
+        "noText": "..."
+    },
+    {
+        "stageId": 66, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Now a humming can be heard from within.]", 
+        "yesCostOrProfit": { "treasure": -11 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [67], 
+        "noStageIds":[65],
+        "yesText": "...",
+        "noText": "..."
+    },
+    {
+        "stageId": 67, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Now a buzzing can be heard from within.]", 
+        "yesCostOrProfit": { "treasure": -11 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [68], 
+        "noStageIds":[66],
+        "yesText": "...",
+        "noText": "..."
+    },
+    {
+        "stageId": 68, 
+        "characterSprite": "../../assets/Characters/darkOrb.png",
+        "cardText": "[It's a dark orb, brimming with magic. Now a loud buzzing can be heard from within.]", 
+        "yesCostOrProfit": { "treasure": -9 }, 
+        "hasPrecursor": true,
+        "yesStageIds": [69], 
+        "noStageIds":[67],
+        "yesText": "[As the last coin vanishes in the maelstrom of magical energy, so does the buzzing. It still radiates power, but it's a different power now. Where before it was chaotic and tumultuous, it has now become calm, balanced.]",
+        "noText": "..."
+    },
+    {
+        "stageId": 69, 
+        "characterSprite": "../../assets/Characters/energyOrb.png",
+        "cardText": "[It takes you a moment to realize, that this was once the dark orb, which absorbed treasure. It seems to evolved into something new, pure magical energy.]", 
+        "hasPrecursor": true,
+        "yesConditions":["energyOrbUnlocked"],
+        "yesText": "[You throw a coin at it, but the orb doesn't accept it. It has become self sufficient.]",
+        "noText": "[The orb seems as indifferent to you, as you are to it.]"
+    },
+    {
+        "stageId": 70, 
+        "characterSprite": "../../assets/Characters/Sculptor.png",
+        "cardText": "Good day. Are you interested in art?", 
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": false, 
+        "yesStageIds": [], 
+        "noStageIds": [],
+        "yesText": "Fabulous, it's always good to meet other art connaisseurs out there.",
+        "noText": "Tsk, how disappointing...",
+        "deactivationCondition": {
+            "conditions": ["popOver150"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId": 71, 
+        "characterSprite": "../../assets/Characters/Sculptor.png",
+        "cardText": "Good day. I am a renowned sculptor. If you want, I can build a statue for you. I will cost a little, but it will please your citizens. Also, it will look magnificent.", 
+        "yesCostOrProfit": { "happiness": 15, "treasure": -15}, 
+        "hasPrecursor": true, 
+        "yesConditions": ["statueInProgress"], 
+        "yesText": "Fabulous, trust me, art is worth every coin.",
+        "noText": "Tsk, how disappointing...",
+        "activationCondition": {
+            "conditions": ["popOver150"],
+            "operator": "OR"
+        },
+        "deactivationCondition": {
+            "conditions": ["statueInProgress"],
+            "operator": "OR"
+        }
+    },
+    {
+        "stageId":72,
+        "characterSprite":"../../assets/Characters/Hero0.png",
+        "cardText": "There's a cat in a tree and it won't come down. Do you think I should get it for the owner?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": false,
+        "yesStageIds":[73],
+        "noStageIds":[72],
+        "yesText": "Alrighty then. Let's climb that tree! Pspspspsps...",
+        "noText": "Hmm, yeah. The guard can probably handle it. I'll practise on an easier tree first."
+    },
+    {
+        "stageId":73,
+        "characterSprite":"../../assets/Characters/Hero0.png",
+        "cardText": "A local farmer needs more people to harvest breadcap mushrooms. What do you say, should I go help out?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[74],
+        "noStageIds":[73],
+        "yesText": "Heck yeah! Maybe I even get to keep a breadcap or two. Then I can have breadcap'n cheese for dinner, yum!",
+        "noText": "Yeah, you're right. It does sound a lot of work... maybe next harvest."
+    },
+    {
+        "stageId":74,
+        "characterSprite":"../../assets/Characters/Hero0.png",
+        "cardText": "The herbalist in my neighborhood wants me to collect some herbs for her. She's a little weird, but nice. Should I help her?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[75],
+        "noStageIds":[74],
+        "yesText": "Exploring the city is always fun. Plus, having the Herbalist on your side, can't hurt. Afterall, you never know when you might need a potion or salve.",
+        "noText": "I mean she seemed competent enough, to do it herself. I can't just keep fetching stuff for anyone and everyone. "
+    },
+    {
+        "stageId":75,
+        "characterSprite":"../../assets/Characters/Hero1.png",
+        "cardText": "The herbalist in my neighborhood wants me to collect some herbs for her. She's a little weird, but nice. Should I help her?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[76],
+        "noStageIds":[75],
+        "yesText": "Exploring the city is always fun. Plus, having the Herbalist on your side, can't hurt. Afterall, you never know when you might need a potion or salve.",
+        "noText": "I mean she seemed competent enough, to do it herself. I can't just keep fetching stuff for anyone and everyone. "
+    },
+    {
+        "stageId":76,
+        "characterSprite":"../../assets/Characters/Hero1.png",
+        "cardText": "Hey look, the herbalist gave me these kick-ass steel boots for collecting the herbs. She said she doesn't need them. Aren't they cool?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "noCostOrProfit": { "happiness": -1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[77],
+        "noStageIds":[77],
+        "yesText": "Do you mean like \"Yes, they aren't cool.\" or \"Yes, they are cool\"? I think I'll just take it as a compliment.",
+        "noText": "Do you mean like \"No, they aren't cool.\" or \"No, they are cool\"? I think I'll just take it as a compliment. "
+    },
+    {
+        "stageId":77,
+        "characterSprite":"../../assets/Characters/Hero1.png",
+        "cardText": "Hey look, the herbalist gave me these kick-ass steel boots for collecting the herbs. She said she doesn't need them. Aren't they cool?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "noCostOrProfit": { "happiness": -1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[77],
+        "noStageIds":[77],
+        "yesText": "Do you mean like \"Yes, they aren't cool.\" or \"Yes, they are cool\"? I think I'll just take it as a compliment.",
+        "noText": "Do you mean like \"No, they aren't cool.\" or \"No, they are cool\"? I think I'll just take it as a compliment. "
+    },
+    {
+        "stageId":78,
+        "characterSprite":"../../assets/Characters/Hero1.png",
+        "cardText": "A Tavernkeep. Aren't they cool?",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "noCostOrProfit": { "happiness": -1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[77],
+        "noStageIds":[77],
+        "yesText": "Do you mean like \"Yes, they aren't cool.\" or \"Yes, they are cool\"? I think I'll just take it as a compliment.",
+        "noText": "Do you mean like \"No, they aren't cool.\" or \"No, they are cool\"? I think I'll just take it as a compliment. "
     }
 ]
