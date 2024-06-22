@@ -1002,25 +1002,45 @@
     {
         "stageId":77,
         "characterSprite":"../../assets/Characters/Hero1.png",
-        "cardText": "Hey look, the herbalist gave me these kick-ass steel boots for collecting the herbs. She said she doesn't need them. Aren't they cool?",
+        "cardText": "A Tavernkeep asked me to chase some rats out of his cellar. They said the rats were pretty big, though. Do you think I should do it?",
         "yesCostOrProfit": { "happiness": 1}, 
-        "noCostOrProfit": { "happiness": -1}, 
         "hasPrecursor": true,
-        "yesStageIds":[77],
+        "yesStageIds":[78],
         "noStageIds":[77],
-        "yesText": "Do you mean like \"Yes, they aren't cool.\" or \"Yes, they are cool\"? I think I'll just take it as a compliment.",
-        "noText": "Do you mean like \"No, they aren't cool.\" or \"No, they are cool\"? I think I'll just take it as a compliment. "
+        "yesText": "I'll stomp them out with my new boots. They won't even know whats coming.",
+        "noText": "On second thought, maybe I don't want to get ratbites in a smelly cellar."
     },
     {
         "stageId":78,
         "characterSprite":"../../assets/Characters/Hero1.png",
-        "cardText": "A Tavernkeep. Aren't they cool?",
+        "cardText": "I found an imp in my room, it really scared me. At first, I thought I had a nightmare, but when I realized I was awake, I saw this little red creature flying out of my window. Think I should go look for it?",
         "yesCostOrProfit": { "happiness": 1}, 
-        "noCostOrProfit": { "happiness": -1}, 
         "hasPrecursor": true,
-        "yesStageIds":[77],
-        "noStageIds":[77],
-        "yesText": "Do you mean like \"Yes, they aren't cool.\" or \"Yes, they are cool\"? I think I'll just take it as a compliment.",
-        "noText": "Do you mean like \"No, they aren't cool.\" or \"No, they are cool\"? I think I'll just take it as a compliment. "
+        "yesStageIds":[79],
+        "noStageIds":[78],
+        "yesText": "Let's see what mischief the little fella is up to...",
+        "noText": "Eh, it probably won't show up again."
+    },
+    {
+        "stageId":79,
+        "characterSprite":"../../assets/Characters/Hero1.png",
+        "cardText": "Turn out the imp was harmless. It just likes to play pranks. It also hid in the smelter of a swordsmith. I talked a bit with the smith and she offered me a sword if I work in her shop for a bit.",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[80],
+        "noStageIds":[80],
+        "yesText": "A sword does sound great... I guess it's time to swing the hammer then!",
+        "noText": "You don't think I can do it? Just you wait, I'll prove you wrong!"
+    },
+    {
+        "stageId":80,
+        "characterSprite":"../../assets/Characters/Hero2.png",
+        "cardText": "Turn out the imp was harmless. It just likes to play pranks. It also hid in the smelter of a swordsmith. I talked a bit with the smith and she offered me a sword, if I help him with her next batch.",
+        "yesCostOrProfit": { "happiness": 1}, 
+        "hasPrecursor": true,
+        "yesStageIds":[80],
+        "noStageIds":[80],
+        "yesText": "A sword does sound great... I guess it's time to swing the hammer then!",
+        "noText": "You don't think I can do it? Just you wait, I'll prove you wrong!"
     }
 ]
