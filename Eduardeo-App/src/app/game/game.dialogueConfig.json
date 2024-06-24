@@ -1126,5 +1126,116 @@
         "cardText": "Heyhey! Look, what I've got! My very first sword. Turns out, the Imp only wanted to help. He dipped the sword in the lava to improve it and I think it actually made it stronger. Maybe there's more to this pool of lava, than meets the eye. Do you think it might be magical lava?",
         "yesText": "That's the only way it makes sense, right? Anyways, I got my sword now so I don't mind either way.",
         "noText": "Maybe I just don't know enough about smithing yet.  Anyways, I got my sword now so I don't mind either way."
+    },
+    {
+        "stageId":87,
+        "characterSprite":"../../assets/Characters/Hero3.png",
+        "hasPrecursor": true,
+        "noCostOrProfit":{"happiness":-2},
+        "yesStageIds":[88],
+        "noStageIds":[88],
+        "yesConditions":["impWasForgiven"],
+        "cardText": "I thought a bit about the Imp. The sword turned out okay, but I'm still kind of angry that he didn't tell me beforehand. Do you think I should forgive him?",
+        "yesText": "He had the best intentions, and I don't get anything out of being angry. I'll still give him a stern talking to.",
+        "noText": "Trust is hard to rebuild. I don't wanna get burned again, so I'll tell him to leave me alone."
+    },
+    {
+        "stageId":88,
+        "characterSprite":"../../assets/Characters/Hero3.png",
+        "hasPrecursor": true,
+        "noCostOrProfit":{"treasure":-2},
+        "yesStageIds":[89],
+        "noStageIds":[88],
+        "cardText": "I heard there were giant cockroaches in the catacombs below the palace, who are stealing food. Can I try out my new sword and kill them?",
+        "yesText": "This is gonna be fun!",
+        "noText": "So you're just gonna let them eat your food. Well I guess I'll have to keep doing mock battles."
+    },
+    {
+        "stageId":89,
+        "characterSprite":"../../assets/Characters/Hero3.png",
+        "hasPrecursor": true,
+        "yesStageIds":[90],
+        "noStageIds":[90],
+        "yesConditions":["roachEggsKept"],
+        "cardText": "I'm back and the cockroaches are history. They had really hard carapaces, but thankfully my sword was sharp enough. I also found some inactive looking eggs. Do you want to keep them? If you don't I'll just burn 'em.",
+        "yesText": "There you go. I hope you can use them for something.",
+        "noText": "Makes sense. Afterall we don't want a new batch of cockroaches hatchin in the treasury. I just wanted your go-ahead."
+    },
+    {
+        "stageId":90,
+        "characterSprite":"../../assets/Characters/Hero3.png",
+        "hasPrecursor": true,
+        "yesCostOrProfit":{"happiness":1},
+        "yesStageIds":[91],
+        "noStageIds":[90],
+        "cardText": "I'm thinking of competing in a sword fighting tournament. Do you think I would win?",
+        "yesText": "Thanks! I'll tell you how it went.",
+        "noText": "I don't have my sword for very long, so I guess it wouldn't make sense, if I were to win."
+    },
+    {
+        "stageId":91,
+        "characterSprite": "../../assets/Characters/Hero3.png",
+        "hasPrecursor":true,
+        "yesStageIds":[92],
+        "noStageIds":[93],
+        "cardText": "Remember the turnament I told you about? I actually went and competed! I didn't win but it was really fun. I think I'll do that regularily from now on. Also, an old man with a gray beard came up to me and asked me to be his apprentice. So far he's only made me clean all his stuff but he said, it would make me a better fighter. Do you think he's lying?",
+        "yesText": "You know what, you're right! How is that even supposed to work? I bet he's just trying to save money. I'll tell him: unless he pays me, he can clean his stuff himself.",
+        "noText": "Hm, it's true that he did seem very earnest. I'll just keep at it and who knows, maybe it works."
+    },
+    {
+        "stageId":92,
+        "characterSprite": "../../assets/Characters/Hero4.png",
+        "hasPrecursor":true,
+        "yesStageIds":[94],
+        "noStageIds":[94],
+        "yesCostOrProfit":{"treasure":11},
+        "noCostOrProfit":{"happiness":1},
+        "cardText": "I told the old man off and he agreed to pay me for all the cleaning up to now, as long as I finished the rest. Because of that, I could buy this new chestpiece. Thanks for telling me to doubt him. Do you want the rest of the money as a thank you?",
+        "yesText": "Here you go. Your're welcome!",
+        "noText": "Oh wow, you're spoiling me. I guess I'll treat myself to something nice."
+    },
+    {
+        "stageId":93,
+        "characterSprite": "../../assets/Characters/Hero4.png",
+        "hasPrecursor":true,
+        "yesStageIds":[94],
+        "noStageIds":[94],
+        "yesCostOrProfit":{"treasure":26},
+        "noCostOrProfit":{"happiness":2},
+        "cardText": "I decided to trust the old man and finished cleaning his stuff. Funnily enough, I actually feel like I can fight a bit better now. He also paid me in the end for all the cleaning I did and he even gave me his old breastplate. Isn't he such a sweety? Oh, and you can have the money, since you told me to trust him. You can use it better than I can, right?",
+        "yesText": "Here you go. Your're welcome!",
+        "noText": "Oh wow, you're spoiling me. I guess I'll treat myself to something nice."
+    },
+    {
+        "stageId":94,
+        "characterSprite": "../../assets/Characters/general.png",
+        "hasPrecursor":true,
+        "yesStageIds":[95],
+        "noConditions": "poacherTaskForceDraft",
+        "cardText": "My Queen, a group of poachers are roaming close to our city. They are stealing prey from our hunters, killing rare animals and sometimes, they are resorting to banditry. Should we send the guard after them?",
+        "yesText": "Understood. Such lawlessness cannot be tolerated.",
+        "noText": "You're right, they would probably be able to hide from larger forces, or even set traps. We will have to form a smaller task force. At least one person for gathering Intel and one person to do the heavy fighting."
+    },
+    {
+        "stageId":95,
+        "characterSprite": "../../assets/Characters/general.png",
+        "hasPrecursor":true,
+        "yesCostOrProfit":{"treasure": -99},
+        "noCostOrProfit":{"populace": -5, "happiness":-15, "military":-5},
+        "yesConditions": "poacherTaskForceDraft",
+        "noConditions": "poacherTaskForceDraft",
+        "cardText": "My Queen, the operation we conducted against the poacher gang was a tactical failure. We could not find and destroy the poaching ring and lost some of our guards. Even more are currently being held hostage in exchange for a ransom. Should we pay the ransom?",
+        "yesText": "Understood. As much as it pains me to comply with criminals, we need to preserve our forces. Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them.",
+        "noText": "If we comply, we leave ourselves open to blackmail. I hate leaving soldiers behind, but this is the only option.  Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them."
+    },
+    {
+        "stageId":96,
+        "characterSprite": "../../assets/Characters/Hero4.png",
+        "hasPrecursor":true,
+        "yesConditions": "heroJoinedPoacherTaskForce",
+        "noConditions": "heroJoinedPoacherTaskForce",
+        "cardText": "I heard about the whole poacher thing and got kind of angry. I just enlisted myself, I hope that's okay...",
+        "yesText": "I can't wait to teach those poachers a lesson...",
+        "noText": "I can't wait to teach those poachers a lesson..."
     }
 ]
