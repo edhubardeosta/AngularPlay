@@ -1024,7 +1024,7 @@
     {
         "stageId":79,
         "characterSprite":"../../assets/Characters/Hero1.png",
-        "cardText": "Turn out the imp was harmless. It just likes to play pranks. It also hid in the smelter of a swordsmith. I talked a bit with the smith and she offered me a sword if I work in her shop for a bit.",
+        "cardText": "Turns out the imp was harmless. It just likes to play pranks. It also hid in the smelter of a swordsmith. I talked a bit with the smith and she offered me a sword if I work in her shop for a bit.",
         "yesCostOrProfit": { "happiness": 1}, 
         "hasPrecursor": true,
         "yesStageIds":[80],
@@ -1035,12 +1035,96 @@
     {
         "stageId":80,
         "characterSprite":"../../assets/Characters/Hero2.png",
-        "cardText": "Turn out the imp was harmless. It just likes to play pranks. It also hid in the smelter of a swordsmith. I talked a bit with the smith and she offered me a sword, if I help him with her next batch.",
-        "yesCostOrProfit": { "happiness": 1}, 
+        "cardText": "Working in Aelas forgery is really fun. I've been making leg armor and Aela says I'm getting good enough at it, that I can send some to the city guard. Do you think so, too?",
+        "yesCostOrProfit": { "military": 3}, 
         "hasPrecursor": true,
-        "yesStageIds":[80],
-        "noStageIds":[80],
-        "yesText": "A sword does sound great... I guess it's time to swing the hammer then!",
-        "noText": "You don't think I can do it? Just you wait, I'll prove you wrong!"
+        "yesStageIds":[82],
+        "noStageIds":[82],
+        "yesText": "Nice, it always makes me happy if people believe in me.",
+        "noText": "Thats fine by me. I just thought they might want the armor, since it were already there. I'll just smelt it down and make something else.",
+        "yesConditions":["heroSwordStolen"],
+        "noConditions":["heroSwordStolen"]
+    },
+    {
+        "stageId":81,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "hasPrecursor": false,
+        "cardText": "My Queen, a pool of lava has been found close to the city and people are drying their laundry over it. Is that not just too irresponsible?",
+        "yesText": "Exactly, what are they even thinking.",
+        "noText": "Well I suppose it is effective albeit a bit absurd.",
+        "yesConditions":["lavaPoolFound"],
+        "noConditions":["lavaPoolFound"]
+    },
+    {
+        "stageId":82,
+        "characterSprite":"../../assets/Characters/Hero2.png",
+        "hasPrecursor": true,
+        "cardText": "I was just finishing the sword, that Aela promised me when the Imp came back and took it. He flew away and now I can't find him. He's probably hiding somewhere hot, but I already looked for him in the smelter. Do you know another hot place, where he could hide?",
+        "yesText": "No, I don't think thats hot enough. I mean, I will go take a look anyways, but keep an eye out for me, okay?",
+        "noText": "Man, that sucks. But I'm not giving up yet, I'll keep looking and you keep an eye out for me, okay?",
+        "yesConditions":["lookOutForLavaPool"],
+        "noConditions":["lookOutForLavaPool"],
+        "deactivationCondition":{
+            "conditions":["lavaPoolFound"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":83,
+        "characterSprite":"../../assets/Characters/Hero2.png",
+        "hasPrecursor": true,
+        "yesStageIds":[86],
+        "noStageIds":[85],
+        "cardText": "I was just finishing the sword, that Aela promised me when the Imp came back and took it. He flew away and now I can't find him. He's probably hiding somewhere hot, but I already looked for him in the smelter. Do you know another hot place, where he could hide?",
+        "yesText": "A pool of lava! Thats exactly what he would hide in. Be right back!",
+        "noText": "Man, that sucks. But I'm not giving up yet, I'll keep looking and you keep an eye out for me, okay?",
+        "yesConditions":["lookOutForLavaPool"],
+        "noConditions":["lookOutForLavaPool"],
+        "activationCondition":{
+            "conditions":["lavaPoolFound","heroSwordStolen"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["lookOutForLavaPool"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":84,
+        "characterSprite":"../../assets/Characters/Hero2.png",
+        "hasPrecursor": true,
+        "cardText": "I'm still looking for my sword. Have you heard anthing new?",
+        "yesText": "No, I don't think thats hot enough. I mean, I will go take a look anyways, but keep an eye out for me, okay?",
+        "noText": "Man, that sucks. But I'm not giving up yet, I'll keep looking and you keep an eye out for me, okay?",
+        "yesConditions":["lookOutForLavaPool"],
+        "noConditions":["lookOutForLavaPool"],
+        "activationCondition":{
+            "conditions":["lookOutForLavaPool"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["lavaPoolFound"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":85,
+        "characterSprite":"../../assets/Characters/Hero2.png",
+        "hasPrecursor": true,
+        "yesStageIds":[86],
+        "noStageIds":[85],
+        "cardText": "I'm still looking for my sword. Have you heard anthing new?",
+        "yesText": "A pool of lava! Thats exactly what he would hide in. Be right back!",
+        "noText": "Man, that sucks. But I'm not giving up yet, I'll keep looking and you keep an eye out for me, okay?"
+    },
+    {
+        "stageId":86,
+        "characterSprite":"../../assets/Characters/Hero3.png",
+        "hasPrecursor": true,
+        "yesStageIds":[87],
+        "noStageIds":[87],
+        "cardText": "Heyhey! Look, what I've got! My very first sword. Turns out, the Imp only wanted to help. He dipped the sword in the lava to improve it and I think it actually made it stronger. Maybe there's more to this pool of lava, than meets the eye. Do you think it might be magical lava?",
+        "yesText": "That's the only way it makes sense, right? Anyways, I got my sword now so I don't mind either way.",
+        "noText": "Maybe I just don't know enough about smithing yet.  Anyways, I got my sword now so I don't mind either way."
     }
 ]
