@@ -1235,7 +1235,109 @@
         "yesConditions": "heroJoinedPoacherTaskForce",
         "noConditions": "heroJoinedPoacherTaskForce",
         "cardText": "I heard about the whole poacher thing and got kind of angry. I just enlisted myself, I hope that's okay...",
-        "yesText": "I can't wait to teach those poachers a lesson...",
-        "noText": "I can't wait to teach those poachers a lesson..."
+        "yesText": "I think I might've been a bit overzealous, but if you think it was a good idea, I feel better about it, too. I can't wait to teach those poachers a lesson...",
+        "noText": "Yeah, sorry. I really should've talked to you about it first. But promise I'll be fine. I can't wait to teach those poachers a lesson..."
+    },
+    {
+        "stageId":97,
+        "characterSprite": "../../assets/Characters/BeastMaster.png",
+        "hasPrecursor":false,
+        "yesConditions":"beastMasterArrived",
+        "noConditions":"beastMasterArrived",
+        "yesStageIds":[100],
+        "noStageIds":[100],
+        "noCostOrProfit":{"happiness":-1},
+        "cardText": "Hey, I'm darek. I came here to study the local animals. I also brought some animal friends with me, I guess you could call them pets: A white raven, a four-armed little monkey and a winged snake. Can I let them run and fly around the city?",
+        "yesText": "Thanks, I don't really like to keep 'em locked up in a cramped room. People can even pet them, if they feel like getting pet.",
+        "noText": "I guess I'll give them lots of \"walks\", then. You don't know a alot about animals, do you?"
+    },
+    {
+        "stageId":98,
+        "characterSprite": "../../assets/Characters/BeastMaster.png",
+        "hasPrecursor":true,
+        "yesStageIds":[99],
+        "yesConditions":"eggsKnownToBeastMaster",
+        "cardText": "Do you happen to know of any interesing insects around here?",
+        "yesText": "Giant cockroaches, eh? Now that sounds interesting! I'll you definetely have to tell me all about them later!",
+        "noText": "None? I bet in these caves are so many interesting creatures, we just gotta discover 'em. Tell me if you find any, alright?.",
+        "activationCondition": {
+            "conditions":["roachEggsKept","beastMasterArrived"],
+            "operator":"AND"
+        },
+        "deactivationCondition": {
+            "conditions":["eggsKnownToBeastMaster"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":99,
+        "characterSprite": "../../assets/Characters/BeastMaster.png",
+        "hasPrecursor":true,
+        "yesConditions":"beastMasterHasEggs",
+        "noStageIds":[99],
+        "noCostOrProfit":{"happiness":-1},
+        "cardText": "Hey, can I have the giant cockroach eggs? I want to study them.",
+        "yesText": "Nice! I can't wait to tell you all about my research.",
+        "noText": "In the end it's your decision. I really want them though, maybe you'll change your mind..."
+        
+    },
+    {
+        "stageId":100,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText":"I could go research a luminescent eel or a species of cave mouse. Right now I think the mouse will be more interesting, do you agree?",
+        "yesStageIds":[101],
+        "noStageIds":[102],
+        "yesText":"I think so, too. Lets get some live traps, mouse feed and camouflage, I wonder what they even eat...",
+        "noText":"Maybe you're right. Eel might be slimy and a little weird, but that only makes them even more interesting."
+    },
+    {
+        "stageId":101,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText":"I got some interesting results from my mice study. As dark as this biome is there seem to be a number of seedbearing plants. The mice eat the seeds of those plants and insects who live on the larger mushroom species. Amazing, right?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesStageIds":[103],
+        "noStageIds":[103],
+        "yesText":"Gotta love nerding out with a fellow nature nerd!",
+        "noText":"Don't underestimate mice, just 'cause they're little."
+    },
+    {
+        "stageId":102,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText":"Good thing, you told me to look into eels instead of mice. The eels down here are pale and a little larger than surface eels. What's really interesting though, is that they have a symbiotic relationship with a magical type of algae, which glows, when they're threatened. I bet we can make this useful to us somehow. You got an Idea already?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesStageIds":[103],
+        "noStageIds":[103],
+        "yesText":"Hah, nice. I get random information and you got the Ideas, classic symbiosis!",
+        "noText":"I'll just leave you my notes. Someday you'll figure somethin' out.",
+        "yesConditions":"glowingAlgaeDiscovered",
+        "noConditions":"glowingAlgaeDiscovered"
+
+    },
+    {
+        "stageId":103,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "Okay, so for my next field trip, I want to research something a little larger. There are some larger quadrupedal animals. They look like they'd fill the niche of solitary grazing animals, although down here there's no grass. The other creature would be a mid sized omnivore, that moves in small packs. You think I'd better prioritize the pack animal?",
+        "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
+        "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
+        "yesStageIds":[104],
+        "noStageIds":[105]
+    },
+    {
+        "stageId":104,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "Okay, so for my next field trip, I want to research something a little larger. There are some larger quadrupedal animals. They look like they'd fill the niche of solitary grazing animals, although down here there's no grass. The other creature would be a mid sized omnivore, that moves in small packs. You think I'd better prioritize the pack animal?",
+        "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
+        "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
+        "yesStageIds":[106],
+        "noStageIds":[106]
+    },
+    {
+        "stageId":105,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "You won't believe how genius the survival strategy of the \"grazers\" is. I thought they were grazing animals, from the way they moved from territory to territory",
+        "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
+        "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
+        "yesStageIds":[106],
+        "noStageIds":[106]
     }
 ]

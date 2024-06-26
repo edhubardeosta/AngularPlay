@@ -1,21 +1,14 @@
-Game: Manage options, hoard, quests, etc., start animations
-
-
-dialogfeld:
-
-
-Assets:
-	mehr character assets kreieren.
+Game: 
 
 Content:
-	Events
+	Remove-Events
+	bulding events
 
 background:
-	background art
-	spawnende objekte je nach ressourcen
-	spawnende objekte nach events
 
 credits:
+intro (Fixed dialogue list)
+	ending conditions and credits
 	spende
 	login mit google
 
