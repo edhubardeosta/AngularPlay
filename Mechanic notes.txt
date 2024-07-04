@@ -1,0 +1,7 @@
+teleport circle
+spatial flux
+automatic mushroom harvester
+
+faster growing crops
+better medicine
+better building material

@@ -1178,7 +1178,7 @@
         "hasPrecursor":true,
         "yesStageIds":[92],
         "noStageIds":[93],
-        "cardText": "Remember the turnament I told you about? I actually went and competed! I didn't win but it was really fun. I think I'll do that regularily from now on. Also, an old man with a gray beard came up to me and asked me to be his apprentice. So far he's only made me clean all his stuff but he said, it would make me a better fighter. Do you think he's lying?",
+        "cardText": "Remember the tournament I told you about? I actually went and competed! I didn't win but it was really fun. I think I'll do that regularily from now on. Also, an old man with a gray beard came up to me and asked me to be his apprentice. So far he's only made me clean all his stuff but he said, it would make me a better fighter. Do you think he's lying?",
         "yesText": "You know what, you're right! How is that even supposed to work? I bet he's just trying to save money. I'll tell him: unless he pays me, he can clean his stuff himself.",
         "noText": "Hm, it's true that he did seem very earnest. I'll just keep at it and who knows, maybe it works."
     },
@@ -1325,19 +1325,566 @@
     {
         "stageId":104,
         "characterSprite":"../../assets/Characters/BeastMaster.png",
-        "cardText": "Okay, so for my next field trip, I want to research something a little larger. There are some larger quadrupedal animals. They look like they'd fill the niche of solitary grazing animals, although down here there's no grass. The other creature would be a mid sized omnivore, that moves in small packs. You think I'd better prioritize the pack animal?",
-        "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
-        "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
-        "yesStageIds":[106],
-        "noStageIds":[106]
+        "cardText": "Remember the omnivores I went to research. I now call them rainbowboars because they remind me of wild boars. Also they have a crest, which they can flash with colorful lights, probably a different species of the algae I found before. Awesome, isn't it? When I was looking at the communication patterns of the rainbow boars, I also found a spot with a great view in general. Should I tell people the way to get there, so they can enjoy it, too?",
+        "yesCostOrProfit": {"happiness":4},
+        "yesText":"Yeah, a place to get out and break the routine is exactly what you need sometimes. I already found my next project...",
+        "noText":"It is not super dangerous, but it's true. You never know what could happen. I'll just tell a few people I can trust. I already found my next project...",
+        "yesStageIds":[108],
+        "noStageIds":[108]
     },
     {
         "stageId":105,
         "characterSprite":"../../assets/Characters/BeastMaster.png",
-        "cardText": "You won't believe how genius the survival strategy of the \"grazers\" is. I thought they were grazing animals, from the way they moved from territory to territory",
-        "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
-        "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
-        "yesStageIds":[106],
-        "noStageIds":[106]
+        "cardText": "You won't believe how genius the survival strategy of the \"grazers\" is. I thought they were grazing animals, from the way they moved from territory to territory, but they actually seem to have a \"filter-feeding\" strategy. There seem to be some mushroom species, whose spores are a little bit nutritious. The filter-feeders suck in air and eat the spores, which are flying around. Awesome, right?",
+        "yesText":"Nice! I call 'em gardeners, by the way. I do that, because they carry around mushrooms they can eat on their back and spread them around. If you can domesticate some, that would probably be very useful in your farms. Anyways, I'm off now. I already found my next project...",
+        "noText":"Oh, sorry. I didn't mean to bore you. One thing that'll get your attention is that I call 'em gardeners. I do that, because they carry around mushrooms they can eat on their back and spread them around. If you can domesticate some, that would probably be very useful in your farms. Anyways, I'm off now. I already found my next project...",
+        "yesStageIds":[108,106],
+        "noStageIds":[108,106]
+    },
+    {
+        "stageId":106,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "cardText": "Greetings, my Queen. It has been suggested to let the so called \"gardeners\" onto the mushroom farms to stimulate growth. However, some farmers are hesitant and fear the animals would eat the breadcap mushrooms. Should we keep preventing the animals from coming in?",
+        "yesText": "The farmers need not worry anymore. We have been getting by just fine and that is how it will stay.",
+        "noText": "I will instruct the farmers to let the gardeners in. There will be mild protest but nothing to worry about.",
+        "noCostOrProfit": {"happiness": -3},
+        "noStageIds":[107]
+    },
+    {
+        "stageId":107,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "cardText": "Greetings, my Queen. The fears of the farmers have been misplaced. Since we let the gardneres into our farms. Mushroom growth has skyrocketed. The produce eaten by the gardeners is more than offset and we have made a considerable surplus. Shall we chastise the instigators of the protests?",
+        "yesText": "Your authority needs to be respected and feared, not questioned by every hillbilly with ideas.",
+        "noText": "Rebelling against change is natural. We must be merciful with your subjects.",
+        "yesCostOrProfit":{"treasure": 49},
+        "noCostOrProfit": {"treasure": 49, "happiness": 3}
+    },
+    {
+        "stageId": 108,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "Right when I was finishing the observations for my last Project I saw something awesome. I was watching one of the animals drink and was about to pack up, when all of a sudden, a snake head came out of the water and bit the other animal. Then another and another until there were about four long necks and pairs of jaws holding on. I was suspecting it already but I couldn't believe it, until an entire damn hydra emerged from the Water and devoured its catch. Pretty scary stuff but also so awesome, right?",
+        "yesText": "I mean, you have hydras all over your throne room, so I thought you'd like it. I'm just so excited! I thought these things were just myth, but they're real and alive right now!",
+        "noText": "Yeah, if I head of a multi-headed snake monster for the first time, I'd be a little worried, too. But trust me, most wildlife doesn't come near cities, especially not predators.",
+        "yesStageIds":[109],
+        "noStageIds":[109]
+    },
+    {
+        "stageId": 109,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "I wanna research the hydra. This is gonna be a little larger in scope though. Can I have some money and a few guards to help me?",
+        "yesText": "Nice! Let me tell you, it's been really amazing being here until now. I'm pretty grateful for that. I won't let your help go to waste.",
+        "noText": "No problem, I can wait for now. But someday I need to find that hydra again.",
+        "yesCostOrProfit":{"treasure":-49, "military":-5},
+        "yesStageIds":[110],
+        "noStageIds":[109]
+    },
+    {
+        "stageId": 110,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "Hey, I'm back! Everything went well with the hydra and everyone made it back, although we had a couple of close calls... I could talk for hours about what I found, but I'll focus on the stuff that might be useful for you. Two things, first: The blood and spit of the hydra dissolves flesh and when its exposed to air, it also becomes toxic. That could probably be used as a weapon somehow. Second: It's kinda obvious when you think about it, but Hydras are deeply magical creatures, which can be influenced by magical people. Do you think it might even be able to tame one?",
+        "yesText": "If somehow you accomplished that, you'd basically be unstoppable...",
+        "noText": "Well I couldn't do it, either. But someday maybe you'll meet somone who can.",
+        "yesCostOrProfit":{"military":5},
+        "noCostOrProfit":{"military":5},
+        "yesConditions":["hydraResearched"],
+        "noConditions":["hydraResearched"],
+        "yesStageIds":[111],
+        "noStageIds":[111]
+    },
+    {
+        "stageId":111,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My Queen. We ran some experiments on hydra saliva and now we can translate its properties onto a concoction of our own production. Should we increase production to cover all of our standard weapons?",
+        "yesText": "Understood. This will increase our fighting capabilities.",
+        "noText": "Understood. We shouldn't overburden our economy.",
+        "noStageIds": [111],
+        "yesCostOrProfit": {"military":15}
+    },
+    {
+        "stageId":112,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText": "Greetings, oh powerful queen! It seems you have acquired quite some wealth. But first, let me introduce myself. I am Minasu, first sorceress of the shadow coast. Well, at least I was until the cataclysm. Now I am looking for a new place to study magic. I looked at your city and I deem it suitable to home a society of magic. If you would grant me the necessary funds, I could start construction right away.",
+        "yesText": "I am eternally grateful for your support. Trust me, your generosity will more than pay for itself.",
+        "noText": "Maybe you're not as rich as I thought. Either in wealth, or in wisdom.",
+        "yesConditions": ["metSorceress"],
+        "noConditions": ["metSorceress"],
+        "yesCostOrProfit":{"treasure":29},
+        "yesStageIds":[113],
+        "noStageIds":[135],
+        "activationCondition":{
+            "conditions":["popOver500"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["metSorceress"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":113,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! I have finished constructing the first level of the mages academy. It contains the library and an alchemical laboratory. A lot of construction still remains, but we can take that one step at a time, unless you are already eager to go further. So, should I come back later?",
+        "yesText":"You probably want to see some results first, I imagine. A wise strategy indeed.",
+        "noText":"A bold move indeed. I can assure you, it will not go to waste.",
+        "yesConditions": ["mageAcademyLevel1"],
+        "noConditions": ["mageAcademyLevel1"],
+        "noCostOrProfit":{"treasure":19},
+        "yesStageIds":[114],
+        "noStageIds":[115]
+    },
+    {
+        "stageId":114,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! As you know, we are ready to move to the next level with the mages academy. Are you ready?",
+        "yesText":"Perfect. Lets give magic a chance to flourish!",
+        "noText":"Not yet? Do you still not have the funds? Disappointing...",
+        "yesCostOrProfit":{"treasure":19},
+        "yesStageIds":[115],
+        "noStageIds":[114]
+    },
+    {
+        "stageId":115,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! I have finished constructing the second level of the mages academy. It contains the workshop and the enchantment rooms. We are making steps toward a metropolis of magic, but we can take that one step at a time, unless you are already eager to go further. So, should I come back later?",
+        "yesText":"Better go slow and steady than risk it all crashing down, I suppose.",
+        "noText":"A bold move indeed. I can assure you, it will not go to waste.",
+        "yesConditions": ["mageAcademyLevel2"],
+        "noConditions": ["mageAcademyLevel2"],
+        "noCostOrProfit":{"treasure":19},
+        "yesStageIds":[116],
+        "noStageIds":[117,134]
+    },
+    {
+        "stageId":116,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! As you know, we are ready to move to the next level with the mages academy. Are you ready?",
+        "yesText":"Perfect. Lets give magic a chance to flourish!",
+        "noText":"Not yet? Do you still not have the funds? Disappointing...",
+        "yesCostOrProfit":{"treasure":19},
+        "yesStageIds":[117,134],
+        "noStageIds":[116]
+    },
+    {
+        "stageId":117,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! I have finished constructing the third level of the mages academy. It contains summoning circles and the magic vault. It has grown into a respected facility and has gained some renown, especially considering how remote this city is. Also, it has the potential to grow even further. But as usual, we can take that one step at a time, unless you are already eager to go further. So, should I come back later?",
+        "yesText":"Better go slow and steady than risk it all crashing down, I suppose.",
+        "noText":"A bold move indeed. I can assure you, it will not go to waste.",
+        "yesConditions": ["mageAcademyLevel3"],
+        "noConditions": ["mageAcademyLevel3"],
+        "noCostOrProfit":{"treasure":19},
+        "yesStageIds":[118],
+        "noStageIds":[119]
+    },
+    {
+        "stageId":118,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! As you know, we are ready to move to the next level with the mages academy. Are you ready?",
+        "yesText":"Perfect. Let the magic bloom even more!",
+        "noText":"Not yet? Do you still not have the funds? Do not worry. We have plenty to work with, already.",
+        "yesCostOrProfit":{"treasure":19},
+        "yesStageIds":[119],
+        "noStageIds":[118]
+    },
+    {
+        "stageId":119,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! I have finished constructing the fourth level of the mages academy. It contains the prismatic illusion chamber and the academy gardens. We are now on the cusp of reaching the absolute possible peak, that a mages academy can achieve. Be proud, just as I am! For we have achieved incredible things. Now there is only one last step missing. But as usual, we can take that one step at a time, unless you are already eager to go further. So, should I come back later?",
+        "yesText":"Now, right at the end, it is not the time to rush.",
+        "noText":"I am thankful for your impatience because it matches mine. Lets take this final leap to soar in the winds of magic!",
+        "yesConditions": ["mageAcademyLevel4"],
+        "noConditions": ["mageAcademyLevel4"],
+        "noCostOrProfit":{"treasure":19},
+        "yesStageIds":[120],
+        "noStageIds":[121]
+    },
+    {
+        "stageId":120,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! As you know, we are ready to move to the next level with the mages academy. Are you ready?",
+        "yesText":"And so it begins, the last ascent...",
+        "noText":"Not yet? Do you still not have the funds? Do not worry. We have plenty to work with, already.",
+        "yesCostOrProfit":{"treasure":19},
+        "yesStageIds":[121],
+        "noStageIds":[120]
+    },
+    {
+        "stageId":121,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! I have finished constructing the fifth and last level of the mages academy. It contains the teleportation circles, the star chamber and the elemental channel. I hope you understand how colossal this feat is. With your help I have built a megical nexus, a hub of research and refinement. Now, nothing is impossible. Would you like to celebrate with me and enjoy the view from my quarters?",
+        "yesText":"I am honored to have you.",
+        "noText":"Not a problem. You have already given me magic. There is no more I can ask.",
+        "yesConditions": ["mageAcademyLevel5"],
+        "noConditions": ["mageAcademyLevel5"],
+        "yesCostOrProfit":{"happiness":1}
+    },
+    {
+        "stageId":122,
+        "hasPrecursor":false,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this bread. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[123],
+        "noStageIds":[123]
+    },
+    {
+        "stageId":123,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this apple. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[124],
+        "noStageIds":[124]
+    },
+    {
+        "stageId":124,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this bowl of rice. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[125],
+        "noStageIds":[125]
+    },
+    {
+        "stageId":125,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this pizza. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[122],
+        "noStageIds":[122]
+    },
+    {
+        "stageId":126,
+        "hasPrecursor":false,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this porridge. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[127],
+        "noStageIds":[127]
+    },
+    {
+        "stageId":127,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this plate of spaghetti. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[128],
+        "noStageIds":[128]
+    },
+    {
+        "stageId":128,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have these grilled veggies. Think I should eat 'em?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[129],
+        "noStageIds":[129]
+    },
+    {
+        "stageId":129,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this bowl of crackers. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[126],
+        "noStageIds":[126]
+    },
+    {
+        "stageId":130,
+        "hasPrecursor":false,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this cheese. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[131],
+        "noStageIds":[131]
+    },
+    {
+        "stageId":131,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have these cookies. Think I should eat 'em'?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[132],
+        "noStageIds":[132]
+    },
+    {
+        "stageId":132,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this bowl of grilled mushrooms. Think I should eat 'em?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText":"Mhm, tasty!",
+        "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[133],
+        "noStageIds":[133]
+    },
+    {
+        "stageId":133,
+        "characterSprite":"../../assets/Characters/Woman.png",
+        "cardText":"Top of the mornin' to ya. I have this bowl of churros. Think I should eat it?",
+        "yesCostOrProfit":{"happiness":-2},
+        "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
+        "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
+        "yesStageIds":[130],
+        "noStageIds":[130]
+    },
+    {
+        "stageId": 134,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love, I'm researching magical golems and I heard this city has a magical university. Will you allow me to join this university and conduct my research of magical mechans on unversity grounds?",
+        "yesText": "Splendid, this is precisely the kind of institution I was looking for.",
+        "noText": "What a shame, I'll ask again in a bit in case you change your mind.",
+        "yesStageIds":[137],
+        "noStageIds":[136],
+        "yesConditions":["mechanicAdmitted"]
+    },
+    {
+        "stageId":135,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText": "Greetings. It seems you have acquired quite some wealth. As you know, your city is suitable to home a society of magic, a magic academy, if you will. If you would grant me the necessary funds, I could start construction right away. Are you now able to spare the appropriate resources?",
+        "yesText": "I am eternally grateful for your support. Trust me, your generosity will more than pay for itself.",
+        "noText": "We are just talking about the first level here, yet you still can provide nothing? How thoroughly disappointing...",
+        "yesCostOrProfit":{"treasure":29},
+        "yesStageIds":[113],
+        "noStageIds":[135]
+    },
+    {
+        "stageId": 136,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love, it's me again. Will you allow me to join this university now?",
+        "yesText": "Splendid, I knew you'd reconsider! Thank you!",
+        "noText": "What a shame, well goodbye it is then.",
+        "yesStageIds":[137],
+        "yesConditions":["mechanicAdmitted"]
+    },
+    {
+        "stageId": 137,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "I'm working on a tiny prototype for a bipedal golem, can I borrow a few people from your guard to reference their movement?",
+        "yesText": "Splendid! I'll ask around to see who's interested.",
+        "noText": "Hmm, I gotta find someone else, then. ",
+        "yesStageIds":[138],
+        "noStageIds":[139]
+    },
+    {
+        "stageId": 138,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "There has been an accident in the workshop of the mages academy. One of the golems suddenly sent out a wave of magical energy, which blasted some heavy tools out of a window. Thankfully the guards could catch most of the tools. The rest only hit buildings, so we have mostly just property damage. Should we compensate the involved homeowners?",
+        "yesText": "Yes, of course. I am sure the people will be grateful. Oh, Metassa also got a light injury and will be out of commission for a while.",
+        "noText": "If we do not have the funds, then we have no other choice. However, this will not go unnoticed. Oh, Metassa also got a light injury and will be out of commission for a while.",
+        "yesStageIds":[140],
+        "noStageIds":[140],
+        "yesCostOrProfit":{"treasure":-5, "happiness":1},
+        "noCostOrProfit":{"happiness":-5}
+    },
+    {
+        "stageId": 139,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "There has been an accident in the workshop of the mages academy. One of the golems suddenly sent out a wave of magical energy, which blasted some heavy tools out of a window. The tools hit buildings the city below and caused chaos and a lot of damage. Should we help rebuilding with some money?",
+        "yesText": "Yes, of course. I am sure the people will be grateful. Oh, Metassa also got a light injury and will be out of commission for a while.",
+        "noText": "If we do not have the funds, then we have no other choice. However, this will not go unnoticed. Oh, Metassa also got a light injury and will be out of commission for a while.",
+        "yesStageIds":[140],
+        "noStageIds":[140],
+        "yesCostOrProfit":{"treasure":-16, "happiness":-3, "populace":-3},
+        "noCostOrProfit":{"happiness":-9, "populace":-3}
+    },
+    {
+        "stageId": 140,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love, I just came around to tell you, I'm getting better and I'll go back to researching soon. Also, I'm so sorry about what happened. It must've been a faulty rune-core. Once I start working again, I will install more safety measures, so this can't happen again. Can I still make it up to you somehow?",
+        "yesText": "I will not disappoint you again, I promise!",
+        "noText": "Oh, okay. I think It's better if I go now, then.",
+        "yesStageIds":[141],
+        "noStageIds":[141],
+        "yesCostOrProfit":{"happiness":1},
+        "noCostOrProfit":{"happiness":-1}
+    },
+    {
+        "stageId": 141,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! I invented a system, that can catch things and prevent them from falling off of the academy. Should I tell people about it?",
+        "yesText": "I hope it'll make them feel a little safer.",
+        "noText": "Maybe the memory is still too fresh.",
+        "yesCostOrProfit":{"happiness":5},
+        "noCostOrProfit":{"happiness":1},
+        "yesConditions":["academyFallProtection"],
+        "noConditions":["academyFallProtection"]
+    },
+    {
+        "stageId": 142,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! I know it didn't go well the first time, but I think the Bi-Pedal golem would still be a good idea. Should I carefully restart my research?",
+        "yesText": "I'll make sure theres no faulty components this time.",
+        "noText": "Hmm, I guess you're right. Let's not make the same mistake twice",
+        "yesConditions":["biPedResearchRestarted"],
+        "noConditions":["biPedResearchCancelled"],
+        "yesStageIds":[143],
+        "activationCondition":{
+            "conditions":["mageAcademyLevel3","academyFallProtection"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["biPedResearchRestarted","biPedResearchCancelled"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":143,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! With the example data I collected before the explosion and an intact rune-core this time I got it to work! The golem can follow all kinds of orders-now. It can help carrying things or lift things or people up, like a mobile crane. Should I start making more and let them help out in the city?",
+        "yesText": "I hope this can make up for some of the damage from before.",
+        "noText": "At least my research went somewhere in the end. I woul've felt worse if it was all for nothing.",
+        "yesCostOrProfit":{"treasure":19,"happiness":5},
+        "noCostOrProfit":{"happiness":1},
+        "yesConditions":["biPedResearchFinished"],
+        "noConditions":["biPedResearchFinished"]
+    },
+    {
+        "stageId": 144,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! I have this idea for a suit of armor, which detects the movements of the wearer and enhances their strength. Should I take some funds and try to create something like that?",
+        "yesText": "Thank you very much. I think it's gonna be a success.",
+        "noText": "Well, I'm sure another idea will come up soon.",
+        "yesConditions":["golemArmorResearchStarted"],
+        "noConditions":["golemArmorResearchCancelled"],
+        "yesStageIds":[145],
+        "yesCostOrProfit":{"treasure":-4},
+        "activationCondition":{
+            "conditions":["mageAcademyLevel4","mechanicAdmitted"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["golemArmorResearchStarted","golemArmorResearchCancelled"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":145,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! I just finished the first suit of golem armor and your general now wants a whole bunch. Should I make more?",
+        "yesText": "Armor up!",
+        "noText": "Okay, lets keep it at one for now",
+        "yesCostOrProfit":{"treasure":-29,"military":20},
+        "noCostOrProfit":{"military":3},
+        "yesConditions":["golemArmorResearchFinished"],
+        "noConditions":["golemArmorResearchFinished"]
+    },
+    {
+        "stageId": 146,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! You know, how sometimes people need to carry lots of stuff at once? Sometimes its too much for a cart to carry. Or sometimes you need to set up a smithy, a sawmill or a carpenters workshop first, to start working on a site. I have an Idea for a multi legged golem, which can carry large and heavy loads on its back.  It'll cost a bit but I think its worth it. Should I do it?",
+        "yesText": "Thank you very much. I think it's gonna be a success.",
+        "noText": "Well, I'm sure another idea will come up soon.",
+        "yesConditions":["spiderGolemResearchStarted"],
+        "noConditions":["spiderGolemResearchCancelled"],
+        "yesStageIds":[147],
+        "yesCostOrProfit":{"treasure":-34},
+        "activationCondition":{
+            "conditions":["mageAcademyLevel5","mechanicAdmitted"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["spiderGolemResearchStarted","spiderGolemResearchCancelled"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId": 147,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! Research on the new golem prototype is off to a good start. I think I could make faster progress if I used lots of prototypes. Do we have the funds for that?",
+        "yesText": "Yes, thats going to help out a lot.",
+        "noText": "We'll get there, even if it takes a bit longer.",
+        "yesStageIds":[149],
+        "yesCostOrProfit":{"treasure":-9}
+    },
+    {
+        "stageId": 148,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! I had to be careful not to go out of the budget, but I just finished the first prototype. With a few adjustments the first spidergolem should be finished.",
+        "yesText": "Yeah, its going to be great!",
+        "noText": "I know, I know. It always takes longer than expected with me, sorry.",
+        "yesStageIds":[149],
+        "yesCostOrProfit":{"happiness":1}
+    },
+    {
+        "stageId":149,
+        "characterSprite": "../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! The first spider golem is finished! I'm so happy! Some people are scared of it, because of the way it looks. I think they'll get used to it when I make more golems. Should I make more?",
+        "yesText": "Alright. Lets get to work.",
+        "noText": "Okay, lets keep it at one for now",
+        "yesCostOrProfit":{"treasure":-29,"happiness":-3},
+        "noCostOrProfit":{"treasure":59,"happiness":-1},
+        "yesStageIds":[150],
+        "yesConditions":["spiderGolemResearchFinished"],
+        "noConditions":["spiderGolemResearchFinished"]
+    },
+    {
+        "stageId": 150,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "My Queen, people are getting used to the new spider golems and the golems are really useful. Thanks to that, our economy is going great.",
+        "yesText": "I will extend your commendations to the responsible researcher.",
+        "noText": "You're right. It is only appropriate, given your extensive investments.",
+        "yesCostOrProfit":{"treasure":189,"happiness":3},
+        "noCostOrProfit":{"treasure":189,"happiness":3}
+    },
+    {
+        "stageId": 151,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "Hello, isn't it a wonderful day?",
+        "hasPrecursor":false,
+        "yesText": "Ah the smells and slender forms of all the lovely plants down here. An entirely new paradise.",
+        "noText": "One does well to remember that even the eldest tree, one day, will wither and fall. It makes one appreciate.",
+        "yesCostOrProfit":{"happiness":1},
+        "noCostOrProfit":{"happiness":-1}
+    },
+    {
+        "stageId": 152,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "Wouldn't it be fitting, if I applied for the magic academy? Afterall, the have a garden now.",
+        "yesText": "Yes indeed, the perfect place to put down some roots.",
+        "noText": "You don't think so? What makes you hesitate so, darling?",
+        "yesConditions":["botanistAdmitted","botanistAdmissionRequested"],
+        "noConditions":["botanistAdmissionRequested"],
+        "yesStageIds":[154],
+        "noStageIds":[153],
+        "yesCostOrProfit":{"treasure":-4},
+        "activationCondition":{
+            "conditions":["mageAcademyLevel4"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["botanistAdmissionRequested"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId": 153,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "Long I thought and I need to ask again. Is the academy my future?",
+        "yesText": "Yes indeed, the perfect place to put down some roots.",
+        "noText": "Then, like a dandelion seed I will go. Where will the winds let me land?",
+        "yesConditions":["botanistAdmitted"],
+        "noConditions":["botanistDenied"],
+        "yesStageIds":[154],
+        "yesCostOrProfit":{"treasure":-4}
+    },
+    {
+        "stageId":154,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "A light awoke my curiosity today. Not blinding white, like the sun but a blue warmth from a smaller orb. When I came thither, it was a ripe fruit on a ."
     }
+
 ]

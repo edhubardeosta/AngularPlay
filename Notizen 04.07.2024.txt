@@ -1,0 +1,21 @@
+Sludge: east, subsea caves. Trade algae for plant fibre gold for hydraconcoction
+Dwarves: south, request mining under city -> will either attack city when denied or sludges, when given leeway
+
+sludges will win if player is neutral and will support player against dwarves. Dwarves will retreat, when player joins the war and will attack the player later.
+
+sculptor needs statue done for new statue (remove when its built)
+
+knight:
+
+do you have some work for a noble knight -> poacher
+-> flirt with hero
+
+womanscientist:
+
+admission request
+
+project 1: Test if the light orb fruit can grow without the sun -> it can, but only if it has a ceartain mushroom nearby 
+Sun stone?
+project 2: I think I can grow a different version to the edible bamboo, which is more durable -> bulding and tool material
+project 3: A more nutritious version of the food bambo with more nutrients.
+
