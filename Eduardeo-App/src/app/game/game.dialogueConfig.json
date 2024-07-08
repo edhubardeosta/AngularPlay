@@ -1853,7 +1853,7 @@
     {
         "stageId": 152,
         "characterSprite": "../../assets/Characters/WomanScientist.png",
-        "cardText": "Wouldn't it be fitting, if I applied for the magic academy? Afterall, the have a garden now.",
+        "cardText": "Wouldn't it be fitting, if I applied for the magic academy? Afterall, they have a garden now.",
         "yesText": "Yes indeed, the perfect place to put down some roots.",
         "noText": "You don't think so? What makes you hesitate so, darling?",
         "yesConditions":["botanistAdmitted","botanistAdmissionRequested"],
@@ -1884,7 +1884,54 @@
     {
         "stageId":154,
         "characterSprite": "../../assets/Characters/WomanScientist.png",
-        "cardText": "A light awoke my curiosity today. Not blinding white, like the sun but a blue warmth from a smaller orb. When I came thither, it was a ripe fruit on a ."
+        "cardText": "A light awoke my curiosity today. Not blinding white, like the sun but a blue warmth from a smaller orb. When I came thither, it was a ripe fruit on a stalk of muted teal. Then I saw another, another, many lights, a field. Where does it grow? Why does it glow? Shall I foind out something new? What say you?",
+        "yesText": "When there is new, in high or low, there I will go, so you can know, about its glow. Will send to you.",
+        "noText": "Oh. Forgive. Never meant I to disturb you.",
+        "yesCostOrProfit":{"treasure":-9},
+        "yesStageIds": [155],
+        "noStageIds": [154]
+    },
+    {
+        "stageId":155,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "A folly befell me at first. I sensed magic in the light. But spells not made the seedling blossom. With widened eye, saw what folly into me had gotten. Magic everywhere in sight. Somewhere else doth lie its thirst.",
+        "yesText": "With theories of falsehood slain, quest of mine, don't be in vain.",
+        "noText": "Oh, apologies. I meant to say, I was misguided. At first, I detected magic in the flowers and thought it the cause. But when I could not progress farther, I found that magic permeates every living thing down here. But I will find the real source of light in this fruit in time. But I cannot promise not to rhyme.",
+        "yesConditions":["lightFruitPending"],
+        "noConditions":["lightFruitPending"]
+    },
+    {
+        "stageId":156,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "I know now what makes light in dark. Though first I did not hit the mark. Thought magic shone a light within, and thus I took a cut inside. But all the light to my surprise, the fruit is sending from its skin. I really could not understand, my garden still just died and withered. When fear came failure loomed, so dark and bitter, came to my help a mushroom man. He said find the small, then I saw it all. Like verses of a rhyming song, plant and fungus become one.",
+        "yesText": "If the light were stripped from the outside and made a tool. This I would tell you without rhyme. Yes, it's true. Let there not just be light, but brilliance.",
+        "noText": "Forgive. I know, I speak a labytinth sometimes and get lost myself. I meant to say, the glowing fruit seems rely heavily on a kind of fungus. It's actually the spores of the fungus, which are glowing. The Plant just lets itself get overgrown and seems to feed of the fungus' energy. I managed to get to this conclusion with the help of an expert on funghi, who also helped me with the development of an extraction method. This way we can use the glowing spores without needing to grow fruit everywhere.",
+        "yesCostOrProfit":{"treasure":29, "happiness":5},
+        "noCostOrProfit":{"treasure":29, "happiness":5},
+        "yesStageIds":[157],
+        "noStageIds":[157],
+        "activationCondition":{
+            "conditions":["lightFruitPending","metFunghologist"],
+            "operator":"AND"
+        }
+    },
+    {
+        "stageId":157,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "Once I made runes from marble clean and gave them strength to strengthen plants. Every plant in soil or sands like steel should harden in their gleam. I was elated, saw no wrong in the enchantment I had done. But oh the treachery of confidence. Each plant I tried just met its end. The spell and life could not be one. Yet now I see them draw their life from magic with their glowing light. With plants I never saw before might it be time to try once more?",
+        "yesText": "These days comes finally the hour, where use comes from this magic power.",
+        "noText": "Perhaps my wish just clouds my thought and it all realy was for naught.",
+        "yesCostOrProfit": {"treasure":-9},
+        "yesStageIds":[158]
+    },
+    {
+        "stageId":158,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "",
+        "yesText": "",
+        "noText": "",
+        "yesCostOrProfit": {"treasure":-9},
+        "yesStageIds":[158]
     }
 
 ]
