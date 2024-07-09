@@ -1927,11 +1927,98 @@
     {
         "stageId":158,
         "characterSprite": "../../assets/Characters/WomanScientist.png",
-        "cardText": "",
-        "yesText": "",
-        "noText": "",
-        "yesCostOrProfit": {"treasure":-9},
-        "yesStageIds":[158]
+        "cardText": "It works too well I am afraid, because the runes they start to break. The force takes faster than, the rune provide it can, I think that changes when the rune is made of gem. And now that everything is said, I hope that this price can be paid.",
+        "yesText": "I know this price is much to pay but not to is a cost too great.",
+        "noText": "I'll surely ask you this again for just this soon it must not end end.",
+        "yesCostOrProfit": {"treasure":-50},
+        "yesStageIds":[160],
+        "noStageIds":[159]
+    },
+    {
+        "stageId":159,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "It pains me so to ask anew for runes of priceless gem from you. Please give the answer, what say you?",
+        "yesText": "I know this price is much to pay but not to is a cost too great.",
+        "noText": "I'll surely ask you this again for just this soon it must not end end.",
+        "yesCostOrProfit": {"treasure":-50},
+        "yesStageIds":[160],
+        "noStageIds":[159]
+    },
+    {
+        "stageId":160,
+        "characterSprite": "../../assets/Characters/WomanScientist.png",
+        "cardText": "Planks like iron, rope like steel. Now finally my dream is real. Eventually the wealth you gave, coin by coin, will be repaid.",
+        "yesText": "It's thanks to wisdom on the throne. And now you have my greatest thanks. With all my knowledge about plants, this never could been done alone.",
+        "noText": "Gladly hide I from the light. For all that we achieved, I never have believed. Was glory center of my sight. I hereby end my scene, long shall live the Queen!",
+        "yesStageIds":[161,162],
+        "noStageIds":[161,162]
+    },
+    {
+        "stageId": 161,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "cardText": "My Queen, we have a new batch of magically fortifyed wood and ropes. We could use it to build more secure and comfortable homes for our people. Or should we sell it instead?",
+        "yesText": "For this unique material we are sure to earn some valuable funds.",
+        "noText": "Better homes will surely make our people feel safer and happier.",
+        "yesCostOrProfit":{"treasure":19},
+        "noCostOrProfit":{"happiness":5},
+        "yesStageIds":[161],
+        "noStageIds":[161]
+    },
+    {
+        "stageId": 162,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText": "My greetings to you, queen of this realm. I am Barros, messenger of King Hadan Silveraxe Stonesplitter and I come from his underkingdom to the south. I come here with gifts of gold and grace. My King ordered that an Embassy be built. To good relations! That would be preferable to all, wouldn't it?",
+        "yesText": "Of course, we will send our stonemasons right away.",
+        "noText": "Ah, rejecting our offers, aren't we? Let me tell you this. Dwarves. Never. Forget.",
+        "yesCostOrProfit":{"treasure":29},
+        "noCostOrProfit":{"treasure":29},
+        "yesStageIds":[163],
+        "noStageIds":[164],
+        "yesConditions":["dwarfEmbassyConstructed"],
+        "noConditions":["dwarfEmbassyDenied"],
+        "activationCondition":{
+            "conditions":["popOver500"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["dwarfEmbassyConstructed","dwarfEmbassyDenied"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId": 163,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText": "My greetings to you, I have returned. As you may already know, we dwarves are masterful miners. We have tunnels that reach far and wide and we don't want to leave any potential, not even below your grand realm. Will you let us unbury the hidden treasures below your feet in exchange for a part of what we find?",
+        "yesText": "Yes, may both our realms grow and flourish.",
+        "noText": "Dwarves get really old, you know? And even if an elf can live for longer, a dwarven grudge will hold forever. Think about this, friend, when I return.",
+        "yesConditions": ["dwarvenTunnels"],
+        "yesStageIds":[166],
+        "noStageIds":[165]
+    },
+    {
+        "stageId": 164,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText": "My greetings to you, I have returned. As you may already know, we dwarves are masterful miners. We have tunnels that reach far and wide and we don't want to leave any potential, not even below your grand realm. You may not have let us build an embassy, but will you let us unbury the hidden treasures below your feet in exchange for a part of what we find?",
+        "yesText": "Yes, may both our realms grow and flourish.",
+        "noText": "Dwarves get really old, you know? And even if an elf can live for longer, a dwarven grudge will hold forever. Think about this, friend, when I return.",
+        "yesConditions": ["dwarvenTunnels"],
+        "yesStageIds":[166],
+        "noStageIds":[165]
+    },
+    {
+        "stageId":165,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText": "My greetings to you. I came here to ask you again. Will you keep denying us access to the ground beneath your kingdom?",
+        "yesText": "Just as I feared. Then theres nothing more to say here.",
+        "noText": "So you changed your mind? What wonderful news! We will start mining right away.",
+        "noStageIds":[166],
+        "yesConditions": ["dwarvenTunnelsDenied"],
+        "noConditions": ["dwarvenTunnels"]
+    },
+    {
+        "stageId":166,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "Greetings, my Queen."
     }
 
 ]
