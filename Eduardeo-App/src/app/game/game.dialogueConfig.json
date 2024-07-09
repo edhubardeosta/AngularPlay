@@ -1211,7 +1211,7 @@
         "characterSprite": "../../assets/Characters/general.png",
         "hasPrecursor":true,
         "yesStageIds":[95],
-        "noConditions": "poacherTaskForceDraft",
+        "noConditions": ["poacherTaskForceDraft"],
         "cardText": "My Queen, a group of poachers are roaming close to our city. They are stealing prey from our hunters, killing rare animals and sometimes, they are resorting to banditry. Should we send the guard after them?",
         "yesText": "Understood. Such lawlessness cannot be tolerated.",
         "noText": "You're right, they would probably be able to hide from larger forces, or even set traps. We will have to form a smaller task force. At least one person for gathering Intel and one person to do the heavy fighting."
@@ -1222,8 +1222,8 @@
         "hasPrecursor":true,
         "yesCostOrProfit":{"treasure": -99},
         "noCostOrProfit":{"populace": -5, "happiness":-15, "military":-5},
-        "yesConditions": "poacherTaskForceDraft",
-        "noConditions": "poacherTaskForceDraft",
+        "yesConditions": ["poacherTaskForceDraft"],
+        "noConditions": ["poacherTaskForceDraft"],
         "cardText": "My Queen, the operation we conducted against the poacher gang was a tactical failure. We could not find and destroy the poaching ring and lost some of our guards. Even more are currently being held hostage in exchange for a ransom. Should we pay the ransom?",
         "yesText": "Understood. As much as it pains me to comply with criminals, we need to preserve our forces. Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them.",
         "noText": "If we comply, we leave ourselves open to blackmail. I hate leaving soldiers behind, but this is the only option.  Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them."
@@ -1232,8 +1232,8 @@
         "stageId":96,
         "characterSprite": "../../assets/Characters/Hero4.png",
         "hasPrecursor":true,
-        "yesConditions": "heroJoinedPoacherTaskForce",
-        "noConditions": "heroJoinedPoacherTaskForce",
+        "yesConditions": ["heroJoinedPoacherTaskForce"],
+        "noConditions": ["heroJoinedPoacherTaskForce"],
         "cardText": "I heard about the whole poacher thing and got kind of angry. I just enlisted myself, I hope that's okay...",
         "yesText": "I think I might've been a bit overzealous, but if you think it was a good idea, I feel better about it, too. I can't wait to teach those poachers a lesson...",
         "noText": "Yeah, sorry. I really should've talked to you about it first. But promise I'll be fine. I can't wait to teach those poachers a lesson..."
@@ -1242,8 +1242,8 @@
         "stageId":97,
         "characterSprite": "../../assets/Characters/BeastMaster.png",
         "hasPrecursor":false,
-        "yesConditions":"beastMasterArrived",
-        "noConditions":"beastMasterArrived",
+        "yesConditions":["beastMasterArrived"],
+        "noConditions":["beastMasterArrived"],
         "yesStageIds":[100],
         "noStageIds":[100],
         "noCostOrProfit":{"happiness":-1},
@@ -1256,7 +1256,7 @@
         "characterSprite": "../../assets/Characters/BeastMaster.png",
         "hasPrecursor":true,
         "yesStageIds":[99],
-        "yesConditions":"eggsKnownToBeastMaster",
+        "yesConditions":["eggsKnownToBeastMaster"],
         "cardText": "Do you happen to know of any interesing insects around here?",
         "yesText": "Giant cockroaches, eh? Now that sounds interesting! I'll you definetely have to tell me all about them later!",
         "noText": "None? I bet in these caves are so many interesting creatures, we just gotta discover 'em. Tell me if you find any, alright?.",
@@ -1273,7 +1273,7 @@
         "stageId":99,
         "characterSprite": "../../assets/Characters/BeastMaster.png",
         "hasPrecursor":true,
-        "yesConditions":"beastMasterHasEggs",
+        "yesConditions":["beastMasterHasEggs"],
         "noStageIds":[99],
         "noCostOrProfit":{"happiness":-1},
         "cardText": "Hey, can I have the giant cockroach eggs? I want to study them.",
@@ -1309,8 +1309,8 @@
         "noStageIds":[103],
         "yesText":"Hah, nice. I get random information and you got the Ideas, classic symbiosis!",
         "noText":"I'll just leave you my notes. Someday you'll figure somethin' out.",
-        "yesConditions":"glowingAlgaeDiscovered",
-        "noConditions":"glowingAlgaeDiscovered"
+        "yesConditions":["glowingAlgaeDiscovered"],
+        "noConditions":["glowingAlgaeDiscovered"]
 
     },
     {
@@ -2018,7 +2018,87 @@
     {
         "stageId":166,
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "Greetings, my Queen."
+        "cardText": "Greetings, my Queen. We just received a tax payment from Silveraxe Dwarves. Every bit of income helps, doesn't it?",
+        "yesText": "Good thing we have this arrangement with them. Afterall, the ore is no good to anyone if it is in the ground.",
+        "noText": "You do not agree? Well maybe it is wise not to trust them too much...",
+        "yesCostOrProfit":{"treasure":9},
+        "noCostOrProfit":{"treasure":9}
+    },
+    {
+        "stageId":167,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "hasPrecursor":false,
+        "cardText": "Hey, I found a strange rock just out of town. Can I crack it open with my pick?",
+        "yesText": "Nice, I'll tell ya what I find.",
+        "noText": "Fine. You can bet I'll come again though. Dwarves live for a long time, you know.",
+        "yesStageIds": [168,170,171],
+        "noStageIds": [167,170,171]
+    },
+    {
+        "stageId": 168,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "cardText": "I found a little gold inside the rock, you can have it, if you let me build a mine.",
+        "yesText": "There ya go! Plasure doin' business with ya.",
+        "noText": "Well, yer loss. Gonna get myself a boatload of beer for that gold.",
+        "yesCostOrProfit": {"treasure":30},
+        "yesConditions": ["dwarfMineBuilt"],
+        "yesStageIds":[169]
+    },
+    {
+        "stageId": 169,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "cardText": "I made some money with my mine. Thought would only be fair, if you get some outta that too.",
+        "yesText": "Yeah I know that gleam of Silver in your eyes. Nothing better than some fine metal, right?",
+        "noText": "Oh you dont want it? You don't need say that twice, young'un. That goes right in the savings. It's gonna take a while but someday, I'm gonna be old too, y'now?",
+        "yesCostOrProfit":{"treasure":5},
+        "noCostOrProfit":{"happiness":1},
+        "yesStageIds": [169],
+        "noStageIds": [169]
+    },
+    {
+        "stageId": 170,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "cardText": "Not a city without taxes, eh? Flip a coin for me, will ya? On heads I pay double, tails means you get nothin'.",
+        "yesText": "Shhhale! It's heads! Well a deal's a deal. Guess I'll go thirsty this month.",
+        "noText": "We're careful today, eh? I can respect that. Wouldn't want the tunnel collapsing on yer head on a bad day. Heres the usual borin' amount.",
+        "yesCostOrProfit": {"treasure":20},
+        "noCostOrProfit": {"treasure":10},
+        "yesStageIds": [170],
+        "noStageIds": [170]
+    },
+    {
+        "stageId": 171,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "cardText": "Not a city without taxes, eh? Flip a coin for me, will ya? On heads I pay double, tails means you get nothin'.",
+        "yesText": "Whooey! Tails, ye grumbly old longbeard! No taxes for me today!",
+        "noText": "We're careful today, eh? I can respect that. Wouldn't want the tunnel collapsing on yer head on a bad day. Heres the usual borin' amount.",
+        "noCostOrProfit": {"treasure":10},
+        "yesStageIds": [171],
+        "noStageIds": [171]
+    },
+    {
+        "stageId":172,
+        "characterSprite": "../../assets/Characters/DwarfMiner.png",
+        "cardText": "You know these Silveraxe Dwarves are snoopin around everywhere underground lately. They're digging recklessly and seem pretty full of themselves. I don't trust 'em. Can I have some money to fortify my mine?",
+        "yesText": "I'm not saying anything will happen, but it can't hurt to be prepared.",
+        "noText": "Yer call in the end, but if things go bad down there I'm out.",
+        "yesCostOrProfit":{"treasure":-18},
+        "yesConditions":["mineFortified"],
+        "activationCondition":{
+            "conditions":["dwarfMineBuilt","dwarvenTunnels"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["mineFortified"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":173,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText":"Finest greetings! I am a diplomat from a kingdom. Can you believe that?",
+        "yesText": "Splendid, then let me introduce myself properly. My name is Scleim Dreckus, humble servant of the Earthen Council of Mokana",
+        "noText": ""
     }
 
 ]

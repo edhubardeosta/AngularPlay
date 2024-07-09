@@ -22,3 +22,6 @@ Fruit is sweet and edible, but only when washed. Only insects eat it. They carry
 sorceress
 tamed hydras:
 sun portal:
+
+Join dwarves or die,
+If they win, die anyways
