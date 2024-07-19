@@ -1,3 +1,5 @@
+Mushroom guy energy source.
+
 Sludge: east, subsea caves. Trade algae for plant fibre gold for hydraconcoction
 Dwarves: south, request mining under city -> will either attack city when denied or sludges, when given leeway
 
@@ -25,3 +27,43 @@ sun portal:
 
 Join dwarves or die,
 If they win, die anyways
+
+
+dwarves embassy, digging
+sludge, introduction, gift, plantdeal, algaedeal, tourism
+mushroom guy finds gill shroom
+
+War with sludge:
+3 minor battles
+	city outskirts x
+	weapons depot x
+	send strike team
+	
+3 major battles
+	swamps
+	dark planes
+	encirclement
+
+1 decisive battle
+	major offensive
+
+War with dwarves:
+2 minor battles
+	path between the stalagtites x
+	skylight lake x
+	mithril foundry x
+	
+2 major battles
+	mines x
+	weeping forests x
+	burning of the fields x
+
+1 decisive battle
+	the underpeak
+
+197 200 203
+
+haste
+damage
+projectiles
+krit

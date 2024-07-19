@@ -35,7 +35,7 @@
     {
         "stageId": 3, 
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "Greetings, and welcome to your domain, my Queen. After the great cataclysm, you have chosen to rebuild your queendom underground, far from the remaining empires of the surface, warring for dominance. You will hold court over your subjects and keep your realm wealthy, peaceful, content and populous. Are you ready?", 
+        "cardText": "Greetings, and welcome to your domain, my queen. After the great cataclysm, you have chosen to rebuild your queendom underground, far from the remaining empires of the surface, warring for dominance. You will hold court over your subjects and keep your realm wealthy, peaceful, content and populous. Are you ready?", 
         "yesCostOrProfit": { "populace": 100 }, 
         "noCostOrProfit": { "populace": 100 }, 
         "hasPrecursor": false,
@@ -45,7 +45,7 @@
     {
         "stageId": 4, 
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "It might be wise to raise taxes, my Queen. The people will of course not be happy about this, but it might be necessary to keep the treasury full. What do you say?", 
+        "cardText": "It might be wise to raise taxes, my queen. The people will of course not be happy about this, but it might be necessary to keep the treasury full. What do you say?", 
         "yesCostOrProfit": { "treasure": 100, "happiness": -10}, 
         "noCostOrProfit": { "treasure": -100, "happiness": 5}, 
         "hasPrecursor": false,
@@ -57,7 +57,7 @@
     {
         "stageId": 5, 
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "My Queen, people are complaining about taxes, they always are. However this might be an opportunity to show your compassion, if the treasury can handle it. Should we lower the taxes?", 
+        "cardText": "My queen, people are complaining about taxes, they always are. However this might be an opportunity to show your compassion, if the treasury can handle it. Should we lower the taxes?", 
         "yesCostOrProfit": { "treasure": -100, "happiness": 5}, 
         "noCostOrProfit": { "treasure": 50,"happiness": -5}, 
         "hasPrecursor": false,
@@ -69,7 +69,7 @@
     {
         "stageId": 6, 
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "Bad news, my Queen. There has been a terrible accident. Shall we send some money to support their relatives?", 
+        "cardText": "Bad news, my queen. There has been a terrible accident. Shall we send some money to support their relatives?", 
         "yesCostOrProfit": { "treasure": -10, "happiness": 1, "populace": -5}, 
         "noCostOrProfit": { "happiness": -10, "populace": -5}, 
         "hasPrecursor": false,
@@ -194,7 +194,7 @@
         "hasPrecursor": false,
         "noCostOrProfit": { "populace": 1 }, 
         "yesStageIds": [15], 
-        "noStageIds":[17,19,25],
+        "noStageIds":[17,19,25,177],
         "yesText": "You have? I don't know your face though. Hmm, maybe in a previous life.",
         "noText": "You havent'? Actually, most people never heard of me. I may be a mushroom myself, but I do extensive reseach in the field of fungology. Let's talk again later!"
     },
@@ -204,7 +204,7 @@
         "cardText": "It's me again, last time you said you'd already heard of me. That made me suspicous. But maybe you just enjoy science, just like me... do you?", 
         "hasPrecursor": true, 
         "yesCostOrProfit": { "populace": 1 }, 
-        "yesStageIds": [17,19,25], 
+        "yesStageIds": [17,19,25,177], 
         "noStageIds":[16],
         "yesText": "You do? Splendid, I'll make sure to tell you about all my science projects.",
         "noText": "You don't? Well I'll just ask again later. Maybe you'll change your mind..."
@@ -215,7 +215,7 @@
         "cardText": "It's me again, are you still not insterested in science is it different this time? Have you changed your mind?", 
         "hasPrecursor": true, 
         "yesCostOrProfit": { "populace": 1 }, 
-        "yesStageIds": [17,19,25], 
+        "yesStageIds": [17,19,25,177], 
         "noStageIds":[16],
         "yesText": "You have? Splendid, I'll make sure to tell you about all my science projects.",
         "noText": "You haven't? Well I'll just ask again later. Maybe next time..."
@@ -362,7 +362,7 @@
     {
         "stageId": 29, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. I have established a militia. Do you believe our forces will keep the country safe?", 
+        "cardText": "My queen. I have established a militia. Do you believe our forces will keep the country safe?", 
         "yesCostOrProfit": { "happiness": 3, "military": 5 }, 
         "noCostOrProfit": { "happiness": -1, "military": 5 }, 
         "yesStageIds": [30, 31, 32], 
@@ -374,7 +374,7 @@
     {
         "stageId": 30, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. Shall we bolster our army by buying new swords?", 
+        "cardText": "My queen. Shall we bolster our army by buying new swords?", 
         "yesCostOrProfit": { "treasure": -16, "military": 15 }, 
         "yesStageIds": [30], 
         "noStageIds":[30],
@@ -385,7 +385,7 @@
     {
         "stageId": 31, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. If we bought new suits of armor for our soldiers, our citizens would feel safer. Of course our fighting capabilities would increase as well.", 
+        "cardText": "My queen. If we bought new suits of armor for our soldiers, our citizens would feel safer. Of course our fighting capabilities would increase as well.", 
         "yesCostOrProfit": { "treasure":-31, "happiness": 3, "military": 15 }, 
         "yesStageIds": [31], 
         "noStageIds":[31],
@@ -396,7 +396,7 @@
     {
         "stageId": 32, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. Just now, a small monster attacked, took a few people and destroyed some things. I take full responsibility. With our current military strength, I can't guarantee it will not happen again.", 
+        "cardText": "My queen. Just now, a small monster attacked, took a few people and destroyed some things. I take full responsibility. With our current military strength, I can't guarantee it will not happen again.", 
         "yesCostOrProfit": { "treasure":-11, "happiness": -10, "populace": -5 }, 
         "noCostOrProfit": { "treasure":-11, "happiness": -10, "populace": -5 }, 
         "yesStageIds": [32], 
@@ -412,7 +412,7 @@
     {
         "stageId": 33, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. It may be necessary to have mandatory conscription. While the people will not like it, a numbers advantage often makes or breaks a strategy. Should we force people to join?", 
+        "cardText": "My queen. It may be necessary to have mandatory conscription. While the people will not like it, a numbers advantage often makes or breaks a strategy. Should we force people to join?", 
         "yesCostOrProfit": { "treasure":-16, "happiness": -5, "military": 15 }, 
         "yesStageIds": [33], 
         "noStageIds":[33],
@@ -424,7 +424,7 @@
     {
         "stageId": 34, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. As we have forced some of our soldiers to join, we must also decide if and when they are allowed to leave. Should we release some soldiers from mandatory service?", 
+        "cardText": "My queen. As we have forced some of our soldiers to join, we must also decide if and when they are allowed to leave. Should we release some soldiers from mandatory service?", 
         "yesCostOrProfit": { "happiness": 5, "military": -15 }, 
         "yesStageIds": [34], 
         "noStageIds":[34],
@@ -558,7 +558,7 @@
     {
         "stageId": 43, 
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. I heard talk about a skeleton roaming freely around town. Is that allowed?", 
+        "cardText": "My queen. I heard talk about a skeleton roaming freely around town. Is that allowed?", 
         "noCostOrProfit": {"populace": -1}, 
         "yesStageIds": [44], 
         "noStageIds":[],
@@ -813,7 +813,7 @@
     {
         "stageId":61,
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My Queen. An ogre has been spotted around town and people are worried. Should we make him leave?",
+        "cardText": "My queen. An ogre has been spotted around town and people are worried. Should we make him leave?",
         "hasPrecursor": true,
         "noStageIds":[63],
         "yesText": "Understood. I will gather some soldiers and drive him out of town.",
@@ -1049,7 +1049,7 @@
         "stageId":81,
         "characterSprite":"../../assets/Characters/Herald.png",
         "hasPrecursor": false,
-        "cardText": "My Queen, a pool of lava has been found close to the city and people are drying their laundry over it. Is that not just too irresponsible?",
+        "cardText": "My queen, a pool of lava has been found close to the city and people are drying their laundry over it. Is that not just too irresponsible?",
         "yesText": "Exactly, what are they even thinking.",
         "noText": "Well I suppose it is effective albeit a bit absurd.",
         "yesConditions":["lavaPoolFound"],
@@ -1212,7 +1212,7 @@
         "hasPrecursor":true,
         "yesStageIds":[95],
         "noConditions": ["poacherTaskForceDraft"],
-        "cardText": "My Queen, a group of poachers are roaming close to our city. They are stealing prey from our hunters, killing rare animals and sometimes, they are resorting to banditry. Should we send the guard after them?",
+        "cardText": "My queen, a group of poachers are roaming close to our city. They are stealing prey from our hunters, killing rare animals and sometimes, they are resorting to banditry. Should we send the guard after them?",
         "yesText": "Understood. Such lawlessness cannot be tolerated.",
         "noText": "You're right, they would probably be able to hide from larger forces, or even set traps. We will have to form a smaller task force. At least one person for gathering Intel and one person to do the heavy fighting."
     },
@@ -1224,7 +1224,7 @@
         "noCostOrProfit":{"populace": -5, "happiness":-15, "military":-5},
         "yesConditions": ["poacherTaskForceDraft"],
         "noConditions": ["poacherTaskForceDraft"],
-        "cardText": "My Queen, the operation we conducted against the poacher gang was a tactical failure. We could not find and destroy the poaching ring and lost some of our guards. Even more are currently being held hostage in exchange for a ransom. Should we pay the ransom?",
+        "cardText": "My queen, the operation we conducted against the poacher gang was a tactical failure. We could not find and destroy the poaching ring and lost some of our guards. Even more are currently being held hostage in exchange for a ransom. Should we pay the ransom?",
         "yesText": "Understood. As much as it pains me to comply with criminals, we need to preserve our forces. Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them.",
         "noText": "If we comply, we leave ourselves open to blackmail. I hate leaving soldiers behind, but this is the only option.  Additionally, I have started a draft for a small task force of volunteers. With a more specialized team, we might be able to beat their guerilla tactics. And by my honor, we will beat them."
     },
@@ -1344,7 +1344,7 @@
     {
         "stageId":106,
         "characterSprite":"../../assets/Characters/Herald.png",
-        "cardText": "Greetings, my Queen. It has been suggested to let the so called \"gardeners\" onto the mushroom farms to stimulate growth. However, some farmers are hesitant and fear the animals would eat the breadcap mushrooms. Should we keep preventing the animals from coming in?",
+        "cardText": "Greetings, my queen. It has been suggested to let the so called \"gardeners\" onto the mushroom farms to stimulate growth. However, some farmers are hesitant and fear the animals would eat the breadcap mushrooms. Should we keep preventing the animals from coming in?",
         "yesText": "The farmers need not worry anymore. We have been getting by just fine and that is how it will stay.",
         "noText": "I will instruct the farmers to let the gardeners in. There will be mild protest but nothing to worry about.",
         "noCostOrProfit": {"happiness": -3},
@@ -1353,7 +1353,7 @@
     {
         "stageId":107,
         "characterSprite":"../../assets/Characters/Herald.png",
-        "cardText": "Greetings, my Queen. The fears of the farmers have been misplaced. Since we let the gardneres into our farms. Mushroom growth has skyrocketed. The produce eaten by the gardeners is more than offset and we have made a considerable surplus. Shall we chastise the instigators of the protests?",
+        "cardText": "Greetings, my queen. The fears of the farmers have been misplaced. Since we let the gardneres into our farms. Mushroom growth has skyrocketed. The produce eaten by the gardeners is more than offset and we have made a considerable surplus. Shall we chastise the instigators of the protests?",
         "yesText": "Your authority needs to be respected and feared, not questioned by every hillbilly with ideas.",
         "noText": "Rebelling against change is natural. We must be merciful with your subjects.",
         "yesCostOrProfit":{"treasure": 49},
@@ -1394,7 +1394,7 @@
     {
         "stageId":111,
         "characterSprite":"../../assets/Characters/general.png",
-        "cardText": "My Queen. We ran some experiments on hydra saliva and now we can translate its properties onto a concoction of our own production. Should we increase production to cover all of our standard weapons?",
+        "cardText": "My queen. We ran some experiments on hydra saliva and now we can translate its properties onto a concoction of our own production. Should we increase production to cover all of our standard weapons?",
         "yesText": "Understood. This will increase our fighting capabilities.",
         "noText": "Understood. We shouldn't overburden our economy.",
         "noStageIds": [111],
@@ -1834,7 +1834,7 @@
     {
         "stageId": 150,
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "My Queen, people are getting used to the new spider golems and the golems are really useful. Thanks to that, our economy is going great.",
+        "cardText": "My queen, people are getting used to the new spider golems and the golems are really useful. Thanks to that, our economy is going great.",
         "yesText": "I will extend your commendations to the responsible researcher.",
         "noText": "You're right. It is only appropriate, given your extensive investments.",
         "yesCostOrProfit":{"treasure":189,"happiness":3},
@@ -1951,12 +1951,14 @@
         "yesText": "It's thanks to wisdom on the throne. And now you have my greatest thanks. With all my knowledge about plants, this never could been done alone.",
         "noText": "Gladly hide I from the light. For all that we achieved, I never have believed. Was glory center of my sight. I hereby end my scene, long shall live the Queen!",
         "yesStageIds":[161,162],
-        "noStageIds":[161,162]
+        "noStageIds":[161,162],
+        "yesConditions":["hardenedPlantsResearched"],
+        "noConditions":["hardenedPlantsResearched"]
     },
     {
         "stageId": 161,
         "characterSprite":"../../assets/Characters/Herald.png",
-        "cardText": "My Queen, we have a new batch of magically fortifyed wood and ropes. We could use it to build more secure and comfortable homes for our people. Or should we sell it instead?",
+        "cardText": "My queen, we have a new batch of magically fortifyed wood and ropes. We could use it to build more secure and comfortable homes for our people. Or should we sell it instead?",
         "yesText": "For this unique material we are sure to earn some valuable funds.",
         "noText": "Better homes will surely make our people feel safer and happier.",
         "yesCostOrProfit":{"treasure":19},
@@ -1977,7 +1979,7 @@
         "yesConditions":["dwarfEmbassyConstructed"],
         "noConditions":["dwarfEmbassyDenied"],
         "activationCondition":{
-            "conditions":["popOver500"],
+            "conditions":["popOver150"],
             "operator":"OR"
         },
         "deactivationCondition":{
@@ -2018,11 +2020,17 @@
     {
         "stageId":166,
         "characterSprite": "../../assets/Characters/Herald.png",
-        "cardText": "Greetings, my Queen. We just received a tax payment from Silveraxe Dwarves. Every bit of income helps, doesn't it?",
+        "cardText": "Greetings, my queen. We just received a tax payment from Silveraxe Dwarves. Every bit of income helps, doesn't it?",
         "yesText": "Good thing we have this arrangement with them. Afterall, the ore is no good to anyone if it is in the ground.",
         "noText": "You do not agree? Well maybe it is wise not to trust them too much...",
         "yesCostOrProfit":{"treasure":9},
-        "noCostOrProfit":{"treasure":9}
+        "noCostOrProfit":{"treasure":9},
+        "yesStageIds":[166],
+        "noStageIds":[166],
+        "deactivationCondition":{
+            "conditions":["warWithDwarves"],
+            "operator":"OR"
+        }
     },
     {
         "stageId":167,
@@ -2097,8 +2105,782 @@
         "stageId":173,
         "characterSprite": "../../assets/Characters/sludgeMonster.png",
         "cardText":"Finest greetings! I am a diplomat from a kingdom. Can you believe that?",
-        "yesText": "Splendid, then let me introduce myself properly. My name is Scleim Dreckus, humble servant of the Earthen Council of Mokana",
-        "noText": ""
+        "yesText": "Splendid, then let me introduce myself properly. My name is Scleim Dreckus, humble servant of the Earthen Council of Mokana.",
+        "noText": "Oh really, well I really am one.",
+        "yesStageIds": [174],
+        "yesConditions": ["sludgeMonsterIntroduced"],
+        "activationCondition":{
+            "conditions":["popOver500"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["sludgeMonsterIntroduced","warWithSludge","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":174,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! In the name of the Council, I thank you for this audience. As a sign of our peacful intentions and good will, I have brought this small gift. Do you accept it?",
+        "yesText": "To peaceful coexistence!",
+        "noText": "Oh, I hope I did not offend you with anything.",
+        "yesCostOrProfit": {"treasure":9},
+        "yesStageIds":[174],
+        "noStageIds":[174],
+        "deactivationCondition":{
+            "conditions":["warWithSludge","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":175,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! The council has heard of special \"hardened plants\", which are exclusively grown in your country, would it be possible to acquire some of these plants and have them brought east to Mokana?",
+        "yesText": "I believe, this is going to be a prosperous trade relationship. May your realm grow and prosper!",
+        "noText": "Well thats the luxury of a monopoly, total control. Anyways, I need to go. May your realm grow and prosper!",
+        "yesCostOrProfit": {"treasure":49},
+        "yesConditions":["hardenedPlantsSold"],
+        "activationCondition":{
+            "conditions":["hardenedPlantsResearched", "sludgeMonsterIntroduced"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge","hardenedPlantsSold","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":176,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! The council would like to make Mokana acessible to your citizens for trade and travels. However, Mokana is partly submerged, which causes problems for people who cannot see or breathe underwater. This is why I'm being sent to your realm, as a state renowned for its magic society. Are there any innovations, which could solve these problems?",
+        "yesText": "Hmm, while it certainly is impressive I do not think this will be applicable underwater. I will return later and check if something as impressive comes up, which is as useful in our situation.",
+        "noText": "No apologies needed at all. It would have been quite the coincidence if you had the solution just lying around. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "yesConditions":["sludgeAskedForInventions"],
+        "noConditions":["sludgeAskedForInventions"],
+        "activationCondition":{
+            "conditions":["mageAcademyLevel4", "sludgeMonsterIntroduced"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge","glowingAlgaeDiscovered", "breathingGearResearchFinished", "sludgeAskedForInventions","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":177,
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "Did you know there are underwater fungi? I found a really cool one. It has a large spongelike structure and can produce air, when under the right conditions. Should I research them further?",
+        "yesText": "Mhm, I'll probably need some type of contraption. Who could help me make something like that...?",
+        "noText": "Its probably not useful, not everything needs to be usefull, just because it's cool, I guess.",
+        "yesConditions":["breathingGearResearchStarted"]
+    },
+    {
+        "stageId":178,
+        "characterSprite":"../../assets/Characters/Mechanic.png",
+        "cardText": "Hello love! Today, a curious thing happened to me. A talking mushroom came to me and it turns out, it wants to do a project with me. Apparently it has found a fungus, that can produce air when water with a nutrient solution is pumped through it. Together we could probably make a mask that lets you breathe underwater. What do you say, do you wanna fund that project?",
+        "yesText": "Perfect! It doesn't even need that much material.",
+        "noText": "Poor guy, I bet he'll be so disappointed.",
+        "yesConditions":["breathingGearResearchFinished"],
+        "noConditions":["breathingGearResearchCanceled"],
+        "yesStageIds":[179],
+        "yesCostOrProfit":{"treasure":-5},
+        "activationCondition":{
+            "conditions":["breathingGearResearchStarted","mechanicAdmitted"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["breathingGearResearchFinished","breathingGearResearchCanceled"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":179,
+        "characterSprite":"../../assets/Characters/mushroomGuy.png",
+        "cardText": "Guess what! We finished the breathing gear! It was so fun to work on, and maybe it will become useful at some point, don't you think?",
+        "yesCostOrProfit":{"happiness":1},
+        "yesText": "Yeah, I mean, breathing underwater... thats like magic!",
+        "noText": "Well I had a ton of fun, so I'm still thankful for that."
+    },
+    {
+        "stageId":180,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! Is there any news on underwater issues?",
+        "yesText": "Hmm, while it certainly is impressive I do not think this will be applicable underwater. I will return later and check if something as impressive comes up, which is as useful in our situation.",
+        "noText": "No apologies needed at all. Some things just take time. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "activationCondition":{
+            "conditions":["sludgeAskedForInventions"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge","glowingAlgaeDiscovered","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":181,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! The council would like to make Mokana acessible to your citizens for trade and travels. However, Mokana is partly submerged, which causes problems for people who cannot see or breathe underwater. This is why I'm being sent to your realm, as a state renowned for its magic society. Are there any innovations, which could solve these problems?",
+        "yesText": "Hmm, oh yes indeed. This is promising. Glowing algae. Now we only need to find a way for you to breathe underwater. Have this as thanks and be sure, if we manage to make all of Mokana traversible for non-aquatic people, great riches will come to both our realms.",
+        "noText": "No apologies needed at all. It would have been quite the coincidence if you had the solution just lying around. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "yesConditions":["sludgeAskedForInventions","sludgeHasAlgae"],
+        "noConditions":["sludgeAskedForInventions"],
+        "yesCostOrProfit":{"treasure":19},
+        "activationCondition":{
+            "conditions":["mageAcademyLevel4", "sludgeMonsterIntroduced","glowingAlgaeDiscovered"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge", "sludgeAskedForInventions","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":182,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! Is there any news on underwater issues?",
+        "yesText": "Hmm, oh yes indeed. This is promising. Glowing algae. Now we only need to find a way for you to breathe underwater. Have this as thanks and be sure, if we manage to make all of Mokana traversible for non-aquatic people, great riches will come to both our realms.",
+        "noText": "No apologies needed at all. Some things just take time. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "yesConditions":["sludgeHasAlgae"],
+        "yesCostOrProfit":{"treasure":19},
+        "activationCondition":{
+            "conditions":["sludgeAskedForInventions","glowingAlgaeDiscovered"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge", "sludgeHasAlgae","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":183,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! Is there any news on the waterbreathing issue?",
+        "yesText": "Hmm, while it certainly is impressive I do not think this is what we need. We need to make it possible for people to breathe underwater for long periods of time. I will return later and check if something as impressive comes up, which is as useful in our situation.",
+        "noText": "No apologies needed at all. Some things just take time. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "activationCondition":{
+            "conditions":["sludgeHasAlgae"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge","breathingGearResearchFinished","sludgeHasWaterBreathingGear","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":184,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! Is there any news on the waterbreathing issue?",
+        "yesText": "Oh! A device that lets people breathe underwater? This is exactly the kind of thing we needed. Have this as thanks and consider yourself a friend to the council.",
+        "noText": "No apologies needed at all. Some things just take time. Or if you have magic that you are not ready to share, any politically competent leader would recognize that this kind of deception can be necessary, even among allies. I will return however, periodically, to check in for any progress on the matter. If you'll have me.",
+        "yesConditions":["sludgeHasWaterBreathingGear"],
+        "yesStageIds":[185],
+        "yesCostOrProfit":{"treasure":19},
+        "activationCondition":{
+            "conditions":["sludgeHasAlgae","breathingGearResearchFinished"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["warWithSludge","sludgeHasWaterBreathingGear","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":185,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "My queen, there has been a steady stream of travelers, tourists and pilgrims from and to Mokana. The resulting commerce has helped out our economy. Might that be the result of us giving the Moakans the Tools they asked for?",
+        "yesText": "Then you made the right decision it seems. Not that I expected anything else, of course.",
+        "noText": "You don't think so? But what else could it have been?",
+        "yesCostOrProfit":{"treasure":9,"happiness":1},
+        "noCostOrProfit":{"treasure":9,"happiness":1},
+        "yesStageIds":[185],
+        "noStageIds":[185],
+        "deactivationCondition":{
+            "conditions":["warWithSludge","sludgeHasWaterBreathingGear"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":186,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText":"My greetings to you. I have come to warn you about a new kind of threat. To the east of you we have encountered a kind of monster, which looks like its made of sentient mud, with piercing spines hidden inside its body. It hunts in groups, though it knows not any language. Beware of them, lest your own people be spiked to death by the mud beasts.",
+        "yesText": "Good, these monsters will not be a danger to you, as long as you listen to my advice.",
+        "noText": "Even though the danger should be plain as day, you refuse to listen. Isn't that just cruel to your people?",
+        "yesConditions":["mudMonsterWarned"],
+        "noConditions":["mudMonsterWarned"],
+        "yesStageIds":[187],
+        "noStageIds":[187],
+        "activationCondition":{
+            "conditions":["sludgeMonsterIntroduced","dwarvenTunnels"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["mudMonsterWarned", "warWithDwarves"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":187,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. An act of terrorism has been committed. We have found multiple people with slash and stab wounds and strange piles of dirt in the outskirts of the city. Many think the attack came from Mokana and the people want justice. Should we declare war on them?",
+        "yesText": "Understood. I will ready our troops and march on Mokana. This cannot stand.",
+        "noText": "When under threat its best not to act on emotion. There has to be something more to this...",
+        "yesStageIds": [188, 191, 197, 200, 203],
+        "noStageIds":[215],
+        "yesCostOrProfit":{"happiness":-5,"populace":-10},
+        "noCostOrProfit":{"happiness":-25,"populace":-10},
+        "yesConditions":["warWithSludge"]
+    },
+    {
+        "stageId": 188,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. A small strike force of mokanans has been spotted to the east of the city. We do not know their objective but of course we need to remove them. Should we start a full frontal assault? If not, we will let them be for a little while to set up an encirclement.",
+        "yesText": "A heavy assault should catch them off guard.",
+        "noText": "Small forces rely on their size to make fast retreats. We will not let that happen.",
+        "yesStageIds":[189],
+        "noStageIds":[190]
+    },
+    {
+        "stageId":189,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. We have successfully pushed out the mokanan strike force. However, we have taken some losses as they employed traps and underhanded tactics to guard their retreat.",
+        "yesText": "Yes, we have achieved our goal here. We should still take fewer losses in the future.",
+        "noText": "I understand your frustration. This must not keep happening.",
+        "yesCostOrProfit":{"military":-15, "happiness":-3},
+        "noCostOrProfit":{"military":-15, "happiness":-3}
+    },
+    {
+        "stageId":190,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. We have successfully encircled the mokanan strike force. After the encirclement was completed we could take a safe and slow approach and managed to destroy the force as well as capture a number of mokanan soldiers. Shall we exchange them after questioning for some of our soldiers in mokanan captivity?",
+        "yesText": "Yes, let us bring our people home.",
+        "noText": "These mokanans are not going to get off that easy.",
+        "yesCostOrProfit":{"military":15, "happiness":5},
+        "noCostOrProfit":{"happiness":3}
+    },
+    {
+        "stageId":191,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. We have discovered a mokanan outpost not far from the frontline. It was hidden well but is not well garrisoned. I believe either the mokanans rely on the outpost being hidden, or they are underestimating the number of forces we have stationed at that part of the front. Shall we go for a surprise attack and push with the forces we currently have, instead of amassing more?",
+        "yesText": "They will not be able to react in time.",
+        "noText": "We will gather an offensive force first.",
+        "yesStageIds":[192],
+        "noStageIds":[193]
+    },
+    {
+        "stageId":192,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The mokanans were completely unprepared for our attack on the outpost. We will probably not be able to hold on to it for long but we have already captured a good amount of equipment, supplies and enemy soldiers.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesCostOrProfit":{"military":15, "happiness":3},
+        "noCostOrProfit":{"military":15, "happiness":3}
+    },
+    {
+        "stageId": 193,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. It seems the mokanans have learned of our attack on the outpost in time. It was already evacuated when our forces arrived.",
+        "yesText": "An unfortunate circumstance. But other oppotunities will come. And we will be ready when they do.",
+        "noText": "I understand your frustration. This must not keep happening."
+    },
+    {
+        "stageId":194,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. With our research concerning underwater-light and waterbreathing it would be possible to send a task force to Mokana for recon and sabotage. The team could try to hide entirely but I think disguising as tourists would be a much better option. Do you agree?",
+        "yesText": "Understood. The team will use a disguising strategy.",
+        "noText": "Understood. The team will try to stay undetected.",
+        "yesStageIds":[195],
+        "noStageIds":[196],
+        "yesConditions":["taskForceSentToMokana"],
+        "noConditions":["taskForceSentToMokana"],
+        "activationCondition":{
+            "conditions":["warWithSludge", "glowingAlgaeDiscovered", "breathingGearResearchFinished"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["taskForceSentToMokana"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":195,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The task force has managed to acquire information which allowed us to achieve significant successes in battle while remaining undetected.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesCostOrProfit":{"military":20, "happiness":4},
+        "noCostOrProfit":{"military":20, "happiness":4}
+    },
+    {
+        "stageId": 196,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. The task force we sent to Mokana has been discovered and eliminated. Sadly they could not relay any gathered intel to us before they got caught.",    
+        "yesText": "Lets make sure their sacrifice was not in vain.",
+        "noText": "I understand your frustration. This must not keep happening.",
+        "yesCostOrProfit":{"military":-6, "happiness":-3},
+        "noCostOrProfit":{"military":-6, "happiness":-3}
+    
+    },
+    {
+        "stageId":197,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The swamps in the south east have formed a natural obstacle for us and have been a staging ground for mokanan attacks in the past. Recently the number of mokanan soldiers has steadily decreased and now it seems the swamps are barely defended. Do you think it might be an ambush?",
+        "yesText": "Understood. We will keep up our defensive positions and attack on other fronts.",
+        "noText": "Understood. We will move into the swamps and try to take this strategic landmark from them.",
+        "yesStageIds":[198],
+        "noStageIds":[199]
+    },
+    {
+        "stageId":198,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. It seems the mokanans indeed tried to set up an ambush in the swamps. Our attacks elswhere have made some progess and forced them to attack our defensive line outside the swamps. We delivered high casualties while taking few losses ourselves.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["mokananAmbushDecided"],
+        "noConditions":["mokananAmbushDecided"],
+        "yesCostOrProfit":{"military":40, "happiness":5},
+        "noCostOrProfit":{"military":40, "happiness":5}
+    },
+    {
+        "stageId": 199,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. The mokanans had set up an ambush afterall. They hid in the swampwater and attacked our forced from all directions. We suffered heavy casualties.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesConditions":["mokananAmbushDecided"],
+        "noConditions":["mokananAmbushDecided"],
+        "yesCostOrProfit":{"military":-70, "happiness":-15},
+        "noCostOrProfit":{"military":-70, "happiness":-15}
+    },
+    {
+        "stageId":200,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "A part of our forces is at risk of being encircled and might need to retreat. Should we send in more troops to hold the territory?",
+        "yesText": "Understood. Reinforcements are on the way.",
+        "noText": "Understood. We will cover their retreat.",
+        "yesStageIds":[201],
+        "noStageIds":[202]
+
+    },
+    {
+        "stageId":201,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The mokanans have completed their encirclement and our troops have been ground down. We have suffered major losses.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesConditions":["mokananEncirclementDecided"],
+        "noConditions":["mokananEncirclementDecided"],
+        "yesCostOrProfit":{"military":-120, "happiness":-20},
+        "noCostOrProfit":{"military":-120, "happiness":-20}
+    },
+    {
+        "stageId": 202,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. We have managed to extract the threatened troops. The mokanans suffered heavy losses while trying to attack our escape vector.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["mokananEncirclementDecided"],
+        "noConditions":["mokananEncirclementDecided"],
+        "yesCostOrProfit":{"military":70, "happiness":2},
+        "noCostOrProfit":{"military":70, "happiness":2}
+    },
+    {
+        "stageId":203,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. A mokanan general is leading their troops through the dark planes where enerally our forces are at an advantage. Should we attack them head on?",
+        "yesText": "Understood. We will amass an offensive force.",
+        "noText": "Understood. We will strengthen our defenses.",
+        "yesStageIds":[204],
+        "noStageIds":[205]
+
+    },
+    {
+        "stageId":204,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The mokanans have overestimated their forces and engaged us in the dark planes. We have achieved a decisive victory.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["mokananPlanesDecided"],
+        "noConditions":["mokananPlanesDecided"],
+        "yesCostOrProfit":{"military":50, "happiness":5},
+        "noCostOrProfit":{"military":50, "happiness":5}
+    },
+    {
+        "stageId": 205,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. The mokanans have crossed the dark planes successfully and are now in a much more powerful geographic position. This has cost us dearly.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesConditions":["mokananPlanesDecided"],
+        "noConditions":["mokananPlanesDecided"],
+        "yesCostOrProfit":{"military":-70, "happiness":-10},
+        "noCostOrProfit":{"military":-70, "happiness":-10}
+    },
+    {
+        "stageId":206,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The mokanans are amassing a huge offensive force for a push towards our city. This will be the final battle in this war. With our current forces, we should have a chance of winning, though the cost might be great. Shall we surrender?",
+        "yesText":"We have given it our all, but the mokanans were too powerful.",
+        "noText":"We will stand our ground, no might will overcome us, no matter how great.",
+        "yesStageIds":[210],
+        "noStageIds":[208],
+        "yesConditions":["finalBattleSludgeDecided"],
+        "noConditions":["finalBattleSludgeDecided"],
+        "activationCondition":{
+            "conditions":["mokananPlanesDecided","mokananEncirclementDecided","mokananAmbushDecided","militOver500"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions": ["finalBattleSludgeDecided"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":207,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The mokanans are amassing a huge offensive force for a push towards our city. This will be the final battle in this war. With our current forces, the chances of winning are slim and cost will be great. Shall we surrender?",
+        "yesText":"We have given it our all, but the mokanans were too powerful.",
+        "noText":"We will stand our ground, no might will overcome us, no matter how great.",
+        "yesStageIds":[211],
+        "noStageIds":[209],
+        "activationCondition":{
+            "conditions":["mokananPlanesDecided","mokananEncirclementDecided","mokananAmbushDecided"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["finalBattleSludgeDecided","militOver500"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":208,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. We have won the final battle against the mokanans. Their forces are shattered and on the run. We expect their surrender any day now.",
+        "yesText": "Now peace can finally return.",
+        "noText": "Are you sure? If we do not accept a surrender, we will not be able to resume relations with them and there will be a guerilla war.",
+        "yesStageIds":[213],
+        "noStageIds":[213]
+    },
+    {
+        "stageId":209,
+        "characterSprite":"../../assets/Characters/general-defeated.png",
+        "cardText":"My queen. The mokanans have won, we are defeated. Our forces are shattered and on the run. They will offer you a surrender soon.",
+        "yesText": "We have given it our all, but the mokanans were too powerful.",
+        "noText": "I am afraid we will not have the option to decline.",
+        "yesCostOrProfit":{"military":-250, "happiness":-30},
+        "noCostOrProfit":{"military":-250, "happiness":-30},
+        "yesStageIds":[212],
+        "noStageIds":[212]
+    },
+    {
+        "stageId":210,
+        "characterSprite":"../../assets/Characters/sludgeMonster.png",
+        "cardText": "Somber greetings old friend. Why have you turned against us? Why would you let this happen? All this suffering, anguish and death. I wish we could just turn back time and unmake this all, but as it stands, the council wants retribution. It will not be cheap, but maybe, just maybe our peoples can become neighbors again, and heal together.",
+        "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
+        "noText": "You decline peace, even now? Haven't we suffered enough? Haven't you? Maybe one day you will see the despair you've wrought. But I fear, too late. Farewell.",
+        "yesCostOrProfit":{"treasure":-500,"happiness":-40},
+        "noStageIds":[208]
+    },
+    {
+        "stageId":211,
+        "characterSprite":"../../assets/Characters/sludgeMonster.png",
+        "cardText": "Somber greetings old friend. Why have you turned against us? Why would you let this happen? All this suffering, anguish and death. I wish we could just turn back time and unmake this all, but as it stands, the council wants retribution. It will not be cheap, but maybe, just maybe our peoples can become neighbors again, and heal together.",
+        "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
+        "noText": "You decline peace, even now? Haven't we suffered enough? Haven't you? Maybe one day you will see the despair you've wrought. But I fear, too late. Farewell.",
+        "yesCostOrProfit":{"treasure":-500,"happiness":-40},
+        "noStageIds":[209]
+    },
+    {
+        "stageId":212,
+        "characterSprite":"../../assets/Characters/sludgeMonster.png",
+        "cardText": "Somber greetings old friend. Why have you turned against us? Why would you let this happen? All this suffering, anguish and death. I wish we could just turn back time and unmake this all, but as it stands, the council wants retribution. It will not be cheap, but maybe, just maybe our peoples can become neighbors again, and heal together.",
+        "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
+        "noText": "You decline peace, even now? Your forces are destroyed, your walls have fallen and your guards cant defend you anymore. You have sacrificed everything you had out of hatred and now you want to sacrifice even more in your endless hatred. There is no more to say, may thy death be undeservingly swift and painless.",
+        "yesCostOrProfit":{"treasure":-500,"happiness":-40},
+        "noConditions":["gameOver"]
+    },
+    {
+        "stageId":213,
+        "characterSprite":"../../assets/Characters/sludgeMonster.png",
+        "cardText": "Greetings. I am sure you know, Mokana is bested. We were once peaceful neighbors, friends even. Then you attacked us, destroyed us and now take whats left. We will give you all we can give and swear not to retalitate, can we then live in peace?",
+        "yesText": "Take your gold. May we never meet again.",
+        "noText": "Then take, destroy and burn as you wish. But you may not pray and beg for forgiveness, for the lands and gods will know the monster you are.",
+        "yesCostOrProfit":{"treasure":500,"happiness":20},
+        "noCostOrProfit":{"treasure":600, "happiness":10},
+        "yesRemoveConditions":["warWithSludge"],
+        "yesConditions":["sludgeSurrendered"],
+        "noConditions":["sludgeSurrendered"],
+        "noStageIds":[214]
+    },
+    {
+        "stageId": 214, 
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText": "Bad news, my queen. Several people have been stabbed while getting water. Shall we send some money to support their relatives?", 
+        "yesCostOrProfit": { "treasure": -30, "happiness": -2, "populace": -15}, 
+        "noCostOrProfit": { "happiness": -20, "populace": -15}, 
+        "yesStageIds": [214], 
+        "noStageIds":[214],
+        "yesText": "Their relatives will remember your help. Now they can say goodbye properly.",
+        "noText": "I will send condolences."
+    },
+    {
+        "stageId": 215,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings! The council has heard of an attack, that has been comitted against your people. It fill us with even more sadness that Mokana seems to be the suspected origin of this attack. I hope on account of our good relations you trust us when we assure you that no such attack will ever come from us unprovoked. As a sign of our earnest support, please take this small gift.",
+        "yesText": "If there is anything we can do to clear up this matter, please let us know.",
+        "noText": "The treasure is not important. I hope you understand that our relations are important to us.",
+        "yesCostOrProfit":{"treasure":29},
+        "yesConditions":["mokanaDeniesAttack"],
+        "noConditions":["mokanaDeniesAttack"]
+    },
+    {
+        "stageId":216,
+        "characterSprite": "../../assets/Characters/Dwarf.png",
+        "cardText": "My greetings to you, queen of this realm. I congratulate you! Though your country has been deemed weak by my king and that allows you to gain his pity. If you pay us, we will allow you to exist under our protection.",
+        "yesText": "As expected. The weak always know their place.",
+        "noText": "Sometimes weaklings don't realize what's good for them. In that case they need to be taught.",
+        "yesCostOrProfit":{"treasure":75},
+        "noStageIds":[217],
+        "noConditions":["dwarvenVassaldomDenied"],
+        "activationCondition":{
+            "conditions":["dwarvenTunnelsDenied", "sludgeSurrendered","mokanaDeniesAttack"],
+            "operator":"OR"
+        },
+        "deactivationCondition": {
+            "conditions":["dwarvenVassaldomDenied"]
+        }
+    },
+    {
+        "stageId":217,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. The Silveraxe dwarves have declared war on us and the first attacks have already begun. However, our frontline is holding and we can prepare. Shall we use this to start a heavy mobilisation instead of a small one?",
+        "yesText": "A large mobilisation might be expensive and unpopular but it might also save us from certain doom. These dwarfes do not strike me as the merciful sort.",
+        "noText": "A small mobilisation will have to suffice.",
+        "yesCostOrProfit":{"treasure":-100,"military":50,"happiness":-5},
+        "noCostOrProfit":{"treasure":-20,"military":10, "happiness":-1},
+        "yesConditions":["warWithDwarves"],
+        "noConditions":["warWithDwarves"],
+        "yesStageIds":[218,219],
+        "noStageIds":[218,219]
+    },
+    {
+        "stageId":218,
+        "characterSprite": "../../assets/Characters/sludgeMonster.png",
+        "cardText": "Finest greetings in these troubled times! The council has learned that the Silveraxe dwarves have started a full scale invasion of your territory. The Silveraxe dwarves have also caused problems for Mokana in the past but had ultimately deemed us not worth the effort. However, there is no guarantee that this will not change, should they be emboldened by a victory against you. Will you accept an alliance with Mokana to drive them away?",
+        "yesText": "You can count on us.",
+        "noText": "At the very least, we do not have to risk our own soldiers. However, I really hope you are up for the challenge.",
+        "yesCostOrProfit":{"military":150,"happiness":5},
+        "deactivationCondition":{
+            "conditions":["warWithSludge","sludgeSurrendered"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":219,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. We think it is likely that the slither pass to the southwest will become a supply rout for the Silveraxes. Shall we set up an ambush preemptively?",
+        "yesText": "Understood. Fortune favours the prepared.",
+        "noText": "Understood. We might need our forces elsewhere",
+        "yesStageIds":[220],
+        "noStageIds":[221]
+    },
+    {
+        "stageId":220,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The slither pass ambush was a success. We managed to capture a high ranking officer and extracted valuable Information from them. Additionally, we exchanged the officer for some of our captured soldiers.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesCostOrProfit": {"military":15, "happiness":3},
+        "noCostOrProfit": {"military":15, "happiness":3},
+        "yesConditions":["slitherPassDecided","slitherPassWon"],
+        "noConditions":["slitherPassDecided","slitherPassWon"]
+    },
+    {
+        "stageId":221,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. A Silveraxe force has crossed the slither pass and is now in a good strategic position. This has forced us to give up some territory.",
+        "yesText": "An unfortunate circumstance. But other oppotunities will come. And we will be ready when they do.",
+        "noText": "I understand your frustration. This must not keep happening.",
+        "yesCostOrProfit": {"military":15, "happiness":3},
+        "noCostOrProfit": {"military":15, "happiness":3},
+        "yesConditions":["slitherPassDecided"],
+        "noConditions":["slitherPassDecided"]
+    },
+    {
+        "stageId":222,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "cardText": "My queen, we have noticed that the Silveraxes only want to trade Prisoners for high ranking officers but will abandon their common soldiers. Should we offer them a pardon once the war is over?",
+        "yesText": "Maybe we can use the barbaric culture of this King Stonesplitter to our advantage...",
+        "noText": "I understand, they are still of a hostile nation.",
+        "yesConditions":["silverAxePowPardonGranted"],
+        "noConditions":["silverAxePowPardonDenied"],
+        "yesStageIds":[223],
+        "activationCondition":{
+            "conditions":["slitherPassWon"],
+            "operator":"OR"
+        },
+        "deactivationCondition":{
+            "conditions":["silverAxePowPardonGranted","silverAxePowPardonDenied"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":223,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The captive dwarves you agreed to pardon are requesting to fight for you. They said your mercy made them realize how cruel their former king truly is. Should we equip them and let them form a foreign battalion?",
+        "yesText": "I respect the fighting spirits of these Dwarves. I believe they will be great soldiers.",
+        "noText": "A noble suggestion of them, bu you are right. We cannot risk them betraying us.",
+        "yesCostOrProfit":{"military":15}
+    },
+    {
+        "stageId":224,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The Silveraxes are trying to gain a foothold in the weeping forests. Our scouts suggested they have missed a secret past though the darkest parts of the forests thicket. This would open their main camp up for a supprise attack. Should we launch a full assault?",
+        "yesText":"If all goes well, we might be able to route them and make that part of the front crumble.",
+        "noText":"We cannot know for sure, if they really missed the secret path. Let us better not be too hasty.",
+        "yesStageIds":[225],
+        "noStageIds":[226]
+    },
+    {
+        "stageId":225,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The Silveraxes in the weeping forests were completely unprepared for our attack. As a result we have been able to push them back quite a bit.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["weepingForestsDecided"],
+        "noConditions":["weepingForestsDecided"],
+        "yesCostOrProfit": {"military":25, "happiness":3},
+        "noCostOrProfit": {"military":25, "happiness":3}
+    },
+    {
+        "stageId":226,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The Silveraxes have gained a position in the weeping forests. The have found the secret passage and improved their defenses. We have missed our opportunity.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesConditions":["weepingForestsDecided"],
+        "noConditions":["weepingForestsDecided"],
+        "yesCostOrProfit": {"military":-40},
+        "noCostOrProfit": {"military":-40}
+    },
+    {
+        "stageId":227,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The Silveraxe armies are equipped with mithril armor, especially the higher ranking officers. It offers incredible protection but it is very light at the same time. Shall we send a special operations team to spy on or sabotage their foundries?",
+        "yesText": "If we can somehow disrupt their mithril suppy, this could give us an incredible advantage.",
+        "noText": "It will probably be one of their best guarded secrets. Maybe its too risky.",
+        "yesConditions":["mithrilFoundriesDecided"],
+        "noConditions":["mithrilFoundriesDecided"],
+        "yesStageIds":[228]
+    },
+    {
+        "stageId":228,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. Our spies have successfully infiltrated the Silveraxe foundries. At first they tried to find a way to steal the technology, but it just comes down to ore quality and smithing skill. We focused on sabotage instead and were able to disrupt their weapon production and steal some mithril armor.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesCostOrProfit": {"military":15, "happiness":3},
+        "noCostOrProfit": {"military":15, "happiness":3}
+    },
+    {
+        "stageId":229,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "My queen. The dwarves have increased their attacks at skylight lake. It has just been a tourism destination before the war but for some reason it seems important to them. Should we increase our defenses and hold skylight lake?",
+        "yesText": "We need to find out what they want there first. We cannot just leave it to them.",
+        "noText": "In the end skylight lake is just not strategically important to us. It is not worth it to risk our soldiers for that.",
+        "yesStageIds":[230],
+        "noStageIds":[231]
+    },
+    {
+        "stageId":230,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "We found the reason the dwarves wanted skylight lake. Some ancient ruins near the lake contained dwarven artifacts, particuarily old rune stones, which enable powerful enchantment spells. A great boon for us and one less for the enemy.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["skylightLakeDecided"],
+        "noConditions":["skylightLakeDecided"],
+        "yesCostOrProfit": {"military":15, "happiness":3},
+        "noCostOrProfit": {"military":15, "happiness":3}
+    },
+    {
+        "stageId":231,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText": "Right after we retreated from skylight lake, the dwarves started gaining new powerful enchanted equipment. Whatever they found there, it makes them a lot stronger.",
+        "yesText": "An unfortunate circumstance. But other oppotunities will come. And we will be ready when they do.",
+        "noText": "I understand your frustration. This must not keep happening.",
+        "yesConditions":["skylightLakeDecided"],
+        "noConditions":["skylightLakeDecided"],
+        "yesCostOrProfit": {"military":-45, "happiness":-5},
+        "noCostOrProfit": {"military":-45, "happiness":-5}
+    },
+    {
+        "stageId":232,
+        "characterSprite":"../../assets/Characters/Herald.png",
+        "cardText":"My queen, an artifact has shown up in front of our city. It seems to be a large copper bell of ancient dwarvish origins. Should we bring it to the treasury?",
+        "yesText":"What a curious find. What origin might it have?",
+        "noText": "We will leave it outside the walls then, until it is properly studied.",
+        "yesCostOrProfit":{"treasure":59},
+        "yesStageIds":[233],
+        "noStageIds":[234]
+    },
+    {
+        "stageId":233,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. There has been an attack on the city over night. A medium sized Silveraxe force emerged from the royal palace and destroyed everything in sight. Once the city guard was able to react adequately, they were surrounded and captured but they managed to wound many and burn our fields.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesConditions":["fieldsDecided"],
+        "noConditions":["fieldsDecided"],
+        "yesCostOrProfit":{"populace":-40,"happiness":-40,"military":-40},
+        "noCostOrProfit":{"populace":-40,"happiness":-40,"military":-40}
+    },
+    {
+        "stageId":234,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. There has been an attack on the city over night. A medium sized Silveraxe force emerged from a warehouse outside the walls and tried to get inside the city. They were stopped at the walls and captured.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesConditions":["fieldsDecided"],
+        "noConditions":["fieldsDecided"],
+        "yesCostOrProfit":{"happiness":5,"military":25},
+        "noCostOrProfit":{"happiness":5,"military":25}
+    },
+    {
+        "stageId":235,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My Queen. There has been an attack in the mine. It seems the Silveraxes tried to create a breach from their tunnels into the city mine. We were prepared for this however and inflicted heavy losses on them.",
+        "yesText": "Yes indeed, a big tactical victory.",
+        "noText": "You're right, triumph should always come with caution.",
+        "yesCostOrProfit":{"happiness":5,"military":25},
+        "noCostOrProfit":{"happiness":5,"military":25},
+        "yesConditions":["minesDecided"],
+        "noConditions":["minesDecided"],
+        "activationCondition":{
+            "conditions":["warWithDwarves","dwarvenTunnels","mineFortified"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["minesDecided"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":236,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My Queen. There has been an attack in the mine. The Silveraxes created a breach from their tunnels into the city mine. We barely managed to hold them off but suffered heavy losses.",
+        "yesText": "A bitter defeat. But the war is not yet lost.",
+        "noText": "A bitter defeat. This must not keep happening.",
+        "yesCostOrProfit":{"happiness":-15,"military":-70},
+        "noCostOrProfit":{"happiness":-15,"military":-70},
+        "yesConditions":["minesDecided"],
+        "noConditions":["minesDecided"],
+        "activationCondition":{
+            "conditions":["warWithDwarves","dwarvenTunnels"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["minesDecided","mineFortified"],
+            "operator":"OR"
+        }
     }
 
 ]

@@ -116,6 +116,24 @@ export class GameComponent {
     //check military
     if(this.militaryValue>10)
       this.activeConditions.push("militOver10");
+    else
+      this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver10")
+    //check military
+    if(this.militaryValue>100)
+      this.activeConditions.push("militOver100");
+    else
+      this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver100")
+    
+    //check military
+    if(this.militaryValue>300)
+      this.activeConditions.push("militOver300");
+    else
+      this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver300")
+    //check military
+    if(this.militaryValue>500)
+      this.activeConditions.push("militOver500");
+    else
+      this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver500")
     //check happiness
     if(this.happinessValue>50)
       this.activeConditions.push("happinessOver50");
