@@ -971,28 +971,28 @@
         "cardText": "The herbalist in my neighborhood wants me to collect some herbs for her. She's a little weird, but nice. Should I help her?",
         "yesCostOrProfit": { "happiness": 1}, 
         "hasPrecursor": true,
-        "yesStageIds":[75],
+        "yesStageIds":[76],
         "noStageIds":[74],
         "yesText": "Exploring the city is always fun. Plus, having the Herbalist on your side, can't hurt. Afterall, you never know when you might need a potion or salve.",
         "noText": "I mean she seemed competent enough, to do it herself. I can't just keep fetching stuff for anyone and everyone. "
     },
     {
-        "stageId":75,
+        "stageId":75, 
         "characterSprite":"../../assets/Characters/Hero1.png",
-        "cardText": "The herbalist in my neighborhood wants me to collect some herbs for her. She's a little weird, but nice. Should I help her?",
-        "yesCostOrProfit": { "happiness": 1}, 
+        "cardText": "This dialogue option was a double and is now empty.",
+        "yesCostOrProfit": {}, 
         "hasPrecursor": true,
-        "yesStageIds":[76],
-        "noStageIds":[75],
-        "yesText": "Exploring the city is always fun. Plus, having the Herbalist on your side, can't hurt. Afterall, you never know when you might need a potion or salve.",
-        "noText": "I mean she seemed competent enough, to do it herself. I can't just keep fetching stuff for anyone and everyone. "
+        "yesStageIds":[],
+        "noStageIds":[],
+        "yesText": "",
+        "noText": ""
     },
     {
         "stageId":76,
         "characterSprite":"../../assets/Characters/Hero1.png",
         "cardText": "Hey look, the herbalist gave me these kick-ass steel boots for collecting the herbs. She said she doesn't need them. Aren't they cool?",
         "yesCostOrProfit": { "happiness": 1}, 
-        "noCostOrProfit": { "happiness": -1}, 
+        "noCostOrProfit": { "happiness": 1}, 
         "hasPrecursor": true,
         "yesStageIds":[77],
         "noStageIds":[77],
@@ -2652,9 +2652,9 @@
     {
         "stageId":217,
         "characterSprite": "../../assets/Characters/general.png",
-        "cardText": "My queen. The Silveraxe dwarves have declared war on us and the first attacks have already begun. However, our frontline is holding and we can prepare. Shall we use this to start a heavy mobilisation instead of a small one?",
-        "yesText": "A large mobilisation might be expensive and unpopular but it might also save us from certain doom. These dwarfes do not strike me as the merciful sort.",
-        "noText": "A small mobilisation will have to suffice.",
+        "cardText": "My queen. The Silveraxe dwarves have declared war on us and the first attacks have already begun. However, our frontline is holding and we can prepare. Shall we use this to start a heavy mobilization instead of a small one?",
+        "yesText": "A large mobilization might be expensive and unpopular but it might also save us from certain doom. These dwarfes do not strike me as the merciful sort.",
+        "noText": "A small mobilization will have to suffice.",
         "yesCostOrProfit":{"treasure":-100,"military":50,"happiness":-5},
         "noCostOrProfit":{"treasure":-20,"military":10, "happiness":-1},
         "yesConditions":["warWithDwarves"],
@@ -2847,7 +2847,7 @@
     {
         "stageId":235,
         "characterSprite":"../../assets/Characters/general.png",
-        "cardText": "My Queen. There has been an attack in the mine. It seems the Silveraxes tried to create a breach from their tunnels into the city mine. We were prepared for this however and inflicted heavy losses on them.",
+        "cardText": "My queen. There has been an attack in the mine. It seems the Silveraxes tried to create a breach from their tunnels into the city mine. We were prepared for this however and inflicted heavy losses on them.",
         "yesText": "Yes indeed, a big tactical victory.",
         "noText": "You're right, triumph should always come with caution.",
         "yesCostOrProfit":{"happiness":5,"military":25},
@@ -2866,7 +2866,7 @@
     {
         "stageId":236,
         "characterSprite":"../../assets/Characters/general.png",
-        "cardText": "My Queen. There has been an attack in the mine. The Silveraxes created a breach from their tunnels into the city mine. We barely managed to hold them off but suffered heavy losses.",
+        "cardText": "My queen. There has been an attack in the mine. The Silveraxes created a breach from their tunnels into the city mine. We barely managed to hold them off but suffered heavy losses.",
         "yesText": "A bitter defeat. But the war is not yet lost.",
         "noText": "A bitter defeat. This must not keep happening.",
         "yesCostOrProfit":{"happiness":-15,"military":-70},
@@ -2881,6 +2881,310 @@
             "conditions":["minesDecided","mineFortified"],
             "operator":"OR"
         }
+    },
+    {
+        "stageId":237,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The Silveraxes are gathering for one final offensive at the underpeak. As things stand now, we will not be able to stop them. We need to go for one final round of mobilization. Will you grant me the funds?",
+        "yesText": "Lets hope this works. It needs to.",
+        "noText": "I will do all I can, but I fear this will be it. May the gods be with you.",
+        "yesCostOrProfit":{"treasure":-150,"happiness":-20,"military":50},
+        "yesConditions":["finalMobilization"],
+        "noConditions":["noFinalMobilization"],
+        "noStageIds":[242],
+        "activationCondition":{
+            "conditions":["fieldsDecided","skylightLakeDecided","mithrilFoundriesDecided","weepingForestsDecided","slitherPassDecided"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["finalMobilization","noFinalMobilization","militOver500"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":238,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The mobilization is complete, do you think it was enough?",
+        "yesText": "Yes. It has to.",
+        "noText": "Now we can only hope.",
+        "yesConditions":["finalMobilsationComplete"],
+        "noConditions":["finalMobilsationComplete"],
+        "yesStageIds":[242],
+        "noStageIds":[242],
+        "activationCondition":{
+            "conditions":["fieldsDecided","skylightLakeDecided","mithrilFoundriesDecided","weepingForestsDecided","slitherPassDecided","finalMobilization"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["noFinalMobilization","militOver500","finalMobilsationComplete"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":239,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"My queen. The mobilization is complete, do you think it was enough?",
+        "yesText": "Yes. It has to.",
+        "noText": "Now we can only hope.",
+        "yesConditions":["finalMobilsationComplete"],
+        "noConditions":["finalMobilsationComplete"],
+        "yesStageIds":[241],
+        "noStageIds":[241],
+        "activationCondition":{
+            "conditions":["fieldsDecided","skylightLakeDecided","mithrilFoundriesDecided","weepingForestsDecided","slitherPassDecided","finalMobilization","militOver500"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["noFinalMobilization","finalMobilsationComplete"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":240,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The Silveraxes are gathering for one final offensive at the underpeak. As things stand now, we should be be able to stop them. Should we send them one final offer to surrender?",
+        "yesText":"I highly doubt they will take the offer, since their king does not value his soldiers, but honor commands to at least try.",
+        "noText":"In the end they would not take it anyway. Their king does not value his soldiers. It disgusts me.",
+        "yesStageIds":[243],
+        "noStageIds":[241]
+    },
+    {
+        "stageId":241,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "My queen. The silveraxes at the underpeak are defeated. Their forces are collapsing along the entire front. Soon we will take the capital and oust king stonesplitter. Our soldiers can finally come home.",
+        "yesText": "We did it. You, me, our soldiers. We all worked together and now we can keep living in peace.",
+        "noText": "We did it. You, me, our soldiers. We all worked together and now we can keep living in peace.",
+        "yesConditions":["gameWon"],
+        "noConditions":["gameWon"],
+        "yesCostOrProfit":{"happiness":20,"military":-20,"treasure":100},
+        "noCostOrProfit":{"happiness":20,"military":-20,"treasure":100}
+    },
+    {
+        "stageId":242,
+        "characterSprite":"../../assets/Characters/general-defeated.png",
+        "cardText":"My queen. I tried to get here sooner. The battle for underpeak is lost, and they will be at the gates soon. I'm sorry.",
+        "yesText": "I will try to hold them off to guard your exit. Farewell.",
+        "noText":"Then we will hold out together. It was an honor fighting for you.",
+        "yesConditions":["gameOver"],
+        "noConditions":["gameOver"]
+    },
+    {
+        "stageId":243,
+        "characterSprite": "../../assets/Characters/general.png",
+        "cardText":"As expected, my queen. The Silveraxes have rejected a capitulation agreement. We will have to beat them in battle.",
+        "yesText":"Yes, fret not. Victory will be ours either way.",
+        "noText":"You are right. How cruel can a leader be to his soldiers?",
+        "yesStageIds":[241],
+        "noStageIds":[241]
+    },
+    {
+        "stageId":244,
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I have news about the special fungus I was trying to create! I found a glowing orb, brimming with energy. This could be the energy source I need to finally create the fungus! Can I have a little money to reactivate my lab?",
+        "yesText": "Thanks so much! I can't wait to tell you about the results!",
+        "noText": "Not right now? Thats fine. I didn't think I would find something so soon, anyways. Take your time.",
+        "yesConditions":["labReactivated"],
+        "yesStageIds":[245],
+        "activationCondition":{
+            "conditions":["crossbreedingSupershroomsDone", "energyOrbUnlocked"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["labReactivated"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":245,
+        "characterSprite": "../../assets/Characters/mushroomGuy.png",
+        "cardText": "I did it! I created a new species of fungus, that grows faster, is less prone to disease and more nourishing than the most used one so far!",
+        "yesText": "Thank you, honestly! I never could've done it without you.",
+        "noText": "I get it, when it comes to food, healthy skepticism can save your life. But trust me, this is revolutionary!",
+        "yesStageIds":[246],
+        "noStageIds":[246],
+        "yesConditions":["superShroomsResearched"],
+        "noConditions":["superShroomsResearched"]
+    },
+    {
+        "stageId":246,
+        "characterSprite": "../../assets/Characters/Herald.png",
+        "cardText":"My queen, we have an economic surplus, thanks to the magically enhanced fungi. Should we invest the gold in our military, instead of keeping it?",
+        "yesText": "Yes, I will inform the general.",
+        "noText": "Other projects are more urgent right now, I understand.",
+        "yesCostOrProfit":{"military":10},
+        "noCostOrProfit":{"treasure":25},
+        "yesStageIds":[246],
+        "noStageIds":[246]
+    },
+    {
+        "stageId":247,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! A man approached me today with a ludicrous proposal. He claimed to be a zoologist, researching the local fauna, particularily hydras. The reason he wanted to talk to me about this however, was that he claimed a magically inclined person could be able to \"bond\" with the beasts and even attempt to \"tame\" them. I was tempted to chase him away with a firebolt, but couldn't help but be intrigued. Also, he claimed you knew of him. Is this true?",
+        "yesText": "It is true, really? I guess while completely ludicrous, his logic did not seem totally unfounded. I guess I will have to reach out to him and talk a bit more.",
+        "noText": "What a shame, and here I was starting to get curious. I guess I will have to turn him into a toad, the next time I see him. For some first hand animal experience.",
+        "yesStageIds":[248],
+        "yesConditions":["sorceressAcceptedHydra"],
+        "noConditions":["sorceressDeniedHydra"],
+        "activationCondition":{
+            "conditions":["mageAcademyLevel1","hydraResearched"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["sorceressAcceptedHydra","sorceressDeniedHydra"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":248,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"Greetings, powerful Queen! Your zoologist is quite the expert in his field, and these hydras are fascinating creatures. Its indeed possible to bond with them, if you are an apt magic user. It is not an emotional bond like you would have with a pet. The hydra seems to gleam intentions, consequences and logic directly from your stream of conciousness. While it cannot understand your emotions or be actively spoken to it can kind of \"imprint\" on the magic users sense of law nad morality. Should I train more people to do this?",
+        "yesText":"Let us see, how many people can manage to do this.",
+        "noText":"Oh not a worry. I am quite content, being the only one with this power.",
+        "yesCostOrProfit":{"military":50, "treasure":-30},
+        "noCostOrProfit":{"military":15}
+    },
+    {
+        "stageId":249,
+        "characterSprite":"../../assets/Characters/DwarfMiner.png",
+        "cardText": "I heard you have a poacher problem. I tell you what, I'm pretty good at snooping in dark places and if they hide in a cave I'll find 'em easy. Give me a little gold and I'll help ya get rid of 'em.",
+        "yesText":"Hehehe, I knew you had an eye for business. I'll find 'em. And maybe I'll smash in some heads, while I'm at it.",
+        "noText":"Good work costs money, youngin'. You'd do good to learn that quickly.",
+        "yesCostOrProfit":{"treasure":-15},
+        "yesConditions":["specialistJoinedPoacherTaskForce"],
+        "noConditions":["dwarfDidntJoinPoacherTaskForce"],
+        "activationCondition":{
+            "conditions":["dwarfMineBuilt","poacherTaskForceDraft"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["specialistJoinedPoacherTaskForce","dwarfDidntJoinPoacherTaskForce","poacherTaskForceDraftPaused"]
+        }
+    },
+    {
+        "stageId":250,
+        "characterSprite":"../../assets/Characters/Thief.png",
+        "cardText": "Need some help with these poachers? I know these \"unsavoury types\" and I bet I can find out where they are, for a little pocket money...",
+        "yesText":"Nice, consider it done.",
+        "noText":"You think someone else can do it? No problem. I'll ask again sometime, if I'm bored...",
+        "yesCostOrProfit":{"treasure":-5},
+        "yesConditions":["specialistJoinedPoacherTaskForce"],
+        "activationCondition":{
+            "conditions":["thiefMovedIn","poacherTaskForceDraft"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["specialistJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
+        }
+    },
+    {
+        "stageId":251,
+        "characterSprite":"../../assets/Characters/BeastMaster.png",
+        "cardText": "I heard of the call up against these poachers. I don't really need money, let me be the one who finds them. These criminals have no idea what theyre destroying.",
+        "yesText":"Thanks for letting me do this. This is personal.",
+        "noText":"I mean if you think you can ge it done without me, I'm not gonna stand in your way. I'll ask again later, if you still need a guide for your team.",
+        "yesConditions":["specialistJoinedPoacherTaskForce"],
+        "activationCondition":{
+            "conditions":["beastMasterArrived","poacherTaskForceDraft"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["specialistJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
+        }
+    },
+    {
+        "stageId":252,
+        "characterSprite":"../../assets/Characters/Ogre.png",
+        "imgSize":"large",
+        "cardText":"Guard buddies said there was evil hunters. Want me make them go away?",
+        "yesText":"Okay. I make them go away.",
+        "noText":"Okay. I ask again later.",
+        "yesConditions":["damageDealerJoinedPoacherTaskForce"],
+        "activationCondition":{
+            "conditions":["ogreVisible","poacherTaskForceDraft"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["damageDealerJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
+        }
+    },
+    {
+        "stageId":253,
+        "characterSprite":"../../assets/Characters/Sorceress.png",
+        "cardText":"You know, your city is really quite peaceful, which is a good thing. It does mean, however, that I do not get as much practise with my destruction magic as I would like. Now this poacher thing might be an opportunity there. Can you give me a little obolus for spell components? In exchange I will fry some poachers for you.",
+        "yesText":"Perfect, I will make sure, not to set your forests on fire.",
+        "noText":"Well, if you think you can find someone better...",
+        "yesConditions":["damageDealerJoinedPoacherTaskForce"],
+        "activationCondition":{
+            "conditions":["mageAcademyLevel1","poacherTaskForceDraft"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["damageDealerJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
+        }
+    },
+    {
+        "stageId":254,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"This armored person enlisted themselves for the poacher task force. I think they should be good to lead the operation. We are going to also need a scout to find the poacher hideout and a damage dealer to beat them in combat. Do you think we have that?",
+        "yesText":"Good, then I will send out the task force next morning.",
+        "noText":"Better to wait until we're ready.",
+        "yesConditions":["poacherTaskForceDraftPaused"],
+        "yesRemoveConditions":["poacherTaskForceDraft"],
+        "yesStageIds":[256],
+        "activationCondition":{
+            "conditions":["poacherTaskForceDraft","heroJoinedPoacherTaskForce"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["specialistJoinedPoacherTaskForce","damageDealerJoinedPoacherTaskForce"],
+            "operator":"AND"
+        }
+    },
+    {
+        "stageId":255,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText":"This armored person enlisted themselves for the poacher task force. I think they should be good to lead the operation. We are going to also need a scout to find the poacher hideout and a damage dealer to beat them in combat. Do you think we have that?",
+        "yesText":"Good, then I will send out the task force next morning.",
+        "noText":"Better to wait until we're ready.",
+        "yesStageIds":[257],
+        "activationCondition":{
+            "conditions":["poacherTaskForceDraft","heroJoinedPoacherTaskForce","specialistJoinedPoacherTaskForce","damageDealerJoinedPoacherTaskForce"],
+            "operator":"AND"
+        },
+        "deactivationCondition":{
+            "conditions":["poacherTaskForceDraftPaused"],
+            "operator":"OR"
+        }
+    },
+    {
+        "stageId":256,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "Our last attack on the poachers failed, we didn't suffer casualties but we lost some equipment.",
+        "yesText": "Next time, we still do not have the necessary capabilities in the team.",
+        "noText": "Next time, we still do not have the necessary capabilities in the team.",
+        "yesCostOrProfit":{"treasure":-20},
+        "noCostOrProfit":{"treasure":-20},
+        "yesConditions":["poacherTaskForceDraft"],
+        "noConditions":["poacherTaskForceDraft"],
+        "yesRemoveConditions":["poacherTaskForceDraftPaused"],
+        "noRemoveConditions":["poacherTaskForceDraftPaused"]
+    },
+    {
+        "stageId":257,
+        "characterSprite":"../../assets/Characters/general.png",
+        "cardText": "The attack on the poachers was a success. Our scout successfully found their hideout, which the frontliner promptly stormed. The leader of the poachers was then subdued by the forces leader. The poachers will not be a problem anymore. However, some of the lower ranks have asked for a pardon in exchange for military service. Should we grant it to them?",
+        "yesText": "They will need good supervision but they have great potential as scouts.",
+        "noText": "We will not let them go unpunished.",
+        "yesCostOrProfit":{"military":10,"treasure":9,"happiness":10},
+        "noCostOrProfit":{"treasure":14,"happiness":10},
+        "yesConditions":["poacherTaskForceDraftPaused"],
+        "noConditions":["poacherTaskForceDraftPaused"],
+        "yesRemoveConditions":["poacherTaskForceDraft"],
+        "noRemoveConditions":["poacherTaskForceDraft"]
+
+
     }
+    
+
 
 ]

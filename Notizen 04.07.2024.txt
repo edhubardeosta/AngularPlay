@@ -22,48 +22,25 @@ Sun stone needs to be charged by pilgrimage.
 Fruit is sweet and edible, but only when washed. Only insects eat it. They carry the spores.
 
 sorceress
-tamed hydras:
-sun portal:
-
-Join dwarves or die,
-If they win, die anyways
-
-
-dwarves embassy, digging
-sludge, introduction, gift, plantdeal, algaedeal, tourism
-mushroom guy finds gill shroom
-
-War with sludge:
-3 minor battles
-	city outskirts x
-	weapons depot x
-	send strike team
-	
-3 major battles
-	swamps
-	dark planes
-	encirclement
-
-1 decisive battle
-	major offensive
-
-War with dwarves:
-2 minor battles
-	path between the stalagtites x
-	skylight lake x
-	mithril foundry x
-	
-2 major battles
-	mines x
-	weeping forests x
-	burning of the fields x
-
-1 decisive battle
-	the underpeak
-
 197 200 203
 
-haste
-damage
-projectiles
-krit
+start [3, 29
+
+dark orb? crossbreedingSupershroomsDone energyOrbUnlocked	x
+sorceress ridey hydra	x
+
+hero		x
+miner		x
+zoologist	x
+thief		x
+sorceress	x
+ogre 	x
+
+zoologist or miner or thief	x
+ogre or sorceress	x
+
+yesremovecondition
+imgsize large
+statueInProgress
+remove warwithsludge
+remove statueready

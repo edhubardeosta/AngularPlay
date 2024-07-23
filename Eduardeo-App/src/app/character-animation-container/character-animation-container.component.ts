@@ -26,7 +26,7 @@ export class CharacterAnimationContainerComponent {
     log("ngOnChange started with changes:", changes);
     if(changes.source.currentValue === undefined){
       if(lastCreatedItem){
-        log("Dissmissing.");
+        log("Dismissing.");
         lastCreatedItem.setInput("dismissed", true);
         if(changes.source.previousValue && changes.source.previousValue.leavingSprite){
           log("Setting source to: ", changes.source.previousValue.leavingSprite)
