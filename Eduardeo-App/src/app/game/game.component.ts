@@ -32,7 +32,12 @@ export class GameComponent {
   }
   startDialogue(){
     log("Dialogue Data Items: ",this.dialogueData.items);
+    var lastSprite = this.activeDialogueItem?.characterSprite;
     this.activeDialogueItem = this.dialogueData.randomDialogueItem();
+    var escapeCounter:number = 0;
+    while(escapeCounter<10 && lastSprite == this.activeDialogueItem.characterSprite){
+      this.activeDialogueItem = this.dialogueData.randomDialogueItem();
+    }
     log("activeDialogueItem: ",this.activeDialogueItem);
     this.displayItem = this.activeDialogueItem;
   }
@@ -57,6 +62,9 @@ export class GameComponent {
         this.activeDialogueItem.yesConditions.forEach( yesCondition => {
           this.activeConditions.push(yesCondition);
         })
+      }
+      if(this.activeDialogueItem.yesRemoveConditions && this.activeDialogueItem.yesRemoveConditions?.length!>0){
+        this.activeConditions = this.activeConditions.filter((element) => !this.activeDialogueItem!.yesRemoveConditions.includes(element))
       }
 
       this.activeDialogueItem = undefined;
@@ -88,6 +96,9 @@ export class GameComponent {
         this.activeDialogueItem.noConditions.forEach( noCondition => {
           this.activeConditions.push(noCondition);
         })
+      }
+      if(this.activeDialogueItem.noRemoveConditions && this.activeDialogueItem.noRemoveConditions?.length!>0){
+        this.activeConditions = this.activeConditions.filter((element) => !this.activeDialogueItem!.noRemoveConditions.includes(element))
       }
 
       this.activeDialogueItem = undefined;

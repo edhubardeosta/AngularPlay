@@ -39,8 +39,10 @@ ogre 	x
 zoologist or miner or thief	x
 ogre or sorceress	x
 
-yesremovecondition
-imgsize large
+prevent doubles	x
+yesremovecondition	?
+imgsize large	?
 statueInProgress
-remove warwithsludge
 remove statueready
+gameover
+game won

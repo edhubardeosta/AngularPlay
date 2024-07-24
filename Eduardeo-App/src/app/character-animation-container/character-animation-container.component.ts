@@ -57,6 +57,8 @@ export class CharacterAnimationContainerComponent {
         //var lastCreatedItemRef:ComponentRef<CharacterAnimationItemComponent> = ;
         lastCreatedItem = this.container.createComponent(CharacterAnimationItemComponent);
         lastCreatedItem.setInput("source", this.source?.characterSprite);
+        if(this.source?.imgSize=="large")
+        lastCreatedItem.setInput("large", true);
         log("lastCreatedItem: ", lastCreatedItem);
 
       }

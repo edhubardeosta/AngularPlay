@@ -223,7 +223,7 @@
     {
         "stageId": 17, 
         "characterSprite": "../../assets/Characters/mushroomGuy.png",
-        "cardText": "I have an idea for a science project. I have found a rare species of mushroom, that can move, and attack threats. At first I thought they were sentient like me, but as it turns out, they're more simpleminded. Now I'm looking for ways to cultivate these mushrooms and turn them into mushroom golems. Can I have some money for my research?", 
+        "cardText": "I have an idea for a science project. I have found a rare species of mushroom, that can move, and attack threats. At first I thought they were sentient like me, but as it turns out, they're more simple minded. Now I'm looking for ways to cultivate these mushrooms and turn them into mushroom golems. Can I have some money for my research?", 
         "hasPrecursor": true,
         "yesStageIds": [18], 
         "noStageIds":[],
@@ -380,7 +380,7 @@
         "noStageIds":[30],
         "hasPrecursor": false,
         "yesText": "I will find suitable smiths immediately.",
-        "noText": "Undestood."
+        "noText": "Understood."
     },
     {
         "stageId": 31, 
@@ -391,7 +391,7 @@
         "noStageIds":[31],
         "hasPrecursor": false,
         "yesText": "I will find suitable smiths immediately.",
-        "noText": "Undestood."
+        "noText": "Understood."
     },
     {
         "stageId": 32, 
@@ -1288,7 +1288,8 @@
         "yesStageIds":[101],
         "noStageIds":[102],
         "yesText":"I think so, too. Lets get some live traps, mouse feed and camouflage, I wonder what they even eat...",
-        "noText":"Maybe you're right. Eel might be slimy and a little weird, but that only makes them even more interesting."
+        "noText":"Maybe you're right. Eel might be slimy and a little weird, but that only makes them even more interesting.",
+        "hasPrecursor": true
     },
     {
         "stageId":101,
@@ -1298,7 +1299,8 @@
         "yesStageIds":[103],
         "noStageIds":[103],
         "yesText":"Gotta love nerding out with a fellow nature nerd!",
-        "noText":"Don't underestimate mice, just 'cause they're little."
+        "noText":"Don't underestimate mice, just 'cause they're little.",
+        "hasPrecursor": true
     },
     {
         "stageId":102,
@@ -1310,7 +1312,8 @@
         "yesText":"Hah, nice. I get random information and you got the Ideas, classic symbiosis!",
         "noText":"I'll just leave you my notes. Someday you'll figure somethin' out.",
         "yesConditions":["glowingAlgaeDiscovered"],
-        "noConditions":["glowingAlgaeDiscovered"]
+        "noConditions":["glowingAlgaeDiscovered"],
+        "hasPrecursor": true
 
     },
     {
@@ -1320,7 +1323,8 @@
         "yesText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is omnivores.",
         "noText":"Damn, you ever wish you could split yourself and do multiple things at once? I sure do right now. Well it is what it is, and it is grazers, then.",
         "yesStageIds":[104],
-        "noStageIds":[105]
+        "noStageIds":[105],
+        "hasPrecursor": true
     },
     {
         "stageId":104,
@@ -1330,7 +1334,8 @@
         "yesText":"Yeah, a place to get out and break the routine is exactly what you need sometimes. I already found my next project...",
         "noText":"It is not super dangerous, but it's true. You never know what could happen. I'll just tell a few people I can trust. I already found my next project...",
         "yesStageIds":[108],
-        "noStageIds":[108]
+        "noStageIds":[108],
+        "hasPrecursor": true
     },
     {
         "stageId":105,
@@ -1339,7 +1344,8 @@
         "yesText":"Nice! I call 'em gardeners, by the way. I do that, because they carry around mushrooms they can eat on their back and spread them around. If you can domesticate some, that would probably be very useful in your farms. Anyways, I'm off now. I already found my next project...",
         "noText":"Oh, sorry. I didn't mean to bore you. One thing that'll get your attention is that I call 'em gardeners. I do that, because they carry around mushrooms they can eat on their back and spread them around. If you can domesticate some, that would probably be very useful in your farms. Anyways, I'm off now. I already found my next project...",
         "yesStageIds":[108,106],
-        "noStageIds":[108,106]
+        "noStageIds":[108,106],
+        "hasPrecursor": true
     },
     {
         "stageId":106,
@@ -1348,7 +1354,8 @@
         "yesText": "The farmers need not worry anymore. We have been getting by just fine and that is how it will stay.",
         "noText": "I will instruct the farmers to let the gardeners in. There will be mild protest but nothing to worry about.",
         "noCostOrProfit": {"happiness": -3},
-        "noStageIds":[107]
+        "noStageIds":[107],
+        "hasPrecursor": true
     },
     {
         "stageId":107,
@@ -1357,7 +1364,8 @@
         "yesText": "Your authority needs to be respected and feared, not questioned by every hillbilly with ideas.",
         "noText": "Rebelling against change is natural. We must be merciful with your subjects.",
         "yesCostOrProfit":{"treasure": 49},
-        "noCostOrProfit": {"treasure": 49, "happiness": 3}
+        "noCostOrProfit": {"treasure": 49, "happiness": 3},
+        "hasPrecursor": true
     },
     {
         "stageId": 108,
@@ -1366,7 +1374,8 @@
         "yesText": "I mean, you have hydras all over your throne room, so I thought you'd like it. I'm just so excited! I thought these things were just myth, but they're real and alive right now!",
         "noText": "Yeah, if I head of a multi-headed snake monster for the first time, I'd be a little worried, too. But trust me, most wildlife doesn't come near cities, especially not predators.",
         "yesStageIds":[109],
-        "noStageIds":[109]
+        "noStageIds":[109],
+        "hasPrecursor": true
     },
     {
         "stageId": 109,
@@ -1376,7 +1385,8 @@
         "noText": "No problem, I can wait for now. But someday I need to find that hydra again.",
         "yesCostOrProfit":{"treasure":-49, "military":-5},
         "yesStageIds":[110],
-        "noStageIds":[109]
+        "noStageIds":[109],
+        "hasPrecursor": true
     },
     {
         "stageId": 110,
@@ -1389,7 +1399,8 @@
         "yesConditions":["hydraResearched"],
         "noConditions":["hydraResearched"],
         "yesStageIds":[111],
-        "noStageIds":[111]
+        "noStageIds":[111],
+        "hasPrecursor": true
     },
     {
         "stageId":111,
@@ -1398,7 +1409,8 @@
         "yesText": "Understood. This will increase our fighting capabilities.",
         "noText": "Understood. We shouldn't overburden our economy.",
         "noStageIds": [111],
-        "yesCostOrProfit": {"military":15}
+        "yesCostOrProfit": {"military":15},
+        "hasPrecursor": true
     },
     {
         "stageId":112,
@@ -1418,7 +1430,8 @@
         "deactivationCondition":{
             "conditions":["metSorceress"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":113,
@@ -1430,7 +1443,8 @@
         "noConditions": ["mageAcademyLevel1"],
         "noCostOrProfit":{"treasure":19},
         "yesStageIds":[114],
-        "noStageIds":[115]
+        "noStageIds":[115],
+        "hasPrecursor": true
     },
     {
         "stageId":114,
@@ -1440,7 +1454,8 @@
         "noText":"Not yet? Do you still not have the funds? Disappointing...",
         "yesCostOrProfit":{"treasure":19},
         "yesStageIds":[115],
-        "noStageIds":[114]
+        "noStageIds":[114],
+        "hasPrecursor": true
     },
     {
         "stageId":115,
@@ -1452,7 +1467,8 @@
         "noConditions": ["mageAcademyLevel2"],
         "noCostOrProfit":{"treasure":19},
         "yesStageIds":[116],
-        "noStageIds":[117,134]
+        "noStageIds":[117,134],
+        "hasPrecursor": true
     },
     {
         "stageId":116,
@@ -1462,7 +1478,8 @@
         "noText":"Not yet? Do you still not have the funds? Disappointing...",
         "yesCostOrProfit":{"treasure":19},
         "yesStageIds":[117,134],
-        "noStageIds":[116]
+        "noStageIds":[116],
+        "hasPrecursor": true
     },
     {
         "stageId":117,
@@ -1474,7 +1491,8 @@
         "noConditions": ["mageAcademyLevel3"],
         "noCostOrProfit":{"treasure":19},
         "yesStageIds":[118],
-        "noStageIds":[119]
+        "noStageIds":[119],
+        "hasPrecursor": true
     },
     {
         "stageId":118,
@@ -1484,7 +1502,8 @@
         "noText":"Not yet? Do you still not have the funds? Do not worry. We have plenty to work with, already.",
         "yesCostOrProfit":{"treasure":19},
         "yesStageIds":[119],
-        "noStageIds":[118]
+        "noStageIds":[118],
+        "hasPrecursor": true
     },
     {
         "stageId":119,
@@ -1496,7 +1515,8 @@
         "noConditions": ["mageAcademyLevel4"],
         "noCostOrProfit":{"treasure":19},
         "yesStageIds":[120],
-        "noStageIds":[121]
+        "noStageIds":[121],
+        "hasPrecursor": true
     },
     {
         "stageId":120,
@@ -1506,7 +1526,8 @@
         "noText":"Not yet? Do you still not have the funds? Do not worry. We have plenty to work with, already.",
         "yesCostOrProfit":{"treasure":19},
         "yesStageIds":[121],
-        "noStageIds":[120]
+        "noStageIds":[120],
+        "hasPrecursor": true
     },
     {
         "stageId":121,
@@ -1516,7 +1537,8 @@
         "noText":"Not a problem. You have already given me magic. There is no more I can ask.",
         "yesConditions": ["mageAcademyLevel5"],
         "noConditions": ["mageAcademyLevel5"],
-        "yesCostOrProfit":{"happiness":1}
+        "yesCostOrProfit":{"happiness":1},
+        "hasPrecursor": true
     },
     {
         "stageId":122,
@@ -1537,7 +1559,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[124],
-        "noStageIds":[124]
+        "noStageIds":[124],
+        "hasPrecursor": true
     },
     {
         "stageId":124,
@@ -1547,7 +1570,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[125],
-        "noStageIds":[125]
+        "noStageIds":[125],
+        "hasPrecursor": true
     },
     {
         "stageId":125,
@@ -1557,7 +1581,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[122],
-        "noStageIds":[122]
+        "noStageIds":[122],
+        "hasPrecursor": true
     },
     {
         "stageId":126,
@@ -1578,7 +1603,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[128],
-        "noStageIds":[128]
+        "noStageIds":[128],
+        "hasPrecursor": true
     },
     {
         "stageId":128,
@@ -1588,7 +1614,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[129],
-        "noStageIds":[129]
+        "noStageIds":[129],
+        "hasPrecursor": true
     },
     {
         "stageId":129,
@@ -1598,7 +1625,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[126],
-        "noStageIds":[126]
+        "noStageIds":[126],
+        "hasPrecursor": true
     },
     {
         "stageId":130,
@@ -1619,7 +1647,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[132],
-        "noStageIds":[132]
+        "noStageIds":[132],
+        "hasPrecursor": true
     },
     {
         "stageId":132,
@@ -1629,7 +1658,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[133],
-        "noStageIds":[133]
+        "noStageIds":[133],
+        "hasPrecursor": true
     },
     {
         "stageId":133,
@@ -1639,7 +1669,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[130],
-        "noStageIds":[130]
+        "noStageIds":[130],
+        "hasPrecursor": true
     },
     {
         "stageId": 134,
@@ -1649,7 +1680,8 @@
         "noText": "What a shame, I'll ask again in a bit in case you change your mind.",
         "yesStageIds":[137],
         "noStageIds":[136],
-        "yesConditions":["mechanicAdmitted"]
+        "yesConditions":["mechanicAdmitted"],
+        "hasPrecursor": true
     },
     {
         "stageId":135,
@@ -1659,7 +1691,8 @@
         "noText": "We are just talking about the first level here, yet you still can provide nothing? How thoroughly disappointing...",
         "yesCostOrProfit":{"treasure":29},
         "yesStageIds":[113],
-        "noStageIds":[135]
+        "noStageIds":[135],
+        "hasPrecursor": true
     },
     {
         "stageId": 136,
@@ -1668,7 +1701,8 @@
         "yesText": "Splendid, I knew you'd reconsider! Thank you!",
         "noText": "What a shame, well goodbye it is then.",
         "yesStageIds":[137],
-        "yesConditions":["mechanicAdmitted"]
+        "yesConditions":["mechanicAdmitted"],
+        "hasPrecursor": true
     },
     {
         "stageId": 137,
@@ -1677,7 +1711,8 @@
         "yesText": "Splendid! I'll ask around to see who's interested.",
         "noText": "Hmm, I gotta find someone else, then. ",
         "yesStageIds":[138],
-        "noStageIds":[139]
+        "noStageIds":[139],
+        "hasPrecursor": true
     },
     {
         "stageId": 138,
@@ -1688,7 +1723,8 @@
         "yesStageIds":[140],
         "noStageIds":[140],
         "yesCostOrProfit":{"treasure":-5, "happiness":1},
-        "noCostOrProfit":{"happiness":-5}
+        "noCostOrProfit":{"happiness":-5},
+        "hasPrecursor": true
     },
     {
         "stageId": 139,
@@ -1699,7 +1735,8 @@
         "yesStageIds":[140],
         "noStageIds":[140],
         "yesCostOrProfit":{"treasure":-16, "happiness":-3, "populace":-3},
-        "noCostOrProfit":{"happiness":-9, "populace":-3}
+        "noCostOrProfit":{"happiness":-9, "populace":-3},
+        "hasPrecursor": true
     },
     {
         "stageId": 140,
@@ -1710,7 +1747,8 @@
         "yesStageIds":[141],
         "noStageIds":[141],
         "yesCostOrProfit":{"happiness":1},
-        "noCostOrProfit":{"happiness":-1}
+        "noCostOrProfit":{"happiness":-1},
+        "hasPrecursor": true
     },
     {
         "stageId": 141,
@@ -1721,7 +1759,8 @@
         "yesCostOrProfit":{"happiness":5},
         "noCostOrProfit":{"happiness":1},
         "yesConditions":["academyFallProtection"],
-        "noConditions":["academyFallProtection"]
+        "noConditions":["academyFallProtection"],
+        "hasPrecursor": true
     },
     {
         "stageId": 142,
@@ -1739,7 +1778,8 @@
         "deactivationCondition":{
             "conditions":["biPedResearchRestarted","biPedResearchCancelled"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":143,
@@ -1750,7 +1790,8 @@
         "yesCostOrProfit":{"treasure":19,"happiness":5},
         "noCostOrProfit":{"happiness":1},
         "yesConditions":["biPedResearchFinished"],
-        "noConditions":["biPedResearchFinished"]
+        "noConditions":["biPedResearchFinished"],
+        "hasPrecursor": true
     },
     {
         "stageId": 144,
@@ -1769,7 +1810,8 @@
         "deactivationCondition":{
             "conditions":["golemArmorResearchStarted","golemArmorResearchCancelled"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":145,
@@ -1780,7 +1822,8 @@
         "yesCostOrProfit":{"treasure":-29,"military":20},
         "noCostOrProfit":{"military":3},
         "yesConditions":["golemArmorResearchFinished"],
-        "noConditions":["golemArmorResearchFinished"]
+        "noConditions":["golemArmorResearchFinished"],
+        "hasPrecursor": true
     },
     {
         "stageId": 146,
@@ -1799,7 +1842,8 @@
         "deactivationCondition":{
             "conditions":["spiderGolemResearchStarted","spiderGolemResearchCancelled"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId": 147,
@@ -1808,7 +1852,8 @@
         "yesText": "Yes, thats going to help out a lot.",
         "noText": "We'll get there, even if it takes a bit longer.",
         "yesStageIds":[149],
-        "yesCostOrProfit":{"treasure":-9}
+        "yesCostOrProfit":{"treasure":-9},
+        "hasPrecursor": true
     },
     {
         "stageId": 148,
@@ -1817,7 +1862,8 @@
         "yesText": "Yeah, its going to be great!",
         "noText": "I know, I know. It always takes longer than expected with me, sorry.",
         "yesStageIds":[149],
-        "yesCostOrProfit":{"happiness":1}
+        "yesCostOrProfit":{"happiness":1},
+        "hasPrecursor": true
     },
     {
         "stageId":149,
@@ -1829,7 +1875,8 @@
         "noCostOrProfit":{"treasure":59,"happiness":-1},
         "yesStageIds":[150],
         "yesConditions":["spiderGolemResearchFinished"],
-        "noConditions":["spiderGolemResearchFinished"]
+        "noConditions":["spiderGolemResearchFinished"],
+        "hasPrecursor": true
     },
     {
         "stageId": 150,
@@ -1838,7 +1885,8 @@
         "yesText": "I will extend your commendations to the responsible researcher.",
         "noText": "You're right. It is only appropriate, given your extensive investments.",
         "yesCostOrProfit":{"treasure":189,"happiness":3},
-        "noCostOrProfit":{"treasure":189,"happiness":3}
+        "noCostOrProfit":{"treasure":189,"happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId": 151,
@@ -1868,7 +1916,8 @@
         "deactivationCondition":{
             "conditions":["botanistAdmissionRequested"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId": 153,
@@ -1879,7 +1928,8 @@
         "yesConditions":["botanistAdmitted"],
         "noConditions":["botanistDenied"],
         "yesStageIds":[154],
-        "yesCostOrProfit":{"treasure":-4}
+        "yesCostOrProfit":{"treasure":-4},
+        "hasPrecursor": true
     },
     {
         "stageId":154,
@@ -1889,7 +1939,8 @@
         "noText": "Oh. Forgive. Never meant I to disturb you.",
         "yesCostOrProfit":{"treasure":-9},
         "yesStageIds": [155],
-        "noStageIds": [154]
+        "noStageIds": [154],
+        "hasPrecursor": true
     },
     {
         "stageId":155,
@@ -1898,7 +1949,8 @@
         "yesText": "With theories of falsehood slain, quest of mine, don't be in vain.",
         "noText": "Oh, apologies. I meant to say, I was misguided. At first, I detected magic in the flowers and thought it the cause. But when I could not progress farther, I found that magic permeates every living thing down here. But I will find the real source of light in this fruit in time. But I cannot promise not to rhyme.",
         "yesConditions":["lightFruitPending"],
-        "noConditions":["lightFruitPending"]
+        "noConditions":["lightFruitPending"],
+        "hasPrecursor": true
     },
     {
         "stageId":156,
@@ -1913,7 +1965,8 @@
         "activationCondition":{
             "conditions":["lightFruitPending","metFunghologist"],
             "operator":"AND"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":157,
@@ -1922,7 +1975,8 @@
         "yesText": "These days comes finally the hour, where use comes from this magic power.",
         "noText": "Perhaps my wish just clouds my thought and it all realy was for naught.",
         "yesCostOrProfit": {"treasure":-9},
-        "yesStageIds":[158]
+        "yesStageIds":[158],
+        "hasPrecursor": true
     },
     {
         "stageId":158,
@@ -1932,7 +1986,8 @@
         "noText": "I'll surely ask you this again for just this soon it must not end end.",
         "yesCostOrProfit": {"treasure":-50},
         "yesStageIds":[160],
-        "noStageIds":[159]
+        "noStageIds":[159],
+        "hasPrecursor": true
     },
     {
         "stageId":159,
@@ -1942,7 +1997,8 @@
         "noText": "I'll surely ask you this again for just this soon it must not end end.",
         "yesCostOrProfit": {"treasure":-50},
         "yesStageIds":[160],
-        "noStageIds":[159]
+        "noStageIds":[159],
+        "hasPrecursor": true
     },
     {
         "stageId":160,
@@ -1953,7 +2009,8 @@
         "yesStageIds":[161,162],
         "noStageIds":[161,162],
         "yesConditions":["hardenedPlantsResearched"],
-        "noConditions":["hardenedPlantsResearched"]
+        "noConditions":["hardenedPlantsResearched"],
+        "hasPrecursor": true
     },
     {
         "stageId": 161,
@@ -1964,7 +2021,8 @@
         "yesCostOrProfit":{"treasure":19},
         "noCostOrProfit":{"happiness":5},
         "yesStageIds":[161],
-        "noStageIds":[161]
+        "noStageIds":[161],
+        "hasPrecursor": true
     },
     {
         "stageId": 162,
@@ -1985,7 +2043,8 @@
         "deactivationCondition":{
             "conditions":["dwarfEmbassyConstructed","dwarfEmbassyDenied"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId": 163,
@@ -1995,7 +2054,8 @@
         "noText": "Dwarves get really old, you know? And even if an elf can live for longer, a dwarven grudge will hold forever. Think about this, friend, when I return.",
         "yesConditions": ["dwarvenTunnels"],
         "yesStageIds":[166],
-        "noStageIds":[165]
+        "noStageIds":[165],
+        "hasPrecursor": true
     },
     {
         "stageId": 164,
@@ -2005,7 +2065,8 @@
         "noText": "Dwarves get really old, you know? And even if an elf can live for longer, a dwarven grudge will hold forever. Think about this, friend, when I return.",
         "yesConditions": ["dwarvenTunnels"],
         "yesStageIds":[166],
-        "noStageIds":[165]
+        "noStageIds":[165],
+        "hasPrecursor": true
     },
     {
         "stageId":165,
@@ -2015,7 +2076,8 @@
         "noText": "So you changed your mind? What wonderful news! We will start mining right away.",
         "noStageIds":[166],
         "yesConditions": ["dwarvenTunnelsDenied"],
-        "noConditions": ["dwarvenTunnels"]
+        "noConditions": ["dwarvenTunnels"],
+        "hasPrecursor": true
     },
     {
         "stageId":166,
@@ -2030,7 +2092,8 @@
         "deactivationCondition":{
             "conditions":["warWithDwarves"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":167,
@@ -2050,7 +2113,8 @@
         "noText": "Well, yer loss. Gonna get myself a boatload of beer for that gold.",
         "yesCostOrProfit": {"treasure":30},
         "yesConditions": ["dwarfMineBuilt"],
-        "yesStageIds":[169]
+        "yesStageIds":[169],
+        "hasPrecursor": true
     },
     {
         "stageId": 169,
@@ -2061,7 +2125,8 @@
         "yesCostOrProfit":{"treasure":5},
         "noCostOrProfit":{"happiness":1},
         "yesStageIds": [169],
-        "noStageIds": [169]
+        "noStageIds": [169],
+        "hasPrecursor": true
     },
     {
         "stageId": 170,
@@ -2072,7 +2137,8 @@
         "yesCostOrProfit": {"treasure":20},
         "noCostOrProfit": {"treasure":10},
         "yesStageIds": [170],
-        "noStageIds": [170]
+        "noStageIds": [170],
+        "hasPrecursor": true
     },
     {
         "stageId": 171,
@@ -2082,7 +2148,8 @@
         "noText": "We're careful today, eh? I can respect that. Wouldn't want the tunnel collapsing on yer head on a bad day. Heres the usual borin' amount.",
         "noCostOrProfit": {"treasure":10},
         "yesStageIds": [171],
-        "noStageIds": [171]
+        "noStageIds": [171],
+        "hasPrecursor": true
     },
     {
         "stageId":172,
@@ -2099,7 +2166,8 @@
         "deactivationCondition":{
             "conditions":["mineFortified"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":173,
@@ -2116,7 +2184,8 @@
         "deactivationCondition":{
             "conditions":["sludgeMonsterIntroduced","warWithSludge","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":174,
@@ -2130,7 +2199,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":175,
@@ -2147,7 +2217,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","hardenedPlantsSold","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":176,
@@ -2164,7 +2235,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","glowingAlgaeDiscovered", "breathingGearResearchFinished", "sludgeAskedForInventions","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":177,
@@ -2172,7 +2244,8 @@
         "cardText": "Did you know there are underwater fungi? I found a really cool one. It has a large spongelike structure and can produce air, when under the right conditions. Should I research them further?",
         "yesText": "Mhm, I'll probably need some type of contraption. Who could help me make something like that...?",
         "noText": "Its probably not useful, not everything needs to be usefull, just because it's cool, I guess.",
-        "yesConditions":["breathingGearResearchStarted"]
+        "yesConditions":["breathingGearResearchStarted"],
+        "hasPrecursor": true
     },
     {
         "stageId":178,
@@ -2191,7 +2264,8 @@
         "deactivationCondition":{
             "conditions":["breathingGearResearchFinished","breathingGearResearchCanceled"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":179,
@@ -2199,7 +2273,8 @@
         "cardText": "Guess what! We finished the breathing gear! It was so fun to work on, and maybe it will become useful at some point, don't you think?",
         "yesCostOrProfit":{"happiness":1},
         "yesText": "Yeah, I mean, breathing underwater... thats like magic!",
-        "noText": "Well I had a ton of fun, so I'm still thankful for that."
+        "noText": "Well I had a ton of fun, so I'm still thankful for that.",
+        "hasPrecursor": true
     },
     {
         "stageId":180,
@@ -2214,7 +2289,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","glowingAlgaeDiscovered","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":181,
@@ -2232,7 +2308,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge", "sludgeAskedForInventions","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":182,
@@ -2249,7 +2326,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge", "sludgeHasAlgae","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":183,
@@ -2264,7 +2342,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","breathingGearResearchFinished","sludgeHasWaterBreathingGear","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":184,
@@ -2282,7 +2361,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","sludgeHasWaterBreathingGear","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":185,
@@ -2297,7 +2377,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","sludgeHasWaterBreathingGear"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":186,
@@ -2316,7 +2397,8 @@
         "deactivationCondition":{
             "conditions":["mudMonsterWarned", "warWithDwarves"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":187,
@@ -2328,7 +2410,8 @@
         "noStageIds":[215],
         "yesCostOrProfit":{"happiness":-5,"populace":-10},
         "noCostOrProfit":{"happiness":-25,"populace":-10},
-        "yesConditions":["warWithSludge"]
+        "yesConditions":["warWithSludge"],
+        "hasPrecursor": true
     },
     {
         "stageId": 188,
@@ -2337,7 +2420,8 @@
         "yesText": "A heavy assault should catch them off guard.",
         "noText": "Small forces rely on their size to make fast retreats. We will not let that happen.",
         "yesStageIds":[189],
-        "noStageIds":[190]
+        "noStageIds":[190],
+        "hasPrecursor": true
     },
     {
         "stageId":189,
@@ -2346,7 +2430,8 @@
         "yesText": "Yes, we have achieved our goal here. We should still take fewer losses in the future.",
         "noText": "I understand your frustration. This must not keep happening.",
         "yesCostOrProfit":{"military":-15, "happiness":-3},
-        "noCostOrProfit":{"military":-15, "happiness":-3}
+        "noCostOrProfit":{"military":-15, "happiness":-3},
+        "hasPrecursor": true
     },
     {
         "stageId":190,
@@ -2355,7 +2440,8 @@
         "yesText": "Yes, let us bring our people home.",
         "noText": "These mokanans are not going to get off that easy.",
         "yesCostOrProfit":{"military":15, "happiness":5},
-        "noCostOrProfit":{"happiness":3}
+        "noCostOrProfit":{"happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId":191,
@@ -2364,7 +2450,8 @@
         "yesText": "They will not be able to react in time.",
         "noText": "We will gather an offensive force first.",
         "yesStageIds":[192],
-        "noStageIds":[193]
+        "noStageIds":[193],
+        "hasPrecursor": true
     },
     {
         "stageId":192,
@@ -2373,14 +2460,16 @@
         "yesText": "Yes indeed, a big tactical victory.",
         "noText": "You're right, triumph should always come with caution.",
         "yesCostOrProfit":{"military":15, "happiness":3},
-        "noCostOrProfit":{"military":15, "happiness":3}
+        "noCostOrProfit":{"military":15, "happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId": 193,
         "characterSprite": "../../assets/Characters/general.png",
         "cardText": "My queen. It seems the mokanans have learned of our attack on the outpost in time. It was already evacuated when our forces arrived.",
         "yesText": "An unfortunate circumstance. But other oppotunities will come. And we will be ready when they do.",
-        "noText": "I understand your frustration. This must not keep happening."
+        "noText": "I understand your frustration. This must not keep happening.",
+        "hasPrecursor": true
     },
     {
         "stageId":194,
@@ -2399,7 +2488,8 @@
         "deactivationCondition":{
             "conditions":["taskForceSentToMokana"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":195,
@@ -2408,7 +2498,8 @@
         "yesText": "Yes indeed, a big tactical victory.",
         "noText": "You're right, triumph should always come with caution.",
         "yesCostOrProfit":{"military":20, "happiness":4},
-        "noCostOrProfit":{"military":20, "happiness":4}
+        "noCostOrProfit":{"military":20, "happiness":4},
+        "hasPrecursor": true
     },
     {
         "stageId": 196,
@@ -2417,7 +2508,8 @@
         "yesText": "Lets make sure their sacrifice was not in vain.",
         "noText": "I understand your frustration. This must not keep happening.",
         "yesCostOrProfit":{"military":-6, "happiness":-3},
-        "noCostOrProfit":{"military":-6, "happiness":-3}
+        "noCostOrProfit":{"military":-6, "happiness":-3},
+        "hasPrecursor": true
     
     },
     {
@@ -2427,7 +2519,8 @@
         "yesText": "Understood. We will keep up our defensive positions and attack on other fronts.",
         "noText": "Understood. We will move into the swamps and try to take this strategic landmark from them.",
         "yesStageIds":[198],
-        "noStageIds":[199]
+        "noStageIds":[199],
+        "hasPrecursor": true
     },
     {
         "stageId":198,
@@ -2438,7 +2531,8 @@
         "yesConditions":["mokananAmbushDecided"],
         "noConditions":["mokananAmbushDecided"],
         "yesCostOrProfit":{"military":40, "happiness":5},
-        "noCostOrProfit":{"military":40, "happiness":5}
+        "noCostOrProfit":{"military":40, "happiness":5},
+        "hasPrecursor": true
     },
     {
         "stageId": 199,
@@ -2449,7 +2543,8 @@
         "yesConditions":["mokananAmbushDecided"],
         "noConditions":["mokananAmbushDecided"],
         "yesCostOrProfit":{"military":-70, "happiness":-15},
-        "noCostOrProfit":{"military":-70, "happiness":-15}
+        "noCostOrProfit":{"military":-70, "happiness":-15},
+        "hasPrecursor": true
     },
     {
         "stageId":200,
@@ -2458,7 +2553,8 @@
         "yesText": "Understood. Reinforcements are on the way.",
         "noText": "Understood. We will cover their retreat.",
         "yesStageIds":[201],
-        "noStageIds":[202]
+        "noStageIds":[202],
+        "hasPrecursor": true
 
     },
     {
@@ -2470,7 +2566,8 @@
         "yesConditions":["mokananEncirclementDecided"],
         "noConditions":["mokananEncirclementDecided"],
         "yesCostOrProfit":{"military":-120, "happiness":-20},
-        "noCostOrProfit":{"military":-120, "happiness":-20}
+        "noCostOrProfit":{"military":-120, "happiness":-20},
+        "hasPrecursor": true
     },
     {
         "stageId": 202,
@@ -2481,7 +2578,8 @@
         "yesConditions":["mokananEncirclementDecided"],
         "noConditions":["mokananEncirclementDecided"],
         "yesCostOrProfit":{"military":70, "happiness":2},
-        "noCostOrProfit":{"military":70, "happiness":2}
+        "noCostOrProfit":{"military":70, "happiness":2},
+        "hasPrecursor": true
     },
     {
         "stageId":203,
@@ -2490,7 +2588,8 @@
         "yesText": "Understood. We will amass an offensive force.",
         "noText": "Understood. We will strengthen our defenses.",
         "yesStageIds":[204],
-        "noStageIds":[205]
+        "noStageIds":[205],
+        "hasPrecursor": true
 
     },
     {
@@ -2502,7 +2601,8 @@
         "yesConditions":["mokananPlanesDecided"],
         "noConditions":["mokananPlanesDecided"],
         "yesCostOrProfit":{"military":50, "happiness":5},
-        "noCostOrProfit":{"military":50, "happiness":5}
+        "noCostOrProfit":{"military":50, "happiness":5},
+        "hasPrecursor": true
     },
     {
         "stageId": 205,
@@ -2513,7 +2613,8 @@
         "yesConditions":["mokananPlanesDecided"],
         "noConditions":["mokananPlanesDecided"],
         "yesCostOrProfit":{"military":-70, "happiness":-10},
-        "noCostOrProfit":{"military":-70, "happiness":-10}
+        "noCostOrProfit":{"military":-70, "happiness":-10},
+        "hasPrecursor": true
     },
     {
         "stageId":206,
@@ -2532,7 +2633,8 @@
         "deactivationCondition":{
             "conditions": ["finalBattleSludgeDecided"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":207,
@@ -2549,7 +2651,8 @@
         "deactivationCondition":{
             "conditions":["finalBattleSludgeDecided","militOver500"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":208,
@@ -2558,7 +2661,8 @@
         "yesText": "Now peace can finally return.",
         "noText": "Are you sure? If we do not accept a surrender, we will not be able to resume relations with them and there will be a guerilla war.",
         "yesStageIds":[213],
-        "noStageIds":[213]
+        "noStageIds":[213],
+        "hasPrecursor": true
     },
     {
         "stageId":209,
@@ -2569,7 +2673,8 @@
         "yesCostOrProfit":{"military":-250, "happiness":-30},
         "noCostOrProfit":{"military":-250, "happiness":-30},
         "yesStageIds":[212],
-        "noStageIds":[212]
+        "noStageIds":[212],
+        "hasPrecursor": true
     },
     {
         "stageId":210,
@@ -2578,7 +2683,9 @@
         "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
         "noText": "You decline peace, even now? Haven't we suffered enough? Haven't you? Maybe one day you will see the despair you've wrought. But I fear, too late. Farewell.",
         "yesCostOrProfit":{"treasure":-500,"happiness":-40},
-        "noStageIds":[208]
+        "yesRemoveConditions":["warWithSludge"],
+        "noStageIds":[208],
+        "hasPrecursor": true
     },
     {
         "stageId":211,
@@ -2587,7 +2694,9 @@
         "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
         "noText": "You decline peace, even now? Haven't we suffered enough? Haven't you? Maybe one day you will see the despair you've wrought. But I fear, too late. Farewell.",
         "yesCostOrProfit":{"treasure":-500,"happiness":-40},
-        "noStageIds":[209]
+        "yesRemoveConditions":["warWithSludge"],
+        "noStageIds":[209],
+        "hasPrecursor": true
     },
     {
         "stageId":212,
@@ -2596,7 +2705,8 @@
         "yesText": "I will take this with me. A first step to reconciliation. May we meet again and until then, farewell.",
         "noText": "You decline peace, even now? Your forces are destroyed, your walls have fallen and your guards cant defend you anymore. You have sacrificed everything you had out of hatred and now you want to sacrifice even more in your endless hatred. There is no more to say, may thy death be undeservingly swift and painless.",
         "yesCostOrProfit":{"treasure":-500,"happiness":-40},
-        "noConditions":["gameOver"]
+        "noConditions":["gameOver"],
+        "hasPrecursor": true
     },
     {
         "stageId":213,
@@ -2609,7 +2719,8 @@
         "yesRemoveConditions":["warWithSludge"],
         "yesConditions":["sludgeSurrendered"],
         "noConditions":["sludgeSurrendered"],
-        "noStageIds":[214]
+        "noStageIds":[214],
+        "hasPrecursor": true
     },
     {
         "stageId": 214, 
@@ -2620,7 +2731,8 @@
         "yesStageIds": [214], 
         "noStageIds":[214],
         "yesText": "Their relatives will remember your help. Now they can say goodbye properly.",
-        "noText": "I will send condolences."
+        "noText": "I will send condolences.",
+        "hasPrecursor": true
     },
     {
         "stageId": 215,
@@ -2630,7 +2742,8 @@
         "noText": "The treasure is not important. I hope you understand that our relations are important to us.",
         "yesCostOrProfit":{"treasure":29},
         "yesConditions":["mokanaDeniesAttack"],
-        "noConditions":["mokanaDeniesAttack"]
+        "noConditions":["mokanaDeniesAttack"],
+        "hasPrecursor": true
     },
     {
         "stageId":216,
@@ -2647,7 +2760,8 @@
         },
         "deactivationCondition": {
             "conditions":["dwarvenVassaldomDenied"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":217,
@@ -2660,7 +2774,8 @@
         "yesConditions":["warWithDwarves"],
         "noConditions":["warWithDwarves"],
         "yesStageIds":[218,219],
-        "noStageIds":[218,219]
+        "noStageIds":[218,219],
+        "hasPrecursor": true
     },
     {
         "stageId":218,
@@ -2672,7 +2787,8 @@
         "deactivationCondition":{
             "conditions":["warWithSludge","sludgeSurrendered"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":219,
@@ -2681,7 +2797,8 @@
         "yesText": "Understood. Fortune favours the prepared.",
         "noText": "Understood. We might need our forces elsewhere",
         "yesStageIds":[220],
-        "noStageIds":[221]
+        "noStageIds":[221],
+        "hasPrecursor": true
     },
     {
         "stageId":220,
@@ -2692,7 +2809,8 @@
         "yesCostOrProfit": {"military":15, "happiness":3},
         "noCostOrProfit": {"military":15, "happiness":3},
         "yesConditions":["slitherPassDecided","slitherPassWon"],
-        "noConditions":["slitherPassDecided","slitherPassWon"]
+        "noConditions":["slitherPassDecided","slitherPassWon"],
+        "hasPrecursor": true
     },
     {
         "stageId":221,
@@ -2703,7 +2821,8 @@
         "yesCostOrProfit": {"military":15, "happiness":3},
         "noCostOrProfit": {"military":15, "happiness":3},
         "yesConditions":["slitherPassDecided"],
-        "noConditions":["slitherPassDecided"]
+        "noConditions":["slitherPassDecided"],
+        "hasPrecursor": true
     },
     {
         "stageId":222,
@@ -2721,7 +2840,8 @@
         "deactivationCondition":{
             "conditions":["silverAxePowPardonGranted","silverAxePowPardonDenied"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":223,
@@ -2729,7 +2849,8 @@
         "cardText": "My queen. The captive dwarves you agreed to pardon are requesting to fight for you. They said your mercy made them realize how cruel their former king truly is. Should we equip them and let them form a foreign battalion?",
         "yesText": "I respect the fighting spirits of these Dwarves. I believe they will be great soldiers.",
         "noText": "A noble suggestion of them, bu you are right. We cannot risk them betraying us.",
-        "yesCostOrProfit":{"military":15}
+        "yesCostOrProfit":{"military":15},
+        "hasPrecursor": true
     },
     {
         "stageId":224,
@@ -2738,7 +2859,8 @@
         "yesText":"If all goes well, we might be able to route them and make that part of the front crumble.",
         "noText":"We cannot know for sure, if they really missed the secret path. Let us better not be too hasty.",
         "yesStageIds":[225],
-        "noStageIds":[226]
+        "noStageIds":[226],
+        "hasPrecursor": true
     },
     {
         "stageId":225,
@@ -2749,7 +2871,8 @@
         "yesConditions":["weepingForestsDecided"],
         "noConditions":["weepingForestsDecided"],
         "yesCostOrProfit": {"military":25, "happiness":3},
-        "noCostOrProfit": {"military":25, "happiness":3}
+        "noCostOrProfit": {"military":25, "happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId":226,
@@ -2760,7 +2883,8 @@
         "yesConditions":["weepingForestsDecided"],
         "noConditions":["weepingForestsDecided"],
         "yesCostOrProfit": {"military":-40},
-        "noCostOrProfit": {"military":-40}
+        "noCostOrProfit": {"military":-40},
+        "hasPrecursor": true
     },
     {
         "stageId":227,
@@ -2770,7 +2894,8 @@
         "noText": "It will probably be one of their best guarded secrets. Maybe its too risky.",
         "yesConditions":["mithrilFoundriesDecided"],
         "noConditions":["mithrilFoundriesDecided"],
-        "yesStageIds":[228]
+        "yesStageIds":[228],
+        "hasPrecursor": true
     },
     {
         "stageId":228,
@@ -2779,7 +2904,8 @@
         "yesText": "Yes indeed, a big tactical victory.",
         "noText": "You're right, triumph should always come with caution.",
         "yesCostOrProfit": {"military":15, "happiness":3},
-        "noCostOrProfit": {"military":15, "happiness":3}
+        "noCostOrProfit": {"military":15, "happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId":229,
@@ -2788,7 +2914,8 @@
         "yesText": "We need to find out what they want there first. We cannot just leave it to them.",
         "noText": "In the end skylight lake is just not strategically important to us. It is not worth it to risk our soldiers for that.",
         "yesStageIds":[230],
-        "noStageIds":[231]
+        "noStageIds":[231],
+        "hasPrecursor": true
     },
     {
         "stageId":230,
@@ -2799,7 +2926,8 @@
         "yesConditions":["skylightLakeDecided"],
         "noConditions":["skylightLakeDecided"],
         "yesCostOrProfit": {"military":15, "happiness":3},
-        "noCostOrProfit": {"military":15, "happiness":3}
+        "noCostOrProfit": {"military":15, "happiness":3},
+        "hasPrecursor": true
     },
     {
         "stageId":231,
@@ -2810,7 +2938,8 @@
         "yesConditions":["skylightLakeDecided"],
         "noConditions":["skylightLakeDecided"],
         "yesCostOrProfit": {"military":-45, "happiness":-5},
-        "noCostOrProfit": {"military":-45, "happiness":-5}
+        "noCostOrProfit": {"military":-45, "happiness":-5},
+        "hasPrecursor": true
     },
     {
         "stageId":232,
@@ -2820,7 +2949,8 @@
         "noText": "We will leave it outside the walls then, until it is properly studied.",
         "yesCostOrProfit":{"treasure":59},
         "yesStageIds":[233],
-        "noStageIds":[234]
+        "noStageIds":[234],
+        "hasPrecursor": true
     },
     {
         "stageId":233,
@@ -2831,7 +2961,8 @@
         "yesConditions":["fieldsDecided"],
         "noConditions":["fieldsDecided"],
         "yesCostOrProfit":{"populace":-40,"happiness":-40,"military":-40},
-        "noCostOrProfit":{"populace":-40,"happiness":-40,"military":-40}
+        "noCostOrProfit":{"populace":-40,"happiness":-40,"military":-40},
+        "hasPrecursor": true
     },
     {
         "stageId":234,
@@ -2842,7 +2973,8 @@
         "yesConditions":["fieldsDecided"],
         "noConditions":["fieldsDecided"],
         "yesCostOrProfit":{"happiness":5,"military":25},
-        "noCostOrProfit":{"happiness":5,"military":25}
+        "noCostOrProfit":{"happiness":5,"military":25},
+        "hasPrecursor": true
     },
     {
         "stageId":235,
@@ -2861,7 +2993,8 @@
         "deactivationCondition":{
             "conditions":["minesDecided"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":236,
@@ -2880,7 +3013,8 @@
         "deactivationCondition":{
             "conditions":["minesDecided","mineFortified"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":237,
@@ -2899,7 +3033,8 @@
         "deactivationCondition":{
             "conditions":["finalMobilization","noFinalMobilization","militOver500"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":238,
@@ -2918,7 +3053,8 @@
         "deactivationCondition":{
             "conditions":["noFinalMobilization","militOver500","finalMobilsationComplete"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":239,
@@ -2937,7 +3073,8 @@
         "deactivationCondition":{
             "conditions":["noFinalMobilization","finalMobilsationComplete"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":240,
@@ -2946,7 +3083,8 @@
         "yesText":"I highly doubt they will take the offer, since their king does not value his soldiers, but honor commands to at least try.",
         "noText":"In the end they would not take it anyway. Their king does not value his soldiers. It disgusts me.",
         "yesStageIds":[243],
-        "noStageIds":[241]
+        "noStageIds":[241],
+        "hasPrecursor": true
     },
     {
         "stageId":241,
@@ -2957,7 +3095,8 @@
         "yesConditions":["gameWon"],
         "noConditions":["gameWon"],
         "yesCostOrProfit":{"happiness":20,"military":-20,"treasure":100},
-        "noCostOrProfit":{"happiness":20,"military":-20,"treasure":100}
+        "noCostOrProfit":{"happiness":20,"military":-20,"treasure":100},
+        "hasPrecursor": true
     },
     {
         "stageId":242,
@@ -2966,7 +3105,8 @@
         "yesText": "I will try to hold them off to guard your exit. Farewell.",
         "noText":"Then we will hold out together. It was an honor fighting for you.",
         "yesConditions":["gameOver"],
-        "noConditions":["gameOver"]
+        "noConditions":["gameOver"],
+        "hasPrecursor": true
     },
     {
         "stageId":243,
@@ -2975,7 +3115,8 @@
         "yesText":"Yes, fret not. Victory will be ours either way.",
         "noText":"You are right. How cruel can a leader be to his soldiers?",
         "yesStageIds":[241],
-        "noStageIds":[241]
+        "noStageIds":[241],
+        "hasPrecursor": true
     },
     {
         "stageId":244,
@@ -2992,7 +3133,8 @@
         "deactivationCondition":{
             "conditions":["labReactivated"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":245,
@@ -3003,7 +3145,8 @@
         "yesStageIds":[246],
         "noStageIds":[246],
         "yesConditions":["superShroomsResearched"],
-        "noConditions":["superShroomsResearched"]
+        "noConditions":["superShroomsResearched"],
+        "hasPrecursor": true
     },
     {
         "stageId":246,
@@ -3014,7 +3157,8 @@
         "yesCostOrProfit":{"military":10},
         "noCostOrProfit":{"treasure":25},
         "yesStageIds":[246],
-        "noStageIds":[246]
+        "noStageIds":[246],
+        "hasPrecursor": true
     },
     {
         "stageId":247,
@@ -3032,7 +3176,8 @@
         "deactivationCondition":{
             "conditions":["sorceressAcceptedHydra","sorceressDeniedHydra"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":248,
@@ -3041,7 +3186,8 @@
         "yesText":"Let us see, how many people can manage to do this.",
         "noText":"Oh not a worry. I am quite content, being the only one with this power.",
         "yesCostOrProfit":{"military":50, "treasure":-30},
-        "noCostOrProfit":{"military":15}
+        "noCostOrProfit":{"military":15},
+        "hasPrecursor": true
     },
     {
         "stageId":249,
@@ -3058,7 +3204,8 @@
         },
         "deactivationCondition":{
             "conditions":["specialistJoinedPoacherTaskForce","dwarfDidntJoinPoacherTaskForce","poacherTaskForceDraftPaused"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":250,
@@ -3074,7 +3221,8 @@
         },
         "deactivationCondition":{
             "conditions":["specialistJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":251,
@@ -3089,7 +3237,8 @@
         },
         "deactivationCondition":{
             "conditions":["specialistJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":252,
@@ -3105,7 +3254,8 @@
         },
         "deactivationCondition":{
             "conditions":["damageDealerJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":253,
@@ -3120,7 +3270,8 @@
         },
         "deactivationCondition":{
             "conditions":["damageDealerJoinedPoacherTaskForce","poacherTaskForceDraftPaused"]
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":254,
@@ -3138,7 +3289,8 @@
         "deactivationCondition":{
             "conditions":["specialistJoinedPoacherTaskForce","damageDealerJoinedPoacherTaskForce"],
             "operator":"AND"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":255,
@@ -3154,7 +3306,8 @@
         "deactivationCondition":{
             "conditions":["poacherTaskForceDraftPaused"],
             "operator":"OR"
-        }
+        },
+        "hasPrecursor": true
     },
     {
         "stageId":256,
@@ -3167,7 +3320,8 @@
         "yesConditions":["poacherTaskForceDraft"],
         "noConditions":["poacherTaskForceDraft"],
         "yesRemoveConditions":["poacherTaskForceDraftPaused"],
-        "noRemoveConditions":["poacherTaskForceDraftPaused"]
+        "noRemoveConditions":["poacherTaskForceDraftPaused"],
+        "hasPrecursor": true
     },
     {
         "stageId":257,
@@ -3180,7 +3334,8 @@
         "yesConditions":["poacherTaskForceDraftPaused"],
         "noConditions":["poacherTaskForceDraftPaused"],
         "yesRemoveConditions":["poacherTaskForceDraft"],
-        "noRemoveConditions":["poacherTaskForceDraft"]
+        "noRemoveConditions":["poacherTaskForceDraft"],
+        "hasPrecursor": true
 
 
     }

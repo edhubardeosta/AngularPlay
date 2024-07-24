@@ -9,6 +9,7 @@ var extendedLogging = false;
 export class CharacterAnimationItemComponent {
   @Input() dismissed: Boolean = false;
   @Input() source: string = "";
+  @Input() large: Boolean = false;
   leaving: boolean = false;
   readyToLeave:Boolean = false;
   markedForDestruction = false;
@@ -24,6 +25,10 @@ export class CharacterAnimationItemComponent {
         this.leaving = true;
         log("setting this.leaving to: ", this.leaving);
       }
+    }
+    if(this.large){
+      log("large is true");
+      this.large = true;
     }
   }
   animationEnd(pEvent:any){
