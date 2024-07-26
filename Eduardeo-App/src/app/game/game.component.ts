@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {DialogueData, DialogueItem} from './game.dialogueSystem'
+import {CostOrProfitItem, DialogueData, DialogueItem} from './game.dialogueSystem'
 var extendedLogging = true;
 @Component({
   selector: 'app-game',
@@ -16,6 +16,13 @@ export class GameComponent {
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();
   activeConditions: Array<string> = [];
+  dialogueItemQueue: Array<number> = [3,29];
+  characterQueue: Array<string> = [];
+  dayCycle: number = 5;
+  dayCounter: number = 0;
+  lastPopulace:number = 0;
+  lastHoard:number = 0;
+  lastMilitary:number = 0;
 
   menuButtonClicked(){
     console.log("menuButtonClicked.");
@@ -31,15 +38,45 @@ export class GameComponent {
     this.hoardValue -= 49;
   }
   startDialogue(){
+    log(this.dialogueItemQueue);
     log("Dialogue Data Items: ",this.dialogueData.items);
-    var lastSprite = this.activeDialogueItem?.characterSprite;
-    this.activeDialogueItem = this.dialogueData.randomDialogueItem();
-    var escapeCounter:number = 0;
-    while(escapeCounter<10 && lastSprite == this.activeDialogueItem.characterSprite){
-      this.activeDialogueItem = this.dialogueData.randomDialogueItem();
+    if(this.dayCounter >= this.dayCycle){
+      this.activeDialogueItem = this.getSummaryItem();
+      log("activeDialogueItem: ",this.activeDialogueItem);
+      this.displayItem = this.activeDialogueItem;
+    }else{
+      if(this.dialogueItemQueue.length>0){
+        var itemId = this.dialogueItemQueue.shift();
+        if(itemId != undefined){
+          var getItem = this.dialogueData.getDialogueItem(itemId)
+          if(getItem){
+            this.activeDialogueItem = getItem
+            log("activeDialogueItem: ",this.activeDialogueItem);
+            this.displayItem = this.activeDialogueItem;
+            this.dayCounter++;
+          }
+        }
+      }else{
+        var escapeCounter:number = 0;
+        do{
+          this.activeDialogueItem = this.dialogueData.randomDialogueItem();
+          escapeCounter++;
+        }while(escapeCounter<10000 && this.characterQueue.includes(this.activeDialogueItem.characterSprite))
+        log("escapeCounter: ",escapeCounter);
+        log("activeDialogueItem: ",this.activeDialogueItem);
+        this.displayItem = this.activeDialogueItem;
+        this.dayCounter++;
+      }
     }
-    log("activeDialogueItem: ",this.activeDialogueItem);
-    this.displayItem = this.activeDialogueItem;
+    if(this.activeDialogueItem?.characterSprite){
+      log("ActiveItemHasSprite:", this.activeDialogueItem?.characterSprite);
+      this.characterQueue.push(this.activeDialogueItem?.characterSprite);
+      log("Queue:", this.characterQueue);
+      if(this.characterQueue.length>3){
+        this.characterQueue.shift();
+        log("Queue Shifted:", this.characterQueue);
+      }
+    }
   }
   dialogueYes($event:any){
     if(this.activeDialogueItem){
@@ -111,45 +148,125 @@ export class GameComponent {
     }
     
   }
+
+  getSummaryItem():DialogueItem{
+    this.dayCounter = 0;
+    var summaryText = "This day of governing is over, my queen. ";
+    var popDueHappinessGrowth = Math.floor(this.happinessValue/5);
+    var hoardDuePopGrowth = Math.floor(this.populaceValue/10);
+    var happinessDueDebtDecline: number;
+    if(this.hoardValue>=0)
+      happinessDueDebtDecline = 0;
+    else
+      happinessDueDebtDecline = Math.floor(this.hoardValue/10);
+    var popDifference = this.populaceValue + popDueHappinessGrowth - this.lastPopulace;
+    var hoardDifference = this.hoardValue + hoardDuePopGrowth - this.lastHoard;
+    var militaryDifference = this.militaryValue - this.lastMilitary;
+    this.updateGrowthTrackers();
+    if(this.populaceValue<=0){
+      //game over
+    }
+    if(happinessDueDebtDecline!=0)
+      summaryText += "Sadly, we are in debt, which worries the people. ("+ happinessDueDebtDecline + " happiness) "
+    if(this.happinessValue >= 0)
+      summaryText += "The people are happy, which made the population grow by an additional " + popDueHappinessGrowth + " people. ";
+    else
+      summaryText += "The people are unhappy, which made " + -1*popDueHappinessGrowth + " people leave. ";
+
+    if(popDifference>=0)
+      summaryText += "In total, the population has grown by " + popDifference + ". ";
+    else
+      summaryText += "In total, the population has shrunk by " + -1*popDifference + ". ";
+
+    if(hoardDuePopGrowth>=0)
+      summaryText += "Our basic tax income is " + hoardDuePopGrowth + ". ";
+    if(hoardDifference>=0)
+      summaryText += "In total, our treasury grew by " + hoardDifference + ". ";
+    else
+      summaryText += "In total, our treasury shrunk by " + -1*hoardDifference + ". ";
+    if(militaryDifference>=0)
+      summaryText += "Lastly, our military grew by " + militaryDifference + ". ";
+    else
+      summaryText += "Lastly, our military shrunk by " + -1*militaryDifference + ". ";
+      
+
+    var summaryItem = new DialogueItem(
+      -1,
+      "../../assets/Characters/Herald.png",
+      summaryText,
+      [],
+      [],
+      new CostOrProfitItem(hoardDuePopGrowth, 0, happinessDueDebtDecline, popDueHappinessGrowth),
+      new CostOrProfitItem(hoardDuePopGrowth, 0, happinessDueDebtDecline, popDueHappinessGrowth),
+      undefined,
+      undefined,
+      true,
+      "Thank you, my queen.",
+      "I can only deliver the truth to you, I cannot change it. I am sorry.",
+      [],
+      [],
+      [],
+      []
+    )
+    return(summaryItem);
+  }
+
+  updateGrowthTrackers() {
+    this.lastHoard = this.hoardValue;
+    this.lastPopulace = this.populaceValue;
+    this.lastMilitary = this.militaryValue;
+  }
+
   checkDialogueConditions(){
     //check population
     if(this.populaceValue>150)
-      this.activeConditions.push("popOver150");
+      if(!this.activeConditions.includes("popOver150"))
+        this.activeConditions.push("popOver150");
     if(this.populaceValue>500)
-      this.activeConditions.push("popOver500");
+      if(!this.activeConditions.includes("popOver500"))
+        this.activeConditions.push("popOver500");
     if(this.populaceValue>1000)
-      this.activeConditions.push("popOver1000");
+      if(!this.activeConditions.includes("popOver1000"))
+        this.activeConditions.push("popOver1000");
     if(this.populaceValue>2000)
-      this.activeConditions.push("popOver2000");
+      if(!this.activeConditions.includes("popOver2000"))
+        this.activeConditions.push("popOver2000");
     //check hoardValue
     if(this.hoardValue>2000)
-      this.activeConditions.push("hoardOver2000");
+      if(!this.activeConditions.includes("hoardOver2000"))
+        this.activeConditions.push("hoardOver2000");
     //check military
     if(this.militaryValue>10)
-      this.activeConditions.push("militOver10");
+      if(!this.activeConditions.includes("militOver10"))
+        this.activeConditions.push("militOver10");
     else
       this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver10")
     //check military
-    if(this.militaryValue>100)
-      this.activeConditions.push("militOver100");
+    if(this.militaryValue>100 && !this.activeConditions.includes("militOver100"))
+      if(!this.activeConditions.includes("militOver100"))
+        this.activeConditions.push("militOver100");
     else
       this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver100")
     
     //check military
     if(this.militaryValue>300)
-      this.activeConditions.push("militOver300");
+      if(!this.activeConditions.includes("militOver300"))
+        this.activeConditions.push("militOver300");
     else
       this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver300")
     //check military
     if(this.militaryValue>500)
-      this.activeConditions.push("militOver500");
+      if(!this.activeConditions.includes("militOver500"))
+        this.activeConditions.push("militOver500");
     else
       this.activeConditions = this.activeConditions.filter((condition:string) => condition != "militOver500")
     //check happiness
     if(this.happinessValue>50)
-      this.activeConditions.push("happinessOver50");
+      if(!this.activeConditions.includes("happinessOver50"))
+        this.activeConditions.push("happinessOver50");
     if(this.happinessValue<-50)
-      this.activeConditions.push("happinessUnder-50");
+      if(!this.activeConditions.includes("happinessUnder-50"))
+        this.activeConditions.push("happinessUnder-50");
 
     this.dialogueData.allItems.forEach(item => {
       //check for deactivation condition
@@ -257,18 +374,23 @@ export class GameComponent {
         log("deactivationCondition found: ", item.deactivationCondition)
         switch(item.deactivationCondition.operator){
           case "OR":
+            log("identified as \"OR\" Condition.")
             var match = false;
             item.deactivationCondition.conditions.forEach(condition => {
               this.activeConditions.forEach(activeCondition => {
-                if(condition == activeCondition)
+                if(condition == activeCondition){
                   log("Match found with: ", activeCondition);
                   match = true;
+                }
               })
             })
-            if(match != false)
+            if(match != false){
+              log("Setting deactivated = true.")
               deactivated = true;
+            }
             break;
           case "XOR":
+            log("identified as \"XOR\" Condition.")
             var match = false;
             item.deactivationCondition.conditions.forEach(condition => {
               this.activeConditions.forEach(activeCondition => {
@@ -284,6 +406,7 @@ export class GameComponent {
               deactivated = true;
             break;
           default:
+            log("Using default \"AND\" Condition.")
             item.deactivationCondition.conditions.forEach(condition => {
               var match = false;
               this.activeConditions.forEach(activeCondition => {
@@ -297,10 +420,12 @@ export class GameComponent {
         }
 
       }
+      log("deactivated: ", deactivated);
       var itemIsActive = !deactivated;
-      log("returning: ", itemIsActive);
+      log("returning itemIsActive: ", itemIsActive);
       return itemIsActive;
     })
+    log("After removing: dialogueData.items:", this.dialogueData.items);
 
   }
 

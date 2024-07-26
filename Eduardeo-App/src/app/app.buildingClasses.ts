@@ -1,4 +1,13 @@
+export class stageEvent {
+    conditionName: string;
+    stageName: string;
+    stageCounter: number = 0;
+    constructor(pConditionName:string,pStageName:string){
+        this.conditionName = pConditionName;
+        this.stageName = pStageName;
+    }
 
+}
 export abstract class building {
     events: Array<string>;
     maxPopStages: number;

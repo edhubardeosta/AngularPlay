@@ -12,6 +12,7 @@ export class CityBuildingContainerComponent {
   @Input() triggerEvent: String = "";
   @Input() nextStage: number = 0;
   @Input() buldingClass: building|undefined = undefined;
+  @Input() events: Array<string> = [];
   @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
   ngOnChanges(changes:any){
     log("ngOnChange started with changes:", changes);

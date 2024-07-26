@@ -89,7 +89,8 @@ export class DialogueBoxComponent {
       this.noDeactivated = false;
       this.yesDeactivated = false;
       //display resource trend symbols
-      this.displayTrends(this.activeItem);
+      if(!this.activeItem.hideAnswerResults)
+        this.displayTrends(this.activeItem);
       
     }else{
       //de-activate the Buttons

@@ -38,7 +38,16 @@ export class DialogueData{
         }else{
             console.error("DialogueItem not found for StageId: ", pStageId);
         }
-        
+    }
+    public getDialogueItem(pStageId:number):DialogueItem|undefined {
+        var itemToGet:DialogueItem|undefined;
+        itemToGet = this.allItems.find(i => i.stageId == pStageId);
+        if(itemToGet){
+            return(itemToGet);
+        }else{
+            console.error("DialogueItem not found for StageId: ", pStageId);
+            return(undefined);
+        }
     }
     //remove dialogue item with specific stage id from "items"
     public removeDialogueItem(pStageId:number) {
@@ -75,11 +84,12 @@ export class DialogueItem{
     activationCondition: StageCondition | undefined;
     deactivationCondition: StageCondition | undefined;
     imgSize: string = "medium";
+    hideAnswerResults: boolean = false;
     //What additional conditions are set on "yes"? e.g. buildings built in the background? check if stage is loaded for this.
     //What additional conditions are set on "no"?
     //potential influences, if other stages are loaded?
     hasPrecursor:boolean;
-    constructor(pStageId:number,pCharacterSprite:string,pCardText:string,pYesStageIds:Array<number>|undefined = undefined,pNoStageIds:Array<number>|undefined = undefined,pYesCostOrProfit:CostOrProfitItem = new CostOrProfitItem(),pNoCostOrProfit:CostOrProfitItem = new CostOrProfitItem(), pActivationCondition:StageCondition| undefined = undefined, pDeactivationCondition:StageCondition| undefined = undefined, pHasPrecursor = true, pYesText:string,pNoText:string, pYesConditions:Array<string>, pNoConditions:Array<string>,  pYesRemoveConditions:Array<string>, pNoRemoveConditions:Array<string>, pLeavingSprite: string|undefined = undefined, pImgSize:string = "medium"){
+    constructor(pStageId:number,pCharacterSprite:string,pCardText:string,pYesStageIds:Array<number>|undefined = undefined,pNoStageIds:Array<number>|undefined = undefined,pYesCostOrProfit:CostOrProfitItem = new CostOrProfitItem(),pNoCostOrProfit:CostOrProfitItem = new CostOrProfitItem(), pActivationCondition:StageCondition| undefined = undefined, pDeactivationCondition:StageCondition| undefined = undefined, pHasPrecursor = true, pYesText:string,pNoText:string, pYesConditions:Array<string>, pNoConditions:Array<string>,  pYesRemoveConditions:Array<string>, pNoRemoveConditions:Array<string>, pLeavingSprite: string|undefined = undefined, pImgSize:string = "medium", pHideAnwerResults:boolean = false){
         this.stageId = pStageId;
         this.characterSprite = pCharacterSprite;
         this.cardText = pCardText;
@@ -98,6 +108,7 @@ export class DialogueItem{
         this.deactivationCondition = pDeactivationCondition;
         this.leavingSprite = pLeavingSprite;
         this.imgSize = pImgSize;
+        this.hideAnswerResults = pHideAnwerResults;
     }
 }
 

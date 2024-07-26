@@ -36,9 +36,9 @@
         "stageId": 3, 
         "characterSprite": "../../assets/Characters/Herald.png",
         "cardText": "Greetings, and welcome to your domain, my queen. After the great cataclysm, you have chosen to rebuild your queendom underground, far from the remaining empires of the surface, warring for dominance. You will hold court over your subjects and keep your realm wealthy, peaceful, content and populous. Are you ready?", 
-        "yesCostOrProfit": { "populace": 100 }, 
-        "noCostOrProfit": { "populace": 100 }, 
-        "hasPrecursor": false,
+        "yesCostOrProfit": { "populace": 100, "treasure":25}, 
+        "noCostOrProfit": { "populace": 100, "treasure":25 }, 
+        "hasPrecursor": true,
         "yesText": "Perfect, then let us get started right away!",
         "noText": "That is alright, take your time. It's best to think these matters through thoroughly."
     },
@@ -196,7 +196,7 @@
         "yesStageIds": [15], 
         "noStageIds":[17,19,25,177],
         "yesText": "You have? I don't know your face though. Hmm, maybe in a previous life.",
-        "noText": "You havent'? Actually, most people never heard of me. I may be a mushroom myself, but I do extensive reseach in the field of fungology. Let's talk again later!"
+        "noText": "You haven't? Actually, most people never heard of me. I may be a mushroom myself, but I do extensive reseach in the field of fungology. Let's talk again later!"
     },
     {
         "stageId": 15, 
@@ -306,8 +306,8 @@
         "characterSprite": "../../assets/Characters/mushroomGuy.png",
         "cardText": "I've managed to grow some flavourful mushrooms, which are very aromatic and are good for seasoning dishes, when they're dried. They've sold for a nice price. The bad news is, that I'm kind of stuck. I can't find a source of magic poweful enough, so I can cross-breed the  right species. I think for now I will put my research on hold and focus on my other projects until I find a better opportunity. Here's most of the remaining budget.", 
         "hasPrecursor": true,
-        "yesStageIds": [24], 
-        "noStageIds":[24],
+        "yesStageIds": [], 
+        "noStageIds":[],
         "yesCostOrProfit": { "treasure": 133 }, 
         "noCostOrProfit": { "treasure": 133 }, 
         "yesConditions": ["crossbreedingSupershroomsDone"],
@@ -665,8 +665,8 @@
         "cardText": "[Loud stomping approaches the throne but there's nobody in sight.] You scared of me?", 
         "yesCostOrProfit": {"happiness": -1}, 
         "noCostOrProfit": {"happiness": 1}, 
-        "yesStageIds": [53], 
-        "noStageIds":[52],
+        "yesStageIds": [52], 
+        "noStageIds":[53],
         "hasPrecursor": false,
         "yesText": "Oh. [The loud stomping returns, but seems to get farther and farther, until it disappears.]",
         "noText": "No?! Means I come again, yes? YES! [The loud stomping seems to be... skipping away.]",
@@ -1549,7 +1549,8 @@
         "yesText":"Oh dear. I don't feel so good now. I.. I've gotta go.",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[123],
-        "noStageIds":[123]
+        "noStageIds":[123],
+        "hideAnswerResults": true
     },
     {
         "stageId":123,
@@ -1560,7 +1561,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[124],
         "noStageIds":[124],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":124,
@@ -1571,7 +1573,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[125],
         "noStageIds":[125],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":125,
@@ -1582,7 +1585,8 @@
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[122],
         "noStageIds":[122],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":126,
@@ -1593,7 +1597,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[127],
-        "noStageIds":[127]
+        "noStageIds":[127],
+        "hideAnswerResults": true
     },
     {
         "stageId":127,
@@ -1604,7 +1609,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[128],
         "noStageIds":[128],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":128,
@@ -1615,7 +1621,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[129],
         "noStageIds":[129],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":129,
@@ -1626,7 +1633,8 @@
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[126],
         "noStageIds":[126],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":130,
@@ -1637,7 +1645,8 @@
         "yesText":"Mhm, tasty!",
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[131],
-        "noStageIds":[131]
+        "noStageIds":[131],
+        "hideAnswerResults": true
     },
     {
         "stageId":131,
@@ -1648,7 +1657,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[132],
         "noStageIds":[132],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":132,
@@ -1659,7 +1669,8 @@
         "noText":"Some things I just can't without getting sick. I think I hold off on it for now.",
         "yesStageIds":[133],
         "noStageIds":[133],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":133,
@@ -1670,7 +1681,8 @@
         "noText":"Some things I just can't eat without getting sick. I think I hold off on it for now.",
         "yesStageIds":[130],
         "noStageIds":[130],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId": 134,
@@ -2138,7 +2150,8 @@
         "noCostOrProfit": {"treasure":10},
         "yesStageIds": [170],
         "noStageIds": [170],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true 
     },
     {
         "stageId": 171,
@@ -2149,7 +2162,8 @@
         "noCostOrProfit": {"treasure":10},
         "yesStageIds": [171],
         "noStageIds": [171],
-        "hasPrecursor": true
+        "hasPrecursor": true,
+        "hideAnswerResults": true
     },
     {
         "stageId":172,

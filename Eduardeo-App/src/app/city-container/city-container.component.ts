@@ -23,6 +23,7 @@ import {
 var utils:UtilsService = new UtilsService();
 var extendedLogging = false;
 var accDifference: number = 0;
+var increaseThreshold = 5;
 @Component({
   selector: 'app-city-container',
   templateUrl: './city-container.component.html',
@@ -57,16 +58,16 @@ export class CityContainerComponent {
     if(!changes.populace.firstChange && changes.populace.currentValue){
       var difference:number = changes.populace.currentValue - changes.populace.previousValue;
       log("difference in population: ", difference);
-      while(difference>0 || accDifference>49){
-        if(difference>9){
+      while(difference>0 || accDifference>=increaseThreshold){
+        if(difference>=increaseThreshold){
           this.advanceDuePopulace();
-          difference -= 50;
+          difference -= increaseThreshold;
         }else{
           accDifference += difference;
           difference = 0;
-          if(accDifference>49){
+          if(accDifference>=increaseThreshold){
             this.advanceDuePopulace();
-            accDifference -= 50;
+            accDifference -= increaseThreshold;
           }
         }
       }
