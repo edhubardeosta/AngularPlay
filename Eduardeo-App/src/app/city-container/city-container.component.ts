@@ -72,7 +72,6 @@ export class CityContainerComponent {
         }
       }
     }
-
   }
   
   advanceDuePopulace(){

@@ -1,15 +1,20 @@
+
 export class stageEvent {
     conditionName: string;
     stageName: string;
     stageCounter: number = 0;
-    constructor(pConditionName:string,pStageName:string){
+    maxCounter:number = 1;
+    constructor(pConditionName:string,pStageName:string,pMaxCounter:number = 1){
         this.conditionName = pConditionName;
         this.stageName = pStageName;
+        this.maxCounter = pMaxCounter;
     }
 
 }
+var statueEvent = new stageEvent("statueInProgress","Statue")
+
 export abstract class building {
-    events: Array<string>;
+    events: Array<stageEvent>;
     maxPopStages: number;
     name: string;
     plane: string;
@@ -28,7 +33,7 @@ export abstract class building {
 export class foreGroundBottom1 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 13;
         this.name = "Bottom 1";
         this.plane = "ForeGround"
@@ -37,7 +42,7 @@ export class foreGroundBottom1 extends building{
 export class foreGroundBottom2 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 7;
         this.name = "Bottom 2";
         this.plane = "ForeGround"
@@ -47,7 +52,10 @@ export class foreGroundBottom2 extends building{
 export class foreGroundBottom3 extends building{
     constructor(){
         super()
-        this.events = [];
+        //increase the max statuecount
+        var maxStatueCount2Event = statueEvent;
+        maxStatueCount2Event.maxCounter = 2;
+        this.events = [maxStatueCount2Event];
         this.maxPopStages = 5;
         this.name = "Bottom 3";
         this.plane = "ForeGround"
@@ -65,7 +73,10 @@ export class foreGroundTop1 extends building{
 export class foreGroundTop2 extends building{
     constructor(){
         super()
-        this.events = [];
+        //increase the max statuecount
+        var maxStatueCount2Event = statueEvent;
+        maxStatueCount2Event.maxCounter = 2;
+        this.events = [maxStatueCount2Event];
         this.maxPopStages = 9;
         this.name = "Top 2";
         this.plane = "ForeGround"
@@ -112,7 +123,7 @@ export class backGroundBottom3 extends building{
 export class backGroundBottom4 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 4;
         this.name = "Bottom 4";
         this.plane = "BackGround"
@@ -131,7 +142,7 @@ export class backGroundBottom5 extends building{
 export class backGroundBottom6 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 4;
         this.name = "Bottom 6";
         this.plane = "BackGround"
@@ -141,7 +152,7 @@ export class backGroundBottom6 extends building{
 export class backGroundTop1 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 24;
         this.name = "Top 1";
         this.plane = "BackGround"
@@ -151,7 +162,7 @@ export class backGroundTop1 extends building{
 export class backGroundTop2 extends building{
     constructor(){
         super()
-        this.events = [];
+        this.events = [statueEvent];
         this.maxPopStages = 21;
         this.name = "Top 2";
         this.plane = "BackGround"
