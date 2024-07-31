@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import {CostOrProfitItem, DialogueData, DialogueItem} from './game.dialogueSystem'
-var extendedLogging = true;
+var extendedLogging = false;
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+  cityCheckConditions:number = 0;
   displayItem: DialogueItem|undefined = undefined;
   hoardValue = 0;
   militaryValue = 0;
@@ -16,7 +17,7 @@ export class GameComponent {
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();
   activeConditions: Array<string> = [];
-  dialogueItemQueue: Array<number> = [3,29];
+  dialogueItemQueue: Array<number> = [3,29,112,113,115,117,119,121,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71];
   characterQueue: Array<string> = [];
   dayCycle: number = 5;
   dayCounter: number = 0;
@@ -29,13 +30,13 @@ export class GameComponent {
     this.displaySubMenu = !this.displaySubMenu;
   }
   addMoney(){
-    this.hoardValue += 1000;
+    this.hoardValue += 5;
   }
   addPopulace(){
-    this.populaceValue += 1000;
+    this.populaceValue += 5;
   }
   removeMoney(){
-    this.hoardValue -= 49;
+    this.hoardValue -= 4;
   }
   startDialogue(){
     log(this.dialogueItemQueue);
@@ -147,6 +148,17 @@ export class GameComponent {
       
     }
     
+  }
+
+  deleteCondition($event:string){
+    this.activeConditions =  this.activeConditions.filter(keepElement => { return(keepElement != $event)});
+  }
+  addCondition($event:string){
+    this.activeConditions.push($event);
+  }
+  makeCityCheckConditions(){
+    var negative:number = this.cityCheckConditions - 1;
+    this.cityCheckConditions = negative*-1;
   }
 
   getSummaryItem():DialogueItem{
@@ -426,6 +438,7 @@ export class GameComponent {
       return itemIsActive;
     })
     log("After removing: dialogueData.items:", this.dialogueData.items);
+    this.makeCityCheckConditions();
 
   }
 

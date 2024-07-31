@@ -939,7 +939,7 @@
             "operator": "OR"
         },
         "deactivationCondition": {
-            "conditions": ["statueInProgress"],
+            "conditions": ["statueInProgress","lastStatueConstructed"],
             "operator": "OR"
         }
     },
@@ -1424,7 +1424,7 @@
         "yesStageIds":[113],
         "noStageIds":[135],
         "activationCondition":{
-            "conditions":["popOver500"],
+            "conditions":["popOver150"],
             "operator":"OR"
         },
         "deactivationCondition":{

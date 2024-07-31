@@ -1,7 +1,7 @@
 import { Component, ComponentRef, Input , Output, ViewChild, ViewContainerRef} from '@angular/core';
 import { CityBuildingStageComponent } from '../city-building-stage/city-building-stage.component';
 import { building, foreGroundBottom1 } from '../app.buildingClasses';
-var extendedLogging = false;
+var extendedLogging = true;
 @Component({
   selector: 'app-city-building-container',
   templateUrl: './city-building-container.component.html',
@@ -10,9 +10,10 @@ var extendedLogging = false;
 export class CityBuildingContainerComponent {
   buildingStages: Array<ComponentRef<CityBuildingStageComponent>> = [];
   @Input() triggerEvent: String = "";
-  @Input() nextStage: number = 0;
-  @Input() buldingClass: building|undefined = undefined;
+  @Input() nextStage: number = 1;
+  @Input() buildingClass: building|undefined = undefined;
   @Input() events: Array<string> = [];
+  @Input() directCmd: Array<string|number> = [];
   @ViewChild('container', {read: ViewContainerRef, static: true}) container!: ViewContainerRef;
   ngOnChanges(changes:any){
     log("ngOnChange started with changes:", changes);
@@ -20,30 +21,56 @@ export class CityBuildingContainerComponent {
       this.triggerEvent = "";
 
     }
-    if(this.buldingClass){
-      if(changes.nextStage.currentValue<=this.buldingClass?.maxPopStages!){ 
-        var startVal = changes.nextStage.previousValue;
-        var endVal = changes.nextStage.currentValue;
-        log("endVal: ",endVal);
-        log("startVal: ",startVal);
-        if(endVal != undefined && startVal != undefined){
-          for(var i = startVal; i <= endVal; i++){
-            this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
-            var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer " + i+".png";
-            log("trying this source for stage image", sourceString);
-            this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
-          }
+    if(changes.nextStage?.currentValue<=this.buildingClass?.maxPopStages!){ 
+      var startVal = changes.nextStage.previousValue;
+      var endVal = changes.nextStage.currentValue;
+      log("endVal: ",endVal);
+      log("startVal: ",startVal);
+      if(endVal != undefined && startVal != undefined){
+        for(var i = startVal; i <= endVal; i++){
+          this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
+          var sourceString:string = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer " + i+".png";
+          log("trying this source for stage image", sourceString);
+          this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
         }
       }
     }
+    if(changes.directCmd?.currentValue && changes.directCmd?.currentValue.length != 0){
+      log("Direct Command Received: ", changes.directCmd.currentValue);
+      var startValue = changes.directCmd.currentValue[1];
+      while(this.buildingClass && startValue < changes.directCmd.currentValue[2]){
+        this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
+        var sourceString:string = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/"+ changes.directCmd.currentValue[0] +" "+ startValue +".png";
+        log("trying this source for stage image", sourceString);
+        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+        startValue += 1;
+      }
+      this.directCmd = [];
+    }
+    /*
+    if(changes.buildingClass !== undefined){
+      this.buildingClass.events.forEach((event,index)=>{
+        while(changes.buildingClass.currentValue && event.stageCounter < changes.buildingClass.currentValue.events[index].stageCounter){
+          event.stageCounter += 1;
+          this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
+          var sourceString:string = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/"+ event.stageName + event.stageCounter +".png";
+          log("trying this source for stage image", sourceString);
+          this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+        }
+      })
+    }*/
+    
   }
 
   ngOnInit(){
-    if(this.buldingClass){
+    if(this.buildingClass){
       this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
-      var sourceString:string = "../../assets/City/"+this.buldingClass?.plane+"/"+this.buldingClass?.name + "/Layer 0.png";
-      log("trying this source for stage image", sourceString);
-      this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+      var sourceString:string;
+      if(this.buildingClass.maxPopStages != 0){
+        sourceString = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer 0.png";
+        log("trying this source for stage image", sourceString);
+        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+      }
     }
 
   }

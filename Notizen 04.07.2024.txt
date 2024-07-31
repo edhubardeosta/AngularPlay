@@ -40,20 +40,20 @@ zoologist or miner or thief	x
 ogre or sorceress	x
 
 prevent doubles	x
-yesremovecondition	?
-imgsize large	?
+yesremovecondition	x
+imgsize large	x
 dialogue queue x
 lower building thresholds x
 3 day end with growth, etc.	x
 hide dialogueresults	x
-statueInProgress
-remove statueready
+statueInProgress	x
+remove statueready	x
 gameover
 game won
 
 
 bug fixes:
-	"can't find a source of magic pow" twice ?
-	options with pop>150 dont show up	?
-	skeleton doesn't show up	?
-	options can repeat ?
+	"can't find a source of magic pow" twice x
+	options with pop>150 dont show up	x
+	skeleton doesn't show up	x
+	options can repeat x

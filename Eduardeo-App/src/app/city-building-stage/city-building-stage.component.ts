@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './city-building-stage.component.css'
 })
 export class CityBuildingStageComponent {
-  @Input() imgSrc: String = "";
+  @Input() imgSrc: String = "../../assets/City/placeHolder.png";
 
 }

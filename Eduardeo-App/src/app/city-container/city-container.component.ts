@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { UtilsService } from '../utils.service';
 import { 
   building,
@@ -18,12 +18,17 @@ import {
   backGroundTop2,
   backGroundTop3,
   backGroundTop4,
-  backGroundTop5
+  backGroundTop5,
+  magicAcademy,
+  eventPopStageCondition
 } from '../app.buildingClasses';
 var utils:UtilsService = new UtilsService();
-var extendedLogging = false;
+var extendedLogging = true;
 var accDifference: number = 0;
 var increaseThreshold = 5;
+var temporaryEvents = ["statueInProgress"];
+var permanentEvents = ["mageAcademyLevel1","mageAcademyLevel2","mageAcademyLevel3","mageAcademyLevel4","mageAcademyLevel5"];
+var saturatedPermanentEvents = [];
 @Component({
   selector: 'app-city-container',
   templateUrl: './city-container.component.html',
@@ -32,6 +37,9 @@ var increaseThreshold = 5;
 export class CityContainerComponent {
   @Input() populace:number = 0
   @Input() activeEvents: Array<string> = []
+  @Input() checkEvents: number = 0;
+  @Output() deleteConditionEvent = new EventEmitter<string>();
+  @Output() addConditionEvent = new EventEmitter<string>();
   buildingClasses: Array<building> = 
   [
     new foreGroundBottom1(), 
@@ -51,11 +59,27 @@ export class CityContainerComponent {
     new backGroundTop3(),
     new backGroundTop4(),
     new backGroundTop5(),
+    new magicAcademy()
   ];
+  directCmdArgs:Array<Array<string|number>> = [];
+  numberOfManualUpdates:number = 0;
+  constructor(){
+    this.directCmdArgs.fill([],0,16);
+  }
 
   ngOnChanges(changes:any){
     log("ngOnchanges: ",changes);
-    if(!changes.populace.firstChange && changes.populace.currentValue){
+    if(changes.checkEvents?.currentValue != undefined){
+      if(permanentEvents.find((element:string)=>{
+        return this.activeEvents.includes(element);
+      })){
+        log("Starting permanentAdvancement");
+        this.permInstantAdvancement();
+      }
+
+    }
+    this.directCmdArgs.fill([],0,16);
+    if(!changes.populace?.firstChange && changes.populace?.currentValue){
       var difference:number = changes.populace.currentValue - changes.populace.previousValue;
       log("difference in population: ", difference);
       while(difference>0 || accDifference>=increaseThreshold){
@@ -75,6 +99,174 @@ export class CityContainerComponent {
   }
   
   advanceDuePopulace(){
+    if(temporaryEvents.find((element:string)=>{
+      return this.activeEvents.includes(element);
+    })){
+      this.temporaryEventAdvancement();
+    }else{
+      if(permanentEvents.find((element:string)=>{
+        return this.activeEvents.includes(element);
+      })){
+        this.permanentEventAdvancement();
+      }else{
+        this.standardAdvancement();
+      }
+    }
+  }
+
+  temporaryEventAdvancement(){
+    var advancedSuccessfully = false;
+    temporaryEvents.forEach(tempEvent => {
+      log("Temporary Event found: ", tempEvent);
+      if(this.activeEvents.includes(tempEvent) && !advancedSuccessfully){
+        var tempEventCompleted = true;
+        var completionCondition = "";
+        this.buildingClasses.forEach((building, buildingIndex) => {
+          if(building.events.find(hasEvent => {return(hasEvent.conditionName == tempEvent)}) && !advancedSuccessfully){
+            building.events.forEach( (buildingEvent, eventIndex) => {
+              if(buildingEvent.conditionName == tempEvent){
+                var evaluateEventStageCondition = buildingEvent.popStageConditions.find(eventStageCondition => {return(eventStageCondition.eventStageCounter >= buildingEvent.stageCounter)});
+                if(evaluateEventStageCondition){
+                  if(evaluateEventStageCondition.minPopStage <= building.currentPopStage){
+                    //build it
+                    advancedSuccessfully = true;
+                    log("Advancing an event stage for: ", this.buildingClasses[buildingIndex].name);
+                    var startCounter = this.buildingClasses[buildingIndex].events[eventIndex].stageCounter;
+                    var endCounter = startCounter+1;
+                    var stageName = this.buildingClasses[buildingIndex].events[eventIndex].stageName;
+                    this.directCmdArgs[buildingIndex] = [stageName, startCounter, endCounter]
+                    this.buildingClasses[buildingIndex].events[eventIndex].stageCounter+=1;
+                    this.deleteConditionEvent.emit(tempEvent);
+                    tempEventCompleted = false;
+                  }else{
+                    //can't build it yet
+                    tempEventCompleted = false;
+                  }
+
+                }else{
+                  //The building has all the event items built
+                  completionCondition = buildingEvent.completionCondition;
+                }
+              }
+
+            })
+          }else{
+            //no building has this event
+          }
+        })
+        if(completionCondition !== "" && tempEventCompleted == true){
+          this.addConditionEvent.emit(completionCondition);
+        }
+
+      }
+    })
+    if(!advancedSuccessfully){
+      this.permanentEventAdvancement();
+    }
+
+  }
+
+  permInstantAdvancement(){
+    var advancedSuccessfully = false;
+    permanentEvents.forEach(permEvent => {
+      log("Permanent Event found : ", permEvent);
+      if(this.activeEvents.includes(permEvent) && !advancedSuccessfully){
+        var completionCondition = "";
+        this.buildingClasses.forEach((building, buildingIndex) => {
+          if(building.events.find(hasEvent => {return(hasEvent.conditionName == permEvent)}) && !advancedSuccessfully){
+            building.events.forEach( (buildingEvent, eventIndex) => {
+              if(buildingEvent.conditionName == permEvent && buildingEvent.instant == true){
+                var evaluateEventStageCondition = buildingEvent.popStageConditions.find(eventStageCondition => {return(eventStageCondition.eventStageCounter >= buildingEvent.stageCounter)});
+                if(evaluateEventStageCondition){
+                  if(evaluateEventStageCondition.minPopStage <= building.currentPopStage){
+                    //build it
+                    log("Advancing an event stage for: ", this.buildingClasses[buildingIndex].name);
+                    var startCounter = this.buildingClasses[buildingIndex].events[eventIndex].stageCounter;
+                    var endCounter = this.buildingClasses[buildingIndex].events[eventIndex].maxCounter;
+                    if(startCounter<endCounter){
+                      advancedSuccessfully = true;
+                      var stageName = this.buildingClasses[buildingIndex].events[eventIndex].stageName;
+                      this.directCmdArgs[buildingIndex] = [stageName, startCounter, endCounter]
+                      this.buildingClasses[buildingIndex].events[eventIndex].stageCounter = endCounter;
+                    }
+                  }
+
+                }else{
+                  //The building has all the event items built or has no popStageConditions.
+                  if(buildingEvent.popStageConditions.length == 0){
+                    //build it
+                    log("Advancing an event stage for:", this.buildingClasses[buildingIndex].name);
+                    var startCounter = this.buildingClasses[buildingIndex].events[eventIndex].stageCounter;
+                    var endCounter = this.buildingClasses[buildingIndex].events[eventIndex].maxCounter;
+                    if(startCounter<endCounter){
+                      advancedSuccessfully = true;
+                      var stageName = this.buildingClasses[buildingIndex].events[eventIndex].stageName;
+                      this.directCmdArgs[buildingIndex] = [stageName, startCounter, endCounter]
+                      this.buildingClasses[buildingIndex].events[eventIndex].stageCounter = endCounter;
+                    }
+                  }else{
+                    completionCondition = buildingEvent.completionCondition;
+                  }
+                }
+              }
+
+            })
+          }else{
+            //no building has this event
+          }
+        })
+        if(completionCondition !== "" /*&& tempEventCompleted == true*/){
+          //this.addConditionEvent.emit(completionCondition);
+        }
+
+      }
+    })
+
+  }
+  permanentEventAdvancement(){
+    var advancedSuccessfully = false;
+    permanentEvents.forEach(permEvent => {
+      log("Permanent Event found: ", permEvent);
+      if(this.activeEvents.includes(permEvent) && !advancedSuccessfully){
+        this.buildingClasses.forEach((building, buildingIndex) => {
+          if(building.events.find(hasEvent => {return(hasEvent.conditionName == permEvent)}) && !advancedSuccessfully){
+            building.events.forEach( (buildingEvent, eventIndex) => {
+              if(buildingEvent.conditionName == permEvent){
+                var evaluateEventStageCondition = buildingEvent.popStageConditions.find(eventStageCondition => {return(eventStageCondition.eventStageCounter >= buildingEvent.stageCounter)});
+                if(evaluateEventStageCondition){
+                  if(evaluateEventStageCondition.minPopStage <= building.currentPopStage){
+                    //build it
+                    advancedSuccessfully = true;
+                    log("Advancing an event stage for: ", this.buildingClasses[buildingIndex].name);
+                    var startCounter = this.buildingClasses[buildingIndex].events[eventIndex].stageCounter;
+                    var endCounter = startCounter+1;
+                    var stageName = this.buildingClasses[buildingIndex].events[eventIndex].stageName;
+                    this.directCmdArgs[buildingIndex] = [stageName, startCounter, endCounter]
+                    this.buildingClasses[buildingIndex].events[eventIndex].stageCounter+=1;
+                    if(buildingEvent.completionCondition !== ""){
+                      this.activeEvents.push(buildingEvent.completionCondition);
+                    }
+                  }
+
+                }else{
+                  //The building has all the event items built
+                }
+              }
+
+            })
+          }else{
+            //no building has this event
+          }
+        })
+
+      }
+    })
+    if(!advancedSuccessfully){
+      this.standardAdvancement();
+    }
+  }
+
+  standardAdvancement(){
     var selectedNumber = utils.getRandomInt(this.buildingClasses.length);
     var escapeCounter = 0;
     if(this.buildingClasses.find((element)=>{return element.currentPopStage<=element.maxPopStages})){
@@ -85,7 +277,7 @@ export class CityContainerComponent {
       }
       this.buildingClasses[selectedNumber].currentPopStage += 1;
       if(escapeCounter>=1000)
-        log("escaped infinite while loop after this number of tries: ", escapeCounter); // this is not supposed to happen anymore, as soon as all buildings are reachable
+        log("escaped infinite while loop after this number of tries: ", escapeCounter); // this is not supposed to happen if all buildings are reachable
       log("advancing building container at position: ", selectedNumber);
     }else{
       log("advancing building container not possible, no more stages left.");
@@ -93,6 +285,7 @@ export class CityContainerComponent {
     }
   }
 }
+
 
 function log(message: string | any, input0: any = undefined):void{
   if(extendedLogging){
