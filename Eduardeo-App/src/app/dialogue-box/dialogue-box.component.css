@@ -10,6 +10,16 @@
     box-shadow: none;
     width: 10%;
     height: 6vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.startButtonDiv{
+    width: 50%;
+    margin-left: 25%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
 }
 
 

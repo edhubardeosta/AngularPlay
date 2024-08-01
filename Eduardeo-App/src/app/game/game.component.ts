@@ -17,7 +17,7 @@ export class GameComponent {
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();
   activeConditions: Array<string> = [];
-  dialogueItemQueue: Array<number> = [3,29,112,113,115,117,119,121,71,71,71,71,71,71,71,71,71,71,71,71,71,71,71];
+  dialogueItemQueue: Array<number> = [3,29];
   characterQueue: Array<string> = [];
   dayCycle: number = 5;
   dayCounter: number = 0;

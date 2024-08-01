@@ -13,10 +13,12 @@ var answerIsYes = false;
 export class DialogueBoxComponent {
   @Output() yesButtonEvent = new EventEmitter<boolean>();
   @Output() noButtonEvent = new EventEmitter<boolean>();
+  @Output() startButtonEvent = new EventEmitter<boolean>();
   @Input() activeItem:DialogueItem|undefined;
   text:string = "";
   yesDeactivated = true;
   noDeactivated = true;
+  startDeactivated = false;
   
   yesTreasureTrend = "/";
   hideYesTreasureTrend = true;
@@ -52,6 +54,7 @@ export class DialogueBoxComponent {
       this.text = "";
       //hide resource trends
       this.hideTrends();
+      this.startDeactivated = false;
     }else{
       answerIsYes = true;
       this.text = this.activeItem!.yesText;
@@ -59,9 +62,6 @@ export class DialogueBoxComponent {
     responseStage = !responseStage;
     
 
-  }
-  startDialogue(){
-    
   }
   noButtonClicked(){
     if(responseStage){
@@ -77,11 +77,18 @@ export class DialogueBoxComponent {
       this.text = "";
       //hide resource trends
       this.hideTrends();
+      this.startDeactivated = false;
     }else{
       answerIsYes = false;
       this.text = this.activeItem!.noText;
     }
     responseStage = !responseStage;
+  }
+
+  startButtonClicked(){
+    this.startButtonEvent.emit(true);
+    this.startDeactivated = true;
+    
   }
 
   ngOnChanges(changes:any){

@@ -26,7 +26,7 @@ sorceress
 
 start [3, 29
 
-dark orb? crossbreedingSupershroomsDone energyOrbUnlocked	x
+dark orb? crossbreedingSupershroomsDone	x energyOrbUnlocked	x
 sorceress ridey hydra	x
 
 hero		x

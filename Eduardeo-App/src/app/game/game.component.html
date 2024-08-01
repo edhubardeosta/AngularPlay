@@ -9,7 +9,7 @@
     <img class="Queen" src="../../assets/Queen.png">
 </div>
 <div class="textContainer">
-    <app-dialogue-box [activeItem]="activeDialogueItem" (yesButtonEvent)="dialogueYes($event)" (noButtonEvent)="dialogueNo($event)"></app-dialogue-box>
+    <app-dialogue-box [activeItem]="activeDialogueItem" (yesButtonEvent)="dialogueYes($event)" (noButtonEvent)="dialogueNo($event)" (startButtonEvent)="startDialogue()"></app-dialogue-box>
 </div>
 <div class="Menu">
     <button #menuButton mat-fab class="mat-fab" color="white" (click)="menuButtonClicked()">
@@ -21,9 +21,6 @@
         </button>
         <button mat-fab class="mat-fab" color="white" (click)="removeMoney()">
             <mat-icon>expand_more</mat-icon>
-        </button>
-        <button mat-fab class="mat-fab" color="white" (click)="startDialogue()">
-            <mat-icon>textsms</mat-icon>
         </button>
         <button mat-fab class="mat-fab" color="white" (click)="addPopulace()">
             <mat-icon>group_add</mat-icon>
