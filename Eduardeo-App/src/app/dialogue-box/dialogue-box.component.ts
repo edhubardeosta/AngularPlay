@@ -60,6 +60,9 @@ export class DialogueBoxComponent {
     
 
   }
+  startDialogue(){
+    
+  }
   noButtonClicked(){
     if(responseStage){
       if(answerIsYes){
