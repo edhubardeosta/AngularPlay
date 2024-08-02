@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import {CostOrProfitItem, DialogueData, DialogueItem} from './game.dialogueSystem'
 var extendedLogging = false;
 @Component({
@@ -7,12 +7,14 @@ var extendedLogging = false;
   styleUrl: './game.component.css'
 })
 export class GameComponent {
+  @Output() gameOver = new EventEmitter<boolean>()
+  @Output() gameWon = new EventEmitter<boolean>()
   cityCheckConditions:number = 0;
   displayItem: DialogueItem|undefined = undefined;
   hoardValue = 0;
   militaryValue = 0;
   happinessValue = 0;
-  populaceValue = 0;
+  populaceValue = 1;
   displaySubMenu = true;
   activeDialogueItem:DialogueItem|undefined;
   dialogueData:DialogueData = new DialogueData();
@@ -21,7 +23,7 @@ export class GameComponent {
   characterQueue: Array<string> = [];
   dayCycle: number = 5;
   dayCounter: number = 0;
-  lastPopulace:number = 0;
+  lastPopulace:number = 1;
   lastHoard:number = 0;
   lastMilitary:number = 0;
 
@@ -36,7 +38,7 @@ export class GameComponent {
     this.populaceValue += 5;
   }
   removeMoney(){
-    this.hoardValue -= 4;
+    this.populaceValue -= 10;
   }
   startDialogue(){
     log(this.dialogueItemQueue);
@@ -230,6 +232,13 @@ export class GameComponent {
   }
 
   checkDialogueConditions(){
+    //check gameOver and gameWon
+    if(this.activeConditions.includes("gameWon")){
+      this.gameWon.emit(true);
+    }
+    if(this.activeConditions.includes("gameOver")||this.populaceValue<=0){
+      this.gameOver.emit(true);
+    }
     //check population
     if(this.populaceValue>150)
       if(!this.activeConditions.includes("popOver150"))

@@ -11,7 +11,7 @@
 <div class="textContainer">
     <app-dialogue-box [activeItem]="activeDialogueItem" (yesButtonEvent)="dialogueYes($event)" (noButtonEvent)="dialogueNo($event)" (startButtonEvent)="startDialogue()"></app-dialogue-box>
 </div>
-<div class="Menu">
+<div class="Menu hidden">
     <button #menuButton mat-fab class="mat-fab" color="white" (click)="menuButtonClicked()">
         <mat-icon>menu</mat-icon>
     </button>

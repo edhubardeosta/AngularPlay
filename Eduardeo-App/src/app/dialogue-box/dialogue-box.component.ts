@@ -1,7 +1,7 @@
 import { Component, Input, Output,EventEmitter } from '@angular/core';
 import { DialogueItem } from '../game/game.dialogueSystem';
 
-var extendedLogging = true; //set to false later
+var extendedLogging = false; //set to false later
 var responseStage = false;
 var answerIsYes = false;
 
@@ -92,7 +92,7 @@ export class DialogueBoxComponent {
   }
 
   ngOnChanges(changes:any){
-    log("Changes: ",changes);
+    log("Changes: ", changes);
     if(this.activeItem){
       this.text = this.activeItem.cardText;
       //activate the Buttons
@@ -101,7 +101,6 @@ export class DialogueBoxComponent {
       //display resource trend symbols
       if(!this.activeItem.hideAnswerResults)
         this.displayTrends(this.activeItem);
-      
     }else{
       //de-activate the Buttons
       this.noDeactivated = true;

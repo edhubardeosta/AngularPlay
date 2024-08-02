@@ -1,7 +1,7 @@
 import { Component, ComponentRef, Input , Output, ViewChild, ViewContainerRef} from '@angular/core';
 import { CityBuildingStageComponent } from '../city-building-stage/city-building-stage.component';
 import { building, foreGroundBottom1 } from '../app.buildingClasses';
-var extendedLogging = true;
+var extendedLogging = false;
 @Component({
   selector: 'app-city-building-container',
   templateUrl: './city-building-container.component.html',
@@ -73,6 +73,22 @@ export class CityBuildingContainerComponent {
       }
     }
 
+  }
+  public precacheImages(){
+      var tempImgs:Array<HTMLImageElement> = [];
+      if(this.buildingClass){
+        for(var i=0;i<this.buildingClass.maxPopStages;i++){
+          var tempImg:HTMLImageElement = new Image();
+          tempImg.src = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer " + i + ".png";
+        }
+        this.buildingClass.events.forEach(event=>{
+          for(var i=1;i<=event.maxCounter;i++){
+            var tempImg:HTMLImageElement = new Image();
+            tempImg.src = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + event.stageName + i + ".png";
+          }
+
+        })
+      }
   }
 
 }

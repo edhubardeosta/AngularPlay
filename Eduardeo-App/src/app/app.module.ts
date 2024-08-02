@@ -21,7 +21,8 @@ import {MatTableModule} from '@angular/material/table';
 import { CharacterAnimationItemComponent } from './character-animation-item/character-animation-item.component';
 import { CityContainerComponent } from './city-container/city-container.component';
 import { CityBuildingContainerComponent } from './city-building-container/city-building-container.component';
-import { CityBuildingStageComponent } from './city-building-stage/city-building-stage.component'; 
+import { CityBuildingStageComponent } from './city-building-stage/city-building-stage.component';
+import { EndScreenComponent } from './end-screen/end-screen.component'; 
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CityBuildingStageComponent } from './city-building-stage/city-building-
     CharacterAnimationItemComponent,
     CityContainerComponent,
     CityBuildingContainerComponent,
-    CityBuildingStageComponent
+    CityBuildingStageComponent,
+    EndScreenComponent
   ],
   imports: [
     BrowserModule,

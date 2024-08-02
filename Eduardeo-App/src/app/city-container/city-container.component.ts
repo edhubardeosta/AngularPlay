@@ -23,7 +23,7 @@ import {
   eventPopStageCondition
 } from '../app.buildingClasses';
 var utils:UtilsService = new UtilsService();
-var extendedLogging = true;
+var extendedLogging = false;
 var accDifference: number = 0;
 var increaseThreshold = 5;
 var temporaryEvents = ["statueInProgress"];

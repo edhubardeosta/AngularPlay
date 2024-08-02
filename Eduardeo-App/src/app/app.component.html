@@ -1,3 +1,4 @@
 <app-loadingscreen [loadScreenHidden]="loadScreenHidden" [progressBarValueInternal]="progressBarValue" (finishedLoading)="loaded($event)"></app-loadingscreen>
-<app-start-menu (startButtonEvent)="start($event)" style="display: none;"></app-start-menu>
-<app-game [class.hidden]="gameHidden"></app-game>
+<app-start-menu (startButtonEvent)="start($event)"></app-start-menu>
+<app-game [class.hidden]="gameHidden" (gameOver)="gameOver($event)" (gameWon)="gameWon($event)"></app-game>
+<app-end-screen [class.hidden]="endScreenHidden" [endScreenEvent]="endScreenEvent"></app-end-screen>

@@ -51,6 +51,17 @@ export class HoardComponent implements OnChanges{
     }
 
   }
+  precacheImages(){
+    //precaching probably not necessary here, I'll do it anyways
+    var tempImg1:HTMLImageElement = new Image();
+    tempImg1.src = "../../assets/Coppercoin.png";
+    var tempImg2:HTMLImageElement = new Image();
+    tempImg2.src = "../../assets/Silvercoin.png";
+    var tempImg3:HTMLImageElement = new Image();
+    tempImg3.src = "../../assets/Goldcoin.png";
+    var tempImg4:HTMLImageElement = new Image();
+    tempImg4.src = "../../assets/crystal.png";
+  }
 
 }
 

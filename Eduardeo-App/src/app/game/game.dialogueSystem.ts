@@ -19,6 +19,19 @@ export class DialogueData{
         log("this.allItems: ", this.allItems);
         //remove items with precursors
         this.items = this.allItems.filter((item:DialogueItem) => !item.hasPrecursor);
+        this.precacheImages();
+    }
+    public precacheImages(){
+        var tempImgs:Array<HTMLImageElement> = [];
+        var loaded:Array<string> = [];
+        this.allItems.forEach(item => {
+            if(!loaded.includes(item.characterSprite)){
+                var tempImg:HTMLImageElement = new Image();
+                tempImg.src = item.characterSprite;
+                tempImgs.push(tempImg);
+                loaded.push(item.characterSprite);
+            }
+        })
     }
     //function to select random dialogue item
     public randomDialogueItem():DialogueItem {

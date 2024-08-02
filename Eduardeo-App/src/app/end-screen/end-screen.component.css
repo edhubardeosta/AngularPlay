@@ -1,0 +1,43 @@
+.textDescription{
+    margin-top: 70vh;
+    margin-left: 25vw;
+    width: 50vw;
+    height: 20vh;
+    resize: none;
+    font-size: xx-large;
+    -webkit-text-stroke: 2px white;
+    text-align: center;
+    opacity: 90%;
+    display: inline-block;
+    position: absolute;
+}
+.hidden{
+    display: none;
+}
+.entering{
+    animation-name: "enterAnimation";
+    animation-duration: 3s;
+}
+@keyframes enterAnimation {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 90%;
+    }
+}
+.endScreenImage{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+    z-index: -120000;
+}
+.endScreenContainer{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}

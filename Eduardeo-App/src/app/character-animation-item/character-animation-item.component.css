@@ -24,12 +24,12 @@ img{
     height: 100%;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
     margin-right: -10%;
     margin-left: 20%;
     position: absolute;
     z-index: -1000;
+    image-rendering: pixelated;
 }
 .large{
     margin-top: 0%;
