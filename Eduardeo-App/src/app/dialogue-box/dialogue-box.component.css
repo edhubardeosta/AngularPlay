@@ -22,14 +22,18 @@
     -moz-border-radius: 5px;
 }
 
+p{
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+}
 
 
 .buttonDiv{
     width: 50%;
     overflow: visible;
     display: inline-block;
-    position: absolute;
-    bottom: 0;
+    position: relative;
 }
 .alignLeft{
     left: 0;
@@ -86,6 +90,11 @@
     }
 }
 @media screen and (max-width: 1000px) {
+    mat-icon{
+        font-size: 2vw;
+    }
+}
+@media screen and (max-width: 500px) {
     mat-icon{
         font-size: 3vw;
     }

@@ -33,20 +33,10 @@
 <div class="ResourceCounterDiv">
     <mat-card class="ResourceCounterCard">
         <mat-card-content>
-            <table>
-                <tr>
-                    <th>Treasure</th>
-                    <th>Military</th>
-                    <th>Happiness</th>
-                    <th>Populace</th>
-                </tr>
-                <tr>
-                    <td><app-resource-counter icon="circle" [outline]="true" [amount]="hoardValue"></app-resource-counter></td>
-                    <td><app-resource-counter icon="shield" [outline]="true" [amount]="militaryValue"></app-resource-counter></td>
-                    <td><app-resource-counter icon="sentiment_satisfied_alt" [outline]="false" [amount]="happinessValue"></app-resource-counter></td>
-                    <td><app-resource-counter icon="person"[outline]="true" [amount]="populaceValue"></app-resource-counter></td>
-                </tr>
-            </table>
+            <div class="SingleCounterDiv"><p>Treasure</p><app-resource-counter icon="circle" [outline]="true" [amount]="hoardValue"></app-resource-counter></div>
+            <div class="SingleCounterDiv"><p>Military</p><app-resource-counter icon="shield" [outline]="true" [amount]="militaryValue"></app-resource-counter></div>
+            <div class="SingleCounterDiv"><p>Happiness</p><app-resource-counter icon="sentiment_satisfied_alt" [outline]="false" [amount]="happinessValue"></app-resource-counter></div>
+            <div class="SingleCounterDiv"><p>Populace</p><app-resource-counter icon="person"[outline]="true" [amount]="populaceValue"></app-resource-counter></div>
         </mat-card-content>
     </mat-card>
 </div>

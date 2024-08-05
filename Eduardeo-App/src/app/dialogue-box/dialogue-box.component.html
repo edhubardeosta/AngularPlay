@@ -6,8 +6,10 @@
             </button>
         </div>
     </mat-card-header>
-    <mat-card-content [innerHTML]="text"></mat-card-content>
-    <mat-card-footer>
+    <mat-card-content>
+        <p [innerHTML]="text">
+
+        </p>
         <div class="buttonDiv alignRight">
             <button #yesButton mat-fab class="mat-fab" color="white" (click)="yesButtonClicked()" [disabled]="yesDeactivated">
                 <mat-icon class="buttonIcon">thumb_up</mat-icon>
@@ -30,5 +32,7 @@
                 <mat-icon [matBadge]="noPopulaceTrend" matBadgeColor="accent" matBadgeSize="medium" class="material-icons-outlined" [class.hidden]="hideNoPopulaceTrend">person</mat-icon>
             </div>
         </div>
+    </mat-card-content>
+    <mat-card-footer>
     </mat-card-footer>
 </mat-card>

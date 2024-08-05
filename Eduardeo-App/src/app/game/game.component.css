@@ -89,6 +89,7 @@
 .ResourceCounterCard{
     margin-top: 0%;
     position: relative;
+    width: 20vw;
 }
 .ResourceCounterDiv{
     width: fit-content;
@@ -110,4 +111,40 @@
     -ms-interpolation-mode: nearest-neighbor;
     z-index: -120000;
     image-rendering: pixelated;
+}
+th{
+    font-size: 1vw;
+}
+tr{overflow-wrap: normal;}
+.SingleCounterDiv{
+    display: inline-block;
+}
+p{
+    margin: 0;
+}
+@media screen and (min-width: 1501px) {
+    .SingleCounterDiv{
+        width: 20%;
+        margin-right: 5%;
+    }
+  }
+  @media screen and (max-width: 1500px) {
+      .SingleCounterDiv{
+          width: 45%;
+          margin-right: 5%;
+      }
+      .ResourceCounterDiv{
+        height: 100vh;
+      }
+  }
+  
+@media screen and (max-width: 1000px) {
+    .SingleCounterDiv{
+        width: 100%;
+        height: 20%;
+        margin-top: 5%;
+    }
+    .ResourceCounterDiv{
+      height: 100vh;
+    }
 }
