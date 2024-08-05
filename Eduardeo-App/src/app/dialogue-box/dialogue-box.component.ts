@@ -56,6 +56,7 @@ export class DialogueBoxComponent {
       this.hideTrends();
       this.startDeactivated = false;
     }else{
+      this.noDeactivated = true;
       answerIsYes = true;
       this.text = this.activeItem!.yesText;
     }
@@ -79,6 +80,7 @@ export class DialogueBoxComponent {
       this.hideTrends();
       this.startDeactivated = false;
     }else{
+      this.noDeactivated = true;
       answerIsYes = false;
       this.text = this.activeItem!.noText;
     }

@@ -1050,7 +1050,7 @@
         "characterSprite":"../../assets/Characters/Herald.png",
         "hasPrecursor": false,
         "cardText": "My queen, a pool of lava has been found close to the city and people are drying their laundry over it. Is that not just too irresponsible?",
-        "yesText": "Exactly, what are they even thinking.",
+        "yesText": "Exactly, what are they even thinking?!",
         "noText": "Well I suppose it is effective albeit a bit absurd.",
         "yesConditions":["lavaPoolFound"],
         "noConditions":["lavaPoolFound"]
