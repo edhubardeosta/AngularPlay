@@ -22,6 +22,12 @@
     -moz-border-radius: 5px;
 }
 
+.buttonAndTrendDiv{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
 p{
     display: inline-block;
     position: relative;
