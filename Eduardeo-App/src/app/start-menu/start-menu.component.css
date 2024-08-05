@@ -3,8 +3,12 @@
     color: black;
 }
 
-p{
+.startDescription{
     color: blanchedalmond;
+}
+
+.screenOrientationRecommendation{
+    color: black;
 }
 
 .button-rounded {

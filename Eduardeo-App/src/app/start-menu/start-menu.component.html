@@ -1,5 +1,6 @@
 <div #startDiv [class.fadeOut]="fadeOut" (animationend)="animationFinished()">
     <header #startHeader [class.hidden]="startMenuHidden">CaveQueen</header>
-    <p #startDescription [class.hidden]="startMenuHidden">You're the Ruler. Rule!</p>
+    <p class="startDescription" [class.hidden]="startMenuHidden">You're the Ruler. Rule!</p>
+    <p class="screenOrientationRecommendation" [class.hidden]="startMenuHidden">On mobile, use landscape mode. (Horizontal screen orientation)</p>
     <button #startButton mat-raised-button [class.hidden]="startMenuHidden" class="button-rounded mat-raised-button" (click)="startButtonClicked()">Start!</button>
 </div>
