@@ -4,6 +4,7 @@ import { DialogueItem } from '../game/game.dialogueSystem';
 var extendedLogging:Boolean = false;
 var lastCreatedItem: ComponentRef<CharacterAnimationItemComponent>;
 var dismissedItems: Array<ComponentRef<CharacterAnimationItemComponent>> = [];
+var deployedPlatform = "gitHub";
 
 @Component({
   selector: 'app-character-animation-container',
@@ -30,7 +31,7 @@ export class CharacterAnimationContainerComponent {
         lastCreatedItem.setInput("dismissed", true);
         if(changes.source.previousValue && changes.source.previousValue.leavingSprite){
           log("Setting source to: ", changes.source.previousValue.leavingSprite)
-          lastCreatedItem.setInput("source", changes.source.previousValue.leavingSprite);
+          lastCreatedItem.setInput("source", transformImageURL(changes.source.previousValue.leavingSprite));
         }
       }
     
@@ -56,7 +57,8 @@ export class CharacterAnimationContainerComponent {
       if(this.container){
         //var lastCreatedItemRef:ComponentRef<CharacterAnimationItemComponent> = ;
         lastCreatedItem = this.container.createComponent(CharacterAnimationItemComponent);
-        lastCreatedItem.setInput("source", this.source?.characterSprite);
+        if(this.source)
+        lastCreatedItem.setInput("source", transformImageURL(this.source.characterSprite));
         if(this.source?.imgSize=="large")
         lastCreatedItem.setInput("large", true);
         log("lastCreatedItem: ", lastCreatedItem);
@@ -77,3 +79,11 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

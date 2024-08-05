@@ -9,6 +9,7 @@ var hoardData: HoardData;
 var extendedLogging = false; // set false later
 var sizeSet = false;
 var utils:UtilsService = new UtilsService();
+var deployedPlatform = "gitHub";
 
 @Component({
   selector: 'app-hoard',
@@ -54,13 +55,13 @@ export class HoardComponent implements OnChanges{
   precacheImages(){
     //precaching probably not necessary here, I'll do it anyways
     var tempImg1:HTMLImageElement = new Image();
-    tempImg1.src = "../../assets/Coppercoin.png";
+    tempImg1.src = transformImageURL("../../assets/Coppercoin.png");
     var tempImg2:HTMLImageElement = new Image();
-    tempImg2.src = "../../assets/Silvercoin.png";
+    tempImg2.src = transformImageURL("../../assets/Silvercoin.png");
     var tempImg3:HTMLImageElement = new Image();
-    tempImg3.src = "../../assets/Goldcoin.png";
+    tempImg3.src = transformImageURL("../../assets/Goldcoin.png");
     var tempImg4:HTMLImageElement = new Image();
-    tempImg4.src = "../../assets/crystal.png";
+    tempImg4.src = transformImageURL("../../assets/crystal.png");
   }
 
 }
@@ -281,3 +282,11 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

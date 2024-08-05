@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import {CostOrProfitItem, DialogueData, DialogueItem} from './game.dialogueSystem'
 var extendedLogging = false;
+var deployedPlatform = "gitHub";
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -26,6 +27,9 @@ export class GameComponent {
   lastPopulace:number = 1;
   lastHoard:number = 0;
   lastMilitary:number = 0;
+  cityBackground:string = transformImageURL("../../assets/CityBackground.png");
+  gameBackground:string = transformImageURL("../../assets/GameBackground.png");
+
 
   menuButtonClicked(){
     console.log("menuButtonClicked.");
@@ -462,3 +466,12 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

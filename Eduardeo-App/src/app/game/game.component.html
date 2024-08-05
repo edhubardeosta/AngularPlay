@@ -1,7 +1,7 @@
 <div class="gameContainer">
-<img class="cityContainer" src="../../assets/CityBackground.png">
+<img class="cityContainer" [src]="cityBackground">
 <app-city-container class="cityContainer" [populace]="populaceValue" [activeEvents]="activeConditions" (deleteConditionEvent)="deleteCondition($event)" (addConditionEvent)="addCondition($event)" [checkEvents]="cityCheckConditions"></app-city-container>
-<img class="gameBackGroundLarge" src="../../assets/GameBackground.png" >
+<img class="gameBackGroundLarge" [src]="gameBackground" >
 <app-character-animation-container class="queensSubjectContainer" [source]="displayItem">
 </app-character-animation-container>
 <div class="queenAndHoardContainer">

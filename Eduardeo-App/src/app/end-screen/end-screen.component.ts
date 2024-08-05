@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 var extendedLogging:boolean = true;
+var deployedPlatform = "gitHub";
 @Component({
   selector: 'app-end-screen',
   templateUrl: './end-screen.component.html',
@@ -13,6 +14,8 @@ export class EndScreenComponent {
   textFadeIn:boolean = false;
   defeatScreenHidden:boolean = true;
   victoryScreenHidden:boolean = true;
+  defeatScreenSrc = transformImageURL("../../assets/defeatScreen.png");
+  victoryScreenSrc = transformImageURL("../../assets/victoryScreen.png");
   ngOnChanges(changes:any){
     log("change detected: ", changes);
     if(changes.endScreenEvent?.currentValue !== "" && changes.endScreenEvent?.currentValue !== undefined){
@@ -43,9 +46,9 @@ export class EndScreenComponent {
   ngOnInit(){
     //precaching probably not necessary here, I'll do it anyways
     var tempImg:HTMLImageElement = new Image();
-    tempImg.src = "../../assets/victoryScreen.png";
+    tempImg.src = transformImageURL("../../assets/victoryScreen.png");
     var tempImg2:HTMLImageElement = new Image();
-    tempImg2.src = "../../assets/defeatScreen.png";
+    tempImg2.src = transformImageURL("../../assets/defeatScreen.png");
   }
 
 }
@@ -58,3 +61,12 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

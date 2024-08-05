@@ -2,6 +2,7 @@ import { Component, ComponentRef, Input , Output, ViewChild, ViewContainerRef} f
 import { CityBuildingStageComponent } from '../city-building-stage/city-building-stage.component';
 import { building, foreGroundBottom1 } from '../app.buildingClasses';
 var extendedLogging = false;
+var deployedPlatform = "gitHub";
 @Component({
   selector: 'app-city-building-container',
   templateUrl: './city-building-container.component.html',
@@ -31,7 +32,7 @@ export class CityBuildingContainerComponent {
           this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
           var sourceString:string = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer " + i+".png";
           log("trying this source for stage image", sourceString);
-          this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+          this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", transformImageURL(sourceString));
         }
       }
     }
@@ -42,7 +43,7 @@ export class CityBuildingContainerComponent {
         this.buildingStages.push(this.container.createComponent(CityBuildingStageComponent));
         var sourceString:string = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/"+ changes.directCmd.currentValue[0] +" "+ startValue +".png";
         log("trying this source for stage image", sourceString);
-        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", transformImageURL(sourceString));
         startValue += 1;
       }
       this.directCmd = [];
@@ -69,7 +70,7 @@ export class CityBuildingContainerComponent {
       if(this.buildingClass.maxPopStages != 0){
         sourceString = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer 0.png";
         log("trying this source for stage image", sourceString);
-        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", sourceString);
+        this.buildingStages[this.buildingStages.length-1].setInput("imgSrc", transformImageURL(sourceString));
       }
     }
 
@@ -79,12 +80,12 @@ export class CityBuildingContainerComponent {
       if(this.buildingClass){
         for(var i=0;i<this.buildingClass.maxPopStages;i++){
           var tempImg:HTMLImageElement = new Image();
-          tempImg.src = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer " + i + ".png";
+          tempImg.src = transformImageURL("../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + "/Layer " + i + ".png");
         }
         this.buildingClass.events.forEach(event=>{
           for(var i=1;i<=event.maxCounter;i++){
             var tempImg:HTMLImageElement = new Image();
-            tempImg.src = "../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + event.stageName + i + ".png";
+            tempImg.src = transformImageURL("../../assets/City/"+this.buildingClass?.plane+"/"+this.buildingClass?.name + event.stageName + i + ".png");
           }
 
         })
@@ -102,3 +103,12 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 var extendedLogging = false;
+var deployedPlatform = "gitHub";
 
 @Component({
   selector: 'app-character-animation-item',
@@ -59,3 +60,12 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}
