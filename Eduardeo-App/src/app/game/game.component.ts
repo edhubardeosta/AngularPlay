@@ -29,6 +29,7 @@ export class GameComponent {
   lastMilitary:number = 0;
   cityBackground:string = transformImageURL("../../assets/CityBackground.png");
   gameBackground:string = transformImageURL("../../assets/GameBackground.png");
+  queenImage:string = transformImageURL("../../assets/Queen.png");
 
 
   menuButtonClicked(){

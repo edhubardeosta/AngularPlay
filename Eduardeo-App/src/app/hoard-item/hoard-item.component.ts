@@ -1,5 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 var extendedLogging: boolean = false;
+var deployedPlatform = "gitHub";
 @Component({
   selector: 'app-hoard-item',
   templateUrl: './hoard-item.component.html',
@@ -21,16 +22,16 @@ export class HoardItemComponent {
     this.offsetPath = 'path("M'+this.x+','+this.y+' L'+this.x+','+this.fallHeight*-1+'")';
     switch (this.itemType){
       case "copperCoin": 
-        this.imgSrc = "../../assets/Coppercoin.png";
+        this.imgSrc = transformImageURL("../../assets/Coppercoin.png");
         break;
       case "silverCoin": 
-        this.imgSrc = "../../assets/Silvercoin.png";
+        this.imgSrc = transformImageURL("../../assets/Silvercoin.png");
         break;
       case "goldCoin": 
-        this.imgSrc = "../../assets/Goldcoin.png";
+        this.imgSrc = transformImageURL("../../assets/Goldcoin.png");
         break;
       case "crystal":
-        this.imgSrc = "../../assets/crystal.png"; 
+        this.imgSrc = transformImageURL("../../assets/crystal.png"); 
         break;
       default: 
         break;
@@ -47,3 +48,12 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}

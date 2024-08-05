@@ -6,7 +6,7 @@
 </app-character-animation-container>
 <div class="queenAndHoardContainer">
     <app-hoard class="Hoard" [hoardValue]="hoardValue"></app-hoard>
-    <img class="Queen" src="../../assets/Queen.png">
+    <img class="Queen" [src]="queenImage">
 </div>
 <div class="textContainer">
     <app-dialogue-box [activeItem]="activeDialogueItem" (yesButtonEvent)="dialogueYes($event)" (noButtonEvent)="dialogueNo($event)" (startButtonEvent)="startDialogue()"></app-dialogue-box>

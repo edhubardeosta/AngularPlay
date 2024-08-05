@@ -2,6 +2,7 @@ import dialogueConfig from './game.dialogueConfig.json'
 import { UtilsService } from '../utils.service';
 var utils:UtilsService = new UtilsService();
 var extendedLogging = false;
+var deployedPlatform = "gitHub";
 
 export class DialogueData{
     
@@ -27,7 +28,7 @@ export class DialogueData{
         this.allItems.forEach(item => {
             if(!loaded.includes(item.characterSprite)){
                 var tempImg:HTMLImageElement = new Image();
-                tempImg.src = item.characterSprite;
+                tempImg.src = transformImageURL(item.characterSprite);
                 tempImgs.push(tempImg);
                 loaded.push(item.characterSprite);
             }
@@ -157,3 +158,11 @@ function log(message: string | any, input0: any = undefined):void{
     }
   }
 };
+function transformImageURL(inputURL:string):string{
+  switch(deployedPlatform){
+    case "gitHub":
+      return inputURL.replace("../../","../CaveQueen/");
+    default:
+      return inputURL; 
+  }
+}
